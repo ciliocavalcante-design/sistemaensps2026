@@ -592,7 +592,7 @@
 
     /* ── PRINT ── */
     @media print {
-      @page { margin: 5mm; size: A4 portrait; }
+      @page { margin: 4mm; size: A4 portrait; }
 
       /* ── zero out all min-heights that cause blank pages on mobile ── */
       body, .main-content, .content-section, .content-section.active,
@@ -611,9 +611,14 @@
       body { background: #fff !important; display: block !important; color: #000 !important; }
       .sidebar, .bottom-nav, header.top,
       .card.controls, .actions, .filters,
-      .credenciais-card { display: none !important; }
+      .credenciais-card, #gemini-modal, #gemini-fab { display: none !important; }
       .main-content { width: 100%; background: #fff !important; }
       .wrap { max-width: none; padding: 0; }
+      .wrap.grid {
+        display: block !important;
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+      }
 
       /* esconder todas as seções e mostrar só a ativa */
       .content-section { display: none !important; }
@@ -631,16 +636,54 @@
       /* ── preview / doc (advertência e relatório) ── */
       .preview {
         border: 0 !important; box-shadow: none !important; border-radius: 0 !important;
-        width: 21cm; margin: auto; page-break-inside: avoid;
+        width: auto !important; margin: 0 !important;
+        page-break-inside: auto !important; break-inside: auto !important;
         background: #fff !important; color: #000 !important;
         padding: 0 !important; min-height: 0 !important;
       }
-      .doc header { border-bottom: 2px solid #000 !important; background: #fff !important; }
+      .doc header {
+        border-bottom: 2px solid #000 !important;
+        background: #fff !important;
+        margin-top: -4mm !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
       .doc h2, .doc h3, .doc small { color: #000 !important; }
       .endereco-fixo { color: #222 !important; }
+      .relatorio-meta-linha {
+        display: block;
+        font-size: .78rem;
+        white-space: nowrap;
+      }
       .motivos-pre { color: #000 !important; font-family: Consolas,'Courier New',monospace; }
+      .signs { page-break-inside: avoid !important; break-inside: avoid !important; }
       .signs .line { border-top: 1px solid #000 !important; margin-top: 50px; }
-      .doc { max-width: none; margin: auto; }
+      .adv-data-extenso {
+        margin-top: 12px !important;
+        text-align: right !important;
+        font-weight: 700 !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .doc {
+        max-width: none;
+        margin: 0 !important;
+        padding: 4mm !important;
+        box-sizing: border-box !important;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        page-break-inside: auto !important;
+        break-inside: auto !important;
+      }
+      .adv-page-wrap {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box !important;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        page-break-inside: auto !important;
+        break-inside: auto !important;
+      }
       .doc .logo { max-height: 70px !important; width: auto !important; }
 
       /* ── credenciais impressão ── */
@@ -706,7 +749,7 @@
       width: 21cm;
       min-height: 29.7cm;
       margin: 0 auto 20px;
-      padding: 8mm 12mm 2mm;
+      padding: 8mm 12mm 0;
       color: #000;
       font-family: Verdana, Arial, sans-serif;
       box-sizing: border-box;
@@ -796,6 +839,132 @@
 
     }
 
+    /* ── ABAS INTERNAS DETENÇÃO ── */
+    .det-aba-btn { transition: color .15s, border-color .15s; }
+    .det-aba-btn:hover { color: var(--ink) !important; }
+
+    /* ── FOLHA DE REDAÇÃO ── */
+    .red-pagina {
+      background: #fff;
+      width: 21cm;
+      min-height: 29.7cm;
+      margin: 0 auto 20px;
+      padding: 8mm 12mm 0;
+      color: #000;
+      font-family: Verdana, Arial, sans-serif;
+      box-sizing: border-box;
+    }
+    .red-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #000;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+    }
+    .red-titulo {
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      text-decoration: underline;
+      text-align: center;
+      flex: 1;
+    }
+    .red-escola {
+      font-size: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: right;
+      max-width: 120px;
+      line-height: 1.3;
+    }
+    .red-campos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 12px;
+      margin-bottom: 8px;
+      font-size: 9px;
+    }
+    .red-campo {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 2px;
+    }
+    .red-campo strong { white-space: nowrap; font-size: 9px; }
+    .red-campo span { flex: 1; font-size: 9px; min-height: 12px; }
+    .red-tema-box {
+      border: 1px solid #000;
+      padding: 6px 8px;
+      margin-bottom: 10px;
+      font-size: 9px;
+      line-height: 1.5;
+      min-height: 36px;
+    }
+    .red-tema-label {
+      font-size: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .red-linhas { display: flex; flex-direction: column; margin-top: 4px; }
+    .red-ln {
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      box-sizing: border-box;
+    }
+    .red-ln-num {
+      width: 18px;
+      font-size: 8px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .red-ln-rule {
+      flex: 1;
+      border-bottom: 2px solid #000;
+      height: 100%;
+      display: block;
+      box-sizing: border-box;
+    }
+
+    /* Print folha de redação */
+    @media print {
+      body.printing-red .sidebar,
+      body.printing-red .bottom-nav,
+      body.printing-red header.top,
+      body.printing-red #det-aba-atividade,
+      body.printing-red #det-aba-temas,
+      body.printing-red .det-abas-internas,
+      body.printing-red .det-redacao-controle,
+      body.printing-red #gemini-modal,
+      body.printing-red #gemini-fab,
+      body.printing-red [style*="det-aba-btn"],
+      body.printing-red .det-aba-btn { display: none !important; }
+      body.printing-red { display: block !important; }
+      body.printing-red .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+      }
+      body.printing-red .content-section { display: none !important; }
+      body.printing-red #tab-detencao.content-section { display: block !important; background: #fff !important; padding: 0 !important; }
+      body.printing-red #det-aba-redacao { display: block !important; }
+      body.printing-red #red-preview-wrap { padding: 0 !important; margin: 0 !important; background: #fff !important; display: block !important; }
+      body.printing-red .red-pagina { margin: 0 auto !important; padding: 8mm 10mm 0 !important; box-shadow: none !important; border: none !important; width: 21cm !important; }
+      body.printing-red .red-ln-num { color: #000 !important; font-weight: 800 !important; }
+      body.printing-red .red-ln-rule { border-bottom: 2px solid #000 !important; }
+      body.printing-red .red-pagina:not(:last-child) { page-break-after: always !important; break-after: page !important; }
+    }
+
     /* ── DETENÇÃO: print via body.printing-det ── */
     @media print {
       /* Reset layout so sidebar doesn't offset content */
@@ -803,7 +972,10 @@
       body.printing-det .sidebar,
       body.printing-det .bottom-nav,
       body.printing-det header.top,
-      body.printing-det #det-controle { display: none !important; }
+      body.printing-det .det-abas-internas,
+      body.printing-det #det-controle,
+      body.printing-det #gemini-modal,
+      body.printing-det #gemini-fab { display: none !important; }
       body.printing-det .main-content {
         width: 100% !important;
         max-width: 100% !important;
@@ -814,21 +986,33 @@
       }
       body.printing-det .content-section { display: none !important; }
       body.printing-det #tab-detencao.content-section { display: block !important; background: #fff !important; padding: 0 !important; }
-      body.printing-det #det-preview-wrap { padding: 0 !important; background: #fff !important; display: block !important; }
+      body.printing-det #det-preview-wrap,
+      body.printing-det #det-preview { padding: 0 !important; margin: 0 !important; background: #fff !important; display: block !important; }
       /* Override global @page margin */
       @page { margin: 0 !important; }
       body.printing-det .det-pagina {
         width: 21cm !important;
-        height: 297mm !important;
-        padding: 8mm 12mm 2mm !important;
+        height: 292mm !important;
+        min-height: 0 !important;
+        padding: 8mm 12mm 0 !important;
         margin: 0 auto !important;
         overflow: hidden !important;
         display: block !important;
         box-sizing: border-box !important;
         background: #fff !important;
         page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        page-break-after: auto !important;
+        break-after: auto !important;
       }
-      body.printing-det .det-pag2 { page-break-before: always !important; }
+      body.printing-det .det-pagina:not(:last-child) {
+        page-break-after: always !important;
+        break-after: page !important;
+      }
+      body.printing-det .det-pag2 {
+        page-break-before: auto !important;
+        break-before: auto !important;
+      }
       body.printing-det .det-cols2 {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
@@ -907,6 +1091,27 @@
 <body>
 
   <!-- SIDEBAR UNIFICADA -->
+  <!-- ── GEMINI API CONFIG MODAL ── -->
+  <div id="gemini-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;align-items:center;justify-content:center;">
+    <div style="background:var(--card);border-radius:14px;padding:28px;max-width:460px;width:90%;box-shadow:0 8px 40px rgba(0,0,0,.4);">
+      <h2 style="margin:0 0 6px;font-size:1.1rem;">⚡ Chave da API Groq</h2>
+      <p style="font-size:.82rem;color:var(--muted);margin:0 0 16px;">Obtenha sua chave <strong>100% gratuita</strong> (sem cartão) em <a href="https://console.groq.com" target="_blank" style="color:var(--brand);">console.groq.com</a> → API Keys → Create API Key. Ela fica salva só neste dispositivo.</p>
+      <input type="password" id="gemini-key-input" placeholder="Cole sua chave aqui (gsk_...)" style="width:100%;margin-bottom:12px;box-sizing:border-box;">
+      <div style="display:flex;gap:8px;">
+        <button class="btn" onclick="geminiSalvarChave()" style="flex:1;">💾 Salvar</button>
+        <button class="btn-ghost" onclick="geminiFecharModal()" style="flex:1;">Cancelar</button>
+      </div>
+      <button id="btn-remover-chave" onclick="geminiRemoverChave()" style="display:none;width:100%;margin-top:10px;background:#2a1010;color:#ef4444;border:1px solid #ef4444;border-radius:8px;padding:8px;font-size:.82rem;font-weight:600;cursor:pointer;">🗑️ Remover chave salva</button>
+      <p id="gemini-key-status" style="font-size:.78rem;margin:10px 0 0;text-align:center;"></p>
+    </div>
+  </div>
+
+  <!-- Floating config button -->
+  <button id="gemini-fab" onclick="geminiAbrirModal()" title="Configurar API Groq"
+    style="position:fixed;bottom:70px;right:16px;z-index:1000;background:linear-gradient(135deg,#f55036,#f0a500);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;">
+    ✨
+  </button>
+
   <aside class="sidebar">
     <div class="sidebar-header">
       <img src="https://raw.githubusercontent.com/ciliocavalcante-design/ensps/main/LOGO%20ENSPS%202024.5.png" alt="Logo ENSPS" class="sidebar-logo" onerror="this.style.display='none'">
@@ -962,6 +1167,7 @@
         <span class="menu-icon">✏️</span>
         <span>Atividade de Detenção</span>
       </div>
+
     </nav>
   </aside>
 
@@ -1163,7 +1369,7 @@
             </div>
             <div class="col-12">
               <label>Motivos</label>
-              <div class="box" id="motivosBox"></div>
+              <div id="motivosBox" style="display:flex;flex-direction:column;gap:8px;"></div>
               <div class="add-motivo-row">
                 <input type="text" id="motivoNovo" maxlength="55" placeholder="Adicionar novo motivo..." />
                 <button type="button" class="motivo-sugerir" id="btnAddMotivo">Adicionar</button>
@@ -1194,6 +1400,11 @@
           </div>
           <div class="actions">
             <button class="btn" id="btnSalvarAdvertencia">💾 Salvar Advertência</button>
+            <div style="margin-bottom:6px;">
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">💬 Instrução para a IA <span style="font-weight:400;color:var(--hint);">(opcional)</span></label>
+              <input type="text" id="instrucaoAdv" placeholder="Ex: mencione que é reincidente, tom mais firme..." style="font-size:.82rem;">
+            </div>
+            <button class="btn-ghost" id="btnGeminiAdv" onclick="geminiGerarAdvertencia()">✨ Sugerir texto (IA)</button>
             <button class="btn-ghost" id="btnAtualizar">🔄 Atualizar</button>
             <button class="btn-ghost" id="btnImprimir">🖨️ Imprimir / PDF</button>
             <button class="btn-ghost" id="btnImprimirMulti" style="display:none;" onclick="advImprimirTodos()">🖨️ Imprimir Todos</button>
@@ -1267,6 +1478,11 @@
 
           <div class="actions">
             <button class="btn" id="btnAtualizarRelatorio">🔄 Atualizar</button>
+            <div style="margin-bottom:6px;">
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">💬 Instrução para a IA <span style="font-weight:400;color:var(--hint);">(opcional)</span></label>
+              <input type="text" id="instrucaoRel" placeholder="Ex: foque nas dificuldades de leitura, tom empático..." style="font-size:.82rem;">
+            </div>
+            <button class="btn-ghost" id="btnGeminiRel" onclick="geminiGerarRelatorio()">✨ Gerar com IA</button>
             <button class="btn-ghost" id="btnImprimirRelatorio">🖨️ Imprimir PDF</button>
             <button class="btn-ghost" id="btnGerarPNGRelatorio">📷 Gerar PNG</button>
           </div>
@@ -1841,6 +2057,23 @@
             <button class="btn-ghost" id="btnExportarFrequenciaGeral">📋 Frequência Geral</button>
           </div>
         </div>
+        <div class="card" id="gestor-card-top10-adv">
+          <h3>🏆 Top 10 - Alunos com Mais Advertências</h3>
+          <div class="table-container">
+            <table id="tabelaTop10Advertencias">
+              <thead>
+                <tr>
+                  <th>Posição</th>
+                  <th>Aluno(a)</th>
+                  <th>Série</th>
+                  <th>Advertências</th>
+                  <th>Faltas</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
         <div class="card" id="gestor-card-top10">
           <h3>🏆 Top 10 - Alunos com Mais Faltas</h3>
           <div class="table-container">
@@ -1865,77 +2098,272 @@
          ABA: ATIVIDADE DE DETENÇÃO
          ===================================================== -->
     <section id="tab-detencao" class="content-section">
-      <div id="det-controle" style="background:var(--card);border:1px solid var(--border);padding:18px;max-width:700px;margin:20px auto;border-radius:10px;">
-        <h1 style="margin-bottom:16px;font-size:1.1rem;color:var(--ink);">✏️ Atividade de Detenção</h1>
 
-        <!-- Seletor de tipo -->
-        <div style="display:flex;gap:8px;margin-bottom:16px;">
-          <button id="det-tipo-btn-1" onclick="detSetTipo(1)"
-            style="flex:1;padding:8px;border-radius:8px;border:2px solid var(--brand);background:var(--brand);color:#fff;font-weight:700;font-size:.82rem;cursor:pointer;">
-            📝 Atividade 1
-          </button>
-          <button id="det-tipo-btn-2" onclick="detSetTipo(2)"
-            style="flex:1;padding:8px;border-radius:8px;border:2px solid var(--border);background:transparent;color:var(--muted);font-weight:600;font-size:.82rem;cursor:pointer;">
-            ✍️ Pauta Dupla
-          </button>
+      <!-- ── ABAS INTERNAS ── -->
+      <div class="det-abas-internas" style="background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;display:flex;gap:4px;position:sticky;top:0;z-index:9;">
+        <button class="det-aba-btn det-aba-ativa" id="det-aba-btn-atividade" onclick="detAbaAtiva('atividade')"
+          style="padding:12px 16px;background:none;border:none;border-bottom:2px solid var(--brand);color:var(--ink);font-weight:600;font-size:.82rem;cursor:pointer;">
+          📝 Atividades
+        </button>
+        <button class="det-aba-btn" id="det-aba-btn-temas" onclick="detAbaAtiva('temas')"
+          style="padding:12px 16px;background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-weight:500;font-size:.82rem;cursor:pointer;">
+          ✨ Temas de Redação IA
+        </button>
+        <button class="det-aba-btn" id="det-aba-btn-redacao" onclick="detAbaAtiva('redacao')"
+          style="padding:12px 16px;background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-weight:500;font-size:.82rem;cursor:pointer;">
+          📄 Folha de Redação
+        </button>
+      </div>
+
+      <!-- ══════════════ ABA: ATIVIDADES ══════════════ -->
+      <div id="det-aba-atividade">
+        <div id="det-controle" style="background:var(--card);border:1px solid var(--border);padding:18px;max-width:700px;margin:20px auto;border-radius:10px;">
+          <h1 style="margin-bottom:16px;font-size:1.1rem;color:var(--ink);">✏️ Atividade de Detenção</h1>
+          <div style="display:flex;gap:8px;margin-bottom:16px;">
+            <button id="det-tipo-btn-1" onclick="detSetTipo(1)"
+              style="flex:1;padding:8px;border-radius:8px;border:2px solid var(--brand);background:var(--brand);color:#fff;font-weight:700;font-size:.82rem;cursor:pointer;">
+              📝 Atividade 1
+            </button>
+            <button id="det-tipo-btn-2" onclick="detSetTipo(2)"
+              style="flex:1;padding:8px;border-radius:8px;border:2px solid var(--border);background:transparent;color:var(--muted);font-weight:600;font-size:.82rem;cursor:pointer;">
+              ✍️ Pauta Dupla
+            </button>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+            <div>
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Aluno(a)</label>
+              <input list="det-alunosList" id="det-aluno" autocomplete="off" placeholder="Digite ou selecione..." oninput="detUpdate()">
+              <datalist id="det-alunosList"></datalist>
+            </div>
+            <div>
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Série / Turma</label>
+              <input id="det-serie" readonly placeholder="Automático">
+            </div>
+            <div>
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Data</label>
+              <input type="date" id="det-data" oninput="detUpdate()">
+            </div>
+            <div>
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Professor(a)</label>
+              <input id="det-professor" placeholder="Nome do professor" oninput="detUpdate()">
+            </div>
+            <div>
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Disciplina</label>
+              <input id="det-disciplina" placeholder="Ex: Matemática" oninput="detUpdate()">
+            </div>
+            <div>
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Motivo</label>
+              <input id="det-motivo" placeholder="Motivo da detenção" oninput="detUpdate()">
+            </div>
+            <div style="grid-column:1/-1;">
+              <div style="margin-bottom:6px;">
+                <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">💬 Instrução para a IA <span style="font-weight:400;color:var(--hint);">(opcional)</span></label>
+                <input type="text" id="instrucaoDet" placeholder="Ex: use linguagem simples, tema sobre amizade..." style="font-size:.82rem;">
+              </div>
+              <button class="btn-ghost" onclick="geminiGerarDetencao()" style="width:100%;">✨ Gerar texto de detenção com IA</button>
+              <div id="det-texto-ia" style="display:none;margin-top:10px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:.82rem;line-height:1.6;color:var(--ink);white-space:pre-wrap;"></div>
+            </div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:14px;display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <label style="font-size:.78rem;color:var(--muted);min-width:140px;margin:0;">Espaço entre linhas</label>
+              <input type="range" id="det-espacamento" min="20" max="80" value="40" step="1" oninput="detUpdate()" style="flex:1;">
+              <span id="det-esp-val" style="font-size:.78rem;color:var(--muted);min-width:24px;text-align:right;">24</span>
+            </div>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;">
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+                <input type="checkbox" id="det-segunda-pag" onchange="detUpdate()" style="width:auto;accent-color:var(--brand);">
+                Adicionar 2ª página (+2 colunas)
+              </label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+                <input type="checkbox" id="det-mostrar-logo" checked onchange="detUpdate()" style="width:auto;accent-color:var(--brand);">
+                Cabeçalho e logo
+              </label>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:14px;">
+            <button class="btn" onclick="detImprimir()">🖨️ Imprimir</button>
+          </div>
         </div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-          <div>
-            <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Aluno(a)</label>
-            <input list="det-alunosList" id="det-aluno" autocomplete="off" placeholder="Digite ou selecione..." oninput="detUpdate()">
-            <datalist id="det-alunosList"></datalist>
-          </div>
-          <div>
-            <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Série / Turma</label>
-            <input id="det-serie" readonly placeholder="Automático">
-          </div>
-          <div>
-            <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Data</label>
-            <input type="date" id="det-data" oninput="detUpdate()">
-          </div>
-          <div>
-            <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Professor(a)</label>
-            <input id="det-professor" placeholder="Nome do professor" oninput="detUpdate()">
-          </div>
-          <div>
-            <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Disciplina</label>
-            <input id="det-disciplina" placeholder="Ex: Matemática" oninput="detUpdate()">
-          </div>
-          <div>
-            <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Motivo</label>
-            <input id="det-motivo" placeholder="Motivo da detenção" oninput="detUpdate()">
-          </div>
+        <div id="det-preview-wrap" style="padding:20px;background:var(--bg);display:flex;flex-direction:column;align-items:center;">
+          <div id="det-preview"></div>
         </div>
+      </div>
 
-        <div style="border-top:1px solid var(--border);padding-top:14px;display:flex;flex-direction:column;gap:10px;">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <label style="font-size:.78rem;color:var(--muted);min-width:140px;margin:0;">Espaço entre linhas</label>
-            <input type="range" id="det-espacamento" min="20" max="80" value="40" step="1" oninput="detUpdate()" style="flex:1;">
-            <span id="det-esp-val" style="font-size:.78rem;color:var(--muted);min-width:24px;text-align:right;">24</span>
+      <!-- ══════════════ ABA: TEMAS DE REDAÇÃO IA ══════════════ -->
+      <div id="det-aba-temas" style="display:none;">
+        <div class="wrap" style="max-width:860px;">
+
+          <div class="card" style="margin-bottom:18px;">
+            <h3 style="margin-bottom:14px;font-size:1rem;">⚙️ Configurações do Tema</h3>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px;">
+              <div>
+                <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Série / Faixa etária</label>
+                <select id="tema-serie">
+                  <option value="">— Qualquer série —</option>
+                  <option value="1º ao 3º ano (EF I)">1º ao 3º ano (EF I)</option>
+                  <option value="4º ao 5º ano (EF I)">4º ao 5º ano (EF I)</option>
+                  <option value="6º ao 7º ano (EF II)">6º ao 7º ano (EF II)</option>
+                  <option value="8º ao 9º ano (EF II)">8º ao 9º ano (EF II)</option>
+                  <option value="1º ao 3º ano (EM)">1º ao 3º ano (EM)</option>
+                </select>
+              </div>
+              <div>
+                <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Tipo de texto</label>
+                <select id="tema-tipo-texto">
+                  <option value="dissertativo-argumentativo">Dissertativo-argumentativo</option>
+                  <option value="narrativo">Narrativo</option>
+                  <option value="descritivo">Descritivo</option>
+                  <option value="reflexivo">Reflexivo / pessoal</option>
+                  <option value="qualquer">Qualquer tipo</option>
+                </select>
+              </div>
+              <div>
+                <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Quantidade de temas</label>
+                <select id="tema-quantidade">
+                  <option value="3">3 temas</option>
+                  <option value="5" selected>5 temas</option>
+                  <option value="8">8 temas</option>
+                  <option value="10">10 temas</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-bottom:14px;">
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:8px;display:block;font-weight:600;">📚 Categorias <span style="font-weight:400;color:var(--hint);">(marque uma ou mais)</span></label>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;" id="tema-checkboxes">
+                <label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+                  <input type="checkbox" value="Valores e ética (respeito, honestidade, responsabilidade)" style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;">
+                  <span>🤝 Valores e ética<br><small style="color:var(--muted);">respeito, honestidade, responsabilidade</small></span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+                  <input type="checkbox" value="Convivência escolar (bullying, amizade, colaboração)" style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;">
+                  <span>🏫 Convivência escolar<br><small style="color:var(--muted);">bullying, amizade, colaboração</small></span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+                  <input type="checkbox" value="Família e relacionamentos (vínculos, afeto, diálogo)" style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;">
+                  <span>👨‍👩‍👧 Família e relacionamentos<br><small style="color:var(--muted);">vínculos, afeto, diálogo</small></span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+                  <input type="checkbox" value="Meio ambiente e sustentabilidade" style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;">
+                  <span>🌱 Meio ambiente<br><small style="color:var(--muted);">sustentabilidade, natureza, clima</small></span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+                  <input type="checkbox" value="Tecnologia e redes sociais (uso consciente, cyberbullying)" style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;">
+                  <span>📱 Tecnologia e redes sociais<br><small style="color:var(--muted);">uso consciente, cyberbullying</small></span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+                  <input type="checkbox" value="Cidadania e direitos (democracia, deveres, comunidade)" style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;">
+                  <span>🏛️ Cidadania e direitos<br><small style="color:var(--muted);">democracia, deveres, comunidade</small></span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+                  <input type="checkbox" value="Saúde e bem-estar (alimentação, exercício, saúde mental)" style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;">
+                  <span>❤️ Saúde e bem-estar<br><small style="color:var(--muted);">alimentação, saúde mental, esporte</small></span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+                  <input type="checkbox" value="Sonhos e futuro (projetos de vida, carreira, metas)" style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;">
+                  <span>🚀 Sonhos e futuro<br><small style="color:var(--muted);">projetos de vida, carreira, metas</small></span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+                  <input type="checkbox" value="Diversidade e inclusão (culturas, respeito às diferenças)" style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;">
+                  <span>🌍 Diversidade e inclusão<br><small style="color:var(--muted);">culturas, respeito às diferenças</small></span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+                  <input type="checkbox" value="Educação e conhecimento (importância dos estudos, leitura)" style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;">
+                  <span>📖 Educação e conhecimento<br><small style="color:var(--muted);">importância dos estudos, leitura</small></span>
+                </label>
+              </div>
+            </div>
+
+            <div style="margin-bottom:14px;">
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;font-weight:600;">💬 Instrução ou tema livre <span style="font-weight:400;color:var(--hint);">(opcional)</span></label>
+              <textarea id="tema-instrucao-livre" placeholder="Ex: quero temas sobre a importância de ouvir os professores, adequados para alunos do 7º ano..." style="min-height:70px;font-size:.84rem;"></textarea>
+            </div>
+
+            <button id="btnGerarTemas" onclick="geminiGerarTemas()"
+              style="width:100%;padding:12px;background:linear-gradient(135deg,#8b5cf6,#6d28d9);color:#fff;border:none;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
+              ✨ Gerar Temas com IA
+            </button>
           </div>
-          <div style="display:flex;gap:16px;flex-wrap:wrap;">
+
+          <div id="temas-resultado" style="display:none;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+              <h3 style="margin:0;font-size:1rem;color:var(--ink);">📋 Temas gerados</h3>
+              <div style="display:flex;gap:8px;">
+                <button onclick="temasCopiarTodos()" class="btn-ghost btn-small">📋 Copiar todos</button>
+                <button onclick="temasSalvarTxt()" class="btn-ghost btn-small">💾 Salvar .txt</button>
+                <button onclick="geminiGerarTemas()" class="btn-ghost btn-small">🔄 Gerar novos</button>
+              </div>
+            </div>
+            <div id="temas-lista" style="display:flex;flex-direction:column;gap:10px;"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ══════════════ ABA: FOLHA DE REDAÇÃO ══════════════ -->
+      <div id="det-aba-redacao" style="display:none;">
+        <div class="det-redacao-controle" style="background:var(--card);border:1px solid var(--border);padding:18px;max-width:700px;margin:20px auto;border-radius:10px;">
+          <h1 style="margin-bottom:16px;font-size:1.1rem;color:var(--ink);">📄 Folha de Redação</h1>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+            <div>
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Aluno(a)</label>
+              <input list="red-alunosList" id="red-aluno" autocomplete="off" placeholder="Digite ou selecione..." oninput="redUpdate()">
+              <datalist id="red-alunosList"></datalist>
+            </div>
+            <div>
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Série / Turma</label>
+              <input id="red-serie" readonly placeholder="Automático">
+            </div>
+            <div>
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Data</label>
+              <input type="date" id="red-data" oninput="redUpdate()">
+            </div>
+            <div>
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Professor(a)</label>
+              <input id="red-professor" placeholder="Nome do professor" oninput="redUpdate()">
+            </div>
+            <div style="grid-column:1/-1;">
+              <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">✏️ Tema da Redação <span style="color:var(--hint);font-weight:400;">(cole aqui o tema gerado pela IA ou escreva livremente)</span></label>
+              <textarea id="red-tema" placeholder="Cole ou escreva o tema aqui..." style="min-height:80px;font-size:.88rem;" oninput="redUpdate()"></textarea>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid var(--border);padding-top:14px;display:flex;flex-direction:column;gap:10px;margin-bottom:14px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <label style="font-size:.78rem;color:var(--muted);min-width:120px;margin:0;">Linhas</label>
+              <input type="range" id="red-linhas" min="15" max="50" value="30" step="1" oninput="redUpdate()" style="flex:1;">
+              <span id="red-linhas-val" style="font-size:.82rem;color:var(--ink);font-weight:700;min-width:28px;text-align:right;">30</span>
+            </div>
+            <div style="font-size:.76rem;color:var(--muted);line-height:1.4;">
+              O espaçamento das linhas agora é ajustado automaticamente para caber em uma única página.
+            </div>
             <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
-              <input type="checkbox" id="det-segunda-pag" onchange="detUpdate()" style="width:auto;accent-color:var(--brand);">
-              Adicionar 2ª página (+2 colunas)
+              <input type="checkbox" id="red-segunda-pag" onchange="redUpdate()" style="width:auto;accent-color:var(--brand);">
+              Criar 2ª página com a mesma quantidade de linhas
             </label>
             <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
-              <input type="checkbox" id="det-mostrar-logo" checked onchange="detUpdate()" style="width:auto;accent-color:var(--brand);">
+              <input type="checkbox" id="red-mostrar-logo" checked onchange="redUpdate()" style="width:auto;accent-color:var(--brand);">
               Cabeçalho e logo
             </label>
           </div>
+
+          <div style="display:flex;gap:8px;">
+            <button class="btn" onclick="redImprimir()">🖨️ Imprimir</button>
+          </div>
         </div>
 
-        <div style="display:flex;gap:8px;margin-top:14px;">
-          <button class="btn" onclick="detImprimir()">🖨️ Imprimir</button>
+        <!-- Preview Folha de Redação -->
+        <div id="red-preview-wrap" style="padding:20px;background:var(--bg);display:flex;flex-direction:column;align-items:center;">
+          <div id="red-preview"></div>
         </div>
       </div>
 
-      <!-- Preview (visível na tela) -->
-      <div id="det-preview-wrap" style="padding:20px;background:var(--bg);display:flex;flex-direction:column;align-items:center;">
-        <div id="det-preview"></div>
-      </div>
     </section>
+
+
   </div><!-- end main-content -->
 
   <nav class="bottom-nav">
@@ -1984,6 +2412,7 @@
         <span class="bnav-icon">✏️</span>
         <span class="bnav-label">Detenção</span>
       </div>
+
     </div>
   </nav>
 
@@ -2026,6 +2455,7 @@
 { nome: "ESTHER MARTINS GADELHA", matricula: "2018021", serie: "6º EF", turma: "I" },
 { nome: "JOAO LUCAS CAETANO CISNE", matricula: "2021054", serie: "6º EF", turma: "I" },
 { nome: "JOAO LUCAS MAIA ARAGAO", matricula: "2018106", serie: "6º EF", turma: "I" },
+{ nome: "JOAO MIGUEL DE ARAUJO MARÇAL LIMA", matricula: "2024006", serie: "6º EF", turma: "I" },
 { nome: "JOAO MIGUEL OLIVERIA BEZERRA", matricula: "2018074", serie: "6º EF", turma: "I" },
 { nome: "JOSÉ FLAVIO BEZERRA LOPES FILHO", matricula: "2026010", serie: "6º EF", turma: "I" },
 { nome: "JOSE VICTOR GOMES VIANA PAES", matricula: "2024051", serie: "6º EF", turma: "I" },
@@ -2035,7 +2465,7 @@
 { nome: "MARIA ALICE CAVALCANTE LIMA", matricula: "2026054", serie: "6º EF", turma: "I" },
 { nome: "MARIA CLARA DOS SANTOS NASCIMENTO", matricula: "2023047", serie: "6º EF", turma: "I" },
 { nome: "MARIA CLARA GOMES ABREU", matricula: "2026007", serie: "6º EF", turma: "I" },
-{ nome: "MARIA FERNANDA BARBOSA DE SOUSA", matricula: "2026024", serie: "6º EF", turma: "I" },
+{ nome: "MARIA ELENA MENDONÇA MAGALHÃES", matricula: "2024070", serie: "6º EF", turma: "I" },
 { nome: "MARIA HELOISA MENESES DA ROCHA", matricula: "2023071", serie: "6º EF", turma: "I" },
 { nome: "MARIA LIVIA SILVA DE ANDRADE", matricula: "2023034", serie: "6º EF", turma: "I" },
 { nome: "MARIA LUIZA DE FREITAS HOLANDA", matricula: "2024002", serie: "6º EF", turma: "I" },
@@ -2093,12 +2523,12 @@
 { nome: "MARINA SOARES ABREU", matricula: "2017057", serie: "7º EF", turma: "I" },
 { nome: "MELINA MARIA SANTOS DA SILVA", matricula: "2026042", serie: "7º EF", turma: "I" },
 { nome: "MELISSA NASCIMENTO DE SOUSA", matricula: "2016113", serie: "7º EF", turma: "I" },
+{ nome: "MIGUEL APOLLO CORREIA CAVALCANTE", matricula: "2016037", serie: "7º EF", turma: "I" },
 { nome: "MIGUEL ALVES FREITAS", matricula: "2025013", serie: "7º EF", turma: "I" },
 { nome: "MIGUEL DO NASCIMENTO AGUIAR", matricula: "2020016", serie: "7º EF", turma: "I" },
 { nome: "PEDRO IAN RIBEIRO DA PAZ PERES", matricula: "2025008", serie: "7º EF", turma: "I" },
 { nome: "PEDRO JORGE DA SILVA QUEIROZ DE ALMEIDA", matricula: "2025030", serie: "7º EF", turma: "I" },
 { nome: "PEDRO MIGUEL NASCIMENTO SOUSA", matricula: "2025016", serie: "7º EF", turma: "I" },
-{ nome: "VINICIUS LUSTOSA SILVA DE LIMA", matricula: "2018012", serie: "7º EF", turma: "I" },
 
 // 8º EF
 { nome: "ALEXANDRE GUILHERMINO MOREIRA MARQUES", matricula: "2021034", serie: "8º EF", turma: "I" },
@@ -2107,6 +2537,7 @@
 { nome: "ANELIESE FERREIRA ALVES PEREIRA", matricula: "2018077", serie: "8º EF", turma: "I" },
 { nome: "ANTONIO CAUE SILVEIRA BARBOZA", matricula: "2021006", serie: "8º EF", turma: "I" },
 { nome: "BENEDITO NOAN FEITOSA MONTEIRO", matricula: "2019049", serie: "8º EF", turma: "I" },
+{ nome: "CAIO AUDREY DE ALBUQUERQUE CASTRO", matricula: "2022068", serie: "8º EF", turma: "I" },
 { nome: "CAMILA MARIA SILVA LESSA", matricula: "2024064", serie: "8º EF", turma: "I" },
 { nome: "CLARICE DE FREITAS MENESES NUNES", matricula: "2026033", serie: "8º EF", turma: "I" },
 { nome: "EMANUEL LOHAN SILVEIRA MARQUES", matricula: "2023091", serie: "8º EF", turma: "I" },
@@ -2254,6 +2685,7 @@
 { nome: "RAUAN DE AMORIM MONTE", matricula: "2022063", serie: "3ª EM", turma: "I" },
 { nome: "REYNALDO DE ANIFA DOMINGOS FENIASSE", matricula: "2024030", serie: "3ª EM", turma: "I" },
 { nome: "RICARDO DA SILVA GONÇALVES FILHO", matricula: "2010092", serie: "3ª EM", turma: "I" },
+{ nome: "RODRIGO DOS REIS GONDIM", matricula: "2018032", serie: "3ª EM", turma: "I" },
 { nome: "RYAN DELMAR SOUSA AUGUSTO ARISTOTELES", matricula: "2024049", serie: "3ª EM", turma: "I" },
 { nome: "SAULO MESQUITA ARAUJO", matricula: "2012178", serie: "3ª EM", turma: "I" },
 { nome: "SILVIA CIBELE SILVA LIMA", matricula: "2021046", serie: "3ª EM", turma: "I" },
@@ -2750,28 +3182,34 @@ Senha temporária: ensps2026`;
       box.innerHTML="";
       motivosPadrao.concat(motivosExtras).forEach((motivo, idx)=>{
         const div = document.createElement("div");
-        div.style.display="flex"; 
-        div.style.alignItems="center";
-        div.style.marginBottom="8px";
-        div.innerHTML=`<label style="flex:1;display:flex;align-items:center">
-          <input type="checkbox" value="${motivo.label.replace(/"/g,"&quot;")}" data-idx="${idx}">
-          <span style="margin-left:6px">${motivo.label}</span>
-        </label>`;
+        div.className = "topico-item";
+
+        const safeLabel = motivo.label.replace(/"/g,"&quot;");
+        div.innerHTML = `
+          <label>${motivo.label}</label>
+          <div class="topico-opcoes">
+            <label>
+              <input type="checkbox" value="${safeLabel}" data-idx="${idx}">
+              <span>Selecionar motivo</span>
+            </label>
+            ${motivo.sugestao ? '<button type="button" class="motivo-sugerir">Usar sugestão</button>' : ''}
+          </div>
+        `;
+
         if(motivo.sugestao){
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "motivo-sugerir";
-          btn.textContent = "Usar sugestão";
-          btn.onclick = function(){
-            const textarea = $("#descricao");
-            if(!textarea) return;
-            let val = textarea.value.trim();
-            if(val && !val.endsWith('\n')) val += '\n';
-            textarea.value = val + motivo.sugestao;
-            renderPreview();
-          };
-          div.append(btn);
+          const btn = div.querySelector('.motivo-sugerir');
+          if (btn) {
+            btn.onclick = function(){
+              const textarea = $("#descricao");
+              if(!textarea) return;
+              let val = textarea.value.trim();
+              if(val && !val.endsWith('\n')) val += '\n';
+              textarea.value = val + motivo.sugestao;
+              renderPreview();
+            };
+          }
         }
+
         box.appendChild(div);
       });
     }
@@ -2850,7 +3288,7 @@ Senha temporária: ensps2026`;
       ${motivosHTML}
       <div class="section-title">Descrição</div><div style="white-space:pre-wrap">${desc}</div>
       ${(document.getElementById("mostrarAssinaturas")&&document.getElementById("mostrarAssinaturas").checked)?'<div class="signs"><div><div class="line">Responsável</div></div><div><div class="line">Escola</div></div></div>':'' }
-      <div style="margin-top:16px">${linhaCidadeData(cidadeFixa,data)}</div>`;
+      <div class="adv-data-extenso">${linhaCidadeData(cidadeFixa,data)}</div>`;
       return div;
     }
 
@@ -2874,25 +3312,31 @@ Senha temporária: ensps2026`;
           alert('Campos de advertência não encontrados.');
           return;
         }
+        const multi = document.getElementById('modoMultiplos')?.checked;
         const aluno = alunoEl.value.trim();
         const data = dataEl.value;
         const natureza = $("#natureza") ? $("#natureza").value : "";
         const descricao = $("#descricao") ? $("#descricao").value.trim() : "";
 
-        if(!aluno || !data){
+        if((!multi && !aluno) || !data){
           alert('Preencha pelo menos aluno e data!');
+          return;
+        }
+
+        if(multi && advMultiAlunos.length === 0){
+          alert('Adicione pelo menos um aluno na lista de múltiplos alunos.');
           return;
         }
 
         const motivosMarcados = [];
         $$("#motivosBox input[type=checkbox]:checked").forEach(i=>motivosMarcados.push(i.value));
 
-        const advertencia = {
-          id: Date.now(),
-          aluno,
-          matricula: $("#matricula") ? $("#matricula").value : "",
-          serie: $("#serie") ? $("#serie").value : "",
-          turma: $("#turma") ? $("#turma").value : "",
+        const criarAdvertencia = (dadosAluno) => ({
+          id: Date.now() + Math.floor(Math.random() * 1000),
+          aluno: dadosAluno.nome,
+          matricula: dadosAluno.matricula || "",
+          serie: dadosAluno.serie || "",
+          turma: dadosAluno.turma || "",
           turno: $("#turno") ? $("#turno").value : "",
           data,
           hora: $("#hora") ? $("#hora").value : "",
@@ -2900,12 +3344,23 @@ Senha temporária: ensps2026`;
           motivos: motivosMarcados,
           descricao,
           responsavel: $("#responsavel") ? $("#responsavel").value : ""
-        };
+        });
 
-        advertenciasSalvas.push(advertencia);
+        const registrosParaSalvar = multi
+          ? advMultiAlunos.map(a => criarAdvertencia(a))
+          : [criarAdvertencia({
+              nome: aluno,
+              matricula: $("#matricula") ? $("#matricula").value : "",
+              serie: $("#serie") ? $("#serie").value : "",
+              turma: $("#turma") ? $("#turma").value : ""
+            })];
+
+        advertenciasSalvas.push(...registrosParaSalvar);
         localStorage.setItem('advertencias', JSON.stringify(advertenciasSalvas));
 
-        alert('✅ Advertência salva com sucesso!');
+        alert(multi
+          ? `✅ ${registrosParaSalvar.length} advertência(s) salva(s) com sucesso!`
+          : '✅ Advertência salva com sucesso!');
       });
     }
 
@@ -2938,7 +3393,7 @@ Senha temporária: ensps2026`;
     function advToggleModoMultiplos() {
       const multi = document.getElementById('modoMultiplos').checked;
       document.getElementById('adv-multi-lista').style.display  = multi ? 'block' : 'none';
-      document.getElementById('adv-aluno-single').style.display = multi ? 'none'  : 'flex';
+      document.getElementById('adv-aluno-single').style.display = multi ? 'none'  : '';
       document.getElementById('adv-multi-count').style.display  = multi ? 'inline' : 'none';
       document.getElementById('btnImprimir').style.display      = multi ? 'none'  : '';
       document.getElementById('btnImprimirMulti').style.display = multi ? ''      : 'none';
@@ -2990,6 +3445,31 @@ Senha temporária: ensps2026`;
       if(advMultiAlunos.length === 0) renderPreview();
     }
 
+    function advExecutarImpressao(onAfterPrint) {
+      const styleId = 'adv-print-page-style';
+      let style = document.getElementById(styleId);
+      if (!style) {
+        style = document.createElement('style');
+        style.id = styleId;
+        style.media = 'print';
+        style.textContent = '@page { size: A4 portrait; margin: 0 !important; }';
+        document.head.appendChild(style);
+      }
+
+      let cleaned = false;
+      const cleanup = () => {
+        if (cleaned) return;
+        cleaned = true;
+        const liveStyle = document.getElementById(styleId);
+        if (liveStyle) liveStyle.remove();
+        if (typeof onAfterPrint === 'function') onAfterPrint();
+      };
+
+      window.addEventListener('afterprint', cleanup, { once: true });
+      window.print();
+      setTimeout(cleanup, 1500);
+    }
+
     function advImprimirTodos() {
       if(advMultiAlunos.length === 0) { alert('Adicione pelo menos um aluno.'); return; }
       const c        = $('#docPreview');
@@ -3008,25 +3488,38 @@ Senha temporária: ensps2026`;
         document.getElementById('matricula').value = a.matricula;
         document.getElementById('serie').value     = a.serie;
         document.getElementById('turma').value     = a.turma;
-        // Build copies
-        if(escola) { const d = buildCopy('Via: Escola'); if(idx < advMultiAlunos.length-1 || pais) d.style.pageBreakAfter='always'; c.appendChild(d); }
-        if(pais)   { const d = buildCopy('Via: Pais');   if(idx < advMultiAlunos.length-1) d.style.pageBreakAfter='always'; c.appendChild(d); }
+        const isLast = idx === advMultiAlunos.length - 1;
+        // Build copies — each wrapped in a page-break div
+        if(escola) {
+          const d = buildCopy('Via: Escola');
+          const w = document.createElement('div');
+          w.className = 'adv-page-wrap';
+          if(!isLast || pais) w.style.pageBreakAfter = 'always';
+          w.appendChild(d);
+          c.appendChild(w);
+        }
+        if(pais) {
+          const d = buildCopy('Via: Pais');
+          const w = document.createElement('div');
+          w.className = 'adv-page-wrap';
+          if(!isLast) w.style.pageBreakAfter = 'always';
+          w.appendChild(d);
+          c.appendChild(w);
+        }
       });
       // Restore
       document.getElementById('aluno').value     = origNome;
       document.getElementById('matricula').value = origMat;
       document.getElementById('serie').value     = origSerie;
       document.getElementById('turma').value     = origTurma;
-      window.print();
-      // Restore preview
-      renderPreview();
+      advExecutarImpressao(() => renderPreview());
     }
 
         const btnAtualizar = $("#btnAtualizar");
     if(btnAtualizar) btnAtualizar.onclick = ()=>renderPreview();
 
     const btnImprimir = $("#btnImprimir");
-    if(btnImprimir) btnImprimir.onclick = ()=>{renderPreview(); window.print();};
+    if(btnImprimir) btnImprimir.onclick = ()=>{renderPreview(); advExecutarImpressao();};
 
     const btnPNG = $("#btnPNG");
     if(btnPNG) btnPNG.onclick = ()=>{renderPreview(); exportPNGAdvertencia();};
@@ -3266,13 +3759,13 @@ Senha temporária: ensps2026`;
       });
 
       preview.innerHTML = `
-        <div class="doc" style="margin-top:0">
+        <div class="doc relatorio-doc" style="margin-top:0">
           <header>
             ${logoRelatorioDataUrl ? `<img class="logo" src="${logoRelatorioDataUrl}">` : ''}
             <div>
               <h3>${escola}</h3>
               <span class="endereco-fixo">${enderecoFixo}</span>
-              <span class="endereco-fixo">RESOLUÇÃO: 486/2020 &nbsp;|&nbsp; CNPJ: 04.670.359/0001-27 &nbsp;|&nbsp; INEP: 23076259</span>
+              <span class="endereco-fixo relatorio-meta-linha">RESOLUÇÃO: 486/2020 &nbsp;|&nbsp; CNPJ:&nbsp;04.670.359/0001-27 &nbsp;|&nbsp; INEP:&nbsp;23076259</span>
             </div>
             <div style="margin-left:auto;text-align:right">
               <small>Relatório Pedagógico</small>
@@ -3293,7 +3786,7 @@ Senha temporária: ensps2026`;
             <div><div class="line">Direção</div></div>
           </div>
 
-          <div style="margin-top:16px">${linhaCidadeData(cidadeFixa, data)}</div>
+          <div class="adv-data-extenso">${linhaCidadeData(cidadeFixa, data)}</div>
         </div>
       `;
     }
@@ -3304,7 +3797,7 @@ Senha temporária: ensps2026`;
     const btnImprimirRel = document.getElementById('btnImprimirRelatorio');
     if(btnImprimirRel) btnImprimirRel.addEventListener('click', function(){
       renderRelatorioPreview();
-      window.print();
+      advExecutarImpressao();
     });
 
     const btnPNGRel = document.getElementById('btnGerarPNGRelatorio');
@@ -3499,15 +3992,37 @@ Senha temporária: ensps2026`;
         }
       });
 
-      const top10 = Object.entries(estatisticasAlunos)
-        .sort((a,b) => b[1].faltas - a[1].faltas)
+      const top10Advertencias = Object.entries(estatisticasAlunos)
+        .sort((a,b) => b[1].advertencias - a[1].advertencias || b[1].faltas - a[1].faltas)
         .slice(0, 10);
 
-      const tbody = document.querySelector('#tabelaTop10Faltas tbody');
-      if(!tbody) return;
-      tbody.innerHTML = '';
+      const top10Faltas = Object.entries(estatisticasAlunos)
+        .sort((a,b) => b[1].faltas - a[1].faltas || b[1].advertencias - a[1].advertencias)
+        .slice(0, 10);
 
-      top10.forEach(([nome, stats], idx) => {
+      const tbodyAdv = document.querySelector('#tabelaTop10Advertencias tbody');
+      const tbodyFaltas = document.querySelector('#tabelaTop10Faltas tbody');
+      if(!tbodyAdv || !tbodyFaltas) return;
+
+      tbodyAdv.innerHTML = '';
+      top10Advertencias.forEach(([nome, stats], idx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${idx + 1}º</td>
+          <td>${nome}</td>
+          <td>${stats.serie}</td>
+          <td><span class="badge badge-warning">${stats.advertencias}</span></td>
+          <td><span class="badge badge-falta">${stats.faltas}</span></td>
+        `;
+        tbodyAdv.appendChild(tr);
+      });
+
+      if(top10Advertencias.length === 0){
+        tbodyAdv.innerHTML = '<tr><td colspan="5" style="text-align:center" class="muted">Nenhum registro ainda</td></tr>';
+      }
+
+      tbodyFaltas.innerHTML = '';
+      top10Faltas.forEach(([nome, stats], idx) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td>${idx + 1}º</td>
@@ -3516,11 +4031,11 @@ Senha temporária: ensps2026`;
           <td><span class="badge badge-falta">${stats.faltas}</span></td>
           <td><span class="badge badge-warning">${stats.advertencias}</span></td>
         `;
-        tbody.appendChild(tr);
+        tbodyFaltas.appendChild(tr);
       });
 
-      if(top10.length === 0){
-        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center" class="muted">Nenhum registro ainda</td></tr>';
+      if(top10Faltas.length === 0){
+        tbodyFaltas.innerHTML = '<tr><td colspan="5" style="text-align:center" class="muted">Nenhum registro ainda</td></tr>';
       }
     }
 
@@ -4825,7 +5340,7 @@ Senha temporária: ensps2026`;
       'ALEXANDRE GUILHERMINO MOREIRA MARQUES','ANA BEATRIZ DIAS CLEMENTE',
       'ANA CAROLINA LEAO FERREIRA PIRES','ANELIESE FERREIRA ALVES PEREIRA',
       'ANTONIO CAUE SILVEIRA BARBOZA','BENEDITO NOAN FEITOSA MONTEIRO',
-      'CAMILA MARIA SILVA LESSA','CAIO AUDREY ALBUQUERQUE CASTRO',
+      'CAIO AUDREY DE ALBUQUERQUE CASTRO','CAMILA MARIA SILVA LESSA',
       'CLARICE DE FREITAS MENESES NUNES','EMANUEL LOHAN SILVEIRA MARQUES',
       'EVELYN DE ALMEIDA ABREU','IAGO CAMOES BEZERRA DE SOUSA','ISABELLY SOUSA MARTINS',
       'JOAO LUCAS MARTINS DE QUEIROZ','JOSE GABRIEL SOUZA CLAUDIO',
@@ -5250,7 +5765,7 @@ Senha temporária: ensps2026`;
     const fmtDate = d => { if(!d) return ''; const [y,m,dd] = d.split('-'); return dd+'/'+m+'/'+y; };
 
     // ── Cálculo de linhas por página ──
-    const usableH_mm = 287;
+    const usableH_mm = detTipo === 2 ? 284 : 294;
     const cabH_mm    = mostrarCab ? 44 : 9;
     const colH1 = Math.round((usableH_mm - cabH_mm) * 3.7795) - 8;
     const colH2 = Math.round((usableH_mm - 9) * 3.7795) - 8;
@@ -5311,12 +5826,780 @@ Senha temporária: ensps2026`;
       (segundaPag ? `<div class="det-pagina det-pag2">${tituloSimples}${buildCols(nLinhas2)}</div>` : '');
 
   }
+  function detExecutarImpressao() {
+    const preview = document.getElementById('det-preview');
+    if (!preview) return;
+
+    const html = preview.innerHTML.trim();
+    if (!html) return;
+
+    const win = window.open('', '_blank', 'width=900,height=1200');
+    if (!win) {
+      alert('Não foi possível abrir a janela de impressão. Verifique se o navegador bloqueou pop-ups.');
+      return;
+    }
+
+    win.document.write(`<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressão - Atividade de Detenção</title>
+  <style>
+    @page { size: A4 portrait; margin: 0; }
+    html, body { margin: 0; padding: 0; background: #fff; }
+    body { font-family: Verdana, Arial, sans-serif; color: #000; }
+    .det-pagina {
+      background: #fff;
+      width: 210mm;
+      height: 297mm;
+      margin: 0;
+      padding: 8mm 12mm 0;
+      color: #000;
+      box-sizing: border-box;
+      overflow: hidden;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .det-pagina:not(:last-child) {
+      break-after: page;
+      page-break-after: always;
+    }
+    .det-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #000;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+    .det-header-logo { height: 44px; object-fit: contain; }
+    .det-titulo {
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      text-decoration: underline;
+      text-align: center;
+      flex: 1;
+    }
+    .det-escola {
+      font-size: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: right;
+      max-width: 120px;
+      line-height: 1.3;
+    }
+    .det-titulo-simples {
+      text-align: center;
+      font-weight: 800;
+      font-size: 14px;
+      text-transform: uppercase;
+      text-decoration: underline;
+      letter-spacing: .04em;
+      border-bottom: 2px solid #000;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+    }
+    .det-cols2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .det-col {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .det-ln {
+      border-bottom: 1px solid #000;
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .det-pauta-group {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .det-pz {
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid #000;
+      box-sizing: border-box;
+    }
+    .det-campos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px 12px;
+      margin-bottom: 6px;
+      font-size: 8px;
+    }
+    .det-campo {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 2px;
+    }
+    .det-campo strong { white-space: nowrap; font-size: 8px; }
+    .det-campo span { flex: 1; font-size: 8px; min-height: 10px; }
+    .det-instrucao {
+      font-size: 8px;
+      margin-bottom: 6px;
+      line-height: 1.35;
+      text-align: center;
+      font-style: italic;
+    }
+    * { box-shadow: none; }
+  </style>
+</head>
+<body>${html}</body>
+</html>`);
+    win.document.close();
+
+    const doPrint = () => {
+      win.focus();
+      win.print();
+      setTimeout(() => win.close(), 300);
+    };
+
+    if (win.document.readyState === 'complete') {
+      doPrint();
+    } else {
+      win.onload = doPrint;
+    }
+  }
   function detImprimir() {
     detUpdate();
-    document.body.classList.add('printing-det');
-    window.print();
-    document.body.classList.remove('printing-det');
+    detExecutarImpressao();
   }
+
+  // ============================================================
+  // GEMINI API
+  // ============================================================
+  const GEMINI_MODEL = 'gemini-2.0-flash';
+  const GEMINI_URL   = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+
+  const GROQ_MODEL = 'llama-3.3-70b-versatile';
+  const GROQ_URL   = 'https://api.groq.com/openai/v1/chat/completions';
+
+  function geminiGetKey() {
+    return localStorage.getItem('groq_api_key') || '';
+  }
+
+  function geminiAbrirModal() {
+    const modal = document.getElementById('gemini-modal');
+    modal.style.display = 'flex';
+    const input = document.getElementById('gemini-key-input');
+    const saved = geminiGetKey();
+    input.value = saved ? saved : '';
+    const status = document.getElementById('gemini-key-status');
+    status.textContent = saved ? '✅ Chave salva neste dispositivo.' : '';
+    status.style.color = '#4ade80';
+    const btnRemover = document.getElementById('btn-remover-chave');
+    if (btnRemover) btnRemover.style.display = saved ? 'block' : 'none';
+  }
+
+  function geminiRemoverChave() {
+    if (!confirm('Tem certeza que deseja remover a chave da API Groq?')) return;
+    localStorage.removeItem('groq_api_key');
+    document.getElementById('gemini-key-input').value = '';
+    const status = document.getElementById('gemini-key-status');
+    status.textContent = '🗑️ Chave removida com sucesso.';
+    status.style.color = '#ef4444';
+    const btnRemover = document.getElementById('btn-remover-chave');
+    if (btnRemover) btnRemover.style.display = 'none';
+  }
+
+  function geminiFecharModal() {
+    document.getElementById('gemini-modal').style.display = 'none';
+  }
+
+  function geminiSalvarChave() {
+    const key = document.getElementById('gemini-key-input').value.trim();
+    if (!key) { alert('Cole sua chave primeiro.'); return; }
+    localStorage.setItem('groq_api_key', key);
+    const status = document.getElementById('gemini-key-status');
+    status.textContent = '✅ Chave salva com sucesso!';
+    status.style.color = '#4ade80';
+    setTimeout(() => geminiFecharModal(), 1200);
+  }
+
+  // Init folha de redação on page load
+  window.addEventListener('load', function() {
+    setTimeout(() => { redUpdate(); redPopularAlunos(); }, 500);
+    // also keep red-alunos in sync when det-alunos changes
+    const detDl = document.getElementById('det-alunosList');
+    if (detDl) {
+      new MutationObserver(() => redPopularAlunos()).observe(detDl, { childList: true });
+    }
+    // red-aluno field: auto-fill serie
+    const redAluno = document.getElementById('red-aluno');
+    if (redAluno) {
+      redAluno.addEventListener('input', function() {
+        if (typeof alunosDB === 'undefined') {
+          redUpdate();
+          return;
+        }
+        const nome = this.value.trim().toUpperCase();
+        const found = alunosDB.find(a => a.nome.toUpperCase() === nome);
+        const s = document.getElementById('red-serie');
+        if (s) {
+          s.value = found ? `${found.serie || ''} / ${found.turma || ''}`.replace(/\s*\/\s*$/, '') : '';
+        }
+        redUpdate();
+      });
+    }
+  });
+
+  document.getElementById('gemini-modal').addEventListener('click', function(e) {
+    if (e.target === this) geminiFecharModal();
+  });
+
+  async function geminiRequest(prompt) {
+    const key = geminiGetKey();
+    if (!key) {
+      geminiAbrirModal();
+      throw new Error('Chave não configurada');
+    }
+    const res = await fetch(GROQ_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${key}`
+      },
+      body: JSON.stringify({
+        model: GROQ_MODEL,
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.4,
+        max_tokens: 1200
+      })
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.error?.message || 'Erro na API Groq');
+    }
+    const data = await res.json();
+    return data.choices?.[0]?.message?.content || '';
+  }
+
+  function geminiSetLoading(btnId, loading) {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+    btn.disabled = loading;
+    btn.textContent = loading ? '⏳ Gerando...' : (btnId === 'btnGeminiAdv' ? '✨ Sugerir texto (IA)' : '✨ Gerar com IA');
+  }
+
+  // ── ADVERTÊNCIA ──
+  async function geminiGerarAdvertencia() {
+    const aluno     = document.getElementById('aluno')?.value || '—';
+    const serie     = document.getElementById('serie')?.value || '—';
+    const natureza  = document.getElementById('natureza')?.value || '—';
+    const motivos   = [...document.querySelectorAll('#motivosBox input[type=checkbox]:checked')].map(i => i.value);
+    const tipo      = document.getElementById('tipoDocumento')?.value || 'Advertência Escolar';
+
+    if (!aluno || aluno === '—') { alert('Selecione o aluno primeiro.'); return; }
+
+    const instrucaoAdv = document.getElementById('instrucaoAdv')?.value?.trim() || '';
+    geminiSetLoading('btnGeminiAdv', true);
+    try {
+      const motivosFormatados = motivos.length > 0
+        ? motivos.map((m, i) => `${i + 1}. ${m}`).join('\n')
+        : 'não especificado';
+
+      const prompt = `Você é um(a) coordenador(a) pedagógico(a) experiente de uma escola. Redija o texto completo de descrição para um documento escolar oficial do tipo "${tipo}".
+
+DADOS DO OCORRIDO:
+- Aluno(a): ${aluno}
+- Série/Turma: ${serie}
+- Natureza da ocorrência: ${natureza}
+- Motivos/infrações identificadas:
+${motivosFormatados}
+${instrucaoAdv ? `- Orientação específica: ${instrucaoAdv}` : ''}
+
+INSTRUÇÕES DE REDAÇÃO:
+- Escreva um texto corrido, formal e completo, em linguagem pedagógica institucional
+- Produza um parágrafo bem desenvolvido para CADA motivo/infração listado acima, descrevendo o comportamento, seu impacto no ambiente escolar e a postura esperada
+- Conecte os parágrafos de forma coesa, como um documento oficial
+- Inclua uma frase de encerramento reforçando os valores da instituição e o compromisso com o desenvolvimento do aluno
+- NÃO use markdown, bullets, títulos ou numeração — apenas texto corrido em parágrafos
+- O texto deve ter entre 500 e 900 caracteres, proporcional à quantidade de motivos`;
+
+      const texto = await geminiRequest(prompt);
+      const desc = document.getElementById('descricao');
+      if (desc) {
+        desc.value = texto.trim();
+        renderPreview();
+      }
+    } catch(e) {
+      if (e.message !== 'Chave não configurada') alert('Erro: ' + e.message);
+    } finally {
+      geminiSetLoading('btnGeminiAdv', false);
+    }
+  }
+
+  // ── RELATÓRIO PEDAGÓGICO ──
+  async function geminiGerarRelatorio() {
+    const aluno  = document.getElementById('alunoRelatorio')?.value || '—';
+    const serie  = document.getElementById('serieRelatorio')?.value || '—';
+    const ensino = document.getElementById('ensinoRelatorio')?.value || '—';
+
+    if (!aluno || aluno === '—') { alert('Selecione o aluno primeiro.'); return; }
+
+    // Coletar tópicos já preenchidos
+    const topicos = [];
+    document.querySelectorAll('.resposta-item').forEach(item => {
+      const titulo = item.querySelector('.resposta-titulo')?.value?.trim();
+      const texto  = item.querySelector('.resposta-texto')?.value?.trim();
+      if (titulo) topicos.push(`${titulo}: ${texto || 'não informado'}`);
+    });
+
+    geminiSetLoading('btnGeminiRel', true);
+    try {
+      const instrucaoRel = document.getElementById('instrucaoRel')?.value?.trim() || '';
+      const topicosTexto = topicos.length > 0
+        ? topicos.map((t, i) => `${i + 1}. ${t}`).join('\n')
+        : 'Nenhuma observação registrada.';
+      const prompt = `Você é um(a) coordenador(a) pedagógico(a) experiente. Elabore um relatório pedagógico completo e bem estruturado para uso oficial da escola.
+
+DADOS DO ALUNO:
+- Nome: ${aluno}
+- Série: ${serie}
+- Modalidade de ensino: ${ensino}
+
+TÓPICOS E OBSERVAÇÕES COLETADAS:
+${topicosTexto}
+${instrucaoRel ? `ORIENTAÇÃO ESPECÍFICA DO EDUCADOR: ${instrucaoRel}` : ''}
+
+INSTRUÇÕES DE REDAÇÃO:
+- Escreva um relatório em texto corrido, formal, acolhedor e profissional
+- Desenvolva um parágrafo bem elaborado para CADA tópico registrado acima, contextualizando o comportamento ou desempenho do aluno
+- Inclua análise pedagógica, possíveis causas, impactos observados e recomendações concretas
+- Finalize com um parágrafo de perspectivas e encaminhamentos sugeridos para a família e a escola
+- NÃO use markdown, bullets, títulos ou numeração — apenas texto corrido em parágrafos
+- O texto deve ter entre 600 e 1000 caracteres, proporcional à quantidade de tópicos`;
+
+      const texto = await geminiRequest(prompt);
+
+      // Add as a new topic in the report
+      const container = document.getElementById('respostasContainer');
+      if (container) {
+        const div = document.createElement('div');
+        div.className = 'resposta-item';
+        div.dataset.index = contadorRespostas++;
+        div.innerHTML = `
+          <label>Tópico / Pergunta</label>
+          <input type="text" class="resposta-titulo" value="Análise Pedagógica (IA)" />
+          <label>Resposta / Observação</label>
+          <textarea class="resposta-texto">${texto.trim()}</textarea>
+          <button type="button" class="btn-danger btn-small" onclick="removerResposta(${contadorRespostas-1})" style="margin-top:8px">🗑️ Remover</button>
+        `;
+        container.appendChild(div);
+        renderRelatorioPreview();
+      }
+    } catch(e) {
+      if (e.message !== 'Chave não configurada') alert('Erro: ' + e.message);
+    } finally {
+      geminiSetLoading('btnGeminiRel', false);
+    }
+  }
+
+  // ── ATIVIDADE DE DETENÇÃO ──
+  async function geminiGerarDetencao() {
+    const aluno      = document.getElementById('det-aluno')?.value || '—';
+    const disciplina = document.getElementById('det-disciplina')?.value || '—';
+    const motivo     = document.getElementById('det-motivo')?.value || '—';
+
+    if (!aluno || aluno === '—') { alert('Preencha o nome do aluno primeiro.'); return; }
+
+    const btn = document.querySelector('[onclick="geminiGerarDetencao()"]');
+    if (btn) { btn.disabled = true; btn.textContent = '⏳ Gerando...'; }
+
+    const instrucaoDet = document.getElementById('instrucaoDet')?.value?.trim() || '';
+    try {
+      const prompt = `Você é um(a) professor(a) experiente. Crie um texto reflexivo e educativo para que o aluno copie como atividade de detenção.
+
+DADOS:
+- Nome do aluno: ${aluno}
+- Disciplina: ${disciplina}
+- Motivo da detenção: ${motivo}
+${instrucaoDet ? `- Orientação do professor: ${instrucaoDet}` : ''}
+
+INSTRUÇÕES DE REDAÇÃO:
+- Escreva um texto em primeira pessoa (como se o próprio aluno estivesse refletindo e se comprometendo)
+- Desenvolva 3 a 4 parágrafos curtos e claros, cada um abordando um aspecto diferente: reconhecimento do erro, impacto do comportamento nos colegas e na aula, compromisso de mudança, e um fechamento positivo de autoencourajamento
+- Use linguagem simples, direta e adequada para a faixa etária escolar
+- O texto deve ser adequado para cópia manual, fluido e sem repetições
+- NÃO use markdown, bullets, títulos ou numeração — apenas texto corrido
+- O texto deve ter entre 400 e 700 caracteres`;
+
+      const texto = await geminiRequest(prompt);
+      const box = document.getElementById('det-texto-ia');
+      if (box) {
+        box.textContent = texto.trim();
+        box.style.display = 'block';
+      }
+    } catch(e) {
+      if (e.message !== 'Chave não configurada') alert('Erro: ' + e.message);
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = '✨ Gerar texto de detenção com IA'; }
+    }
+  }
+
+  // ── ABAS INTERNAS DETENÇÃO ──
+  function detAbaAtiva(aba) {
+    ['atividade','temas','redacao'].forEach(id => {
+      const panel = document.getElementById('det-aba-' + id);
+      const btn   = document.getElementById('det-aba-btn-' + id);
+      if (!panel || !btn) return;
+      const ativo = id === aba;
+      panel.style.display = ativo ? 'block' : 'none';
+      btn.style.borderBottomColor = ativo ? 'var(--brand)' : 'transparent';
+      btn.style.color = ativo ? 'var(--ink)' : 'var(--muted)';
+      btn.style.fontWeight = ativo ? '600' : '500';
+    });
+  }
+
+  // ── FOLHA DE REDAÇÃO ──
+  function redUpdate() {
+    const aluno    = (document.getElementById('red-aluno')?.value || '').trim();
+    const serie    = (document.getElementById('red-serie')?.value || '').trim();
+    const data     = document.getElementById('red-data')?.value || '';
+    const prof     = (document.getElementById('red-professor')?.value || '').trim();
+    const tema     = (document.getElementById('red-tema')?.value || '').trim();
+    const nLinhas  = parseInt(document.getElementById('red-linhas')?.value || 30);
+    const segundaPag = document.getElementById('red-segunda-pag')?.checked;
+    const logo     = document.getElementById('red-mostrar-logo')?.checked;
+
+    // update display labels
+    const lv = document.getElementById('red-linhas-val');
+    if (lv) lv.textContent = nLinhas;
+
+    const dataFmt = data ? new Date(data + 'T12:00:00').toLocaleDateString('pt-BR') : '';
+    const logoSrc = document.getElementById('det-preview')?.querySelector('img')?.src || '';
+    const usableH_mm = 296;
+    const fixedBlock_mm = logo ? 58 : 40;
+    const temaBlock_mm = tema ? 18 : 10;
+    const esp = Math.max(20, Math.floor(((usableH_mm - fixedBlock_mm - temaBlock_mm) / nLinhas) * 3.7795));
+
+    // build header
+    let cabHtml = '';
+    if (logo) {
+      cabHtml = `<div class="red-header">
+        ${logoSrc ? `<img src="${logoSrc}" style="height:44px;object-fit:contain;">` : '<div style="width:44px;"></div>'}
+        <div class="red-titulo">Folha de Redação</div>
+        <div class="red-escola">ENSPS<br>2026</div>
+      </div>`;
+    } else {
+      cabHtml = `<div class="red-titulo" style="border-bottom:2px solid #000;padding-bottom:5px;margin-bottom:10px;">Folha de Redação</div>`;
+    }
+
+    // campos
+    const camposHtml = `<div class="red-campos">
+      <div class="red-campo"><strong>Aluno(a):</strong><span>${aluno}</span></div>
+      <div class="red-campo"><strong>Série/Turma:</strong><span>${serie}</span></div>
+      <div class="red-campo"><strong>Data:</strong><span>${dataFmt}</span></div>
+      <div class="red-campo"><strong>Professor(a):</strong><span>${prof}</span></div>
+    </div>`;
+
+    // tema box
+    const temaHtml = `<div class="red-tema-box">
+      <div class="red-tema-label">Tema:</div>
+      <div style="font-size:9px;line-height:1.5;">${tema.replace(/\n/g,'<br>') || '&nbsp;'}</div>
+    </div>`;
+
+    // linhas
+    const buildLinhasHtml = (startAt = 1) => '<div class="red-linhas">' +
+      Array.from({ length: nLinhas }, (_, idx) =>
+        `<div class="red-ln" style="height:${esp}px;min-height:${esp}px;">
+          <span class="red-ln-num">${startAt + idx}</span>
+          <span class="red-ln-rule"></span>
+        </div>`
+      ).join('') + '</div>';
+
+    const linhasHtml = buildLinhasHtml(1);
+
+    document.getElementById('red-preview').innerHTML =
+      `<div class="red-pagina">${cabHtml}${camposHtml}${temaHtml}${linhasHtml}</div>` +
+      (segundaPag ? `<div class="red-pagina"><div class="red-titulo" style="border-bottom:2px solid #000;padding-bottom:5px;margin-bottom:10px;">Folha de Redação</div>${buildLinhasHtml(nLinhas + 1)}</div>` : '');
+  }
+
+  function redExecutarImpressao() {
+    const preview = document.getElementById('red-preview');
+    if (!preview) return;
+
+    const html = preview.innerHTML.trim();
+    if (!html) return;
+
+    const win = window.open('', '_blank', 'width=900,height=1200');
+    if (!win) {
+      alert('Não foi possível abrir a janela de impressão. Verifique se o navegador bloqueou pop-ups.');
+      return;
+    }
+
+    win.document.write(`<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressão - Folha de Redação</title>
+  <style>
+    @page { size: A4 portrait; margin: 0; }
+    html, body { margin: 0; padding: 0; background: #fff; }
+    body { font-family: Verdana, Arial, sans-serif; color: #000; }
+    .red-pagina {
+      background: #fff;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0;
+      padding: 8mm 10mm 0;
+      color: #000;
+      box-sizing: border-box;
+      overflow: hidden;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .red-pagina:not(:last-child) {
+      break-after: page;
+      page-break-after: always;
+    }
+    .red-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #000;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+    }
+    .red-titulo {
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      text-decoration: underline;
+      text-align: center;
+      flex: 1;
+    }
+    .red-escola {
+      font-size: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: right;
+      max-width: 120px;
+      line-height: 1.3;
+    }
+    .red-campos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 12px;
+      margin-bottom: 8px;
+      font-size: 9px;
+    }
+    .red-campo {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 2px;
+    }
+    .red-campo strong { white-space: nowrap; font-size: 9px; }
+    .red-campo span { flex: 1; font-size: 9px; min-height: 12px; }
+    .red-tema-box {
+      border: 1px solid #000;
+      padding: 6px 8px;
+      margin-bottom: 10px;
+      font-size: 9px;
+      line-height: 1.5;
+      min-height: 36px;
+    }
+    .red-tema-label {
+      font-size: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .red-linhas { display: flex; flex-direction: column; margin-top: 4px; }
+    .red-ln {
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      box-sizing: border-box;
+    }
+    .red-ln-num {
+      width: 18px;
+      font-size: 8px;
+      font-weight: 800;
+      color: #000;
+      line-height: 1;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .red-ln-rule {
+      flex: 1;
+      border-bottom: 2px solid #000;
+      height: 100%;
+      display: block;
+      box-sizing: border-box;
+    }
+    * { box-shadow: none; }
+  </style>
+</head>
+<body>${html}</body>
+</html>`);
+    win.document.close();
+
+    const doPrint = () => {
+      win.focus();
+      win.print();
+      setTimeout(() => win.close(), 300);
+    };
+
+    if (win.document.readyState === 'complete') {
+      doPrint();
+    } else {
+      win.onload = doPrint;
+    }
+  }
+
+  function redImprimir() {
+    redUpdate();
+    redExecutarImpressao();
+  }
+
+  // populate red-alunos datalist from caderno de alunos
+  function redPopularAlunos() {
+    const dl = document.getElementById('red-alunosList');
+    const src = document.getElementById('det-alunosList');
+    if (!dl || !src) return;
+    dl.innerHTML = src.innerHTML;
+  }
+
+  // ── TEMAS DE REDAÇÃO ──
+  async function geminiGerarTemas() {
+    const serie       = document.getElementById('tema-serie')?.value || '';
+    const tipoTexto   = document.getElementById('tema-tipo-texto')?.value || 'qualquer';
+    const quantidade  = document.getElementById('tema-quantidade')?.value || '5';
+    const instrucao   = document.getElementById('tema-instrucao-livre')?.value?.trim() || '';
+    const categorias  = [...document.querySelectorAll('#tema-checkboxes input[type=checkbox]:checked')].map(i => i.value);
+
+    if (!categorias.length && !instrucao) {
+      alert('Marque pelo menos uma categoria ou escreva uma instrução livre.');
+      return;
+    }
+
+    const btn = document.getElementById('btnGerarTemas');
+    btn.disabled = true;
+    btn.innerHTML = '⏳ Gerando temas...';
+
+    try {
+      const categoriasTexto = categorias.length > 0
+        ? categorias.map((c, i) => `${i + 1}. ${c}`).join('\n')
+        : '';
+
+      const prompt = `Você é um(a) professor(a) experiente de Língua Portuguesa. Crie ${quantidade} temas de redação originais, instigantes e bem elaborados para uso em atividade escolar.
+
+CONFIGURAÇÕES:
+- Série / Faixa etária: ${serie || 'não especificada (use linguagem acessível para ensino fundamental/médio)'}
+- Tipo de texto: ${tipoTexto}
+${categoriasTexto ? `- Categorias temáticas solicitadas:\n${categoriasTexto}` : ''}
+${instrucao ? `- Instrução específica do professor: ${instrucao}` : ''}
+
+INSTRUÇÕES DE CRIAÇÃO:
+- Crie exatamente ${quantidade} temas numerados
+- Cada tema deve ter: um TÍTULO curto e impactante + uma PROPOSTA completa de 2 a 3 linhas explicando o contexto, o que deve ser abordado e o que se espera do aluno
+- Os temas devem ser variados entre si, mesmo que pertençam à mesma categoria
+- Use linguagem clara, motivadora e adequada à faixa etária indicada
+- Distribua os temas entre as categorias marcadas de forma equilibrada
+- Ao final de cada tema, indique entre parênteses a categoria a que pertence
+
+FORMATO DE RESPOSTA — siga EXATAMENTE este modelo para cada tema:
+TEMA [número]: [Título do tema]
+[Proposta completa em 2 a 3 linhas]
+([Categoria])
+
+Separe cada tema com uma linha em branco. Sem markdown, sem bullets extras.`;
+
+      const texto = await geminiRequest(prompt);
+      renderTemasResultado(texto.trim(), parseInt(quantidade));
+    } catch(e) {
+      if (e.message !== 'Chave não configurada') alert('Erro: ' + e.message);
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '✨ Gerar Temas com IA';
+    }
+  }
+
+  function renderTemasResultado(texto, quantidade) {
+    const resultado = document.getElementById('temas-resultado');
+    const lista = document.getElementById('temas-lista');
+    resultado.style.display = 'block';
+    lista.innerHTML = '';
+
+    // Quebrar por "TEMA X:" ou linha em branco dupla
+    const blocos = texto.split(/\n\s*\n/).filter(b => b.trim());
+
+    blocos.forEach((bloco, idx) => {
+      const linhas = bloco.trim().split('\n');
+      const tituloLinha = linhas[0] || '';
+      const corpo = linhas.slice(1).join('\n').trim();
+
+      const card = document.createElement('div');
+      card.style.cssText = 'background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;position:relative;';
+
+      const numMatch = tituloLinha.match(/TEMA\s*(\d+)\s*[:\-]?\s*(.*)/i);
+      const numero = numMatch ? numMatch[1] : (idx + 1);
+      const titulo = numMatch ? numMatch[2].trim() : tituloLinha.trim();
+
+      card.innerHTML = `
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="background:var(--brand);color:#fff;font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:20px;flex-shrink:0;">Tema ${numero}</span>
+            <strong style="font-size:.92rem;color:var(--ink);">${titulo}</strong>
+          </div>
+          <button onclick="temasCopiarUm(this)" data-texto="${(titulo + '\n' + corpo).replace(/"/g,'&quot;')}"
+            style="background:var(--card2);border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:4px 10px;font-size:.74rem;cursor:pointer;flex-shrink:0;">
+            📋 Copiar
+          </button>
+        </div>
+        <p style="font-size:.84rem;color:var(--muted);line-height:1.6;margin:0;">${corpo.replace(/\n/g,'<br>')}</p>
+      `;
+      lista.appendChild(card);
+    });
+
+    resultado.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function temasCopiarUm(btn) {
+    const texto = btn.dataset.texto;
+    navigator.clipboard.writeText(texto).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '✅ Copiado!';
+      setTimeout(() => btn.textContent = orig, 1500);
+    });
+  }
+
+  function temasCopiarTodos() {
+    const cards = document.querySelectorAll('#temas-lista [data-texto]');
+    const texto = [...cards].map((b, i) => `--- Tema ${i+1} ---\n` + b.dataset.texto).join('\n\n');
+    navigator.clipboard.writeText(texto).then(() => alert('Todos os temas copiados!'));
+  }
+
+  function temasSalvarTxt() {
+    const cards = document.querySelectorAll('#temas-lista [data-texto]');
+    const texto = [...cards].map((b, i) => `--- Tema ${i+1} ---\n` + b.dataset.texto).join('\n\n');
+    const blob = new Blob([texto], { type: 'text/plain;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'temas_redacao.txt';
+    a.click();
+  }
+
 
   </script>
 </body>
