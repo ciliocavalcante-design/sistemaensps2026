@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sistema Integrado ENSPS 2026</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     /* ============================================================
        DARK THEME — ENSPS 2026
@@ -1408,6 +1409,8 @@
             <button class="btn-ghost" id="btnAtualizar">🔄 Atualizar</button>
             <button class="btn-ghost" id="btnImprimir">🖨️ Imprimir / PDF</button>
             <button class="btn-ghost" id="btnImprimirMulti" style="display:none;" onclick="advImprimirTodos()">🖨️ Imprimir Todos</button>
+            <button class="btn-ghost" id="btnBaixarPDF">⬇️ Baixar PDF</button>
+            <button class="btn-ghost" id="btnBaixarPDFMulti" style="display:none;" onclick="advBaixarTodosPDF()">⬇️ Baixar Todos em PDF</button>
             <button class="btn-ghost" id="btnPNG">📷 Salvar PNG</button>
           </div>
         </section>
@@ -1484,6 +1487,7 @@
             </div>
             <button class="btn-ghost" id="btnGeminiRel" onclick="geminiGerarRelatorio()">✨ Gerar com IA</button>
             <button class="btn-ghost" id="btnImprimirRelatorio">🖨️ Imprimir PDF</button>
+            <button class="btn-ghost" id="btnBaixarPDFRelatorio">⬇️ Baixar PDF</button>
             <button class="btn-ghost" id="btnGerarPNGRelatorio">📷 Gerar PNG</button>
           </div>
         </section>
@@ -1560,6 +1564,7 @@
           <div class="actions">
             <button class="btn" id="btnGerarCredenciais">🔑 Gerar Credenciais</button>
             <button class="btn-purple" id="btnImprimirCredenciais">🖨️ Imprimir Credenciais</button>
+            <button class="btn-ghost" id="btnBaixarPDFCredenciais">⬇️ Baixar PDF</button>
             <button class="btn-ghost" id="btnCopiarCredenciais">📋 Copiar Dados</button>
           </div>
 
@@ -2181,8 +2186,9 @@
               </label>
             </div>
           </div>
-          <div style="display:flex;gap:8px;margin-top:14px;">
+          <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;">
             <button class="btn" onclick="detImprimir()">🖨️ Imprimir</button>
+            <button class="btn-ghost" onclick="detBaixarPDF()">⬇️ Baixar PDF</button>
           </div>
         </div>
         <div id="det-preview-wrap" style="padding:20px;background:var(--bg);display:flex;flex-direction:column;align-items:center;">
@@ -2350,8 +2356,9 @@
             </label>
           </div>
 
-          <div style="display:flex;gap:8px;">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
             <button class="btn" onclick="redImprimir()">🖨️ Imprimir</button>
+            <button class="btn-ghost" onclick="redBaixarPDF()">⬇️ Baixar PDF</button>
           </div>
         </div>
 
@@ -3013,6 +3020,193 @@
       URL.revokeObjectURL(url);
     }
 
+    function pdfGarantirBibliotecas() {
+      if (!window.html2canvas) {
+        alert('A biblioteca de captura ainda não foi carregada. Tente novamente em instantes.');
+        return false;
+      }
+      if (!window.jspdf || !window.jspdf.jsPDF) {
+        alert('A biblioteca de PDF ainda não foi carregada. Tente novamente em instantes.');
+        return false;
+      }
+      return true;
+    }
+
+    function pdfEsperarRender() {
+      return new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    }
+
+    async function pdfEsperarImagens(el) {
+      const imgs = [...el.querySelectorAll('img')];
+      await Promise.all(imgs.map(img => {
+        if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+        return new Promise(resolve => {
+          img.onload = resolve;
+          img.onerror = resolve;
+        });
+      }));
+      await pdfEsperarRender();
+    }
+
+    function pdfCriarHostTemporario(nodes) {
+      const host = document.createElement('div');
+      host.style.cssText = 'position:fixed;left:-20000px;top:0;z-index:-1;background:#fff;padding:0;margin:0;';
+      document.body.appendChild(host);
+
+      const clones = nodes.map(node => {
+        const wrap = document.createElement('div');
+        wrap.style.cssText = 'background:#fff;margin:0;padding:0;';
+        const clone = node.cloneNode(true);
+        clone.style.display = 'block';
+        clone.style.visibility = 'visible';
+        clone.style.marginLeft = '0';
+        clone.style.marginRight = '0';
+        wrap.appendChild(clone);
+        host.appendChild(wrap);
+        return clone;
+      });
+
+      return { host, clones };
+    }
+
+    async function pdfBaixarPaginas(nodes, nomeArquivo) {
+      if (!pdfGarantirBibliotecas()) return;
+      const pages = (nodes || []).filter(Boolean);
+      if (!pages.length) {
+        alert('Nenhuma página foi encontrada para gerar o PDF.');
+        return;
+      }
+
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pageW = pdf.internal.pageSize.getWidth();
+      const pageH = pdf.internal.pageSize.getHeight();
+      const { host, clones } = pdfCriarHostTemporario(pages);
+
+      try {
+        for (let i = 0; i < clones.length; i++) {
+          const clone = clones[i];
+          await pdfEsperarImagens(clone);
+          const canvas = await html2canvas(clone, { scale: 2, backgroundColor: '#ffffff', useCORS: true });
+          const imgData = canvas.toDataURL('image/jpeg', 0.98);
+          const ratio = Math.min(pageW / canvas.width, pageH / canvas.height);
+          const imgW = canvas.width * ratio;
+          const imgH = canvas.height * ratio;
+          const x = (pageW - imgW) / 2;
+          if (i > 0) pdf.addPage();
+          pdf.addImage(imgData, 'JPEG', x, 0, imgW, imgH, undefined, 'FAST');
+        }
+
+        pdf.save(nomeArquivo);
+      } finally {
+        host.remove();
+      }
+    }
+
+    async function pdfBaixarBloco(node, nomeArquivo, margemMm = 0, options = {}) {
+      if (!pdfGarantirBibliotecas()) return;
+      if (!node) {
+        alert('Não foi possível localizar o conteúdo para gerar o PDF.');
+        return;
+      }
+
+      const { jsPDF } = window.jspdf;
+      const { host, clones } = pdfCriarHostTemporario([node]);
+      const clone = clones[0];
+
+      if (options.a4Doc) {
+        host.style.left = '-40000px';
+        host.style.width = '210mm';
+        host.style.maxWidth = '210mm';
+        host.style.overflow = 'visible';
+        clone.style.width = '210mm';
+        clone.style.maxWidth = '210mm';
+        clone.style.padding = '4mm';
+        clone.style.margin = '0';
+        clone.style.boxSizing = 'border-box';
+        clone.style.background = '#fff';
+        clone.style.border = 'none';
+        clone.style.borderRadius = '0';
+        clone.style.boxShadow = 'none';
+        clone.style.color = '#000';
+
+        [...clone.children].forEach(el => {
+          el.style.width = '100%';
+          el.style.maxWidth = '100%';
+          el.style.margin = '0';
+          el.style.boxSizing = 'border-box';
+          el.style.background = '#fff';
+          el.style.border = 'none';
+          el.style.borderRadius = '0';
+          el.style.boxShadow = 'none';
+          el.style.color = '#000';
+        });
+
+        clone.querySelectorAll('.doc, .adv-page-wrap').forEach(el => {
+          el.style.maxWidth = '100%';
+          el.style.width = '100%';
+          el.style.margin = '0';
+          el.style.padding = '0';
+          el.style.boxSizing = 'border-box';
+          el.style.background = '#fff';
+          el.style.border = 'none';
+          el.style.borderRadius = '0';
+          el.style.boxShadow = 'none';
+          el.style.color = '#000';
+        });
+
+        clone.querySelectorAll('.doc header').forEach(el => {
+          el.style.marginTop = '0';
+        });
+
+        clone.querySelectorAll('*').forEach(el => {
+          if (el.tagName !== 'IMG') {
+            el.style.color = '#000';
+            el.style.opacity = '1';
+            el.style.textShadow = 'none';
+            el.style.filter = 'none';
+          }
+        });
+      }
+
+      try {
+        await pdfEsperarImagens(clone);
+        const canvas = await html2canvas(clone, { scale: 2, backgroundColor: '#ffffff', useCORS: true });
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const pageW = pdf.internal.pageSize.getWidth();
+        const pageH = pdf.internal.pageSize.getHeight();
+        const usableW = pageW - (margemMm * 2);
+        const usableH = pageH - (margemMm * 2);
+        const pxPerMm = canvas.width / usableW;
+        const pageHeightPx = Math.max(1, Math.floor(usableH * pxPerMm));
+        let offsetY = 0;
+        let pageIndex = 0;
+
+        while (offsetY < canvas.height) {
+          const sliceHeight = Math.min(pageHeightPx, canvas.height - offsetY);
+          const slice = document.createElement('canvas');
+          slice.width = canvas.width;
+          slice.height = sliceHeight;
+          const ctx = slice.getContext('2d');
+          ctx.fillStyle = '#fff';
+          ctx.fillRect(0, 0, slice.width, slice.height);
+          ctx.drawImage(canvas, 0, offsetY, canvas.width, sliceHeight, 0, 0, canvas.width, sliceHeight);
+
+          const imgData = slice.toDataURL('image/jpeg', 0.98);
+          const sliceHeightMm = sliceHeight / pxPerMm;
+          if (pageIndex > 0) pdf.addPage();
+          pdf.addImage(imgData, 'JPEG', margemMm, margemMm, usableW, sliceHeightMm, undefined, 'FAST');
+
+          offsetY += sliceHeight;
+          pageIndex += 1;
+        }
+
+        pdf.save(nomeArquivo);
+      } finally {
+        host.remove();
+      }
+    }
+
     document.getElementById('filtroSerie').addEventListener('change', renderTabelaFrequencia);
     document.getElementById('filtroEnsino').addEventListener('change', renderTabelaFrequencia);
     document.getElementById('dataFreq').addEventListener('change', renderTabelaFrequencia);
@@ -3076,6 +3270,15 @@
         return;
       }
       window.print();
+    });
+
+    document.getElementById('btnBaixarPDFCredenciais').addEventListener('click', async function(){
+      const container = document.getElementById('credenciaisContainer');
+      if(container.style.display === 'none'){
+        alert('⚠️ Gere as credenciais primeiro!');
+        return;
+      }
+      await pdfBaixarPaginas([document.getElementById('credenciaisImpressao')], 'credenciais_plataformas_digitais.pdf');
     });
 
     document.getElementById('btnCopiarCredenciais').addEventListener('click', function(){
@@ -3395,8 +3598,10 @@ Senha temporária: ensps2026`;
       document.getElementById('adv-multi-lista').style.display  = multi ? 'block' : 'none';
       document.getElementById('adv-aluno-single').style.display = multi ? 'none'  : '';
       document.getElementById('adv-multi-count').style.display  = multi ? 'inline' : 'none';
-      document.getElementById('btnImprimir').style.display      = multi ? 'none'  : '';
-      document.getElementById('btnImprimirMulti').style.display = multi ? ''      : 'none';
+      document.getElementById('btnImprimir').style.display       = multi ? 'none'  : '';
+      document.getElementById('btnImprimirMulti').style.display  = multi ? ''      : 'none';
+      document.getElementById('btnBaixarPDF').style.display      = multi ? 'none'  : '';
+      document.getElementById('btnBaixarPDFMulti').style.display = multi ? ''      : 'none';
       advAtualizarTagsPreview();
     }
 
@@ -3470,12 +3675,11 @@ Senha temporária: ensps2026`;
       setTimeout(cleanup, 1500);
     }
 
-    function advImprimirTodos() {
-      if(advMultiAlunos.length === 0) { alert('Adicione pelo menos um aluno.'); return; }
+    function advMontarPreviewTodos() {
+      if(advMultiAlunos.length === 0) { alert('Adicione pelo menos um aluno.'); return null; }
       const c        = $('#docPreview');
       const escola   = document.getElementById('viaEscola').checked;
       const pais     = document.getElementById('viaPais').checked;
-      // Save original values
       const origNome = document.getElementById('aluno').value;
       const origMat  = document.getElementById('matricula').value;
       const origSerie= document.getElementById('serie').value;
@@ -3483,13 +3687,12 @@ Senha temporária: ensps2026`;
 
       c.innerHTML = '';
       advMultiAlunos.forEach((a, idx) => {
-        // Set fields for this aluno
         document.getElementById('aluno').value     = a.nome;
         document.getElementById('matricula').value = a.matricula;
         document.getElementById('serie').value     = a.serie;
         document.getElementById('turma').value     = a.turma;
         const isLast = idx === advMultiAlunos.length - 1;
-        // Build copies — each wrapped in a page-break div
+
         if(escola) {
           const d = buildCopy('Via: Escola');
           const w = document.createElement('div');
@@ -3507,12 +3710,28 @@ Senha temporária: ensps2026`;
           c.appendChild(w);
         }
       });
-      // Restore
+
       document.getElementById('aluno').value     = origNome;
       document.getElementById('matricula').value = origMat;
       document.getElementById('serie').value     = origSerie;
       document.getElementById('turma').value     = origTurma;
+      return c;
+    }
+
+    function advImprimirTodos() {
+      const preview = advMontarPreviewTodos();
+      if(!preview) return;
       advExecutarImpressao(() => renderPreview());
+    }
+
+    async function advBaixarTodosPDF() {
+      const preview = advMontarPreviewTodos();
+      if(!preview) return;
+      try {
+        await pdfBaixarBloco(preview, 'advertencias_multiplas.pdf', 0, { a4Doc: true });
+      } finally {
+        renderPreview();
+      }
     }
 
         const btnAtualizar = $("#btnAtualizar");
@@ -3520,6 +3739,9 @@ Senha temporária: ensps2026`;
 
     const btnImprimir = $("#btnImprimir");
     if(btnImprimir) btnImprimir.onclick = ()=>{renderPreview(); advExecutarImpressao();};
+
+    const btnBaixarPDF = $("#btnBaixarPDF");
+    if(btnBaixarPDF) btnBaixarPDF.onclick = async ()=>{renderPreview(); await pdfBaixarBloco(document.getElementById('docPreview'), 'advertencia_escolar.pdf', 0, { a4Doc: true });};
 
     const btnPNG = $("#btnPNG");
     if(btnPNG) btnPNG.onclick = ()=>{renderPreview(); exportPNGAdvertencia();};
@@ -3798,6 +4020,12 @@ Senha temporária: ensps2026`;
     if(btnImprimirRel) btnImprimirRel.addEventListener('click', function(){
       renderRelatorioPreview();
       advExecutarImpressao();
+    });
+
+    const btnBaixarPDFRel = document.getElementById('btnBaixarPDFRelatorio');
+    if(btnBaixarPDFRel) btnBaixarPDFRel.addEventListener('click', async function(){
+      renderRelatorioPreview();
+      await pdfBaixarBloco(document.getElementById('docRelatorioPreview'), 'relatorio_pedagogico.pdf', 0, { a4Doc: true });
     });
 
     const btnPNGRel = document.getElementById('btnGerarPNGRelatorio');
@@ -5979,6 +6207,11 @@ Senha temporária: ensps2026`;
     detExecutarImpressao();
   }
 
+  async function detBaixarPDF() {
+    detUpdate();
+    await pdfBaixarPaginas([...document.querySelectorAll('#det-preview .det-pagina')], 'atividade_detencao.pdf');
+  }
+
   // ============================================================
   // GEMINI API
   // ============================================================
@@ -6470,6 +6703,11 @@ INSTRUÇÕES DE REDAÇÃO:
   function redImprimir() {
     redUpdate();
     redExecutarImpressao();
+  }
+
+  async function redBaixarPDF() {
+    redUpdate();
+    await pdfBaixarPaginas([...document.querySelectorAll('#red-preview .red-pagina')], 'folha_redacao.pdf');
   }
 
   // populate red-alunos datalist from caderno de alunos
