@@ -242,6 +242,11 @@
     .badge-justificada { background: var(--warning-dim); color: #fbbf24; }
     .badge-sem-fardamento { background: var(--purple-dim); color: #c4b5fd; }
     .badge-warning     { background: var(--warning-dim); color: #fbbf24; }
+    .badge-pendente-assinatura { background: #3a2b09; color: #facc15; }
+    .menu-badge { display:inline-flex; align-items:center; justify-content:center; min-width:22px; padding:2px 7px; border-radius:999px; background:#7f1d1d; color:#fff; font-size:.66rem; font-weight:700; margin-left:8px; }
+    .pendencias-resumo { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px; }
+    .pendencias-chip { background: var(--surface); border:1px solid var(--border); border-radius:999px; padding:6px 10px; font-size:.78rem; color:var(--ink); }
+    .pendencias-vazio { color: var(--muted); font-size:.88rem; padding:12px 0 4px; }
 
     /* ── PRESENCE BUTTONS ── */
     .presenca-btns { display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; }
@@ -1417,6 +1422,13 @@
 
         <section class="card preview">
           <div class="doc" id="docPreview"></div>
+        </section>
+
+        <section class="card" style="grid-column:1/-1;">
+          <h2 style="margin-bottom:8px;color:var(--ink);">Assinaturas Pendentes</h2>
+          <p class="muted" style="margin:0 0 12px;font-size:.86rem;">Toda advertência salva com linhas de assinatura entra automaticamente nesta lista. A baixa precisa ser manual.</p>
+          <div class="pendencias-resumo" id="pendenciasAssinaturaResumo"></div>
+          <div class="table-container" id="pendenciasAssinaturaTabela"></div>
         </section>
       </main>
     </section>
@@ -2723,6 +2735,12 @@
     // =========================
     let registrosFrequencia = JSON.parse(localStorage.getItem('frequencia') || '[]');
     let advertenciasSalvas = JSON.parse(localStorage.getItem('advertencias') || '[]');
+    advertenciasSalvas = advertenciasSalvas.map(adv => ({
+      ...adv,
+      pendenciaAssinatura: !!adv.pendenciaAssinatura,
+      assinaturaRecebidaEm: adv.assinaturaRecebidaEm || ''
+    }));
+    localStorage.setItem('advertencias', JSON.stringify(advertenciasSalvas));
 
     document.getElementById('dataFreq').valueAsDate = new Date();
 
@@ -2992,6 +3010,8 @@
             alert('✅ Backup importado com sucesso!');
             renderTabelaFrequencia();
             atualizarFaltasAcumuladas();
+            renderPendenciasAssinatura();
+            setTimeout(alertarPendenciasAssinaturaDiarias, 250);
           }
         } catch(err) {
           alert('❌ Erro ao importar backup: ' + err.message);
@@ -3495,6 +3515,101 @@ Senha temporária: ensps2026`;
       return div;
     }
 
+    function getAdvertenciasPendentesAssinatura(){
+      return advertenciasSalvas
+        .filter(adv => adv.pendenciaAssinatura)
+        .sort((a, b) => new Date(a.data || 0) - new Date(b.data || 0));
+    }
+
+    function atualizarBadgePendenciasAssinatura(){
+      const pendentes = getAdvertenciasPendentesAssinatura();
+      const total = pendentes.length;
+      [
+        document.querySelector('.menu-item[data-section="advertencia"] span:last-child'),
+        document.querySelector('.bottom-nav-item[data-section="advertencia"] .bnav-label')
+      ].forEach(target => {
+        if(!target) return;
+        const baseText = target.dataset.baseLabel || target.textContent.replace(/\s*\d+ pend\.?$/i, '').trim();
+        target.dataset.baseLabel = baseText;
+        target.innerHTML = total > 0
+          ? `${baseText}<span class="menu-badge">${total}</span>`
+          : baseText;
+      });
+    }
+
+    function renderPendenciasAssinatura(){
+      const resumo = document.getElementById('pendenciasAssinaturaResumo');
+      const tabela = document.getElementById('pendenciasAssinaturaTabela');
+      if(!resumo || !tabela) return;
+
+      const pendentes = getAdvertenciasPendentesAssinatura();
+      const alunosUnicos = new Set(pendentes.map(adv => adv.aluno)).size;
+      resumo.innerHTML = `
+        <div class="pendencias-chip">${pendentes.length} advertência(s) pendente(s)</div>
+        <div class="pendencias-chip">${alunosUnicos} aluno(s) aguardando assinatura</div>
+      `;
+
+      if(!pendentes.length){
+        tabela.innerHTML = '<div class="pendencias-vazio">Nenhuma assinatura pendente no momento.</div>';
+        atualizarBadgePendenciasAssinatura();
+        return;
+      }
+
+      tabela.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Aluno</th>
+              <th>Série/Turma</th>
+              <th>Natureza</th>
+              <th>Motivos</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${pendentes.map(adv => `
+              <tr>
+                <td>${fmtData(adv.data)}</td>
+                <td>${adv.aluno}</td>
+                <td>${[adv.serie, adv.turma].filter(Boolean).join(' / ') || '—'}</td>
+                <td>${adv.natureza || '—'}</td>
+                <td>${(adv.motivos || []).join(', ') || '—'}</td>
+                <td><button class="btn-success btn-small" onclick="advDarBaixaAssinatura(${adv.id})">✅ Dar baixa</button></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+
+      atualizarBadgePendenciasAssinatura();
+    }
+
+    function alertarPendenciasAssinaturaDiarias(){
+      const pendentes = getAdvertenciasPendentesAssinatura();
+      if(!pendentes.length) return;
+      const hoje = new Date().toISOString().split('T')[0];
+      const chave = 'ensps_alerta_assinaturas_data';
+      if(localStorage.getItem(chave) === hoje) return;
+      localStorage.setItem(chave, hoje);
+      const nomes = [...new Set(pendentes.map(adv => adv.aluno))];
+      const listaNomes = nomes.slice(0, 8).join('\n- ');
+      const resto = nomes.length > 8 ? `\n- e mais ${nomes.length - 8} aluno(s)` : '';
+      alert(`⚠️ Você tem ${pendentes.length} advertência(s) aguardando assinatura dos pais.\n\nAlunos para cobrar hoje:\n- ${listaNomes}${resto}`);
+    }
+
+    window.advDarBaixaAssinatura = function(id){
+      const adv = advertenciasSalvas.find(item => item.id === id);
+      if(!adv) return;
+      adv.pendenciaAssinatura = false;
+      adv.assinaturaRecebidaEm = new Date().toISOString();
+      localStorage.setItem('advertencias', JSON.stringify(advertenciasSalvas));
+      renderPendenciasAssinatura();
+      const btnBusca = document.getElementById('btnBuscarHist');
+      const alunoHist = document.getElementById('alunoHist');
+      if(btnBusca && alunoHist && alunoHist.value.trim().toUpperCase() === (adv.aluno || '').toUpperCase()) btnBusca.click();
+    };
+
     function renderPreview(){
       const c = $("#docPreview");
       if(!c) return;
@@ -3546,7 +3661,9 @@ Senha temporária: ensps2026`;
           natureza,
           motivos: motivosMarcados,
           descricao,
-          responsavel: $("#responsavel") ? $("#responsavel").value : ""
+          responsavel: $("#responsavel") ? $("#responsavel").value : "",
+          pendenciaAssinatura: !!(document.getElementById('mostrarAssinaturas') && document.getElementById('mostrarAssinaturas').checked),
+          assinaturaRecebidaEm: ""
         });
 
         const registrosParaSalvar = multi
@@ -3560,6 +3677,7 @@ Senha temporária: ensps2026`;
 
         advertenciasSalvas.push(...registrosParaSalvar);
         localStorage.setItem('advertencias', JSON.stringify(advertenciasSalvas));
+        renderPendenciasAssinatura();
 
         alert(multi
           ? `✅ ${registrosParaSalvar.length} advertência(s) salva(s) com sucesso!`
@@ -4055,6 +4173,8 @@ Senha temporária: ensps2026`;
 
     renderizarTopicos();
     renderRelatorioPreview();
+    renderPendenciasAssinatura();
+    setTimeout(alertarPendenciasAssinaturaDiarias, 900);
 
     // =========================
     // HISTÓRICO
@@ -4113,6 +4233,7 @@ Senha temporária: ensps2026`;
                 <th>Data</th>
                 <th>Natureza</th>
                 <th>Motivos</th>
+                <th>Assinatura</th>
                 <th>Ações</th>
               </tr>
             </thead>
@@ -4125,7 +4246,9 @@ Senha temporária: ensps2026`;
               <td>${fmtData(adv.data)}</td>
               <td>${adv.natureza}</td>
               <td>${adv.motivos.join(', ') || '—'}</td>
+              <td>${adv.pendenciaAssinatura ? '<span class="badge badge-pendente-assinatura">Pendente</span>' : '<span class="badge badge-presente">Recebida / sem assinatura</span>'}</td>
               <td>
+                ${adv.pendenciaAssinatura ? `<button class="btn-success btn-small" onclick="advDarBaixaAssinatura(${adv.id})">✅</button>` : ''}
                 <button class="btn-danger btn-small" onclick="excluirAdvertencia(${adv.id})">🗑️</button>
               </td>
             `;
@@ -4183,6 +4306,7 @@ Senha temporária: ensps2026`;
       if(confirm('Deseja realmente excluir esta advertência?')){
         advertenciasSalvas = advertenciasSalvas.filter(a => a.id !== id);
         localStorage.setItem('advertencias', JSON.stringify(advertenciasSalvas));
+        renderPendenciasAssinatura();
         alert('✅ Advertência excluída!');
         const btn = document.getElementById('btnBuscarHist');
         if(btn) btn.click();
