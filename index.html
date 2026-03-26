@@ -691,6 +691,7 @@
         break-inside: auto !important;
       }
       .doc .logo { max-height: 70px !important; width: auto !important; }
+      #advertencia-pendencias-wrap { display: none !important; }
 
       /* ── credenciais impressão ── */
       .credenciais-impressao { display: block !important; }
@@ -1276,6 +1277,14 @@
         <h1>Gerador de Advertência Escolar</h1>
         <h2 class="muted">Preencha os dados, visualize e exporte em PDF, PNG ou DOCX.</h2>
       </header>
+      <div class="wrap" id="advertencia-pendencias-wrap">
+        <section class="card">
+          <h2 style="margin-bottom:8px;color:var(--ink);">Assinaturas Pendentes</h2>
+          <p class="muted" style="margin:0 0 12px;font-size:.86rem;">Toda advertência salva com linhas de assinatura entra automaticamente nesta lista. A baixa precisa ser manual.</p>
+          <div class="pendencias-resumo" id="pendenciasAssinaturaResumo"></div>
+          <div class="table-container" id="pendenciasAssinaturaTabela"></div>
+        </section>
+      </div>
       <main class="wrap grid">
         <section class="card controls">
           <h2>Dados da Escola</h2>
@@ -1422,13 +1431,6 @@
 
         <section class="card preview">
           <div class="doc" id="docPreview"></div>
-        </section>
-
-        <section class="card" style="grid-column:1/-1;">
-          <h2 style="margin-bottom:8px;color:var(--ink);">Assinaturas Pendentes</h2>
-          <p class="muted" style="margin:0 0 12px;font-size:.86rem;">Toda advertência salva com linhas de assinatura entra automaticamente nesta lista. A baixa precisa ser manual.</p>
-          <div class="pendencias-resumo" id="pendenciasAssinaturaResumo"></div>
-          <div class="table-container" id="pendenciasAssinaturaTabela"></div>
         </section>
       </main>
     </section>
@@ -2735,11 +2737,22 @@
     // =========================
     let registrosFrequencia = JSON.parse(localStorage.getItem('frequencia') || '[]');
     let advertenciasSalvas = JSON.parse(localStorage.getItem('advertencias') || '[]');
-    advertenciasSalvas = advertenciasSalvas.map(adv => ({
-      ...adv,
-      pendenciaAssinatura: !!adv.pendenciaAssinatura,
-      assinaturaRecebidaEm: adv.assinaturaRecebidaEm || ''
-    }));
+    advertenciasSalvas = advertenciasSalvas.map(adv => {
+      const temCampoLinhas = Object.prototype.hasOwnProperty.call(adv, 'usaLinhasAssinatura');
+      const temCampoPendencia = Object.prototype.hasOwnProperty.call(adv, 'pendenciaAssinatura');
+      const assinaturaRecebidaEm = adv.assinaturaRecebidaEm || '';
+      const usaLinhasAssinatura = temCampoLinhas ? !!adv.usaLinhasAssinatura : true;
+      const pendenciaAssinatura = (!temCampoLinhas && !assinaturaRecebidaEm)
+        ? true
+        : (temCampoPendencia ? !!adv.pendenciaAssinatura : !!usaLinhasAssinatura);
+
+      return {
+        ...adv,
+        usaLinhasAssinatura,
+        pendenciaAssinatura,
+        assinaturaRecebidaEm
+      };
+    });
     localStorage.setItem('advertencias', JSON.stringify(advertenciasSalvas));
 
     document.getElementById('dataFreq').valueAsDate = new Date();
@@ -3601,6 +3614,7 @@ Senha temporária: ensps2026`;
     window.advDarBaixaAssinatura = function(id){
       const adv = advertenciasSalvas.find(item => item.id === id);
       if(!adv) return;
+      adv.usaLinhasAssinatura = true;
       adv.pendenciaAssinatura = false;
       adv.assinaturaRecebidaEm = new Date().toISOString();
       localStorage.setItem('advertencias', JSON.stringify(advertenciasSalvas));
@@ -3662,6 +3676,7 @@ Senha temporária: ensps2026`;
           motivos: motivosMarcados,
           descricao,
           responsavel: $("#responsavel") ? $("#responsavel").value : "",
+          usaLinhasAssinatura: !!(document.getElementById('mostrarAssinaturas') && document.getElementById('mostrarAssinaturas').checked),
           pendenciaAssinatura: !!(document.getElementById('mostrarAssinaturas') && document.getElementById('mostrarAssinaturas').checked),
           assinaturaRecebidaEm: ""
         });
@@ -4241,12 +4256,17 @@ Senha temporária: ensps2026`;
           `;
 
           advAluno.forEach(adv => {
+            const statusAssinatura = adv.pendenciaAssinatura
+              ? '<span class="badge badge-pendente-assinatura">Enviada (pendente)</span>'
+              : (adv.usaLinhasAssinatura
+                  ? '<span class="badge badge-presente">Recebida / com assinatura</span>'
+                  : '<span class="badge badge-presente">Recebida / sem assinatura</span>');
             const tr = document.createElement('tr');
             tr.innerHTML = `
               <td>${fmtData(adv.data)}</td>
               <td>${adv.natureza}</td>
               <td>${adv.motivos.join(', ') || '—'}</td>
-              <td>${adv.pendenciaAssinatura ? '<span class="badge badge-pendente-assinatura">Pendente</span>' : '<span class="badge badge-presente">Recebida / sem assinatura</span>'}</td>
+              <td>${statusAssinatura}</td>
               <td>
                 ${adv.pendenciaAssinatura ? `<button class="btn-success btn-small" onclick="advDarBaixaAssinatura(${adv.id})">✅</button>` : ''}
                 <button class="btn-danger btn-small" onclick="excluirAdvertencia(${adv.id})">🗑️</button>
