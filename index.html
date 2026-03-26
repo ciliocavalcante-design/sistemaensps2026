@@ -1471,7 +1471,7 @@
           </div>
 
           <h2 style="margin-top:18px">Tópicos Prontos (Opcional)</h2>
-          <div class="card" style="background:#f8f9fc; padding:15px">
+          <div class="card" style="background:var(--surface); border:1px solid var(--border); padding:15px">
             <p class="muted" style="margin:0 0 10px; font-size:.9rem">
               Selecione os tópicos que deseja incluir no relatório. Escolha "Sim" ou "Não" para cada item.
             </p>
@@ -6489,7 +6489,7 @@ Senha temporária: ensps2026`;
         ? motivos.map((m, i) => `${i + 1}. ${m}`).join('\n')
         : 'não especificado';
 
-      const prompt = `Você é um(a) coordenador(a) pedagógico(a) experiente de uma escola. Redija o texto completo de descrição para um documento escolar oficial do tipo "${tipo}".
+      const prompt = `Você é um(a) coordenador(a) pedagógico(a) experiente de uma escola. Redija o texto de descrição para um documento escolar oficial do tipo "${tipo}".
 
 DADOS DO OCORRIDO:
 - Aluno(a): ${aluno}
@@ -6500,12 +6500,18 @@ ${motivosFormatados}
 ${instrucaoAdv ? `- Orientação específica: ${instrucaoAdv}` : ''}
 
 INSTRUÇÕES DE REDAÇÃO:
-- Escreva um texto corrido, formal e completo, em linguagem pedagógica institucional
-- Produza um parágrafo bem desenvolvido para CADA motivo/infração listado acima, descrevendo o comportamento, seu impacto no ambiente escolar e a postura esperada
-- Conecte os parágrafos de forma coesa, como um documento oficial
-- Inclua uma frase de encerramento reforçando os valores da instituição e o compromisso com o desenvolvimento do aluno
-- NÃO use markdown, bullets, títulos ou numeração — apenas texto corrido em parágrafos
-- O texto deve ter entre 500 e 900 caracteres, proporcional à quantidade de motivos`;
+- Priorize rigorosamente a orientação específica informada pelo educador; se houver conflito entre esta orientação e qualquer instrução genérica, siga a orientação específica
+- Escreva em linguagem pedagógica institucional, formal, clara e natural, sem soar mecânico
+- NÃO force um parágrafo para cada motivo
+- Organize o texto na quantidade de parágrafos que fizer mais sentido para o caso, normalmente entre 1 e 3 parágrafos
+- Se houver poucos motivos ou orientação para objetividade, prefira 1 parágrafo bem construído
+- Se houver muitos motivos ou a orientação pedir mais detalhamento, use 2 ou 3 parágrafos, sem exagerar
+- Descreva os comportamentos observados, seus impactos no ambiente escolar e a postura esperada do aluno
+- Se for adequado, encerre com uma frase breve de orientação pedagógica ou compromisso institucional
+- NÃO use markdown, bullets, títulos ou numeração
+- Não invente fatos, reincidência, datas ou consequências que não estejam sugeridas nos dados ou na instrução do educador
+- Entregue somente o texto final, pronto para colar no campo descrição
+- Tamanho sugerido: entre 450 e 900 caracteres, ajustando pela complexidade do caso`;
 
       const texto = await geminiRequest(prompt);
       const desc = document.getElementById('descricao');
@@ -6542,7 +6548,7 @@ INSTRUÇÕES DE REDAÇÃO:
       const topicosTexto = topicos.length > 0
         ? topicos.map((t, i) => `${i + 1}. ${t}`).join('\n')
         : 'Nenhuma observação registrada.';
-      const prompt = `Você é um(a) coordenador(a) pedagógico(a) experiente. Elabore um relatório pedagógico completo e bem estruturado para uso oficial da escola.
+      const prompt = `Você é um(a) coordenador(a) pedagógico(a) experiente. Elabore um relatório pedagógico oficial, claro e bem fundamentado para uso da escola.
 
 DADOS DO ALUNO:
 - Nome: ${aluno}
@@ -6554,12 +6560,18 @@ ${topicosTexto}
 ${instrucaoRel ? `ORIENTAÇÃO ESPECÍFICA DO EDUCADOR: ${instrucaoRel}` : ''}
 
 INSTRUÇÕES DE REDAÇÃO:
-- Escreva um relatório em texto corrido, formal, acolhedor e profissional
-- Desenvolva um parágrafo bem elaborado para CADA tópico registrado acima, contextualizando o comportamento ou desempenho do aluno
-- Inclua análise pedagógica, possíveis causas, impactos observados e recomendações concretas
-- Finalize com um parágrafo de perspectivas e encaminhamentos sugeridos para a família e a escola
-- NÃO use markdown, bullets, títulos ou numeração — apenas texto corrido em parágrafos
-- O texto deve ter entre 600 e 1000 caracteres, proporcional à quantidade de tópicos`;
+- Priorize rigorosamente a orientação específica do educador; se ela pedir foco, tom, tamanho ou estrutura, siga isso acima das instruções genéricas
+- Escreva em tom formal, pedagógico, profissional e humano, evitando texto artificial
+- NÃO force um parágrafo para cada tópico
+- Organize o relatório na quantidade de parágrafos que fizer sentido, normalmente entre 2 e 4 parágrafos
+- Se houver poucos tópicos ou pedido de objetividade, use menos parágrafos
+- Se houver mais informações relevantes ou pedido de detalhamento, use mais parágrafos, sem prolixidade
+- Considere os tópicos informados como base principal do texto, mas sintetize quando necessário em vez de repetir mecanicamente item por item
+- Inclua observações pedagógicas, impactos percebidos e encaminhamentos compatíveis com o que foi informado
+- Não invente diagnóstico, laudo, fato, reincidência ou informação não presente nos dados ou na orientação do educador
+- NÃO use markdown, bullets, títulos ou numeração
+- Entregue somente o texto final, pronto para colar no relatório
+- Tamanho sugerido: entre 550 e 1100 caracteres, ajustando à quantidade de informações`;
 
       const texto = await geminiRequest(prompt);
 
