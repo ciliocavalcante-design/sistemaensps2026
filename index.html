@@ -120,7 +120,7 @@
       border-color: rgba(59,91,219,.3);
     }
     .menu-item.active span:last-child { color: #93b4ff; font-weight: 600; }
-    .menu-item span:last-child { font-size: .82rem; color: var(--muted); }
+    .menu-item span:last-child { font-size: .82rem; color: #fff; }
     .menu-icon { font-size: .95rem; width: 20px; text-align: center; flex-shrink: 0; }
 
     /* ── MAIN CONTENT ── */
@@ -247,6 +247,12 @@
     .pendencias-resumo { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px; }
     .pendencias-chip { background: var(--surface); border:1px solid var(--border); border-radius:999px; padding:6px 10px; font-size:.78rem; color:var(--ink); }
     .pendencias-vazio { color: var(--muted); font-size:.88rem; padding:12px 0 4px; }
+    .backup-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:12px; margin-top:14px; }
+    .backup-kpi { background: var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px; }
+    .backup-kpi strong { display:block; font-size:1.15rem; color:var(--ink); margin-bottom:4px; }
+    .backup-kpi span { font-size:.8rem; color:var(--muted); }
+    .backup-list { display:grid; gap:8px; margin-top:14px; }
+    .backup-list div { background: var(--surface); border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:.84rem; color:var(--ink); }
 
     /* ── PRESENCE BUTTONS ── */
     .presenca-btns { display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; }
@@ -382,7 +388,7 @@
       padding-bottom: 10px; border-bottom: 2px solid #000;
     }
     .doc .logo { max-height: 70px; }
-    .doc h3 { margin: 6px 0 0; font-size: 1.15rem; text-transform: uppercase; letter-spacing: .02em; }
+    .doc h3 { margin: 6px 0 0; font-size: 1.15rem; text-transform: uppercase; letter-spacing: .02em; color: #000; }
     .doc small { display: block; color: #333; }
     .doc h2 { font-size: 1.2rem; text-align: center; margin: 12px 0 14px; color: #000; }
     .kv { margin: 8px 0; line-height: 1.6; font-size: .9rem; color: #000; }
@@ -594,7 +600,7 @@
     }
     .bottom-nav-item.active .bnav-label { color: #93b4ff; }
     .bottom-nav-item .bnav-icon { font-size: 1.2rem; line-height: 1; }
-    .bottom-nav-item .bnav-label { font-size: .6rem; color: var(--hint); font-weight: 500; white-space: nowrap; }
+    .bottom-nav-item .bnav-label { font-size: .6rem; color: #fff; font-weight: 500; white-space: nowrap; }
 
     /* ── PRINT ── */
     @media print {
@@ -1162,6 +1168,10 @@
         <span class="menu-icon">📦</span>
         <span>Entrega de Materiais</span>
       </div>
+      <div class="menu-item" data-section="tab-comunicados">
+        <span class="menu-icon">📣</span>
+        <span>Comunicados</span>
+      </div>
       <div class="menu-item" data-section="tab-frequencia">
         <span class="menu-icon">🗓️</span>
         <span>Frequência / Folha</span>
@@ -1173,6 +1183,11 @@
       <div class="menu-item" data-section="tab-detencao">
         <span class="menu-icon">✏️</span>
         <span>Atividade de Detenção</span>
+      </div>
+      <div class="sidebar-section-label">Sistema</div>
+      <div class="menu-item" data-section="backup-central">
+        <span class="menu-icon">💾</span>
+        <span>Backup e Dados</span>
       </div>
 
     </nav>
@@ -1225,11 +1240,9 @@
             <button class="btn-ghost" id="btnExportarDia">📄 Exportar Dia</button>
             <button class="btn-ghost" id="btnExportarMes">📅 Exportar Mês</button>
             <button class="btn-ghost" id="btnAlunosFaltosos">⚠️ Alunos 3+ Faltas</button>
-            <button class="btn-warning" id="btnExportarBackup">💾 Backup</button>
-            <button class="btn-danger btn-small" id="btnImportarBackup">📥 Importar</button>
+            <button class="btn-warning" onclick="navegarPara('backup-central')">💾 Backup e Dados</button>
             <button class="btn-danger" id="btnLimparFrequencias">🗑️ Apagar Frequências</button>
           </div>
-          <input type="file" id="fileImportBackup" accept=".json" style="display:none">
         </div>
 
         <div class="card">
@@ -1669,6 +1682,69 @@
       </main>
     </section>
 
+    <section id="backup-central" class="content-section">
+      <header class="top">
+        <h1>Backup e Dados</h1>
+        <h2 class="muted">Central unificada para exportar, importar e acompanhar os dados salvos no sistema.</h2>
+      </header>
+      <main class="wrap">
+        <div class="card">
+          <h3>💾 Backup Unificado ENSPS</h3>
+          <p class="muted" style="line-height:1.6;">
+            Aqui você exporta e importa tudo em um único arquivo: advertências, faltas, comunicados, entrega de materiais,
+            folha dos professores e extras avulsas.
+          </p>
+          <div class="actions">
+            <button class="btn-warning" id="btnExportarBackup">⬇️ Exportar Backup Completo</button>
+            <button class="btn-danger" id="btnImportarBackup">📥 Importar Backup</button>
+          </div>
+          <input type="file" id="fileImportBackup" accept=".json" style="display:none">
+
+          <div class="backup-grid">
+            <div class="backup-kpi">
+              <strong id="backup-total-frequencias">0</strong>
+              <span>Registros de frequência dos alunos</span>
+            </div>
+            <div class="backup-kpi">
+              <strong id="backup-total-advertencias">0</strong>
+              <span>Advertências salvas</span>
+            </div>
+            <div class="backup-kpi">
+              <strong id="backup-total-comunicados">0</strong>
+              <span>Comunicados de professores</span>
+            </div>
+            <div class="backup-kpi">
+              <strong id="backup-total-materiais">0</strong>
+              <span>Registros de entrega de materiais</span>
+            </div>
+            <div class="backup-kpi">
+              <strong id="backup-total-folha">0</strong>
+              <span>Ocorrências da folha dos professores</span>
+            </div>
+            <div class="backup-kpi">
+              <strong id="backup-total-extras">0</strong>
+              <span>Extras avulsas cadastradas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📦 O que entra no arquivo</h3>
+          <div class="backup-list">
+            <div>Advertências e controle de assinaturas pendentes</div>
+            <div>Frequência diária dos alunos e faltas acumuladas</div>
+            <div>Comunicados dos professores</div>
+            <div>Entrega de materiais por professor</div>
+            <div>Folha de frequência dos professores</div>
+            <div>Extras avulsas por mês/categoria</div>
+          </div>
+          <p class="muted" style="margin-top:14px;line-height:1.6;">
+            A importação substitui os dados atuais pelo conteúdo do arquivo escolhido. O sistema continua aceitando backups antigos e faz a conversão automaticamente para o banco unificado.
+          </p>
+        </div>
+      </main>
+    </section>
+
   
 
   <!-- =====================================================
@@ -1781,7 +1857,68 @@
   </section>
 
   <!-- =====================================================
-       ABA 3 – FREQUÊNCIA / FOLHA
+       ABA 3 – COMUNICADOS
+       ===================================================== -->
+  <section id="tab-comunicados" class="content-section">
+    <header class="top">
+      <h1>Comunicados</h1>
+      <h2 class="muted">Crie, melhore com IA e mantenha um registro dos comunicados dos professores.</h2>
+    </header>
+    <main class="wrap grid">
+      <section class="card controls">
+        <h2>Editor de Comunicado</h2>
+        <div class="row">
+          <div class="col-8">
+            <label>Título</label>
+            <input id="com-titulo" placeholder="Ex: Comunicado sobre reunião pedagógica">
+          </div>
+          <div class="col-4">
+            <label>Categoria</label>
+            <input id="com-categoria" placeholder="Ex: Reunião">
+          </div>
+          <div class="col-6">
+            <label>Público</label>
+            <input id="com-publico" placeholder="Ex: Professores do Fundamental">
+          </div>
+          <div class="col-6">
+            <label>Data de referência</label>
+            <input type="date" id="com-data">
+          </div>
+          <div class="col-12">
+            <label>Comunicado</label>
+            <textarea id="com-texto" placeholder="Escreva ou cole o comunicado aqui..."></textarea>
+          </div>
+        </div>
+
+        <div class="card" style="background:var(--surface); border:1px solid var(--border); margin-top:14px;">
+          <h2 style="margin-bottom:8px;color:var(--ink);">Melhorar Comunicados</h2>
+          <p class="muted" style="margin:0 0 10px; font-size:.85rem;">Use a IA para reorganizar, clarear ou profissionalizar o texto sem perder sua intenção.</p>
+          <label style="margin-top:0;">Instrução para a IA</label>
+          <input id="com-instrucao-ia" placeholder="Ex: deixe mais objetivo, mais formal, mais acolhedor, com aviso de prazo...">
+          <div class="actions">
+            <button class="btn-ghost" id="btnMelhorarComunicadoIA">✨ Melhorar Comunicado</button>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="btnSalvarComunicado">💾 Salvar Comunicado</button>
+          <button class="btn-ghost" id="btnNovoComunicado">➕ Novo</button>
+          <button class="btn-ghost" id="btnCopiarComunicado">📋 Copiar Texto</button>
+        </div>
+      </section>
+
+      <section class="card preview">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px;">
+          <h2 style="margin:0;color:var(--ink);">Registro de Comunicados</h2>
+          <span class="muted" id="com-total-registros" style="font-size:.82rem;">0 comunicado(s)</span>
+        </div>
+        <div id="comunicadosLista" style="display:flex;flex-direction:column;gap:10px;"></div>
+      </section>
+    </main>
+  </section>
+
+  <!-- =====================================================
+       ABA 4 – FREQUÊNCIA / FOLHA
        ===================================================== -->
   <section id="tab-frequencia" class="content-section">
     <div class="container">
@@ -2421,6 +2558,10 @@
         <span class="bnav-icon">📦</span>
         <span class="bnav-label">Materiais</span>
       </div>
+      <div class="bottom-nav-item" data-section="tab-comunicados">
+        <span class="bnav-icon">📣</span>
+        <span class="bnav-label">Comunicados</span>
+      </div>
       <div class="bottom-nav-item" data-section="tab-frequencia">
         <span class="bnav-icon">🗓️</span>
         <span class="bnav-label">Folha</span>
@@ -2432,6 +2573,10 @@
       <div class="bottom-nav-item" data-section="tab-detencao">
         <span class="bnav-icon">✏️</span>
         <span class="bnav-label">Detenção</span>
+      </div>
+      <div class="bottom-nav-item" data-section="backup-central">
+        <span class="bnav-icon">💾</span>
+        <span class="bnav-label">Backup</span>
       </div>
 
     </div>
@@ -2451,6 +2596,7 @@
     const section = document.getElementById(sectionId);
     if(section) section.classList.add('active');
     if(sectionId === 'gestor' || sectionId === 'estatisticas') atualizarDashboardGestor();
+    if(sectionId === 'backup-central') atualizarResumoBackupCentral();
   }
 
   document.querySelectorAll('.menu-item, .bottom-nav-item').forEach(item => {
@@ -2733,10 +2879,126 @@
     preencheListaAlunos();
 
     // =========================
+    // BANCO UNIFICADO
+    // =========================
+    const ENSPS_DB_KEY = 'ensps_db';
+
+    function lerJSONSeguro(valor, fallback) {
+      try {
+        return valor ? JSON.parse(valor) : fallback;
+      } catch {
+        return fallback;
+      }
+    }
+
+    function coletarLegacyDeliveries() {
+      const deliveries = {};
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (!key || !key.startsWith('deliveries_')) continue;
+        deliveries[key.replace(/^deliveries_/, '')] = lerJSONSeguro(localStorage.getItem(key), {});
+      }
+      return deliveries;
+    }
+
+    function normalizarENSPSDB(origem = {}) {
+      const professoresMateriais = origem.professoresMateriais && typeof origem.professoresMateriais === 'object'
+        ? origem.professoresMateriais
+        : {};
+      const professoresFolha = origem.professoresFolha && typeof origem.professoresFolha === 'object'
+        ? origem.professoresFolha
+        : {};
+      return {
+        schemaVersion: 2,
+        frequenciaAlunos: Array.isArray(origem.frequenciaAlunos) ? origem.frequenciaAlunos : lerJSONSeguro(localStorage.getItem('frequencia'), []),
+        advertencias: Array.isArray(origem.advertencias) ? origem.advertencias : lerJSONSeguro(localStorage.getItem('advertencias'), []),
+        comunicadosProfessores: Array.isArray(origem.comunicadosProfessores) ? origem.comunicadosProfessores : lerJSONSeguro(localStorage.getItem('comunicados_professores'), []),
+        professoresMateriais: {
+          deliveries: professoresMateriais.deliveries && typeof professoresMateriais.deliveries === 'object'
+            ? professoresMateriais.deliveries
+            : coletarLegacyDeliveries()
+        },
+        professoresFolha: {
+          frequencyRecords: Array.isArray(professoresFolha.frequencyRecords)
+            ? professoresFolha.frequencyRecords
+            : lerJSONSeguro(localStorage.getItem('frequencyRecords'), []),
+          extraAvulsaRecords: professoresFolha.extraAvulsaRecords && typeof professoresFolha.extraAvulsaRecords === 'object'
+            ? professoresFolha.extraAvulsaRecords
+            : lerJSONSeguro(localStorage.getItem('extraAvulsaRecords'), {})
+        }
+      };
+    }
+
+    function carregarENSPSDB() {
+      const atual = lerJSONSeguro(localStorage.getItem(ENSPS_DB_KEY), {}) || {};
+      return normalizarENSPSDB(atual);
+    }
+
+    let enspsDB = carregarENSPSDB();
+
+    function persistirENSPSDB() {
+      localStorage.setItem(ENSPS_DB_KEY, JSON.stringify(enspsDB));
+    }
+
+    function sincronizarBancoPrincipal() {
+      enspsDB.frequenciaAlunos = registrosFrequencia;
+      enspsDB.advertencias = advertenciasSalvas;
+      enspsDB.comunicadosProfessores = comunicadosRegistros;
+      persistirENSPSDB();
+    }
+
+    function obterDeliveriesMateriais() {
+      if (!enspsDB.professoresMateriais || typeof enspsDB.professoresMateriais !== 'object') enspsDB.professoresMateriais = { deliveries: {} };
+      if (!enspsDB.professoresMateriais.deliveries || typeof enspsDB.professoresMateriais.deliveries !== 'object') enspsDB.professoresMateriais.deliveries = {};
+      return enspsDB.professoresMateriais.deliveries;
+    }
+
+    function obterFolhaProfessores() {
+      if (!enspsDB.professoresFolha || typeof enspsDB.professoresFolha !== 'object') {
+        enspsDB.professoresFolha = { frequencyRecords: [], extraAvulsaRecords: {} };
+      }
+      if (!Array.isArray(enspsDB.professoresFolha.frequencyRecords)) enspsDB.professoresFolha.frequencyRecords = [];
+      if (!enspsDB.professoresFolha.extraAvulsaRecords || typeof enspsDB.professoresFolha.extraAvulsaRecords !== 'object') enspsDB.professoresFolha.extraAvulsaRecords = {};
+      return enspsDB.professoresFolha;
+    }
+
+    function atualizarResumoBackupCentral() {
+      const frequencias = Array.isArray(enspsDB.frequenciaAlunos) ? enspsDB.frequenciaAlunos : [];
+      const advertencias = Array.isArray(enspsDB.advertencias) ? enspsDB.advertencias : [];
+      const comunicados = Array.isArray(enspsDB.comunicadosProfessores) ? enspsDB.comunicadosProfessores : [];
+      const deliveries = obterDeliveriesMateriais();
+      const folha = obterFolhaProfessores();
+      const totalMateriais = Object.values(deliveries).reduce((acc, professor) => {
+        const registros = professor && typeof professor === 'object' ? Object.values(professor) : [];
+        return acc + registros.filter(Boolean).length;
+      }, 0);
+      const totalExtras = Object.values(folha.extraAvulsaRecords || {}).reduce((acc, lista) => {
+        return acc + (Array.isArray(lista) ? lista.length : 0);
+      }, 0);
+
+      const mapa = {
+        'backup-total-frequencias': frequencias.length,
+        'backup-total-advertencias': advertencias.length,
+        'backup-total-comunicados': comunicados.length,
+        'backup-total-materiais': totalMateriais,
+        'backup-total-folha': Array.isArray(folha.frequencyRecords) ? folha.frequencyRecords.length : 0,
+        'backup-total-extras': totalExtras
+      };
+
+      Object.entries(mapa).forEach(([id, valor]) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = String(valor);
+      });
+    }
+
+    // =========================
     // SISTEMA DE FREQUÊNCIA
     // =========================
-    let registrosFrequencia = JSON.parse(localStorage.getItem('frequencia') || '[]');
-    let advertenciasSalvas = JSON.parse(localStorage.getItem('advertencias') || '[]');
+    let registrosFrequencia = Array.isArray(enspsDB.frequenciaAlunos) ? enspsDB.frequenciaAlunos : [];
+    let advertenciasSalvas = Array.isArray(enspsDB.advertencias) ? enspsDB.advertencias : [];
+    let comunicadosRegistros = Array.isArray(enspsDB.comunicadosProfessores) ? enspsDB.comunicadosProfessores : [];
+    persistirENSPSDB();
+    let comunicadoAtualId = null;
     advertenciasSalvas = advertenciasSalvas.map(adv => {
       const temCampoLinhas = Object.prototype.hasOwnProperty.call(adv, 'usaLinhasAssinatura');
       const temCampoPendencia = Object.prototype.hasOwnProperty.call(adv, 'pendenciaAssinatura');
@@ -2753,7 +3015,7 @@
         assinaturaRecebidaEm
       };
     });
-    localStorage.setItem('advertencias', JSON.stringify(advertenciasSalvas));
+    sincronizarBancoPrincipal();
 
     document.getElementById('dataFreq').valueAsDate = new Date();
 
@@ -2873,7 +3135,7 @@
     };
 
     document.getElementById('btnSalvarFrequencias').addEventListener('click', function(){
-      localStorage.setItem('frequencia', JSON.stringify(registrosFrequencia));
+      sincronizarBancoPrincipal();
       alert('✅ Frequências salvas com sucesso!');
       atualizarFaltasAcumuladas();
     });
@@ -2990,9 +3252,16 @@
     });
 
     document.getElementById('btnExportarBackup').addEventListener('click', function(){
+      sincronizarBancoPrincipal();
+      enspsDB.professoresMateriais = { deliveries: obterDeliveriesMateriais() };
+      enspsDB.professoresFolha = obterFolhaProfessores();
       const backup = {
-        frequencia: registrosFrequencia,
-        advertencias: advertenciasSalvas,
+        ensps_db: enspsDB,
+        frequencia: enspsDB.frequenciaAlunos,
+        advertencias: enspsDB.advertencias,
+        comunicadosProfessores: enspsDB.comunicadosProfessores,
+        professoresMateriais: enspsDB.professoresMateriais,
+        professoresFolha: enspsDB.professoresFolha,
         data: new Date().toISOString()
       };
 
@@ -3014,16 +3283,32 @@
           const backup = JSON.parse(event.target.result);
 
           if(confirm('⚠️ Isso substituirá todos os dados atuais. Continuar?')){
-            registrosFrequencia = backup.frequencia || [];
-            advertenciasSalvas = backup.advertencias || [];
-
-            localStorage.setItem('frequencia', JSON.stringify(registrosFrequencia));
-            localStorage.setItem('advertencias', JSON.stringify(advertenciasSalvas));
+            enspsDB = normalizarENSPSDB(
+              backup.ensps_db
+                ? backup.ensps_db
+                : {
+                    ...enspsDB,
+                    frequenciaAlunos: backup.frequencia || [],
+                    advertencias: backup.advertencias || [],
+                    comunicadosProfessores: backup.comunicadosProfessores || [],
+                    professoresMateriais: backup.professoresMateriais || { deliveries: backup.deliveries || {} },
+                    professoresFolha: backup.professoresFolha || {
+                      frequencyRecords: backup.frequencyRecords || [],
+                      extraAvulsaRecords: backup.extraAvulsaRecords || {}
+                    }
+                  }
+            );
+            registrosFrequencia = Array.isArray(enspsDB.frequenciaAlunos) ? enspsDB.frequenciaAlunos : [];
+            advertenciasSalvas = Array.isArray(enspsDB.advertencias) ? enspsDB.advertencias : [];
+            comunicadosRegistros = Array.isArray(enspsDB.comunicadosProfessores) ? enspsDB.comunicadosProfessores : [];
+            persistirENSPSDB();
 
             alert('✅ Backup importado com sucesso!');
             renderTabelaFrequencia();
             atualizarFaltasAcumuladas();
             renderPendenciasAssinatura();
+            renderComunicadosLista();
+            atualizarResumoBackupCentral();
             setTimeout(alertarPendenciasAssinaturaDiarias, 250);
           }
         } catch(err) {
@@ -3036,12 +3321,148 @@
     document.getElementById('btnLimparFrequencias').addEventListener('click', function(){
       if(confirm('⚠️ Tem certeza que deseja apagar TODAS as frequências registradas? Esta ação não pode ser desfeita.')){
         registrosFrequencia = [];
-        localStorage.setItem('frequencia', JSON.stringify(registrosFrequencia));
+        sincronizarBancoPrincipal();
         renderTabelaFrequencia();
         atualizarFaltasAcumuladas();
         alert('✅ Todas as frequências foram apagadas.');
       }
     });
+
+    atualizarResumoBackupCentral();
+
+    // =========================
+    // COMUNICADOS - PROFESSORES
+    // =========================
+    function salvarComunicadosRegistros(){
+      sincronizarBancoPrincipal();
+    }
+
+    function comunicadosLimparFormulario(){
+      comunicadoAtualId = null;
+      ['com-titulo', 'com-categoria', 'com-publico', 'com-data', 'com-texto', 'com-instrucao-ia'].forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.value = '';
+      });
+    }
+
+    function comunicadosCarregar(id){
+      const comunicado = comunicadosRegistros.find(item => item.id === id);
+      if(!comunicado) return;
+      comunicadoAtualId = id;
+      document.getElementById('com-titulo').value = comunicado.titulo || '';
+      document.getElementById('com-categoria').value = comunicado.categoria || '';
+      document.getElementById('com-publico').value = comunicado.publico || '';
+      document.getElementById('com-data').value = comunicado.data || '';
+      document.getElementById('com-texto').value = comunicado.texto || '';
+      document.getElementById('com-instrucao-ia').value = '';
+    }
+
+    function renderComunicadosLista(){
+      const lista = document.getElementById('comunicadosLista');
+      const total = document.getElementById('com-total-registros');
+      if(!lista || !total) return;
+
+      total.textContent = `${comunicadosRegistros.length} comunicado(s)`;
+
+      if(!comunicadosRegistros.length){
+        lista.innerHTML = '<div class="muted" style="font-size:.88rem;">Nenhum comunicado salvo ainda.</div>';
+        return;
+      }
+
+      const ordenados = [...comunicadosRegistros].sort((a, b) => new Date(b.updatedAt || b.createdAt || 0) - new Date(a.updatedAt || a.createdAt || 0));
+      lista.innerHTML = ordenados.map(item => `
+        <div style="border:1px solid var(--border);border-radius:10px;padding:14px;background:var(--surface);">
+          <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap;">
+            <div>
+              <div style="font-size:.96rem;font-weight:700;color:var(--ink);">${item.titulo || 'Sem título'}</div>
+              <div class="muted" style="font-size:.78rem;margin-top:4px;">
+                ${(item.categoria || 'Sem categoria')}${item.publico ? ` • ${item.publico}` : ''}${item.data ? ` • ${fmtData(item.data)}` : ''}
+              </div>
+            </div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <button class="btn-ghost btn-small" onclick="comunicadosCarregar(${item.id})">Abrir</button>
+              <button class="btn-danger btn-small" onclick="comunicadosExcluir(${item.id})">Excluir</button>
+            </div>
+          </div>
+          <div style="margin-top:10px;white-space:pre-wrap;line-height:1.6;font-size:.84rem;color:var(--ink);">${item.texto || ''}</div>
+        </div>
+      `).join('');
+    }
+
+    window.comunicadosCarregar = comunicadosCarregar;
+
+    window.comunicadosExcluir = function(id){
+      if(!confirm('Deseja excluir este comunicado?')) return;
+      comunicadosRegistros = comunicadosRegistros.filter(item => item.id !== id);
+      if(comunicadoAtualId === id) comunicadosLimparFormulario();
+      salvarComunicadosRegistros();
+      renderComunicadosLista();
+    };
+
+    const btnSalvarComunicado = document.getElementById('btnSalvarComunicado');
+    if(btnSalvarComunicado){
+      btnSalvarComunicado.addEventListener('click', function(){
+        const titulo = document.getElementById('com-titulo')?.value.trim() || '';
+        const categoria = document.getElementById('com-categoria')?.value.trim() || '';
+        const publico = document.getElementById('com-publico')?.value.trim() || '';
+        const data = document.getElementById('com-data')?.value || '';
+        const texto = document.getElementById('com-texto')?.value.trim() || '';
+
+        if(!titulo && !texto){
+          alert('Preencha pelo menos o título ou o texto do comunicado.');
+          return;
+        }
+
+        const agora = new Date().toISOString();
+        if(comunicadoAtualId){
+          const existente = comunicadosRegistros.find(item => item.id === comunicadoAtualId);
+          if(existente){
+            existente.titulo = titulo;
+            existente.categoria = categoria;
+            existente.publico = publico;
+            existente.data = data;
+            existente.texto = texto;
+            existente.updatedAt = agora;
+          }
+        } else {
+          comunicadoAtualId = Date.now();
+          comunicadosRegistros.push({
+            id: comunicadoAtualId,
+            titulo,
+            categoria,
+            publico,
+            data,
+            texto,
+            createdAt: agora,
+            updatedAt: agora
+          });
+        }
+
+        salvarComunicadosRegistros();
+        renderComunicadosLista();
+        alert('✅ Comunicado salvo com sucesso!');
+      });
+    }
+
+    const btnNovoComunicado = document.getElementById('btnNovoComunicado');
+    if(btnNovoComunicado) btnNovoComunicado.addEventListener('click', comunicadosLimparFormulario);
+
+    const btnCopiarComunicado = document.getElementById('btnCopiarComunicado');
+    if(btnCopiarComunicado){
+      btnCopiarComunicado.addEventListener('click', async function(){
+        const texto = document.getElementById('com-texto')?.value.trim() || '';
+        if(!texto){
+          alert('Escreva ou carregue um comunicado primeiro.');
+          return;
+        }
+        try {
+          await navigator.clipboard.writeText(texto);
+          alert('✅ Comunicado copiado!');
+        } catch {
+          alert('Não foi possível copiar automaticamente.');
+        }
+      });
+    }
 
     function baixarArquivo(conteudo, nomeArquivo, tipo){
       const blob = new Blob([conteudo], {type: tipo});
@@ -3488,6 +3909,8 @@ Senha temporária: ensps2026`;
       return `${cidadeFixa}, ${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}`
     };
 
+    renderComunicadosLista();
+
     function buildCopy(label){
       const aluno = $("#aluno") ? $("#aluno").value || "—" : "—";
       const data = $("#data") ? $("#data").value || "" : "";
@@ -3617,7 +4040,7 @@ Senha temporária: ensps2026`;
       adv.usaLinhasAssinatura = true;
       adv.pendenciaAssinatura = false;
       adv.assinaturaRecebidaEm = new Date().toISOString();
-      localStorage.setItem('advertencias', JSON.stringify(advertenciasSalvas));
+      sincronizarBancoPrincipal();
       renderPendenciasAssinatura();
       const btnBusca = document.getElementById('btnBuscarHist');
       const alunoHist = document.getElementById('alunoHist');
@@ -3691,7 +4114,7 @@ Senha temporária: ensps2026`;
             })];
 
         advertenciasSalvas.push(...registrosParaSalvar);
-        localStorage.setItem('advertencias', JSON.stringify(advertenciasSalvas));
+        sincronizarBancoPrincipal();
         renderPendenciasAssinatura();
 
         alert(multi
@@ -4325,7 +4748,7 @@ Senha temporária: ensps2026`;
     window.excluirAdvertencia = function(id){
       if(confirm('Deseja realmente excluir esta advertência?')){
         advertenciasSalvas = advertenciasSalvas.filter(a => a.id !== id);
-        localStorage.setItem('advertencias', JSON.stringify(advertenciasSalvas));
+        sincronizarBancoPrincipal();
         renderPendenciasAssinatura();
         alert('✅ Advertência excluída!');
         const btn = document.getElementById('btnBuscarHist');
@@ -4721,12 +5144,15 @@ Senha temporária: ensps2026`;
   }
 
   function matLoadDeliveries(professor) {
-    const d = localStorage.getItem(`deliveries_${professor}`);
-    return d ? JSON.parse(d) : {};
+    const deliveries = obterDeliveriesMateriais();
+    return deliveries[professor] ? { ...deliveries[professor] } : {};
   }
 
   function matSaveDeliveries(professor, deliveries) {
-    localStorage.setItem(`deliveries_${professor}`, JSON.stringify(deliveries));
+    const all = obterDeliveriesMateriais();
+    all[professor] = { ...deliveries };
+    enspsDB.professoresMateriais = { deliveries: all };
+    persistirENSPSDB();
   }
 
   function matGetVisibleCols() {
@@ -4915,10 +5341,8 @@ Senha temporária: ensps2026`;
 
   document.getElementById('mat-clear-btn').addEventListener('click', () => {
     if (confirm('Tem certeza que deseja limpar TODAS as entregas de TODOS os professores? Esta ação não pode ser desfeita.')) {
-      for (let i = localStorage.length - 1; i >= 0; i--) {
-        const key = localStorage.key(i);
-        if (key && key.startsWith('deliveries_')) localStorage.removeItem(key);
-      }
+      enspsDB.professoresMateriais = { deliveries: {} };
+      persistirENSPSDB();
       matApplyFilter();
       alert('Todas as entregas foram limpas com sucesso!');
     }
@@ -4935,6 +5359,24 @@ Senha temporária: ensps2026`;
 
   let freqCurrentDate = new Date();
   let freqSubstCounter = 0;
+
+  function freqGetAllFrequencyRecords() {
+    return obterFolhaProfessores().frequencyRecords;
+  }
+
+  function freqSetAllFrequencyRecords(records) {
+    obterFolhaProfessores().frequencyRecords = records;
+    persistirENSPSDB();
+  }
+
+  function freqGetAllExtraAvulsaRecords() {
+    return obterFolhaProfessores().extraAvulsaRecords;
+  }
+
+  function freqSetAllExtraAvulsaRecords(records) {
+    obterFolhaProfessores().extraAvulsaRecords = records;
+    persistirENSPSDB();
+  }
 
   function freqGetMonthYearString(date) {
     const s = date.toLocaleDateString('pt-BR', { month:'long', year:'numeric' });
@@ -4999,7 +5441,7 @@ Senha temporária: ensps2026`;
   document.getElementById('freq-addSubstBtn').addEventListener('click', freqAddSubstituicaoItem);
 
   function freqLoadFrequencyRecords() {
-    const all = JSON.parse(localStorage.getItem('frequencyRecords')) || [];
+    const all = freqGetAllFrequencyRecords();
     const cm  = freqCurrentDate.getMonth();
     const cy  = freqCurrentDate.getFullYear();
 
@@ -5019,9 +5461,9 @@ Senha temporária: ensps2026`;
   }
 
   function freqSaveFrequencyRecord(record) {
-    const all = JSON.parse(localStorage.getItem('frequencyRecords')) || [];
+    const all = [...freqGetAllFrequencyRecords()];
     all.push(record);
-    localStorage.setItem('frequencyRecords', JSON.stringify(all));
+    freqSetAllFrequencyRecords(all);
   }
 
   function freqAddFaltaToTable(record) {
@@ -5044,10 +5486,10 @@ Senha temporária: ensps2026`;
   }
 
   function freqDeleteRecord(rec) {
-    let all = JSON.parse(localStorage.getItem('frequencyRecords')) || [];
+    let all = [...freqGetAllFrequencyRecords()];
     all = all.filter(r => !(r.dia===rec.dia && r.falta===rec.falta && r.substExtra===rec.substExtra &&
                             r.fiiEm===rec.fiiEm && r.motivo===rec.motivo && r.qtde===rec.qtde && r.tipo===rec.tipo));
-    localStorage.setItem('frequencyRecords', JSON.stringify(all));
+    freqSetAllFrequencyRecords(all);
     freqLoadFrequencyRecords();
   }
 
@@ -5142,13 +5584,13 @@ Senha temporária: ensps2026`;
 
   function freqClearAllFrequencyRecords() {
     if (confirm('Tem certeza que deseja limpar TODOS os registros de frequência de TODOS os meses?')) {
-      localStorage.removeItem('frequencyRecords');
+      freqSetAllFrequencyRecords([]);
       freqLoadFrequencyRecords();
     }
   }
 
   function freqExportFrequencyToCSV() {
-    const all = JSON.parse(localStorage.getItem('frequencyRecords')) || [];
+    const all = freqGetAllFrequencyRecords();
     if (all.length === 0) { alert('Não há registros para exportar.'); return; }
     let csv = 'data:text/csv;charset=utf-8,Tipo,Dia,Falta,Subst/Extra,Ensino,Motivo,Qtde\n';
     all.forEach(r => {
@@ -5164,12 +5606,12 @@ Senha temporária: ensps2026`;
     const cm  = freqCurrentDate.getMonth();
     const cy  = freqCurrentDate.getFullYear();
     const key = `${cy}-${cm}`;
-    const all = JSON.parse(localStorage.getItem('frequencyRecords')) || [];
+    const all = freqGetAllFrequencyRecords();
     const monthRecords = all.filter(r => {
       const p = r.dia.split('/');
       return p.length===3 && parseInt(p[1])-1===cm && parseInt(p[2])===cy;
     });
-    const allEA = JSON.parse(localStorage.getItem('extraAvulsaRecords')) || {};
+    const allEA = freqGetAllExtraAvulsaRecords();
     const data  = { month: freqGetMonthYearString(freqCurrentDate), monthKey: key, frequencyRecords: monthRecords, extraAvulsaRecords: allEA[key]||{}, exportDate: new Date().toLocaleString('pt-BR') };
     const blob  = new Blob([JSON.stringify(data,null,2)], { type:'application/json' });
     const url   = URL.createObjectURL(blob);
@@ -5192,18 +5634,18 @@ Senha temporária: ensps2026`;
         }
         const replace = confirm(`Substituir todos os dados?\n\nMês: ${imported.month}\nExportado: ${imported.exportDate}\n\nOK = Substituir | Cancelar = Mesclar`);
         if (replace) {
-          localStorage.setItem('frequencyRecords', JSON.stringify(imported.frequencyRecords));
+          freqSetAllFrequencyRecords(imported.frequencyRecords);
           const ea = {}; ea[imported.monthKey] = imported.extraAvulsaRecords;
-          localStorage.setItem('extraAvulsaRecords', JSON.stringify(ea));
+          freqSetAllExtraAvulsaRecords(ea);
         } else {
-          let existF = JSON.parse(localStorage.getItem('frequencyRecords')) || [];
-          let existEA = JSON.parse(localStorage.getItem('extraAvulsaRecords')) || {};
+          let existF = [...freqGetAllFrequencyRecords()];
+          let existEA = { ...freqGetAllExtraAvulsaRecords() };
           imported.frequencyRecords.forEach(r => {
             if (!existF.some(e => e.dia===r.dia && e.falta===r.falta && e.substExtra===r.substExtra && e.motivo===r.motivo)) existF.push(r);
           });
           if (!existEA[imported.monthKey]) existEA[imported.monthKey] = imported.extraAvulsaRecords;
-          localStorage.setItem('frequencyRecords', JSON.stringify(existF));
-          localStorage.setItem('extraAvulsaRecords', JSON.stringify(existEA));
+          freqSetAllFrequencyRecords(existF);
+          freqSetAllExtraAvulsaRecords(existEA);
         }
         freqLoadFrequencyRecords();
         freqLoadExtraAvulsaRecords();
@@ -5225,7 +5667,7 @@ Senha temporária: ensps2026`;
 
   function freqLoadExtraAvulsaRecords() {
     try {
-      const all  = JSON.parse(localStorage.getItem('extraAvulsaRecords')) || {};
+      const all  = freqGetAllExtraAvulsaRecords();
       const data = all[freqGetMonthKey()] || {};
       const listDiv = document.getElementById('freq-extraAvulsaList');
       listDiv.innerHTML = '';
@@ -5242,7 +5684,7 @@ Senha temporária: ensps2026`;
   function freqSaveExtraAvulsaRecord(originalName, professor, qtdeEF, qtdeEM, action='add_category', keyToDelete=null) {
     const catKey = action === 'delete_category' && keyToDelete ? keyToDelete : freqNormalizeCategoryName(originalName);
     try {
-      let all = JSON.parse(localStorage.getItem('extraAvulsaRecords')) || {};
+      let all = { ...freqGetAllExtraAvulsaRecords() };
       const mk = freqGetMonthKey();
       if (!all[mk]) all[mk] = {};
 
@@ -5261,7 +5703,7 @@ Senha temporária: ensps2026`;
       } else if (action === 'delete_category') {
         delete all[mk][catKey];
       }
-      localStorage.setItem('extraAvulsaRecords', JSON.stringify(all));
+      freqSetAllExtraAvulsaRecords(all);
       freqLoadExtraAvulsaRecords();
     } catch(e) { console.error(e); }
   }
@@ -5352,20 +5794,20 @@ Senha temporária: ensps2026`;
   });
 
   function freqUpdateEmptyExtraAvulsaMsg() {
-    const all  = JSON.parse(localStorage.getItem('extraAvulsaRecords')) || {};
+    const all  = freqGetAllExtraAvulsaRecords();
     const data = all[freqGetMonthKey()] || {};
     document.getElementById('freq-emptyExtraAvulsa').style.display = Object.keys(data).length === 0 ? 'block' : 'none';
   }
 
   function freqClearAllExtraAvulsaRecords() {
     if (confirm('Limpar TODAS as Extras Avulsas de TODOS os meses?')) {
-      localStorage.removeItem('extraAvulsaRecords');
+      freqSetAllExtraAvulsaRecords({});
       freqLoadExtraAvulsaRecords();
     }
   }
 
   function freqExportExtraAvulsaToCSV() {
-    const all = JSON.parse(localStorage.getItem('extraAvulsaRecords')) || {};
+    const all = freqGetAllExtraAvulsaRecords();
     if (Object.keys(all).length === 0) { alert('Não há registros para exportar.'); return; }
     let csv = 'data:text/csv;charset=utf-8,Mês,Categoria,Professor,Qtde EF,Qtde EM\n';
     for (const mk in all) {
@@ -5385,7 +5827,7 @@ Senha temporária: ensps2026`;
   }
 
   function freqUpdatePrintExtrasAvulsas() {
-    const all  = JSON.parse(localStorage.getItem('extraAvulsaRecords')) || {};
+    const all  = freqGetAllExtraAvulsaRecords();
     const data = all[freqGetMonthKey()] || {};
     const cont = document.getElementById('freq-printExtrasAvulsasContent');
     cont.innerHTML = '';
@@ -5482,8 +5924,8 @@ Senha temporária: ensps2026`;
   }
 
     function freqCalculateStats(period) {
-    const allF  = JSON.parse(localStorage.getItem('frequencyRecords')) || [];
-    const allEA = JSON.parse(localStorage.getItem('extraAvulsaRecords')) || {};
+    const allF  = freqGetAllFrequencyRecords();
+    const allEA = freqGetAllExtraAvulsaRecords();
     const cm = freqCurrentDate.getMonth(), cy = freqCurrentDate.getFullYear();
 
     let filtF = period === 'current'
@@ -6469,8 +6911,64 @@ Senha temporária: ensps2026`;
     const btn = document.getElementById(btnId);
     if (!btn) return;
     btn.disabled = loading;
-    btn.textContent = loading ? '⏳ Gerando...' : (btnId === 'btnGeminiAdv' ? '✨ Sugerir texto (IA)' : '✨ Gerar com IA');
+    if (loading) {
+      btn.textContent = '⏳ Gerando...';
+    } else if (btnId === 'btnGeminiAdv') {
+      btn.textContent = '✨ Sugerir texto (IA)';
+    } else if (btnId === 'btnMelhorarComunicadoIA') {
+      btn.textContent = '✨ Melhorar Comunicado';
+    } else {
+      btn.textContent = '✨ Gerar com IA';
+    }
   }
+
+  async function geminiMelhorarComunicado() {
+    const titulo = document.getElementById('com-titulo')?.value.trim() || 'Sem título';
+    const categoria = document.getElementById('com-categoria')?.value.trim() || 'Não informada';
+    const publico = document.getElementById('com-publico')?.value.trim() || 'Não informado';
+    const data = document.getElementById('com-data')?.value || '';
+    const texto = document.getElementById('com-texto')?.value.trim() || '';
+    const instrucao = document.getElementById('com-instrucao-ia')?.value.trim() || '';
+
+    if (!texto) {
+      alert('Escreva ou cole o comunicado antes de pedir a melhoria pela IA.');
+      return;
+    }
+
+    geminiSetLoading('btnMelhorarComunicadoIA', true);
+    try {
+      const prompt = `Você é um(a) coordenador(a) escolar experiente. Reescreva e melhore um comunicado interno/educacional, preservando sua intenção principal e deixando o texto mais claro, organizado e profissional.
+
+DADOS DO COMUNICADO:
+- Título: ${titulo}
+- Categoria: ${categoria}
+- Público: ${publico}
+${data ? `- Data de referência: ${data}` : ''}
+- Texto original:
+${texto}
+${instrucao ? `- Orientação específica do usuário: ${instrucao}` : ''}
+
+INSTRUÇÕES:
+- Priorize rigorosamente a orientação específica do usuário
+- Mantenha o conteúdo essencial e o objetivo do comunicado
+- Reescreva com clareza, boa organização e tom institucional apropriado
+- Se necessário, melhore coesão, ortografia, pontuação e objetividade
+- Não invente informações novas que não estejam no texto ou na orientação
+- Não use markdown, bullets ou títulos extras, a menos que o usuário peça explicitamente
+- Entregue somente a versão final melhorada do comunicado`;
+
+      const melhorado = await geminiRequest(prompt);
+      const campoTexto = document.getElementById('com-texto');
+      if (campoTexto) campoTexto.value = melhorado.trim();
+    } catch(e) {
+      if (e.message !== 'Chave não configurada') alert('Erro: ' + e.message);
+    } finally {
+      geminiSetLoading('btnMelhorarComunicadoIA', false);
+    }
+  }
+
+  const btnMelhorarComunicadoIA = document.getElementById('btnMelhorarComunicadoIA');
+  if(btnMelhorarComunicadoIA) btnMelhorarComunicadoIA.addEventListener('click', geminiMelhorarComunicado);
 
   // ── ADVERTÊNCIA ──
   async function geminiGerarAdvertencia() {
