@@ -1694,9 +1694,13 @@
             Aqui você exporta e importa tudo em um único arquivo: advertências, faltas, comunicados, entrega de materiais,
             folha dos professores e extras avulsas.
           </p>
+          <div id="backup-remote-status" style="margin-top:14px;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface);font-size:.84rem;color:var(--muted);">
+            Conectando ao armazenamento remoto...
+          </div>
           <div class="actions">
             <button class="btn-warning" id="btnExportarBackup">⬇️ Exportar Backup Completo</button>
             <button class="btn-danger" id="btnImportarBackup">📥 Importar Backup</button>
+            <button class="btn-ghost" id="btnSincronizarGitHub">☁️ Sincronizar com GitHub</button>
           </div>
           <input type="file" id="fileImportBackup" accept=".json" style="display:none">
 
@@ -1739,7 +1743,7 @@
             <div>Extras avulsas por mês/categoria</div>
           </div>
           <p class="muted" style="margin-top:14px;line-height:1.6;">
-            A importação substitui os dados atuais pelo conteúdo do arquivo escolhido. O sistema continua aceitando backups antigos e faz a conversão automaticamente para o banco unificado.
+            A importação substitui os dados atuais pelo conteúdo do arquivo escolhido. O sistema continua aceitando backups antigos, faz a conversão automaticamente para o banco unificado e sincroniza esse banco com o arquivo salvo no GitHub.
           </p>
         </div>
       </main>
@@ -2882,6 +2886,14 @@
     // BANCO UNIFICADO
     // =========================
     const ENSPS_DB_KEY = 'ensps_db';
+    const REMOTE_DB_ENDPOINT = '/api/db';
+    let remotoDisponivel = false;
+    let remotoInicializado = false;
+    let remotoSincronizando = false;
+    let remotoUltimoSha = '';
+    let remotoUltimoErro = '';
+    let remotoTimer = null;
+    let remotoMotivoPendente = 'Atualização do sistema';
 
     function lerJSONSeguro(valor, fallback) {
       try {
@@ -2936,15 +2948,62 @@
 
     let enspsDB = carregarENSPSDB();
 
-    function persistirENSPSDB() {
-      localStorage.setItem(ENSPS_DB_KEY, JSON.stringify(enspsDB));
+    function atualizarStatusBancoRemoto(texto, tipo = 'neutro') {
+      const el = document.getElementById('backup-remote-status');
+      if (!el) return;
+      const estilos = {
+        neutro: {
+          background: 'var(--surface)',
+          border: 'var(--border)',
+          color: 'var(--muted)'
+        },
+        ok: {
+          background: 'var(--success-dim)',
+          border: 'rgba(16,185,129,.35)',
+          color: '#86efac'
+        },
+        aviso: {
+          background: 'var(--warning-dim)',
+          border: 'rgba(245,158,11,.35)',
+          color: '#fcd34d'
+        },
+        erro: {
+          background: 'var(--danger-dim)',
+          border: 'rgba(239,68,68,.35)',
+          color: '#fca5a5'
+        }
+      };
+      const estilo = estilos[tipo] || estilos.neutro;
+      el.textContent = texto;
+      el.style.background = estilo.background;
+      el.style.borderColor = estilo.border;
+      el.style.color = estilo.color;
     }
 
-    function sincronizarBancoPrincipal() {
+    function aplicarENSPSDBNaTela() {
+      registrosFrequencia = Array.isArray(enspsDB.frequenciaAlunos) ? enspsDB.frequenciaAlunos : [];
+      advertenciasSalvas = Array.isArray(enspsDB.advertencias) ? enspsDB.advertencias : [];
+      comunicadosRegistros = Array.isArray(enspsDB.comunicadosProfessores) ? enspsDB.comunicadosProfessores : [];
+      persistirENSPSDB({ remote: false });
+
+      if (typeof renderTabelaFrequencia === 'function') renderTabelaFrequencia();
+      if (typeof atualizarFaltasAcumuladas === 'function') atualizarFaltasAcumuladas();
+      if (typeof renderPendenciasAssinatura === 'function') renderPendenciasAssinatura();
+      if (typeof renderComunicadosLista === 'function') renderComunicadosLista();
+      if (typeof atualizarResumoBackupCentral === 'function') atualizarResumoBackupCentral();
+      if (typeof atualizarDashboardGestor === 'function') atualizarDashboardGestor();
+    }
+
+    function persistirENSPSDB(options = {}) {
+      localStorage.setItem(ENSPS_DB_KEY, JSON.stringify(enspsDB));
+      if (options.remote !== false) agendarPersistenciaRemota(options.reason || 'Atualização do sistema');
+    }
+
+    function sincronizarBancoPrincipal(reason = 'Atualização do sistema') {
       enspsDB.frequenciaAlunos = registrosFrequencia;
       enspsDB.advertencias = advertenciasSalvas;
       enspsDB.comunicadosProfessores = comunicadosRegistros;
-      persistirENSPSDB();
+      persistirENSPSDB({ reason });
     }
 
     function obterDeliveriesMateriais() {
@@ -2989,6 +3048,100 @@
         const el = document.getElementById(id);
         if (el) el.textContent = String(valor);
       });
+    }
+
+    async function carregarBancoRemoto() {
+      try {
+        const resposta = await fetch(REMOTE_DB_ENDPOINT, { headers: { 'Accept': 'application/json' } });
+        if (resposta.status === 404) {
+          remotoDisponivel = true;
+          remotoUltimoSha = '';
+          atualizarStatusBancoRemoto('GitHub conectado. Ainda não existe arquivo remoto; o próximo salvamento criará o banco na pasta do repositório.', 'aviso');
+          return null;
+        }
+        if (!resposta.ok) throw new Error(`Falha ao consultar API remota (${resposta.status})`);
+        const payload = await resposta.json();
+        remotoDisponivel = true;
+        remotoUltimoSha = payload.sha || '';
+        if (!payload.data || typeof payload.data !== 'object') {
+          atualizarStatusBancoRemoto('GitHub conectado. Arquivo remoto vazio; o banco local será usado até o primeiro envio.', 'aviso');
+          return null;
+        }
+        atualizarStatusBancoRemoto('GitHub conectado. Banco remoto carregado com sucesso.', 'ok');
+        return normalizarENSPSDB(payload.data);
+      } catch (erro) {
+        remotoDisponivel = false;
+        remotoUltimoErro = erro.message || String(erro);
+        atualizarStatusBancoRemoto(`Sem conexão com o GitHub agora. O sistema seguirá em modo local temporariamente. Motivo: ${remotoUltimoErro}`, 'erro');
+        return null;
+      }
+    }
+
+    async function salvarBancoRemoto(options = {}) {
+      const { force = false, reason = 'Atualização do sistema', silent = true } = options;
+      if (!remotoInicializado && !force) return false;
+      if (remotoSincronizando) return false;
+      remotoSincronizando = true;
+      atualizarStatusBancoRemoto('Sincronizando banco com o GitHub...', 'aviso');
+
+      try {
+        enspsDB.professoresMateriais = { deliveries: obterDeliveriesMateriais() };
+        enspsDB.professoresFolha = obterFolhaProfessores();
+        const resposta = await fetch(REMOTE_DB_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            db: enspsDB,
+            sha: remotoUltimoSha || undefined,
+            reason
+          })
+        });
+
+        const payload = await resposta.json().catch(() => ({}));
+        if (!resposta.ok || !payload.ok) {
+          throw new Error(payload.error || `Falha ao salvar no GitHub (${resposta.status})`);
+        }
+
+        remotoDisponivel = true;
+        remotoUltimoSha = payload.sha || remotoUltimoSha;
+        remotoUltimoErro = '';
+        atualizarStatusBancoRemoto(`GitHub sincronizado com sucesso. ${payload.path ? `Arquivo: ${payload.path}` : ''}`.trim(), 'ok');
+        if (!silent) alert('✅ Banco sincronizado com sucesso no GitHub!');
+        return true;
+      } catch (erro) {
+        remotoDisponivel = false;
+        remotoUltimoErro = erro.message || String(erro);
+        atualizarStatusBancoRemoto(`Não foi possível sincronizar com o GitHub. Os dados continuam salvos localmente. Motivo: ${remotoUltimoErro}`, 'erro');
+        if (!silent) alert('❌ Falha ao sincronizar com o GitHub: ' + remotoUltimoErro);
+        return false;
+      } finally {
+        remotoSincronizando = false;
+      }
+    }
+
+    function agendarPersistenciaRemota(reason = 'Atualização do sistema') {
+      remotoMotivoPendente = reason;
+      if (!remotoInicializado) return;
+      if (remotoTimer) clearTimeout(remotoTimer);
+      remotoTimer = setTimeout(() => {
+        remotoTimer = null;
+        salvarBancoRemoto({ reason: remotoMotivoPendente, silent: true });
+      }, 1200);
+    }
+
+    async function inicializarBancoRemoto() {
+      const bancoRemoto = await carregarBancoRemoto();
+      remotoInicializado = true;
+
+      if (bancoRemoto) {
+        enspsDB = bancoRemoto;
+        aplicarENSPSDBNaTela();
+        return;
+      }
+
+      if (remotoDisponivel) {
+        await salvarBancoRemoto({ force: true, reason: 'Migração inicial do banco local para o GitHub', silent: true });
+      }
     }
 
     // =========================
@@ -3278,7 +3431,7 @@
       if(!file) return;
 
       const reader = new FileReader();
-      reader.onload = function(event){
+      reader.onload = async function(event){
         try {
           const backup = JSON.parse(event.target.result);
 
@@ -3301,7 +3454,7 @@
             registrosFrequencia = Array.isArray(enspsDB.frequenciaAlunos) ? enspsDB.frequenciaAlunos : [];
             advertenciasSalvas = Array.isArray(enspsDB.advertencias) ? enspsDB.advertencias : [];
             comunicadosRegistros = Array.isArray(enspsDB.comunicadosProfessores) ? enspsDB.comunicadosProfessores : [];
-            persistirENSPSDB();
+            persistirENSPSDB({ reason: 'Importação manual de backup' });
 
             alert('✅ Backup importado com sucesso!');
             renderTabelaFrequencia();
@@ -3309,6 +3462,7 @@
             renderPendenciasAssinatura();
             renderComunicadosLista();
             atualizarResumoBackupCentral();
+            if (remotoInicializado) await salvarBancoRemoto({ force: true, reason: 'Importação manual de backup', silent: true });
             setTimeout(alertarPendenciasAssinaturaDiarias, 250);
           }
         } catch(err) {
@@ -3317,6 +3471,14 @@
       };
       reader.readAsText(file);
     });
+
+    const btnSincronizarGitHub = document.getElementById('btnSincronizarGitHub');
+    if (btnSincronizarGitHub) {
+      btnSincronizarGitHub.addEventListener('click', async function(){
+        sincronizarBancoPrincipal('Sincronização manual solicitada pelo usuário');
+        await salvarBancoRemoto({ force: true, reason: 'Sincronização manual solicitada pelo usuário', silent: false });
+      });
+    }
 
     document.getElementById('btnLimparFrequencias').addEventListener('click', function(){
       if(confirm('⚠️ Tem certeza que deseja apagar TODAS as frequências registradas? Esta ação não pode ser desfeita.')){
@@ -7492,6 +7654,7 @@ Separe cada tema com uma linha em branco. Sem markdown, sem bullets extras.`;
     a.click();
   }
 
+  inicializarBancoRemoto();
 
   </script>
 </body>
