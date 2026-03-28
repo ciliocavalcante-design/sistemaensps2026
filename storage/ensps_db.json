@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 2,
+  "frequenciaAlunos": [],
+  "advertencias": [],
+  "comunicadosProfessores": [],
+  "professoresMateriais": {
+    "deliveries": {}
+  },
+  "professoresFolha": {
+    "frequencyRecords": [],
+    "extraAvulsaRecords": {}
+  }
+}
