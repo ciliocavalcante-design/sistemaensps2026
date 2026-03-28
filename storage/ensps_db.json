@@ -1,13 +1,3291 @@
 {
   "schemaVersion": 2,
   "frequenciaAlunos": [],
-  "advertencias": [],
-  "comunicadosProfessores": [],
+  "advertencias": [
+    {
+      "id": 1769781378584,
+      "aluno": "LUCAS DOS SANTOS SAMPAIO",
+      "matricula": "2025059",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-01-30",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Falta de respeito",
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula",
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante manifestou comportamento inadequado de falta de respeito com colegas e/ou equipe escolar, contrariando os princípios de convivência harmônica e respeito mútuo incentivados pela escola.\nO(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:39.230Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1769781615899,
+      "aluno": "MARIA LUIZA DUARTE ANDRADE DOS SANTOS",
+      "matricula": "2017036",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-01-30",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Desobediência às orientações",
+        "Gestos obscenos/palavras de baixo calão"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante fez uso de gestos obscenos e/ou palavras de baixo calão em ambiente escolar, desrespeitando colegas e membros da equipe escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:39.421Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1769782094046,
+      "aluno": "JOAO LUCAS CAETANO CISNE",
+      "matricula": "2021054",
+      "serie": "6º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-01-30",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:39.638Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770034792047,
+      "aluno": "VICTOR GABRIEL CUSTODIO DE OLIVEIRA",
+      "matricula": "2024037",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-02",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Demora no retorno à sala pós intervalo"
+      ],
+      "descricao": "Aluno demorou 10 minutos para retornar à sala após o intervalo",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:39.819Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770035788550,
+      "aluno": "DAVI DE OLIVEIRA COSTA",
+      "matricula": "2024019",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-02",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:40.000Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770035800235,
+      "aluno": "FRANCISCO ODONOR PINHEIRO MARTINS",
+      "matricula": "2025011",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-02",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:40.180Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770035862915,
+      "aluno": "PEDRO IAN RIBEIRO DA PAZ PERES",
+      "matricula": "2025008",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-02",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:40.380Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770036044640,
+      "aluno": "JOAO LEVI MESQUITA ROCHA",
+      "matricula": "2025069",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-01-27",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:38.169Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770036064943,
+      "aluno": "GIDEAO DOS SANTOS SAMPAIO",
+      "matricula": "2025060",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-01-27",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:38.552Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770036084759,
+      "aluno": "JOAO LUCAS CAETANO CISNE",
+      "matricula": "2021054",
+      "serie": "6º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-01-27",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula",
+        "Gestos obscenos/palavras de baixo calão"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).\nO(A) estudante fez uso de gestos obscenos e/ou palavras de baixo calão em ambiente escolar, desrespeitando colegas e membros da equipe escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:38.781Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770036169735,
+      "aluno": "LUCAS DOS SANTOS SAMPAIO",
+      "matricula": "2025059",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-01-20",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:34.570Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770036175892,
+      "aluno": "LUCAS DOS SANTOS SAMPAIO",
+      "matricula": "2025059",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-01-21",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:37.014Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770036183849,
+      "aluno": "LUCAS DOS SANTOS SAMPAIO",
+      "matricula": "2025059",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-01-22",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:37.564Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770038159586,
+      "aluno": "VICTOR GABRIEL CUSTODIO DE OLIVEIRA",
+      "matricula": "2024037",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-02",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso por mais de uma vez de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:40.554Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770038237495,
+      "aluno": "LUCAS DOS SANTOS SAMPAIO",
+      "matricula": "2025059",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-02",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Uso de celular em sala",
+        "Desobediência às orientações"
+      ],
+      "descricao": "O(A) estudante fez uso por mais de uma vez de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.\nO(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:40.749Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770038933647,
+      "aluno": "EMANUEL LOHAN SILVEIRA MARQUES",
+      "matricula": "2023091",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-02",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Falta de respeito grave para com o professor",
+        "Desobediência às orientações",
+        "Gestos obscenos/palavras de baixo calão"
+      ],
+      "descricao": "O(A) estudante apresentou comportamento de grave desrespeito em relação ao(à) professor(a), desconsiderando orientações pedagógicas e adotando postura inadequada, o que prejudicou o ambiente de ensino-aprendizagem e comprometeu a autoridade docente.\n\nAlém disso, o(a) estudante descumpriu reiteradamente as orientações dadas pelos educadores, interferindo no andamento das atividades e na disciplina escolar.\n\nRegistra-se, ainda, que o aluno realizou gestos obscenos direcionados à professora, conduta totalmente inadmissível no ambiente escolar, ferindo as normas de convivência e o respeito mútuo.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:40.931Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770039570288,
+      "aluno": "MARIA LUIZA DUARTE ANDRADE DOS SANTOS",
+      "matricula": "2017036",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-02",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:41.117Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770125240630,
+      "aluno": "LUCAS EDUARDO RABELO ALVES",
+      "matricula": "2018006",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:41.314Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770125748760,
+      "aluno": "MARIANA BARROSO DE OLIVEIRA",
+      "matricula": "2020031",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:41.514Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770126249307,
+      "aluno": "LUCAS EDUARDO RABELO ALVES",
+      "matricula": "2018006",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O aluno descumpriu as orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar. Durante a aula, o aluno pegou o material de uma colega e a cutucou repetidamente, mesmo após a solicitação da aluna para que cessasse o comportamento, prejudicando o bom andamento da aula e a convivência em sala.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:41.718Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770126379884,
+      "aluno": "ESTHER PEREIRA DA SILVA SIQUEIRA",
+      "matricula": "2023099",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Atraso recorrente",
+        "Uso de celular no colégio"
+      ],
+      "descricao": "O(A) estudante compareceu repetidas vezes com atraso para as aulas ou atividades, sem justificativa adequada, prejudicando o andamento das atividades e planejamento da turma.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:41.914Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770126397897,
+      "aluno": "EDUARDO HERBERTE CORREIA DE ALENCAR",
+      "matricula": "2016084",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Atraso recorrente",
+        "Uso de celular no colégio"
+      ],
+      "descricao": "O(A) estudante compareceu repetidas vezes com atraso para as aulas ou atividades, sem justificativa adequada, prejudicando o andamento das atividades e planejamento da turma.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:42.107Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770130419976,
+      "aluno": "VICTORIA LIMA FALCAO",
+      "matricula": "2017065",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:42.280Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770130434179,
+      "aluno": "VICTORIA LIMA FALCAO",
+      "matricula": "2017065",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:42.467Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770130445922,
+      "aluno": "MARIA JULIA FERREIRA DE SOUSA",
+      "matricula": "2026048",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:42.648Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770132184783,
+      "aluno": "LUCAS DOS SANTOS SAMPAIO",
+      "matricula": "2025059",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:42.831Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770132193911,
+      "aluno": "MARIA CLARA ARRAIS DO NASCIMENTO",
+      "matricula": "2014102",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:43.014Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770132201747,
+      "aluno": "VICTOR GABRIEL CUSTODIO DE OLIVEIRA",
+      "matricula": "2024037",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:43.202Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770209549280,
+      "aluno": "LUIS GUSTAVO FONTENELE ALVES",
+      "matricula": "2016013",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-04",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:43.400Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770213102914,
+      "aluno": "ANNA LIVIA BARROSO AZEVEDO",
+      "matricula": "2014018",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-04",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Ausentou-se da aula sem autorização"
+      ],
+      "descricao": "Pelo presente, fica o(a) aluno(a) advertido(a) por ausentar-se da aula sem autorização, contrariando as normas de convivência e o regimento interno da instituição de ensino.\n\nRessaltamos que a presença em sala de aula é obrigatória e fundamental para o bom andamento do processo de ensino-aprendizagem. A reincidência deste comportamento poderá acarretar medidas disciplinares mais severas, conforme previsto no regimento escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:43.585Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770213109531,
+      "aluno": "SOFIA OLIVEIRA DE CARVALHO",
+      "matricula": "2023070",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-04",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Ausentou-se da aula sem autorização"
+      ],
+      "descricao": "Pelo presente, fica o(a) aluno(a) advertido(a) por ausentar-se da aula sem autorização, contrariando as normas de convivência e o regimento interno da instituição de ensino.\n\nRessaltamos que a presença em sala de aula é obrigatória e fundamental para o bom andamento do processo de ensino-aprendizagem. A reincidência deste comportamento poderá acarretar medidas disciplinares mais severas, conforme previsto no regimento escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:43.765Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770213164710,
+      "aluno": "VICTOR GABRIEL CUSTODIO DE OLIVEIRA",
+      "matricula": "2024037",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-04",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Ausentou-se da aula sem autorização"
+      ],
+      "descricao": "Pelo presente, fica o(a) aluno(a) advertido(a) por ausentar-se da aula sem autorização, contrariando as normas de convivência e o regimento interno da instituição de ensino.\n\nRessaltamos que a presença em sala de aula é obrigatória e fundamental para o bom andamento do processo de ensino-aprendizagem. A reincidência deste comportamento poderá acarretar medidas disciplinares mais severas, conforme previsto no regimento escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:43.948Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770287398051,
+      "aluno": "JOAO LUCAS CAETANO CISNE",
+      "matricula": "2021054",
+      "serie": "6º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-05",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Gestos obscenos/palavras de baixo calão"
+      ],
+      "descricao": "O(A) estudante fez uso de gestos obscenos e/ou palavras de baixo calão em ambiente escolar, desrespeitando colegas e membros da equipe escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:44.131Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770290919899,
+      "aluno": "IAN DA SILVA OLIVEIRA",
+      "matricula": "2018044",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-05",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:44.330Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770290932551,
+      "aluno": "ANNA LIVIA BARROSO AZEVEDO",
+      "matricula": "2014018",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-05",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:44.507Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770295827041,
+      "aluno": "MARCIO MIGUEL LIMA SARAIVA",
+      "matricula": "2017033",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-05",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:44.697Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770297829837,
+      "aluno": "JOAO LEVI MESQUITA ROCHA",
+      "matricula": "2025069",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-05",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:44.888Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770388255916,
+      "aluno": "MARIA JULIA FERREIRA DE SOUSA",
+      "matricula": "2026048",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-06",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:45.084Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770636787124,
+      "aluno": "MARIA LUIZA DUARTE ANDRADE DOS SANTOS",
+      "matricula": "2017036",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-06",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:45.271Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770638858956,
+      "aluno": "MARIA ISABEL DO NASCIMENTO BARBOSA",
+      "matricula": "2015025",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-06",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:45.474Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770732328275,
+      "aluno": "EMANUEL LOHAN SILVEIRA MARQUES",
+      "matricula": "2023091",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-10",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações",
+        "Fardamento em desacordo com normas",
+        "Não realizou a aula de educação física"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:45.681Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770733870429,
+      "aluno": "EMANUEL LOHAN SILVEIRA MARQUES",
+      "matricula": "2023091",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-10",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações",
+        "Não realizou a aula de educação física"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:45.865Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770733875402,
+      "aluno": "EMANUEL LOHAN SILVEIRA MARQUES",
+      "matricula": "2023091",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-10",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não realizou a aula de educação física"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:46.082Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770733890086,
+      "aluno": "MARIA CLARA FARIAS AMORIM",
+      "matricula": "2022089",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-10",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não realizou a aula de educação física"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:46.281Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770734020768,
+      "aluno": "VITORIA JAMILLY RODRIGUES AGUIAR",
+      "matricula": "2025081",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-10",
+      "hora": "",
+      "natureza": "Pedagógica",
+      "motivos": [
+        "Não realizou a aula de educação física"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:46.480Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770734069481,
+      "aluno": "YANNARA GONÇALVES BESERRA",
+      "matricula": "2024035",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-10",
+      "hora": "",
+      "natureza": "Pedagógica",
+      "motivos": [
+        "Não realizou a aula de educação física"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:46.697Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770809129189,
+      "aluno": "JOAO HENRIQUE FERNANDES PEREIRA",
+      "matricula": "2026064",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-11",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:47.097Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770809191126,
+      "aluno": "LUCAS DOS SANTOS SAMPAIO",
+      "matricula": "2025059",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-10",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:46.869Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770812663409,
+      "aluno": "MARIA RITA ANTUNES FARIAS",
+      "matricula": "2014039",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-11",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:47.314Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770812766005,
+      "aluno": "MARIA CLARA ARRAIS DO NASCIMENTO",
+      "matricula": "2014102",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-11",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito grave para com o professor",
+        "Desobediência às orientações"
+      ],
+      "descricao": "A aluna usou um termo impróprio para com a professora de gramática.\nO(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:47.514Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770813977102,
+      "aluno": "PEDRO RICKSON DA COSTA ALMADA",
+      "matricula": "2017032",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-11",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:47.735Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770814328616,
+      "aluno": "ROBERT DOUGLAS SAAD RODRIGUES FILHO",
+      "matricula": "2013034",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-11",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:47.957Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770816758217,
+      "aluno": "MARIA LYVIA OLIVEIRA SOUZA",
+      "matricula": "2019101",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-11",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito",
+        "Gestos obscenos/palavras de baixo calão"
+      ],
+      "descricao": "O(A) estudante fez uso de gestos obscenos e/ou palavras de baixo calão em ambiente escolar, desrespeitando colegas e membros da equipe escolar.\nO(A) estudante manifestou comportamento inadequado de falta de respeito com colegas e/ou equipe escolar, contrariando os princípios de convivência harmônica e respeito mútuo incentivados pela escola.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:48.231Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770818069615,
+      "aluno": "VICTOR GABRIEL CUSTODIO DE OLIVEIRA",
+      "matricula": "2024037",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-11",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:49.298Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770901384835,
+      "aluno": "MARIA ISABEL DO NASCIMENTO BARBOSA",
+      "matricula": "2015025",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-12",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Agressão física contra a colega de sala"
+      ],
+      "descricao": "Informamos que a aluna Maria Isabel envolveu-se em um episódio de agressão física contra uma colega de sala. Após sentir-se incomodada com uma brincadeira realizada pela outra estudante, a aluna optou por não procurar a mediação de um professor ou da coordenação e acabou arremessando um caderno, que atingiu a boca da colega.\n\nRessaltamos que atitudes dessa natureza são incompatíveis com os princípios de respeito, diálogo e boa convivência que norteiam o ambiente escolar. Situações de conflito devem sempre ser comunicadas à equipe pedagógica para que sejam devidamente mediadas.\n\nA escola reforça seu compromisso com a formação ética dos alunos e com a manutenção de um ambiente seguro e harmonioso para todos.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:49.630Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770986862283,
+      "aluno": "PEDRO RICKSON DA COSTA ALMADA",
+      "matricula": "2017032",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Gestos obscenos/palavras de baixo calão"
+      ],
+      "descricao": "O(A) estudante fez uso de gestos obscenos e/ou palavras de baixo calão em ambiente escolar, desrespeitando colegas e membros da equipe escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:49.864Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770990647912,
+      "aluno": "RYAN ARAUJO DE LIRA",
+      "matricula": "2015015",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:50.090Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770990657007,
+      "aluno": "RAUAN DE AMORIM MONTE",
+      "matricula": "2022063",
+      "serie": "3ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:50.335Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1770990822257,
+      "aluno": "RYAN DELMAR SOUSA AUGUSTO ARISTOTELES",
+      "matricula": "2024049",
+      "serie": "3ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:50.575Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771502033110,
+      "aluno": "RYAN DELMAR SOUSA AUGUSTO ARISTOTELES",
+      "matricula": "2024049",
+      "serie": "3ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-19",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:50.797Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771502040654,
+      "aluno": "JOAO MARCELO RIOLO DA SILVA",
+      "matricula": "2011001",
+      "serie": "3ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-19",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:51.013Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771507980577,
+      "aluno": "GIDEAO DOS SANTOS SAMPAIO",
+      "matricula": "2025060",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-19",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula",
+        "Brincadeiras inapropriadas para com os colegas"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).\nO(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:51.231Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771591306957,
+      "aluno": "ARIEL MELO PATRICIO",
+      "matricula": "2016040",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-20",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Falta de respeito",
+        "Desobediência às orientações"
+      ],
+      "descricao": "O(A) estudante manifestou comportamento inadequado de falta de respeito com colegas e/ou equipe escolar, contrariando os princípios de convivência harmônica e respeito mútuo incentivados pela escola.\nO(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.",
+      "responsavel": "Rafaely",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:51.422Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771850275472,
+      "aluno": "LUCAS GABRIEL BRITO DE MOURA",
+      "matricula": "2025042",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-23",
+      "hora": "",
+      "natureza": "Patrimonial",
+      "motivos": [
+        "Danos ao patrimônio"
+      ],
+      "descricao": "O(A) estudante foi identificado(a) causando danos ao patrimônio escolar, ferindo as normas de respeito ao espaço coletivo.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:51.631Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771852083405,
+      "aluno": "ABINER SOARES BRAGA",
+      "matricula": "2019126",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-23",
+      "hora": "",
+      "natureza": "Patrimonial",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:51.857Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771852505434,
+      "aluno": "CARLOS EDUARDO ALENCAR COSTA",
+      "matricula": "2016020",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-23",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:52.064Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771852523781,
+      "aluno": "MARCIO MIGUEL LIMA SARAIVA",
+      "matricula": "2017033",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-23",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:52.570Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771855828518,
+      "aluno": "BEATRIZ SOLANGE CHAVES MAGALHAES",
+      "matricula": "2025033",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-23",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:53.035Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771855846992,
+      "aluno": "VICTOR GABRIEL CUSTODIO DE OLIVEIRA",
+      "matricula": "2024037",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-23",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:53.365Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771855970655,
+      "aluno": "LUCAS DOS SANTOS SAMPAIO",
+      "matricula": "2025059",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-23",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:53.584Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771855982272,
+      "aluno": "IAN DA SILVA OLIVEIRA",
+      "matricula": "2018044",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-23",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:53.797Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771856821670,
+      "aluno": "SOFIA OLIVEIRA DE CARVALHO",
+      "matricula": "2023070",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-23",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Riscando outros alunos"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:53.998Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771856828827,
+      "aluno": "ANNA LIVIA BARROSO AZEVEDO",
+      "matricula": "2014018",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-23",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Riscando outros alunos"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:54.191Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931837337,
+      "aluno": "EDUARDO HERBERTE CORREIA DE ALENCAR",
+      "matricula": "2016084",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:55.157Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931846593,
+      "aluno": "MARIA MEL LIMA VASCONCEOS",
+      "matricula": "2026013",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:55.533Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931856011,
+      "aluno": "MARIA ALICE MENEZES DA ROCHA",
+      "matricula": "2023072",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:55.752Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931864015,
+      "aluno": "MARIA BIANKA VIANA BRASIL",
+      "matricula": "2016048",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:55.980Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931876090,
+      "aluno": "LIVIA DE LIMA NOGUEIRA",
+      "matricula": "2021028",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:56.181Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931884439,
+      "aluno": "LARA DE OLIVEIRA COLARES",
+      "matricula": "2015141",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:56.350Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931892713,
+      "aluno": "ANA LUIZA OLIVEIRA CAVALCANTE",
+      "matricula": "2017016",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:56.581Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931903436,
+      "aluno": "MARIA VITORIA DE SOUSA BASTOS",
+      "matricula": "2025010",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:56.785Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931929483,
+      "aluno": "LUCAS GONÇALVES MARTINS",
+      "matricula": "2025031",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:57.001Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931937800,
+      "aluno": "MIGUEL ALVES FREITAS",
+      "matricula": "2025013",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:57.219Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931947071,
+      "aluno": "ANA LETICIA NOGUEIRA DO CARMO",
+      "matricula": "2019063",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:57.431Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931958157,
+      "aluno": "EMILLY OLIVEIRA GOMES",
+      "matricula": "2026036",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:57.650Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931964156,
+      "aluno": "ALEXIA MARIA SOUSA",
+      "matricula": "2018008",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:57.881Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771931983365,
+      "aluno": "GIDEAO DOS SANTOS SAMPAIO",
+      "matricula": "2025060",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não trouxe o material didático"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:58.048Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771938614476,
+      "aluno": "JOAO LEVI MESQUITA ROCHA",
+      "matricula": "2025069",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:58.217Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1771944409176,
+      "aluno": "LUCAS EDUARDO RABELO ALVES",
+      "matricula": "2018006",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Aluno fora de sala em horário de aula"
+      ],
+      "descricao": "O(A) aluno(a) solicitou autorização para se ausentar da sala com a justificativa de ir ao banheiro. Contudo, após a autorização concedida, o(a) estudante não retornou à sala de aula, permanecendo nos corredores e no pátio da escola, recusando-se a retornar mesmo estando em horário regular de aula.\n\nTal conduta caracteriza:\n\n• Aluno fora de sala em horário de aula;\n• Descumprimento das normas internas da escola;\n• Prejuízo ao próprio processo de aprendizagem.\n\nRessaltamos que atitudes como essa comprometem o bom andamento das atividades pedagógicas e o rendimento escolar. Espera-se que o(a) aluno(a) reveja sua postura e cumpra as regras estabelecidas pela instituição.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:58.400Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772024566287,
+      "aluno": "ANA LETICIA NOGUEIRA DO CARMO",
+      "matricula": "2019063",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-25",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:58.563Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772024572714,
+      "aluno": "ANA CECILIA CAVALCANTE PONTES",
+      "matricula": "2016122",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-25",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:58.747Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772024587363,
+      "aluno": "EMILLY OLIVEIRA GOMES",
+      "matricula": "2026036",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-25",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:58.914Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772024598680,
+      "aluno": "LUCAS GONÇALVES MARTINS",
+      "matricula": "2025031",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-25",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:59.102Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772195569955,
+      "aluno": "ANA LETICIA GOMES FREIRE",
+      "matricula": "2012016",
+      "serie": "3ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-27",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "A escola adota o uso do uniforme escolar como item obrigatório para todos os alunos, por se tratar de um elemento que promove organização, identificação, segurança e igualdade no ambiente escolar.\n\n<strong>O uniforme contribui para:</strong>\n- A padronização dos estudantes;\n- A fácil identificação dos alunos dentro e fora da escola;\n- A promoção da disciplina e do respeito às normas institucionais;\n- A valorização do ambiente escolar como espaço de aprendizagem;\n- A igualdade entre os alunos, evitando distinções sociais.\n\nInformamos que o(a) aluno(a) compareceu à escola sem o uso do fardamento completo e sem justificativa prévia dos responsáveis.\n\n<strong>Ressaltamos que o não cumprimento das normas referentes ao uso do uniforme poderá acarretar:</strong>\n- Registro de ocorrência disciplinar;\n- Comunicação formal à família;\n- Restrição de permanência em sala de aula até a regularização da situação;\n- Outras medidas previstas no Regimento Escolar.\n\nSolicitamos que os responsáveis comuniquem previamente à escola, no próprio dia, qualquer eventualidade que impeça o(a) aluno(a) de comparecer devidamente fardado(a). Reforçamos a importância do cumprimento das normas estabelecidas, fundamentais para a organização, disciplina e bom funcionamento do ambiente escolar.\n\n<strong>Pedimos, ainda, que o(a) aluno(a) devolva este documento devidamente assinado pelo responsável até o dia 02/03, para registro e confirmação de ciência.\n\nContamos com a colaboração da família para que situações como esta não voltem a ocorrer.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:59.281Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772195746988,
+      "aluno": "ANA LETICIA GOMES FREIRE",
+      "matricula": "2012016",
+      "serie": "3ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-27",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "A escola adota o uso do uniforme escolar como item obrigatório para todos os alunos, por se tratar de um elemento que promove organização, identificação, segurança e igualdade no ambiente escolar.\n\n<strong>O uniforme contribui para:</strong>\n- A padronização dos estudantes;\n- A fácil identificação dos alunos dentro e fora da escola;\n- A promoção da disciplina e do respeito às normas institucionais;\n- A valorização do ambiente escolar como espaço de aprendizagem;\n- A igualdade entre os alunos, evitando distinções sociais.\n\nInformamos que o(a) aluno(a) compareceu à escola sem o uso do fardamento completo e sem justificativa prévia dos responsáveis.\n\n<strong>Ressaltamos que o não cumprimento das normas referentes ao uso do uniforme poderá acarretar:</strong>\n- Registro de ocorrência disciplinar;\n- Comunicação formal à família;\n- Restrição de permanência em sala de aula até a regularização da situação;\n- Outras medidas previstas no Regimento Escolar.\n\nSolicitamos que os responsáveis comuniquem previamente à escola, no próprio dia, qualquer eventualidade que impeça o(a) aluno(a) de comparecer devidamente fardado(a). Reforçamos a importância do cumprimento das normas estabelecidas, fundamentais para a organização, disciplina e bom funcionamento do ambiente escolar.\n\n<strong>Pedimos, ainda, que o(a) aluno(a) devolva este documento devidamente assinado pelo responsável até o dia 02/03, para registro e confirmação de ciência.\n\nContamos com a colaboração da família para que situações como esta não voltem a ocorrer.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:59.447Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772195753278,
+      "aluno": "MIRELLY EVELIN DA SILVA FERREIRA",
+      "matricula": "2020051",
+      "serie": "3ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-27",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "A escola adota o uso do uniforme escolar como item obrigatório para todos os alunos, por se tratar de um elemento que promove organização, identificação, segurança e igualdade no ambiente escolar.\n\n<strong>O uniforme contribui para:</strong>\n- A padronização dos estudantes;\n- A fácil identificação dos alunos dentro e fora da escola;\n- A promoção da disciplina e do respeito às normas institucionais;\n- A valorização do ambiente escolar como espaço de aprendizagem;\n- A igualdade entre os alunos, evitando distinções sociais.\n\nInformamos que o(a) aluno(a) compareceu à escola sem o uso do fardamento completo e sem justificativa prévia dos responsáveis.\n\n<strong>Ressaltamos que o não cumprimento das normas referentes ao uso do uniforme poderá acarretar:</strong>\n- Registro de ocorrência disciplinar;\n- Comunicação formal à família;\n- Restrição de permanência em sala de aula até a regularização da situação;\n- Outras medidas previstas no Regimento Escolar.\n\nSolicitamos que os responsáveis comuniquem previamente à escola, no próprio dia, qualquer eventualidade que impeça o(a) aluno(a) de comparecer devidamente fardado(a). Reforçamos a importância do cumprimento das normas estabelecidas, fundamentais para a organização, disciplina e bom funcionamento do ambiente escolar.\n\n<strong>Pedimos, ainda, que o(a) aluno(a) devolva este documento devidamente assinado pelo responsável até o dia 02/03, para registro e confirmação de ciência.\n\nContamos com a colaboração da família para que situações como esta não voltem a ocorrer.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:59.635Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772196111693,
+      "aluno": "MARIA FERNANDA DE MESQUITA MENEZES",
+      "matricula": "2014054",
+      "serie": "3ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-27",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "A escola adota o uso do uniforme escolar como item obrigatório para todos os alunos, por se tratar de um elemento que promove organização, identificação, segurança e igualdade no ambiente escolar.\n\n<strong>O uniforme contribui para:</strong>\n- A padronização dos estudantes;\n- A fácil identificação dos alunos dentro e fora da escola;\n- A promoção da disciplina e do respeito às normas institucionais;\n- A valorização do ambiente escolar como espaço de aprendizagem;\n- A igualdade entre os alunos, evitando distinções sociais.\n\nInformamos que o(a) aluno(a) compareceu à escola sem o uso do fardamento completo e sem justificativa prévia dos responsáveis.\n\n<strong>Ressaltamos que o não cumprimento das normas referentes ao uso do uniforme poderá acarretar:</strong>\n- Registro de ocorrência disciplinar;\n- Comunicação formal à família;\n- Restrição de permanência em sala de aula até a regularização da situação;\n- Outras medidas previstas no Regimento Escolar.\n\nSolicitamos que os responsáveis comuniquem previamente à escola, no próprio dia, qualquer eventualidade que impeça o(a) aluno(a) de comparecer devidamente fardado(a). Reforçamos a importância do cumprimento das normas estabelecidas, fundamentais para a organização, disciplina e bom funcionamento do ambiente escolar.\n\n<strong>Pedimos, ainda, que o(a) aluno(a) devolva este documento devidamente assinado pelo responsável até o dia 02/03, para registro e confirmação de ciência.\n\nContamos com a colaboração da família para que situações como esta não voltem a ocorrer.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:59.830Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772196205680,
+      "aluno": "GABRIEL SILVA DE MOURA FREIRE",
+      "matricula": "2011011",
+      "serie": "3ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-27",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "A escola adota o uso do uniforme escolar como item obrigatório para todos os alunos, por se tratar de um elemento que promove organização, identificação, segurança e igualdade no ambiente escolar.\n\n<strong>O uniforme contribui para:</strong>\n- A padronização dos estudantes;\n- A fácil identificação dos alunos dentro e fora da escola;\n- A promoção da disciplina e do respeito às normas institucionais;\n- A valorização do ambiente escolar como espaço de aprendizagem;\n- A igualdade entre os alunos, evitando distinções sociais.\n\nInformamos que o(a) aluno(a) compareceu à escola sem o uso do fardamento completo e sem justificativa prévia dos responsáveis.\n\n<strong>Ressaltamos que o não cumprimento das normas referentes ao uso do uniforme poderá acarretar:</strong>\n- Registro de ocorrência disciplinar;\n- Comunicação formal à família;\n- Restrição de permanência em sala de aula até a regularização da situação;\n- Outras medidas previstas no Regimento Escolar.\n\nSolicitamos que os responsáveis comuniquem previamente à escola, no próprio dia, qualquer eventualidade que impeça o(a) aluno(a) de comparecer devidamente fardado(a). Reforçamos a importância do cumprimento das normas estabelecidas, fundamentais para a organização, disciplina e bom funcionamento do ambiente escolar.\n\n<strong>Pedimos, ainda, que o(a) aluno(a) devolva este documento devidamente assinado pelo responsável até o dia 02/03, para registro e confirmação de ciência.\n\nContamos com a colaboração da família para que situações como esta não voltem a ocorrer.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:50:59.997Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772196991542,
+      "aluno": "VICTOR GABRIEL CUSTODIO DE OLIVEIRA",
+      "matricula": "2024037",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-02-27",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Falta de respeito grave para com o professor"
+      ],
+      "descricao": "O(A) estudante demonstrou falta de respeito grave em relação ao(à) professor(a), desconsiderando orientações, adotando postura desrespeitosa e, em determinados momentos, prejudicando o ambiente de ensino-aprendizagem e a autoridade do docente.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:00.190Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772449262896,
+      "aluno": "JOAO LUCAS CAETANO CISNE",
+      "matricula": "2021054",
+      "serie": "6º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-02",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Conversa demasiada em sala de aula",
+        "Brincadeiras inadequadas para o ambiente escolar"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:00.380Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772454693851,
+      "aluno": "VITORIA JAMILLY RODRIGUES AGUIAR",
+      "matricula": "2025081",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-02",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Desobediência às orientações"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:00.580Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772533130513,
+      "aluno": "SOFIA OLIVEIRA DE CARVALHO",
+      "matricula": "2023070",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Atraso recorrente",
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante compareceu repetidas vezes com atraso para as aulas ou atividades, sem justificativa adequada, prejudicando o andamento das atividades e planejamento da turma.\nO(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:00.770Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772544568180,
+      "aluno": "ALICE MARIA CRUZ. LIMA",
+      "matricula": "2026046",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não realizou atividades/tarefas",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante não realizou as atividades/tarefas propostas, mesmo após incentivo e disponibilidade de apoio pedagógico.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:01.000Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772544603208,
+      "aluno": "ALICE MARIA CRUZ. LIMA",
+      "matricula": "2026046",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não realizou atividades/tarefas",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante não realizou as atividades/tarefas propostas, mesmo após incentivo e disponibilidade de apoio pedagógico.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:01.188Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772546711864,
+      "aluno": "JOAO LUCAS MAIA ARAGAO",
+      "matricula": "2018106",
+      "serie": "6º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Aluno batendo forma recorrente na parede"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:01.407Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772628120762,
+      "aluno": "MARIA JULIA FERREIRA DE SOUSA",
+      "matricula": "2026048",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-03",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Entrou após o horário permitido"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:01.570Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772628149606,
+      "aluno": "SAMUEL GOMES FREIRE",
+      "matricula": "2016053",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-04",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:01.787Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772628157393,
+      "aluno": "ALEXANDRE GUILHERMINO MOREIRA MARQUES",
+      "matricula": "2021034",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-04",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:02.014Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772713465272,
+      "aluno": "MARCIO MIGUEL LIMA SARAIVA",
+      "matricula": "2017033",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-05",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Ato de Agressão Física"
+      ],
+      "descricao": "A presente advertência tem como objetivo registrar um comportamento inadequado ocorrido nas dependências da escola. Conforme relato e observação, o aluno empurrou outro colega, que acabou sendo projetado contra uma aluna que se encontrava próxima. Em decorrência da ação, o aluno que foi empurrado acabou batendo a testa no rosto da colega, causando uma situação de risco e desconforto entre os envolvidos.\n\nRessaltamos que atitudes desse tipo não são compatíveis com as normas de convivência e respeito estabelecidas pela escola. O ambiente escolar deve ser pautado pelo respeito, cuidado com o próximo e responsabilidade pelas próprias atitudes.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:02.398Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772717216656,
+      "aluno": "JUAN DAVY SOARES MACIEL",
+      "matricula": "2024065",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-05",
+      "hora": "",
+      "natureza": "Pedagógica",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "Informamos que o(a) aluno(a) não está utilizando o uniforme de Educação Física no dia destinado à realização da aula desta disciplina, conforme estabelecido nas normas da escola.\n\nRessaltamos que o uso do uniforme adequado é obrigatório, pois garante a participação segura nas atividades propostas e contribui para a organização e identificação dos alunos durante as aulas.\n\nDe acordo com o regimento escolar, a não utilização do uniforme de Educação Física poderá implicar prejuízo na nota da disciplina, caso o aluno fique impossibilitado de participar das atividades práticas.\n\nPedimos a colaboração da família para que o aluno compareça às próximas aulas devidamente uniformizado, evitando assim novas ocorrências.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:02.613Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772717237059,
+      "aluno": "PEDRO VINICIUS BARROS LIMA",
+      "matricula": "2016081",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-05",
+      "hora": "",
+      "natureza": "Pedagógica",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "Informamos que o(a) aluno(a) não está utilizando o uniforme de Educação Física no dia destinado à realização da aula desta disciplina, conforme estabelecido nas normas da escola.\n\nRessaltamos que o uso do uniforme adequado é obrigatório, pois garante a participação segura nas atividades propostas e contribui para a organização e identificação dos alunos durante as aulas.\n\nDe acordo com o regimento escolar, a não utilização do uniforme de Educação Física poderá implicar prejuízo na nota da disciplina, caso o aluno fique impossibilitado de participar das atividades práticas.\n\nPedimos a colaboração da família para que o aluno compareça às próximas aulas devidamente uniformizado, evitando assim novas ocorrências.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:02.824Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772717270458,
+      "aluno": "LARA CHRISTINE LIMA SALLES",
+      "matricula": "2025037",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-05",
+      "hora": "",
+      "natureza": "Pedagógica",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "Informamos que o(a) aluno(a) não está utilizando o uniforme de Educação Física no dia destinado à realização da aula desta disciplina, conforme estabelecido nas normas da escola.\n\nRessaltamos que o uso do uniforme adequado é obrigatório, pois garante a participação segura nas atividades propostas e contribui para a organização e identificação dos alunos durante as aulas.\n\nDe acordo com o regimento escolar, a não utilização do uniforme de Educação Física poderá implicar prejuízo na nota da disciplina, caso o aluno fique impossibilitado de participar das atividades práticas.\n\nPedimos a colaboração da família para que o aluno compareça às próximas aulas devidamente uniformizado, evitando assim novas ocorrências.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:03.016Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772717284752,
+      "aluno": "ADRYEL LEITE RODRIGUES NUNES VIANA",
+      "matricula": "2017089",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-05",
+      "hora": "",
+      "natureza": "Pedagógica",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "Informamos que o(a) aluno(a) não está utilizando o uniforme de Educação Física no dia destinado à realização da aula desta disciplina, conforme estabelecido nas normas da escola.\n\nRessaltamos que o uso do uniforme adequado é obrigatório, pois garante a participação segura nas atividades propostas e contribui para a organização e identificação dos alunos durante as aulas.\n\nDe acordo com o regimento escolar, a não utilização do uniforme de Educação Física poderá implicar prejuízo na nota da disciplina, caso o aluno fique impossibilitado de participar das atividades práticas.\n\nPedimos a colaboração da família para que o aluno compareça às próximas aulas devidamente uniformizado, evitando assim novas ocorrências.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:03.220Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772717299152,
+      "aluno": "NICOLLY SOUZA RABAY",
+      "matricula": "2026003",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-05",
+      "hora": "",
+      "natureza": "Pedagógica",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "Informamos que o(a) aluno(a) não está utilizando o uniforme de Educação Física no dia destinado à realização da aula desta disciplina, conforme estabelecido nas normas da escola.\n\nRessaltamos que o uso do uniforme adequado é obrigatório, pois garante a participação segura nas atividades propostas e contribui para a organização e identificação dos alunos durante as aulas.\n\nDe acordo com o regimento escolar, a não utilização do uniforme de Educação Física poderá implicar prejuízo na nota da disciplina, caso o aluno fique impossibilitado de participar das atividades práticas.\n\nPedimos a colaboração da família para que o aluno compareça às próximas aulas devidamente uniformizado, evitando assim novas ocorrências.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:03.414Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772717310545,
+      "aluno": "MARIA JULIA DE ARAUJO CAVALCANTE",
+      "matricula": "2026025",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-05",
+      "hora": "",
+      "natureza": "Pedagógica",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "Informamos que o(a) aluno(a) não está utilizando o uniforme de Educação Física no dia destinado à realização da aula desta disciplina, conforme estabelecido nas normas da escola.\n\nRessaltamos que o uso do uniforme adequado é obrigatório, pois garante a participação segura nas atividades propostas e contribui para a organização e identificação dos alunos durante as aulas.\n\nDe acordo com o regimento escolar, a não utilização do uniforme de Educação Física poderá implicar prejuízo na nota da disciplina, caso o aluno fique impossibilitado de participar das atividades práticas.\n\nPedimos a colaboração da família para que o aluno compareça às próximas aulas devidamente uniformizado, evitando assim novas ocorrências.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:03.586Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772796930421,
+      "aluno": "GIDEAO DOS SANTOS SAMPAIO",
+      "matricula": "2025060",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-06",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:03.780Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1772797788010,
+      "aluno": "RUAN DE LIMA VIEIRA BARBOSA",
+      "matricula": "2023065",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-04",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "USO INDEVIDO DE CELULAR DURANTE AVALIAÇÃO"
+      ],
+      "descricao": "O aluno foi flagrado utilizando aparelho celular para consultar informações relacionadas às questões da prova.\n\nTal conduta caracteriza descumprimento das normas da instituição e das regras de avaliação, que proíbem o uso de dispositivos eletrônicos durante a realização de provas, comprometendo a lisura do processo avaliativo.\n\nDiante do ocorrido, o aluno recebe advertência disciplinar, ficando ciente de que a repetição de atitudes semelhantes poderá acarretar medidas disciplinares mais severas, conforme o regimento interno da escola.\n\nSolicitamos que o(a) responsável esteja ciente desta ocorrência e reforce junto ao aluno a importância do respeito às normas da instituição.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:02.197Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773059193869,
+      "aluno": "MOISES SOARES PESSOA NETO",
+      "matricula": "2020013",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-09",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:03.963Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773239218148,
+      "aluno": "MIGUEL SILVA DO NASCIMENTO",
+      "matricula": "2026056",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-11",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:04.150Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773239225438,
+      "aluno": "ANA CAROLINA LEAO FERREIRA PIRES",
+      "matricula": "2025050",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-11",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:04.352Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773239712178,
+      "aluno": "MARIA ISABEL DO NASCIMENTO BARBOSA",
+      "matricula": "2015025",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-11",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Gestos obscenos/palavras de baixo calão"
+      ],
+      "descricao": "O(A) estudante fez uso de gestos obscenos e/ou palavras de baixo calão em ambiente escolar, desrespeitando colegas e membros da equipe escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:04.565Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773239778163,
+      "aluno": "MARIA ISABEL DO NASCIMENTO BARBOSA",
+      "matricula": "2015025",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-11",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Gestos obscenos"
+      ],
+      "descricao": "O(A) estudante fez uso de gestos obscenos em ambiente escolar, desrespeitando colegas e membros da equipe escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:04.767Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773321102765,
+      "aluno": "MARCIO MIGUEL LIMA SARAIVA",
+      "matricula": "2017033",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-12",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Palavras de baixo calão"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:04.964Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773400047973,
+      "aluno": "ALEXIA MARIA SOUSA",
+      "matricula": "2018008",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "A aluna estava em um grupo com uma aluna que estava mexendo no celular, causando um tumulto em sala, ao redor da colega.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:05.181Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773400059507,
+      "aluno": "ESTHER PEREIRA DA SILVA SIQUEIRA",
+      "matricula": "2023099",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "A aluna estava em um grupo com uma aluna que estava mexendo no celular, causando um tumulto em sala, ao redor da colega.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:05.365Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773400186837,
+      "aluno": "JOAO LEVI MESQUITA ROCHA",
+      "matricula": "2025069",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito",
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O aluno estava em um grupo com uma colega que mexia no celular, o que acabou causando um tumulto ao redor dela dentro da sala de aula.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:05.567Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773400196656,
+      "aluno": "GIDEAO DOS SANTOS SAMPAIO",
+      "matricula": "2025060",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito",
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O aluno estava em um grupo com uma colega que mexia no celular, o que acabou causando um tumulto ao redor dela dentro da sala de aula.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:05.747Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773400324232,
+      "aluno": "EMILLY OLIVEIRA GOMES",
+      "matricula": "2026036",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "Informamos que foi registrada uma ocorrência em sala de aula devido ao uso de celular pela aluna durante o horário da aula, o que acabou gerando tumulto e distração entre os colegas ao redor.\n\nRessaltamos que o uso de celular em sala, sem autorização do professor, não é permitido, pois prejudica a concentração, o andamento da aula e o ambiente de aprendizagem.\n\nDiante disso, a aluna recebe esta advertência, ficando orientada a não repetir tal comportamento. Espera-se maior atenção às normas da escola e respeito ao ambiente escolar, contribuindo para uma convivência harmoniosa e para o bom desenvolvimento das atividades pedagógicas.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:05.949Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773401377511,
+      "aluno": "EDUARDO HERBERTE CORREIA DE ALENCAR",
+      "matricula": "2016084",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "Informamos que foi registrada uma ocorrência em sala de aula devido ao uso de celular pela aluna durante o horário da aula, o que acabou gerando tumulto e distração entre os colegas ao redor.\n\nRessaltamos que o uso de celular em sala, sem autorização do professor, não é permitido, pois prejudica a concentração, o andamento da aula e o ambiente de aprendizagem.\n\nDiante disso, a aluna fica orientada a não repetir tal comportamento. Espera-se maior atenção às normas da escola e respeito ao ambiente escolar, contribuindo para uma convivência harmoniosa e para o bom desenvolvimento das atividades pedagógicas.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:06.152Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773409571220,
+      "aluno": "ANNA LIVIA BARROSO AZEVEDO",
+      "matricula": "2014018",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:06.340Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773409787392,
+      "aluno": "PEDRO JORGE DA SILVA QUEIROZ DE ALMEIDA",
+      "matricula": "2025030",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:06.549Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773409797553,
+      "aluno": "MARCIO MIGUEL LIMA SARAIVA",
+      "matricula": "2017033",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:06.752Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773409810035,
+      "aluno": "MARIA ALICE MENEZES DA ROCHA",
+      "matricula": "2023072",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:06.970Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773409964543,
+      "aluno": "LUCAS EDUARDO RABELO ALVES",
+      "matricula": "2018006",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações",
+        "Não realizou atividades/tarefas",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).\nO(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante não realizou as atividades/tarefas propostas, mesmo após incentivo e disponibilidade de apoio pedagógico.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:07.203Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773410073940,
+      "aluno": "PABLLO JHUAN MIGUEL ISIDORO",
+      "matricula": "2025055",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Agressão física ao colega"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:07.379Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773665928330,
+      "aluno": "LUCAS GABRIEL BRITO DE MOURA",
+      "matricula": "2025042",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-16",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "A presente advertência é aplicada ao(à) aluno(a) acima identificado(a) em razão de comportamentos recorrentes de indisciplina em sala de aula. Foi observado que o(a) estudante, de forma frequente, tem apresentado atitudes inadequadas durante as aulas, realizando brincadeiras impróprias, conversas constantes e atitudes que atrapalham o andamento da aula, dificultando a explicação do professor e prejudicando o próprio aprendizado e o dos demais colegas.\n\nApesar das orientações já realizadas em sala de aula, o comportamento continua ocorrendo de forma repetida, comprometendo o ambiente adequado para o ensino e a aprendizagem.\n\nDiante do exposto, o(a) aluno(a) fica formalmente advertido(a) e orientado(a) a mudar sua postura em sala de aula. Solicitamos a presença dos responsáveis na escola para uma conversa com a coordenação/professor, a fim de tratar da situação e buscar, em conjunto, soluções para a melhoria da conduta do(a) estudante.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:07.991Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773665954708,
+      "aluno": "CARLOS EDUARDO ALENCAR COSTA",
+      "matricula": "2016020",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-16",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "A presente advertência é aplicada ao(à) aluno(a) acima identificado(a) em razão de comportamentos recorrentes de indisciplina em sala de aula. Foi observado que o(a) estudante, de forma frequente, tem apresentado atitudes inadequadas durante as aulas, realizando brincadeiras impróprias, conversas constantes e atitudes que atrapalham o andamento da aula, dificultando a explicação do professor e prejudicando o próprio aprendizado e o dos demais colegas.\n\nApesar das orientações já realizadas em sala de aula, o comportamento continua ocorrendo de forma repetida, comprometendo o ambiente adequado para o ensino e a aprendizagem.\n\nDiante do exposto, o(a) aluno(a) fica formalmente advertido(a) e orientado(a) a mudar sua postura em sala de aula. Solicitamos a presença dos responsáveis na escola para uma conversa com a coordenação/professor, a fim de tratar da situação e buscar, em conjunto, soluções para a melhoria da conduta do(a) estudante.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:08.208Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773670284855,
+      "aluno": "NAYLA ARAUJO DE SOUSA",
+      "matricula": "2012018",
+      "serie": "3ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-16",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:08.393Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773840690981,
+      "aluno": "GIDEAO DOS SANTOS SAMPAIO",
+      "matricula": "2025060",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-18",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:24.631Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773842050415,
+      "aluno": "EMANUEL LOHAN SILVEIRA MARQUES",
+      "matricula": "2023091",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-18",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Falta de respeito grave para com o professor"
+      ],
+      "descricao": "O(A) estudante demonstrou falta de respeito grave em relação ao(à) professor(a), desconsiderando orientações, adotando postura desrespeitosa e, em determinados momentos, prejudicando o ambiente de ensino-aprendizagem e a autoridade do docente.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:25.209Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1773842463719,
+      "aluno": "SOPHIA AYLA MENDES BESSA",
+      "matricula": "2021050",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-18",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Ausentou-se de sala sem autorização"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:25.647Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1774004064615,
+      "aluno": "SAMUEL GOMES FREIRE",
+      "matricula": "2016053",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-20",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:28.474Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1774008310032,
+      "aluno": "MARIA ALICE MENEZES DA ROCHA",
+      "matricula": "2023072",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-20",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Atraso recorrente",
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante compareceu repetidas vezes com atraso para as aulas ou atividades, sem justificativa adequada, prejudicando o andamento das atividades e planejamento da turma.\nO(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:29.830Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1774008346669,
+      "aluno": "MARIA JULIA CORREIA DE ALENCAR",
+      "matricula": "2015132",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-20",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Atraso recorrente",
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante compareceu repetidas vezes com atraso para as aulas ou atividades, sem justificativa adequada, prejudicando o andamento das atividades e planejamento da turma.\nO(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:32.612Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1774360810507,
+      "aluno": "LUCAS EDUARDO RABELO ALVES",
+      "matricula": "2018006",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito"
+      ],
+      "descricao": "O ocorrido envolvendo o aluno Lucas Eduardo Rabelo Alves, da 9ª série do Ensino Fundamental, foi de natureza comportamental, especificamente relacionado à falta de respeito. O aluno se envolveu em uma situação em que dirigiu uma ofensa a um colega, chamando-o de \"Urubu\", o que demonstra uma clara violação dos princípios de respeito e consideração que são fundamentais em nosso ambiente escolar. Essa atitude não apenas afeta o aluno ofendido, mas também contribui para um clima de tensão e desrespeito entre os estudantes, o que é prejudicial ao processo de aprendizagem e ao bem-estar emocional de todos.\n\nA postura esperada em nossa instituição é que os alunos mantenham um comportamento respeitoso e inclusivo em relação a todos, independentemente de suas diferenças. É essencial que os estudantes compreendam que palavras e ações têm impacto e que a empatia e o respeito são valores fundamentais para uma convivência harmoniosa e produtiva. Nossa instituição se compromete a trabalhar com o aluno para que ele compreenda a gravidade de sua ação e desenvolva habilidades para interagir de forma respeitosa e construtiva com seus pares. Com isso, reforçamos nosso compromisso com o desenvolvimento integral do aluno, valorizando a empatia, o respeito e a inclusão como pilares de nossa comunidade escolar.",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:51:35.307Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1774521620445,
+      "aluno": "MARIA JULIA FERREIRA DE SOUSA",
+      "matricula": "2026048",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-26",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:40:32.625Z",
+      "usaLinhasAssinatura": true
+    },
+    {
+      "id": 1774522432419,
+      "aluno": "ANTONIO CAUE SILVEIRA BARBOZA",
+      "matricula": "2021006",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1774522432983,
+      "aluno": "LUIS GUSTAVO FONTENELE ALVES",
+      "matricula": "2016013",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:56:12.127Z"
+    },
+    {
+      "id": 1774522432451,
+      "aluno": "IAGO CAMOES BEZERRA DE SOUSA",
+      "matricula": "2025091",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1774522432953,
+      "aluno": "MARIA LARA MESQUITA BELARMINO",
+      "matricula": "2020015",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:54:21.673Z"
+    },
+    {
+      "id": 1774522432299,
+      "aluno": "ISABELLY SOUSA MARTINS",
+      "matricula": "2020027",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-26T10:54:23.217Z"
+    }
+  ],
+  "comunicadosProfessores": [
+    {
+      "id": 1774547710180,
+      "titulo": "Comunicado Avaliação Diagnóstica",
+      "categoria": "",
+      "publico": "",
+      "data": "",
+      "texto": "COMUNICADO IMPORTANTE\n\nInformamos que os alunos da turma do 3º ano do Ensino Médio realizarão, amanhã (27 de março), no período da tarde, uma Avaliação Diagnóstica do SAS, que será aplicada de forma online (em casa).\n\nA avaliação poderá ser realizada por todos os alunos que possuem o material SAS 2026. Caso algum estudante necessite de credenciais de acesso, pedimos que entre em contato conosco para que possamos fornecer o cadastro.\n\nA avaliação será composta por duas provas online: Língua Portuguesa e Matemática. O horário de realização será das 14h às 17h.\n\nEssa avaliação valerá como pontuação extra nas avaliações bimestrais das respectivas disciplinas, podendo valer até dois pontos em todas as matérias. A pontuação extra será concedida da seguinte forma: nota entre 6,0 e 7,9 → +1 ponto extra e nota igual ou superior a 8,0 → +2 pontos extras.\n\nContamos com a participação e dedicação de todos.\n\nAtenciosamente,\nCoordenação Escolar",
+      "createdAt": "2026-03-26T17:55:10.180Z",
+      "updatedAt": "2026-03-26T17:57:55.909Z"
+    }
+  ],
   "professoresMateriais": {
-    "deliveries": {}
+    "deliveries": {
+      "Prof. Silânia": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true,
+        "Avaliações Bimestrais-1ª Etapa": true
+      },
+      "Prof. Amanda": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true
+      },
+      "Prof. Michael": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true
+      },
+      "Prof. Thamyres": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true
+      },
+      "Prof. Rafaely": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true
+      },
+      "Prof. Isadora": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true
+      },
+      "Prof. Alexandre": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true,
+        "Avaliações Bimestrais-1ª Etapa": true
+      },
+      "Prof. Elayne": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true
+      },
+      "Prof. Jordan": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true
+      },
+      "Prof. Márcia": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true,
+        "Avaliações Bimestrais-1ª Etapa": true
+      },
+      "Prof. Helly": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true
+      },
+      "Prof. Fabíola": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true,
+        "Avaliações Bimestrais-1ª Etapa": true
+      },
+      "Prof. Eduardo": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true,
+        "Avaliações Bimestrais-1ª Etapa": true
+      },
+      "Prof. Ravena": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true
+      },
+      "Prof. Diogo": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true
+      },
+      "Prof. Marcos": {
+        "Roteiros-1ª Etapa": true
+      },
+      "Prof. Bruno": {
+        "Roteiros-1ª Etapa": false,
+        "Avaliações Parciais-1ª Etapa": true
+      },
+      "Prof. Thayna": {
+        "Roteiros-1ª Etapa": true,
+        "Avaliações Parciais-1ª Etapa": true
+      }
+    }
   },
   "professoresFolha": {
-    "frequencyRecords": [],
-    "extraAvulsaRecords": {}
+    "frequencyRecords": [
+      {
+        "tipo": "falta",
+        "dia": "04/02/2026",
+        "falta": "Marcos",
+        "substExtra": "",
+        "fiiEm": "4EM",
+        "motivo": "Atestado",
+        "qtde": 4
+      },
+      {
+        "tipo": "falta",
+        "dia": "04/02/2026",
+        "falta": "",
+        "substExtra": "Thayna",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 3
+      },
+      {
+        "tipo": "falta",
+        "dia": "05/02/2026",
+        "falta": "Bruno",
+        "substExtra": "",
+        "fiiEm": "1EF",
+        "motivo": "Chuva",
+        "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "05/02/2026",
+        "falta": "",
+        "substExtra": "Silânia",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "09/02/2026",
+        "falta": "Elayne",
+        "substExtra": "",
+        "fiiEm": "4EF",
+        "motivo": "Atestado",
+        "qtde": 4
+      },
+      {
+        "tipo": "falta",
+        "dia": "09/02/2026",
+        "falta": "",
+        "substExtra": "Alexandre",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "09/02/2026",
+        "falta": "",
+        "substExtra": "Michael",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "10/02/2026",
+        "falta": "Elayne",
+        "substExtra": "",
+        "fiiEm": "1EF",
+        "motivo": "Atestado",
+        "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "10/02/2026",
+        "falta": "",
+        "substExtra": "Fabíola",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "11/02/2026",
+        "falta": "Silânia",
+        "substExtra": "",
+        "fiiEm": "3EF",
+        "motivo": "Atestado",
+        "qtde": 3
+      },
+      {
+        "tipo": "falta",
+        "dia": "11/02/2026",
+        "falta": "",
+        "substExtra": "Thayna",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 3
+      },
+      {
+        "tipo": "falta",
+        "dia": "12/02/2026",
+        "falta": "Silânia",
+        "substExtra": "",
+        "fiiEm": "1EF",
+        "motivo": "Atestado",
+        "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "12/02/2026",
+        "falta": "",
+        "substExtra": "Helly",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "13/02/2026",
+        "falta": "Silânia",
+        "substExtra": "",
+        "fiiEm": "5EF",
+        "motivo": "Atestado",
+        "qtde": 5
+      },
+      {
+        "tipo": "falta",
+        "dia": "13/02/2026",
+        "falta": "",
+        "substExtra": "Thayna",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 5
+      },
+      {
+        "tipo": "falta",
+        "dia": "19/02/2026",
+        "falta": "Márcia",
+        "substExtra": "",
+        "fiiEm": "1EF",
+        "motivo": "Consulta",
+        "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "19/02/2026",
+        "falta": "",
+        "substExtra": "Silânia",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "24/02/2026",
+        "falta": "Amanda",
+        "substExtra": "",
+        "fiiEm": "1EM",
+        "motivo": "Doença",
+        "qtde": 1
+      },
+      {
+        "tipo": "extra",
+        "dia": "27/02/2026",
+        "falta": "",
+        "substExtra": "Alexandre",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 1
+      },
+      {
+        "tipo": "extra",
+        "dia": "27/02/2026",
+        "falta": "",
+        "substExtra": "Helly",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "27/02/2026",
+        "falta": "Rafaely",
+        "substExtra": "",
+        "fiiEm": "5EM",
+        "motivo": "Atestado",
+        "qtde": 5
+      },
+      {
+        "tipo": "falta",
+        "dia": "27/02/2026",
+        "falta": "",
+        "substExtra": "Alexandre",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "27/02/2026",
+        "falta": "",
+        "substExtra": "Helly",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 1
+      }
+    ],
+    "extraAvulsaRecords": {
+      "2026-1": {
+        "fiscalizacao": [
+          {
+            "professor": "Eduardo",
+            "qtdeEF": 6,
+            "qtdeEM": 0,
+            "originalCategoryName": "fiscalizacao"
+          },
+          {
+            "professor": "Elayne",
+            "qtdeEF": 6,
+            "qtdeEM": 0,
+            "originalCategoryName": "fiscalizacao"
+          },
+          {
+            "professor": "Silânia",
+            "qtdeEF": 4,
+            "qtdeEM": 0,
+            "originalCategoryName": "fiscalizacao"
+          },
+          {
+            "professor": "Thayna",
+            "qtdeEF": 6,
+            "qtdeEM": 0,
+            "originalCategoryName": "fiscalizacao"
+          },
+          {
+            "professor": "Márcia",
+            "qtdeEF": 6,
+            "qtdeEM": 0,
+            "originalCategoryName": "fiscalizacao"
+          },
+          {
+            "professor": "Michael",
+            "qtdeEF": 6,
+            "qtdeEM": 0,
+            "originalCategoryName": "fiscalizacao"
+          }
+        ],
+        "novo_ensino_medio": [
+          {
+            "professor": "Diogo",
+            "qtdeEF": 0,
+            "qtdeEM": 3,
+            "originalCategoryName": "novo ensino medio"
+          },
+          {
+            "professor": "Marcos",
+            "qtdeEF": 0,
+            "qtdeEM": 6,
+            "originalCategoryName": "novo ensino medio"
+          }
+        ],
+        "pendencias_janeiro": [
+          {
+            "professor": "Amanda",
+            "qtdeEF": 0,
+            "qtdeEM": 2,
+            "originalCategoryName": "pendencias janeiro"
+          },
+          {
+            "professor": "Fabíola",
+            "qtdeEF": 2,
+            "qtdeEM": 0,
+            "originalCategoryName": "pendencias janeiro"
+          }
+        ]
+      }
+    }
   }
 }
