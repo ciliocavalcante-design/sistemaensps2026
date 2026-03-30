@@ -2949,8 +2949,8 @@
       "descricao": "",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-03-30T12:22:43.853Z"
     }
   ],
   "comunicadosProfessores": [
