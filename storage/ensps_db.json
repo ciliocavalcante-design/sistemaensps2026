@@ -2971,6 +2971,27 @@
       "usaLinhasAssinatura": false,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1774874549602,
+      "aluno": "LUCAS DOS SANTOS SAMPAIO",
+      "matricula": "2025059",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-30",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações",
+        "Não realizou atividades/tarefas",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O aluno Lucas dos Santos Sampaio, da 9º série EF, foi objeto de uma ocorrência de natureza comportamental. Foram identificadas infrações relacionadas à desobediência às orientações, não realização de atividades e conversa excessiva em sala de aula. Esses comportamentos têm impacto negativo no ambiente escolar, prejudicando o próprio aprendizado e o de seus colegas. É esperado que o aluno demonstre maior comprometimento e respeito às regras e ao processo de ensino-aprendizagem. A instituição se compromete a apoiar o aluno no desenvolvimento de hábitos mais positivos e produtivos.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
