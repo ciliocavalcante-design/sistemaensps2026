@@ -2951,6 +2951,26 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": "2026-03-30T12:22:43.853Z"
+    },
+    {
+      "id": 1774873403917,
+      "aluno": "MARIA LYVIA OLIVEIRA SOUZA",
+      "matricula": "2019101",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-30",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações",
+        "Não realizou atividades/tarefas"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "usaLinhasAssinatura": false,
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
