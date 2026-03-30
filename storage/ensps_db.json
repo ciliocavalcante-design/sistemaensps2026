@@ -2992,6 +2992,26 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1774877260943,
+      "aluno": "ISABELLY SOUSA MARTINS",
+      "matricula": "2020027",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-30",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações",
+        "Não realizou atividades/tarefas"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "usaLinhasAssinatura": false,
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
