@@ -2932,6 +2932,25 @@
       "usaLinhasAssinatura": false,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1774872370937,
+      "aluno": "MARIA RITA ANTUNES FARIAS",
+      "matricula": "2014039",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-03-30",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
