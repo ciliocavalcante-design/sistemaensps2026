@@ -3542,6 +3542,24 @@
         "fiiEm": "EM",
         "motivo": "Extra",
         "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "13/03/2026",
+        "falta": "Helly",
+        "substExtra": "",
+        "fiiEm": "6EM",
+        "motivo": "Atestado",
+        "qtde": 6
+      },
+      {
+        "tipo": "falta",
+        "dia": "13/03/2026",
+        "falta": "",
+        "substExtra": "Fabíola",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 6
       }
     ],
     "extraAvulsaRecords": {
