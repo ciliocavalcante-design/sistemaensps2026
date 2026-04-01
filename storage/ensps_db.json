@@ -3071,6 +3071,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775052840106,
+      "aluno": "MARIA ALICE MENEZES DA ROCHA",
+      "matricula": "2023072",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-01",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Ausência indevida em horário de aula"
+      ],
+      "descricao": "Informamos que a aluna acima mencionada foi encontrada fora da sala de aula durante o horário de aula, sem autorização do(a) professor(a).\n\nRessaltamos que essa atitude configura descumprimento das normas escolares, comprometendo o processo de aprendizagem e a organização do ambiente escolar.\n\nOrientamos que a aluna permaneça em sala durante todo o período das aulas, saindo apenas quando devidamente autorizada.\n\nSolicitamos o apoio da família para reforçar a importância do cumprimento das regras e da responsabilidade com seus deveres escolares.\n\nCaso a situação volte a ocorrer, poderão ser aplicadas medidas disciplinares conforme o regimento da escola.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
