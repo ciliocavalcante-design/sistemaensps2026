@@ -3497,6 +3497,15 @@
         "fiiEm": "EM",
         "motivo": "Extra",
         "qtde": 6
+      },
+      {
+        "tipo": "falta",
+        "dia": "01/03/2026",
+        "falta": "Bruno",
+        "substExtra": "",
+        "fiiEm": "1EF",
+        "motivo": "—",
+        "qtde": 1
       }
     ],
     "extraAvulsaRecords": {
