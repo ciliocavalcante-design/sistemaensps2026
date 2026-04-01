@@ -3031,6 +3031,46 @@
       "usaLinhasAssinatura": false,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775050705325,
+      "aluno": "CARLOS EDUARDO ALENCAR COSTA",
+      "matricula": "2016020",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-01",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Falta de respeito",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "Informamos que o(a) aluno(a) acima mencionado(a) apresentou comportamento inadequado em sala de aula, envolvendo troca de xingamentos, discussão e início de briga durante o horário de aula, além de brincadeiras inapropriadas, prejudicando o bom andamento das atividades escolares e o respeito entre os colegas.\n\nRessaltamos que tais atitudes não condizem com as normas de convivência da escola, sendo fundamental o respeito mútuo e a disciplina no ambiente escolar.\n\nSolicitamos a colaboração da família no sentido de orientar o(a) aluno(a) quanto à importância de manter uma postura adequada, respeitosa e responsável dentro da escola.\n\nCaso o comportamento persista, poderão ser adotadas medidas disciplinares mais severas, conforme o regimento escolar.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775050704709,
+      "aluno": "LUCAS GABRIEL BRITO DE MOURA",
+      "matricula": "2025042",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-01",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Falta de respeito",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "Informamos que o(a) aluno(a) acima mencionado(a) apresentou comportamento inadequado em sala de aula, envolvendo troca de xingamentos, discussão e início de briga durante o horário de aula, além de brincadeiras inapropriadas, prejudicando o bom andamento das atividades escolares e o respeito entre os colegas.\n\nRessaltamos que tais atitudes não condizem com as normas de convivência da escola, sendo fundamental o respeito mútuo e a disciplina no ambiente escolar.\n\nSolicitamos a colaboração da família no sentido de orientar o(a) aluno(a) quanto à importância de manter uma postura adequada, respeitosa e responsável dentro da escola.\n\nCaso o comportamento persista, poderão ser adotadas medidas disciplinares mais severas, conforme o regimento escolar.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
