@@ -3479,6 +3479,24 @@
         "fiiEm": "EM",
         "motivo": "Extra",
         "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "09/03/2026",
+        "falta": "Isadora",
+        "substExtra": "",
+        "fiiEm": "6EM",
+        "motivo": "Atestado",
+        "qtde": 6
+      },
+      {
+        "tipo": "falta",
+        "dia": "09/03/2026",
+        "falta": "",
+        "substExtra": "Jordan",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 6
       }
     ],
     "extraAvulsaRecords": {
