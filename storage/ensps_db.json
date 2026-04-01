@@ -3012,6 +3012,25 @@
       "usaLinhasAssinatura": false,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775050444554,
+      "aluno": "ANTONIO MARQUES DOS SANTOS NETO",
+      "matricula": "2025036",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-01",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em sala, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "usaLinhasAssinatura": false,
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
