@@ -3605,6 +3605,24 @@
         "fiiEm": "EF",
         "motivo": "Extra",
         "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "27/03/2026",
+        "falta": "Silânia",
+        "substExtra": "",
+        "fiiEm": "2EF",
+        "motivo": "Atestado",
+        "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "27/03/2026",
+        "falta": "",
+        "substExtra": "Thayna",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 2
       }
     ],
     "extraAvulsaRecords": {
