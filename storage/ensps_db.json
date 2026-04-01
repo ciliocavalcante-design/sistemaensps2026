@@ -3857,7 +3857,14 @@
             "originalCategoryName": "reuniao sabado"
           }
         ],
-        "novo_ensino_medio": []
+        "novo_ensino_medio": [
+          {
+            "professor": "Diogo",
+            "qtdeEF": 0,
+            "qtdeEM": 4,
+            "originalCategoryName": "novo ensino medio"
+          }
+        ]
       }
     }
   }
