@@ -3524,6 +3524,24 @@
         "fiiEm": "EM",
         "motivo": "Extra",
         "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "12/03/2026",
+        "falta": "Thamyres",
+        "substExtra": "",
+        "fiiEm": "2EM",
+        "motivo": "Consulta",
+        "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "12/03/2026",
+        "falta": "",
+        "substExtra": "Alexandre",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 2
       }
     ],
     "extraAvulsaRecords": {
