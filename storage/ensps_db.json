@@ -3090,6 +3090,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775052863980,
+      "aluno": "VICTOR GABRIEL CUSTODIO DE OLIVEIRA",
+      "matricula": "2024037",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-01",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
