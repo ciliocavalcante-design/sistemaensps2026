@@ -3109,6 +3109,26 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775053340788,
+      "aluno": "SAMUEL GOMES FREIRE",
+      "matricula": "2016053",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-01",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Desobediência às orientações",
+        "Falta de respeito para com o professor"
+      ],
+      "descricao": "O aluno Samuel Gomes Freire, da 8º série do Ensino Fundamental, apresentou comportamento indisciplinado, caracterizado por desobediência às orientações e falta de respeito para com a professora. Tais atitudes comprometem o ambiente de aprendizado e a relação professor-aluno. \n\nÉ fundamental que o aluno compreenda a importância de respeitar as regras e os professores, contribuindo para um ambiente escolar saudável e produtivo. A escola se compromete a apoiar o aluno no desenvolvimento de habilidades sociais e emocionais, visando uma conduta mais adequada e respeitosa.\n\nDiante do ocorrido, solicitamos a presença do responsável na escola, em data a ser agendada, para tratarmos do comportamento do aluno e buscarmos, em conjunto, as melhores estratégias para sua melhoria.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
