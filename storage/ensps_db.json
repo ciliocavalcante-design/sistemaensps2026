@@ -3632,6 +3632,24 @@
         "fiiEm": "EF",
         "motivo": "Extra",
         "qtde": 3
+      },
+      {
+        "tipo": "falta",
+        "dia": "30/03/2026",
+        "falta": "Michael",
+        "substExtra": "",
+        "fiiEm": "2EF",
+        "motivo": "Atestado",
+        "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "30/03/2026",
+        "falta": "",
+        "substExtra": "Alexandre",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 2
       }
     ],
     "extraAvulsaRecords": {
