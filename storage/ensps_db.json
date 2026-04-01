@@ -3769,7 +3769,14 @@
             "originalCategoryName": "fiscalizacao"
           }
         ],
-        "dias_trabalhados_ensino_medio": []
+        "dias_trabalhados_ensino_medio": [
+          {
+            "professor": "Michael",
+            "qtdeEF": 0,
+            "qtdeEM": 8,
+            "originalCategoryName": "dias trabalhados ensino medio"
+          }
+        ]
       }
     }
   }
