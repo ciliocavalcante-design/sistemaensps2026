@@ -3506,6 +3506,24 @@
         "fiiEm": "1EF",
         "motivo": "—",
         "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "10/03/2026",
+        "falta": "Fabíola",
+        "substExtra": "",
+        "fiiEm": "2EM",
+        "motivo": "Atestado",
+        "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "10/03/2026",
+        "falta": "",
+        "substExtra": "Alexandre",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 2
       }
     ],
     "extraAvulsaRecords": {
