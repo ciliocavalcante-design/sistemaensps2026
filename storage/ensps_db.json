@@ -3777,7 +3777,14 @@
             "originalCategoryName": "dias trabalhados ensino medio"
           }
         ],
-        "reuniao_sabado": []
+        "reuniao_sabado": [
+          {
+            "professor": "Alexandre",
+            "qtdeEF": 4,
+            "qtdeEM": 0,
+            "originalCategoryName": "reuniao sabado"
+          }
+        ]
       }
     }
   }
