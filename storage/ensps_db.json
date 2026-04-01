@@ -3731,7 +3731,14 @@
         ]
       },
       "2026-2": {
-        "fiscalizacao": []
+        "fiscalizacao": [
+          {
+            "professor": "Eduardo",
+            "qtdeEF": 6,
+            "qtdeEM": 0,
+            "originalCategoryName": "fiscalizacao"
+          }
+        ]
       }
     }
   }
