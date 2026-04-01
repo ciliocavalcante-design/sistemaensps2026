@@ -3560,6 +3560,33 @@
         "fiiEm": "EM",
         "motivo": "Extra",
         "qtde": 6
+      },
+      {
+        "tipo": "falta",
+        "dia": "17/03/2026",
+        "falta": "Amanda",
+        "substExtra": "",
+        "fiiEm": "7EM",
+        "motivo": "Atestado",
+        "qtde": 7
+      },
+      {
+        "tipo": "falta",
+        "dia": "17/03/2026",
+        "falta": "",
+        "substExtra": "Alexandre",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 6
+      },
+      {
+        "tipo": "falta",
+        "dia": "17/03/2026",
+        "falta": "",
+        "substExtra": "Helly",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 1
       }
     ],
     "extraAvulsaRecords": {
