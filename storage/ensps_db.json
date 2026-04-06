@@ -3167,6 +3167,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775482409997,
+      "aluno": "SOPHIA AYLA MENDES BESSA",
+      "matricula": "2021050",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-06",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Dormindo em sala"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
