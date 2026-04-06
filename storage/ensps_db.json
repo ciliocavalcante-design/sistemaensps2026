@@ -3129,6 +3129,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": "2026-04-06T12:08:07.327Z"
+    },
+    {
+      "id": 1775482300914,
+      "aluno": "JOAO LUCAS CAETANO CISNE",
+      "matricula": "2021054",
+      "serie": "6º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-06",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
