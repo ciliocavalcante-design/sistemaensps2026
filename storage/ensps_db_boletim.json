@@ -232,11 +232,11 @@
           "reminderText": "",
           "reminderDate": "",
           "createdAt": "2026-03-26T17:55:10.180Z",
-          "updatedAt": "2026-04-07T18:11:26.341Z"
+          "updatedAt": "2026-04-07T18:11:30.047Z"
         }
       ],
       "settings": {
-        "currentMonth": 0,
+        "currentMonth": 1,
         "currentSelectedEventColor": "green",
         "customSelectedEventColor": "#1f8eed",
         "printColorIntensity": 12,
