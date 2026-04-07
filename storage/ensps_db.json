@@ -3313,7 +3313,7 @@
     "recentCustomColors": [],
     "classTeachingDatabase": {},
     "currentGridLineColor": "#000000",
-    "currentGridFrameEnabled": true,
+    "currentGridFrameEnabled": false,
     "currentIntervalColor": "#ffc107",
     "currentIntervalFontColor": "#000000",
     "currentIntervalText": "",
