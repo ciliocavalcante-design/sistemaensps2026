@@ -5639,7 +5639,19 @@
           ]
         },
         "monthNotes": {},
-        "comunicados": [],
+        "comunicados": [
+          {
+            "id": 1774547710180,
+            "title": "Comunicado Avaliação Diagnóstica",
+            "body": "COMUNICADO IMPORTANTE\n\nInformamos que os alunos da turma do 3º ano do Ensino Médio realizarão, amanhã (27 de março), no período da tarde, uma Avaliação Diagnóstica do SAS, que será aplicada de forma online (em casa).\n\nA avaliação poderá ser realizada por todos os alunos que possuem o material SAS 2026. Caso algum estudante necessite de credenciais de acesso, pedimos que entre em contato conosco para que possamos fornecer o cadastro.\n\nA avaliação será composta por duas provas online: Língua Portuguesa e Matemática. O horário de realização será das 14h às 17h.\n\nEssa avaliação valerá como pontuação extra nas avaliações bimestrais das respectivas disciplinas, podendo valer até dois pontos em todas as matérias. A pontuação extra será concedida da seguinte forma: nota entre 6,0 e 7,9 → +1 ponto extra e nota igual ou superior a 8,0 → +2 pontos extras.\n\nContamos com a participação e dedicação de todos.\n\nAtenciosamente,\nCoordenação Escolar",
+            "audience": "",
+            "dates": [],
+            "reminderText": "",
+            "reminderDate": "",
+            "createdAt": "2026-03-26T17:55:10.180Z",
+            "updatedAt": "2026-04-07T17:20:27.112Z"
+          }
+        ],
         "settings": {
           "currentMonth": 3,
           "currentSelectedEventColor": "green",
