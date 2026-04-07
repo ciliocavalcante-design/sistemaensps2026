@@ -1,4 +1,9 @@
 const DEFAULT_DB_PATH = 'storage/ensps_db.json';
+const DEFAULT_DB_PATHS = {
+  core: 'storage/ensps_db_core.json',
+  horarios: 'storage/ensps_db_horarios.json',
+  boletim: 'storage/ensps_db_boletim.json'
+};
 const GITHUB_API_BASE = 'https://api.github.com';
 
 function json(data, status = 200) {
@@ -14,16 +19,20 @@ function json(data, status = 200) {
   });
 }
 
-function getConfig(env) {
+function getConfig(env, request) {
+  const url = new URL(request.url);
+  const scope = (url.searchParams.get('scope') || '').trim().toLowerCase();
   const owner = env.GITHUB_OWNER || 'ciliocavalcante-design';
   const repo = env.GITHUB_REPO || 'sistemaensps2026';
   const branch = env.GITHUB_BRANCH || 'main';
-  const path = env.GITHUB_DB_PATH || DEFAULT_DB_PATH;
+  const path = scope && DEFAULT_DB_PATHS[scope]
+    ? (env[`GITHUB_DB_PATH_${scope.toUpperCase()}`] || DEFAULT_DB_PATHS[scope])
+    : (env.GITHUB_DB_PATH || DEFAULT_DB_PATH);
   const token = env.GITHUB_TOKEN;
 
   if (!token) throw new Error('Secret GITHUB_TOKEN não configurado no Cloudflare.');
 
-  return { owner, repo, branch, path, token };
+  return { owner, repo, branch, path, token, scope };
 }
 
 function encodeBase64Utf8(texto) {
@@ -109,6 +118,24 @@ async function buscarArquivo(config) {
   };
 }
 
+function extrairEscopoDoLegado(scope, data) {
+  if (!scope || !data || typeof data !== 'object') return data;
+  if (scope === 'core') {
+    const { schemaVersion, frequenciaAlunos, advertencias, comunicadosProfessores, professoresMateriais, professoresFolha } = data;
+    return {
+      schemaVersion,
+      frequenciaAlunos,
+      advertencias,
+      comunicadosProfessores,
+      professoresMateriais,
+      professoresFolha
+    };
+  }
+  if (scope === 'horarios') return data.horarios || {};
+  if (scope === 'boletim') return data.boletimInformativo ?? null;
+  return data;
+}
+
 async function salvarArquivo(config, db, sha, reason) {
   const url = `${GITHUB_API_BASE}/repos/${config.owner}/${config.repo}/contents/${config.path}`;
   const mensagem = reason || 'Atualiza banco ENSPS pelo Cloudflare';
@@ -144,8 +171,23 @@ export async function onRequestOptions() {
 
 export async function onRequestGet(context) {
   try {
-    const config = getConfig(context.env);
-    const arquivo = await buscarArquivo(config);
+    const config = getConfig(context.env, context.request);
+    let arquivo = await buscarArquivo(config);
+
+    if (!arquivo && config.scope) {
+      const legadoConfig = { ...config, path: context.env.GITHUB_DB_PATH || DEFAULT_DB_PATH, scope: '' };
+      const legado = await buscarArquivo(legadoConfig);
+      if (legado) {
+        return json({
+          ok: true,
+          data: extrairEscopoDoLegado(config.scope, legado.data),
+          sha: legado.sha,
+          path: legado.path,
+          branch: legado.branch,
+          fromLegacy: true
+        });
+      }
+    }
 
     if (!arquivo) {
       return json({
@@ -173,13 +215,13 @@ export async function onRequestGet(context) {
 
 export async function onRequestPost(context) {
   try {
-    const config = getConfig(context.env);
+    const config = getConfig(context.env, context.request);
     const body = await context.request.json();
     const db = body?.db;
     const shaInformado = body?.sha || '';
     const reason = body?.reason || 'Atualiza banco ENSPS';
 
-    if (!db || typeof db !== 'object') {
+    if (typeof db === 'undefined') {
       return json({ ok: false, error: 'Corpo inválido. Envie { db }.' }, 400);
     }
 
