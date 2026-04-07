@@ -2702,18 +2702,14 @@
     if (!frame) return;
     if (!frame.dataset.bridgeBound) {
       frame.addEventListener('load', () => {
-        [120, 420, 900].forEach(delay => {
-          setTimeout(() => enviarComunicadosParaBoletim(), delay);
-          setTimeout(() => enviarBancoBoletimParaFrame(), delay);
-        });
+        setTimeout(() => enviarComunicadosParaBoletim(), 180);
+        setTimeout(() => enviarBancoBoletimParaFrame(), 260);
       });
       frame.dataset.bridgeBound = '1';
     }
     if (boletimIntegradoInicializado && !force) {
-      [0, 180, 520].forEach(delay => {
-        setTimeout(() => enviarComunicadosParaBoletim(), delay);
-        setTimeout(() => enviarBancoBoletimParaFrame(), delay);
-      });
+      setTimeout(() => enviarComunicadosParaBoletim(), 0);
+      setTimeout(() => enviarBancoBoletimParaFrame(), 120);
       return;
     }
     frame.srcdoc = decodificarHtmlIntegrado(BOLETIM_INFORMATIVO_HTML_BASE64);
@@ -2725,12 +2721,12 @@
     if (!frame) return;
     if (!frame.dataset.bridgeBound) {
       frame.addEventListener('load', () => {
-        [120, 420, 900].forEach(delay => setTimeout(() => enviarBancoHorarioParaFrame(), delay));
+        setTimeout(() => enviarBancoHorarioParaFrame(), 220);
       });
       frame.dataset.bridgeBound = '1';
     }
     if (horarioIntegradoInicializado && !force) {
-      [0, 180, 520].forEach(delay => setTimeout(() => enviarBancoHorarioParaFrame(), delay));
+      setTimeout(() => enviarBancoHorarioParaFrame(), 120);
       return;
     }
     frame.srcdoc = decodificarHtmlIntegrado(HORARIO_INTEGRADO_HTML_BASE64);
@@ -2767,14 +2763,12 @@
     if(sectionId === 'backup-central') atualizarResumoBackupCentral();
     if(sectionId === 'tab-boletim') {
       inicializarBoletimIntegrado();
-      [120, 420, 900].forEach(delay => {
-        setTimeout(() => enviarComunicadosParaBoletim(), delay);
-        setTimeout(() => enviarBancoBoletimParaFrame(), delay);
-      });
+      setTimeout(() => enviarComunicadosParaBoletim(), 120);
+      setTimeout(() => enviarBancoBoletimParaFrame(), 220);
     }
     if(sectionId === 'tab-horario') {
       inicializarHorarioIntegrado();
-      [120, 420, 900].forEach(delay => setTimeout(() => enviarBancoHorarioParaFrame(), delay));
+      setTimeout(() => enviarBancoHorarioParaFrame(), 180);
     }
   }
 
@@ -3282,9 +3276,6 @@
       if (typeof renderComunicadosLista === 'function') renderComunicadosLista();
       if (typeof atualizarResumoBackupCentral === 'function') atualizarResumoBackupCentral();
       if (typeof atualizarDashboardGestor === 'function') atualizarDashboardGestor();
-      if (typeof enviarComunicadosParaBoletim === 'function') enviarComunicadosParaBoletim();
-      if (typeof enviarBancoBoletimParaFrame === 'function') enviarBancoBoletimParaFrame();
-      if (typeof enviarBancoHorarioParaFrame === 'function') enviarBancoHorarioParaFrame();
     }
 
     function criarCacheLocalLeveENSPSDB() {
