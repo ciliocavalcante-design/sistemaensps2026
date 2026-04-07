@@ -1266,6 +1266,7 @@
         let redoStack = []; // Histórico para refazer
         const isEmbeddedInsideENSPS = window.parent && window.parent !== window;
         let isApplyingRemoteHorarioState = false;
+        let hasReceivedRemoteHorarioState = false;
         let draggedScheduleKey = null; // Aula arrastada no modo drag and drop
         let currentEditCell = null; // Célula atualmente em edição
         let currentAvailabilityLevel = ''; // Nível de ensino atual no modal de disponibilidade (fundamental/medio)
@@ -1386,24 +1387,35 @@
             renderSchedule();
             initializeHistory();
             requestHorarioDbFromParent();
-            syncHorarioDbWithParent('Migração inicial do módulo de horários');
         }
 
         function saveData() {
-            localStorage.setItem('scheduleData', JSON.stringify(scheduleData));
-            localStorage.setItem('teachersAvailabilityData', JSON.stringify(teachersAvailability));
-            localStorage.setItem('subjectColors', JSON.stringify(subjectColors));
-            localStorage.setItem('recentCustomColors', JSON.stringify(recentCustomColors));
-            localStorage.setItem('classTeachingDatabase', JSON.stringify(classTeachingDatabase));
-            localStorage.setItem('gridLineColor', currentGridLineColor);
-            localStorage.setItem('gridFrameEnabled', JSON.stringify(currentGridFrameEnabled));
-            localStorage.setItem('intervalColor', currentIntervalColor);
-            localStorage.setItem('intervalFontColor', currentIntervalFontColor);
-            localStorage.setItem('intervalText', currentIntervalText);
-            localStorage.setItem('headerBarColor', currentHeaderBarColor);
-            localStorage.setItem('headerBarFontColor', currentHeaderBarFontColor);
-            localStorage.setItem('interfaceTheme', currentTheme);
+            safeLocalStorageSet('scheduleData', JSON.stringify(scheduleData));
+            safeLocalStorageSet('teachersAvailabilityData', JSON.stringify(teachersAvailability));
+            safeLocalStorageSet('subjectColors', JSON.stringify(subjectColors));
+            safeLocalStorageSet('recentCustomColors', JSON.stringify(recentCustomColors));
+            safeLocalStorageSet('classTeachingDatabase', JSON.stringify(classTeachingDatabase));
+            safeLocalStorageSet('gridLineColor', currentGridLineColor);
+            safeLocalStorageSet('gridFrameEnabled', JSON.stringify(currentGridFrameEnabled));
+            safeLocalStorageSet('intervalColor', currentIntervalColor);
+            safeLocalStorageSet('intervalFontColor', currentIntervalFontColor);
+            safeLocalStorageSet('intervalText', currentIntervalText);
+            safeLocalStorageSet('headerBarColor', currentHeaderBarColor);
+            safeLocalStorageSet('headerBarFontColor', currentHeaderBarFontColor);
+            safeLocalStorageSet('interfaceTheme', currentTheme);
             syncHorarioDbWithParent();
+        }
+
+        function safeLocalStorageSet(key, value) {
+            try {
+                localStorage.setItem(key, value);
+                return true;
+            } catch (error) {
+                const isQuotaError = error && (error.name === 'QuotaExceededError' || error.name === 'NS_ERROR_DOM_QUOTA_REACHED');
+                if (!isQuotaError) throw error;
+                console.warn(`ENSPS Horário: não foi possível salvar ${key} no cache local; seguindo com estado em memória/nuvem.`, error);
+                return false;
+            }
         }
 
         function buildHorarioDbPayload() {
@@ -1443,6 +1455,7 @@
         function applyHorarioDbFromParent(db) {
             if (!db || typeof db !== 'object') return;
             isApplyingRemoteHorarioState = true;
+            hasReceivedRemoteHorarioState = true;
             applyStateSnapshot({
                 scheduleData: db.scheduleData || {},
                 teachersAvailability: db.teachersAvailability || {},
@@ -1583,7 +1596,7 @@
 
         function loadData() {
             const storedSchedule = localStorage.getItem('scheduleData');
-            if (storedSchedule) {
+            if (storedSchedule && storedSchedule.length <= 900000) {
                 scheduleData = JSON.parse(storedSchedule);
             }
             const storedTeachingDatabase = localStorage.getItem('classTeachingDatabase');
@@ -1629,7 +1642,7 @@
             if (storedTheme === 'dark' || storedTheme === 'light') currentTheme = storedTheme;
             classTeachingDatabase = buildClassTeachingDatabase(classTeachingDatabase);
             syncClassCurriculumFromTeachingDatabase();
-            localStorage.setItem('classTeachingDatabase', JSON.stringify(classTeachingDatabase));
+            safeLocalStorageSet('classTeachingDatabase', JSON.stringify(classTeachingDatabase));
             applyTheme(false);
             updateGridFrameButton();
             updateIntervalStyle(false);
