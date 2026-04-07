@@ -1,0 +1,3936 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Horários Escolares</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        :root {
+            --grid-line-color: #000000;
+            --header-bar-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --header-bar-color: #ffffff;
+            --app-bg: linear-gradient(135deg, #eef4ff 0%, #dfe9ff 45%, #f8fbff 100%);
+            --surface: #ffffff;
+            --surface-soft: #f7f9fc;
+            --surface-muted: #eef3f8;
+            --surface-strong: #e3ebf5;
+            --text-primary: #1f2937;
+            --text-secondary: #5f6f82;
+            --text-contrast: #ffffff;
+            --border-soft: #d7e0eb;
+            --shadow-strong: 0 24px 60px rgba(34, 48, 73, 0.16);
+            --shadow-soft: 0 12px 30px rgba(33, 49, 77, 0.10);
+            --accent: #335cde;
+            --accent-hover: #2748b3;
+            --accent-soft: rgba(51, 92, 222, 0.10);
+            --success: #1f9d55;
+            --success-hover: #168247;
+            --danger: #d64545;
+            --danger-hover: #b93131;
+            --warning: #e7a400;
+            --warning-hover: #ca8f00;
+            --info: #0f89a8;
+            --info-hover: #0b728c;
+            --neutral: #495057;
+            --neutral-hover: #343a40;
+            --header-gradient: linear-gradient(135deg, #203660 0%, #335cde 58%, #5f8bff 100%);
+        }
+        body[data-theme="dark"] {
+            --app-bg: radial-gradient(circle at top left, #1f2b48 0%, #121a2c 45%, #0b111d 100%);
+            --surface: #101827;
+            --surface-soft: #172235;
+            --surface-muted: #1d2a40;
+            --surface-strong: #24344d;
+            --text-primary: #e7edf7;
+            --text-secondary: #9fb0c9;
+            --text-contrast: #f8fbff;
+            --border-soft: #2a3953;
+            --shadow-strong: 0 28px 70px rgba(0, 0, 0, 0.38);
+            --shadow-soft: 0 14px 36px rgba(0, 0, 0, 0.30);
+            --accent: #3d63c8;
+            --accent-hover: #3355ad;
+            --accent-soft: rgba(122, 162, 255, 0.16);
+            --success: #1f8f57;
+            --success-hover: #187347;
+            --danger: #c74a4a;
+            --danger-hover: #aa3d3d;
+            --warning: #c6921f;
+            --warning-hover: #a97b17;
+            --info: #1e7e98;
+            --info-hover: #18677c;
+            --neutral: #435166;
+            --neutral-hover: #364252;
+            --header-gradient: linear-gradient(135deg, #111b2e 0%, #1d315f 55%, #2a4a8c 100%);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--app-bg);
+            padding: 20px;
+            min-height: 100vh;
+            color: var(--text-primary);
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--surface);
+            border-radius: 24px;
+            box-shadow: var(--shadow-strong);
+            overflow: hidden;
+            border: 1px solid var(--border-soft);
+            transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .header {
+            background: var(--header-gradient);
+            color: var(--text-contrast);
+            padding: 28px 30px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .header-copy h1 {
+            font-size: 2.35em;
+            margin-bottom: 8px;
+            letter-spacing: -0.03em;
+        }
+        .header-copy p {
+            color: rgba(255,255,255,0.84);
+            font-size: 1rem;
+        }
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .controls {
+            padding: 22px 24px 24px;
+            background: var(--surface-soft);
+            border-bottom: 1px solid var(--border-soft);
+            display: grid;
+            gap: 14px;
+        }
+        .control-section {
+            background: var(--surface);
+            border: 1px solid var(--border-soft);
+            border-radius: 18px;
+            padding: 14px 16px 16px;
+            box-shadow: var(--shadow-soft);
+        }
+        .control-section-title {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        .control-section-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .control-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: var(--surface-soft);
+            border: 1px solid var(--border-soft);
+            border-radius: 14px;
+            padding: 10px 12px;
+        }
+        .control-group label {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+        .line-color-control {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            background: var(--surface);
+            border: 1px solid var(--border-soft);
+            border-radius: 10px;
+            padding: 6px 10px;
+        }
+        .line-color-control input[type="color"] {
+            width: 44px;
+            height: 36px;
+            padding: 2px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        .interval-control {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            background: var(--surface);
+            border: 1px solid var(--border-soft);
+            border-radius: 10px;
+            padding: 6px 10px;
+        }
+        .interval-text-input {
+            min-width: 130px;
+            border: 1px solid var(--border-soft);
+            padding: 8px 10px;
+        }
+        select, input, button {
+            padding: 10px 15px;
+            border: 1px solid var(--border-soft);
+            border-radius: 12px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        select, input {
+            background: var(--surface);
+            color: var(--text-primary);
+        }
+        button {
+            background: var(--accent);
+            color: var(--text-contrast);
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.22s ease;
+        }
+        button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(34, 57, 110, 0.20);
+        }
+        .btn-export {
+            background: var(--success);
+        }
+        .btn-export:hover {
+            background: var(--success-hover);
+        }
+        .btn-print {
+            background: var(--info);
+        }
+        .btn-print:hover {
+            background: var(--info-hover);
+        }
+        .btn-history {
+            background: var(--neutral);
+        }
+        .btn-history:hover {
+            background: var(--neutral-hover);
+        }
+        .btn-history:disabled {
+            background: #adb5bd;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .btn-clear {
+            background: var(--danger);
+        }
+        .btn-clear:hover {
+            background: var(--danger-hover);
+        }
+        /* NOVO ESTILO para o botão de importar disponibilidade */
+        .btn-import-availability {
+            background: var(--warning);
+            color: #1d2533;
+        }
+        .btn-import-availability:hover {
+            background: var(--warning-hover);
+            color: #1d2533;
+        }
+        /* NOVO ESTILO para os botões de gerenciar disponibilidade */
+        .btn-manage-availability-fundamental, .btn-manage-availability-medio {
+            background: var(--accent);
+            color: var(--text-contrast);
+        }
+        .btn-manage-availability-fundamental:hover, .btn-manage-availability-medio:hover {
+            background: var(--accent-hover);
+        }
+        /* NOVO ESTILO para o botão de gerar horário automaticamente */
+        .btn-generate-schedule {
+            background: linear-gradient(135deg, #5030a6 0%, #7a46d3 100%);
+            color: var(--text-contrast);
+        }
+        .btn-generate-schedule:hover {
+            background: linear-gradient(135deg, #44288f 0%, #6837c1 100%);
+        }
+        .content {
+            padding: 30px;
+            background: var(--surface);
+        }
+        @media (max-width: 900px) {
+            body {
+                padding: 12px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .header-actions {
+                justify-content: flex-start;
+            }
+            .controls {
+                padding: 16px;
+            }
+            .control-section {
+                padding: 14px;
+            }
+        }
+        .all-schedules-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .stacked-schedule {
+            background: var(--surface);
+            border: 1px solid var(--grid-line-color);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+        }
+        .stacked-schedule h3 {
+            margin-bottom: 14px;
+            color: var(--text-primary);
+            font-size: 1.15rem;
+        }
+        .nav-arrow {
+            width: 42px;
+            height: 42px;
+            border-radius: 999px;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            line-height: 1;
+        }
+        .schedule-wrapper {
+            overflow-x: auto;
+        }
+        .schedule-table-shell {
+            width: 100%;
+        }
+        .grid-frame-shell {
+            background: var(--header-bar-bg);
+            border-radius: 14px;
+            padding: 5px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+        }
+        .grid-frame-shell table {
+            box-shadow: none;
+        }
+        .grid-frame-shell thead tr:first-child th {
+            border-top-color: var(--header-bar-bg);
+        }
+        .grid-frame-shell tr > *:first-child {
+            border-left-color: var(--header-bar-bg);
+        }
+        .grid-frame-shell tr > *:last-child {
+            border-right-color: var(--header-bar-bg);
+        }
+        .grid-frame-shell tbody tr:last-child td {
+            border-bottom-color: var(--header-bar-bg);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 2px solid var(--grid-line-color);
+            padding: 12px;
+            text-align: center;
+            min-width: 120px;
+        }
+        th {
+            background: var(--header-bar-bg);
+            color: var(--header-bar-color);
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .time-cell {
+            background: var(--surface-soft);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .class-cell {
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            min-height: 60px;
+        }
+        .class-cell.dragging {
+            opacity: 0.45;
+        }
+        .class-cell.drag-over {
+            outline: 3px dashed var(--grid-line-color);
+            outline-offset: -3px;
+        }
+        .class-cell:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 5;
+        }
+        .class-cell.empty {
+            background: var(--surface);
+        }
+        .subject {
+            font-weight: 600;
+            margin-bottom: 3px;
+            font-size: 13px;
+        }
+        .teacher {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+        .font-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .font-color-presets {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+        .font-color-btn {
+            border: 2px solid #dee2e6;
+            border-radius: 999px;
+            padding: 6px 12px;
+            background: #fff;
+            color: #333;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .font-color-btn.selected {
+            border-color: #333;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+        }
+        .toggle-frame-btn.active {
+            background: #1d3557;
+            box-shadow: 0 0 0 3px rgba(29, 53, 87, 0.15);
+        }
+        .font-color-custom {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+        .text-options {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .text-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #495057;
+            font-size: 0.92em;
+        }
+        .intervalo {
+            background: #ffc107 !important;
+            font-weight: 600;
+            color: #000;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow-strong);
+            max-height: 90vh; /* Adicionado para modals maiores */
+            overflow-y: auto; /* Adicionado para modals maiores */
+            color: var(--text-primary);
+            border: 1px solid var(--border-soft);
+        }
+        /* Estilo específico para o modal de disponibilidade */
+        #availabilityModal .modal-content {
+            max-width: 900px; /* Mais largo para a tabela */
+        }
+        #curriculumModal .modal-content {
+            max-width: 960px;
+        }
+        #conflictReportModal .modal-content {
+            max-width: 1100px;
+        }
+        #gapReportModal .modal-content {
+            max-width: 1100px;
+        }
+        .modal-content h2 {
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .form-group input {
+            width: 100%;
+        }
+        .color-picker {
+            display: grid; /* Usar grid para melhor organização */
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Colunas flexíveis */
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .color-option-wrapper { /* Novo wrapper para a opção de cor e o nome */
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+        }
+        .color-option-wrapper:hover {
+            background-color: var(--surface-soft);
+        }
+        .color-option {
+            width: 30px; /* Um pouco menor para caber o nome */
+            height: 30px;
+            border-radius: 50%; /* Circular para um visual mais moderno */
+            cursor: pointer;
+            border: 2px solid transparent; /* Borda mais fina */
+            transition: all 0.3s;
+            flex-shrink: 0; /* Evita que o círculo encolha */
+        }
+        .color-option.selected {
+            border-color: #333; /* Cor da borda para seleção */
+            transform: scale(1.1);
+            box-shadow: 0 0 8px rgba(0,0,0,0.2);
+        }
+        .color-name {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .custom-color-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        .custom-color-input {
+            width: 56px !important;
+            height: 42px;
+            padding: 4px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .recent-colors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .recent-color {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid #dee2e6;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .recent-color:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.18);
+        }
+        .recent-color.selected {
+            border-color: #333;
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.12);
+        }
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .modal-buttons button {
+            flex: 1;
+        }
+        /* NOVO ESTILO para o aviso de conflito */
+        #conflictWarning {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            color: #856404;
+            font-size: 0.9em;
+            display: none; /* Escondido por padrão */
+        }
+        #conflictDetails {
+            margin-top: 5px;
+            font-size: 0.85em;
+        }
+
+        /* Estilos para a tabela de disponibilidade */
+        #availabilityTable {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #availabilityTable th, #availabilityTable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            font-size: 0.85em;
+            min-width: 70px; /* Ajuste para caber mais */
+        }
+        #availabilityTable th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        #curriculumTable {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #curriculumTable th, #curriculumTable td {
+            border: 1px solid #ddd;
+            padding: 10px 12px;
+            font-size: 0.95em;
+        }
+        #curriculumTable th {
+            background-color: #eef3ff;
+            color: #243252;
+            font-weight: 800;
+            text-align: left;
+        }
+        #curriculumTable td {
+            color: #2f3b4a;
+            text-align: left;
+        }
+        #curriculumTable input,
+        #curriculumTable select {
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 0.95em;
+            border: 1px solid #cfd6df;
+            border-radius: 8px;
+        }
+        #curriculumTable th:last-child,
+        #curriculumTable td:last-child {
+            text-align: center;
+            width: 140px;
+        }
+        #curriculumTable th:last-child {
+            width: 120px;
+        }
+        .curriculum-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        .curriculum-remove-btn {
+            background: #dc3545;
+            color: #fff;
+            width: 100%;
+        }
+        .curriculum-remove-btn:hover {
+            background: #c82333;
+        }
+        .curriculum-empty {
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #f8f9fb;
+            color: #5b6575;
+            text-align: center;
+            border: 1px dashed #cbd3df;
+        }
+        .conflict-report-summary {
+            margin-top: 10px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: #f8f9fb;
+            border: 1px solid #d9e1ec;
+            color: #334155;
+        }
+        #conflictReportTable {
+            margin-top: 18px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #conflictReportTable th, #conflictReportTable td {
+            border: 1px solid #d8dee6;
+            padding: 10px 12px;
+            font-size: 0.93em;
+            text-align: left;
+            vertical-align: top;
+        }
+        #conflictReportTable th {
+            background: #eef3ff;
+            color: #243252;
+            font-weight: 800;
+        }
+        .conflict-severity {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 88px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.82em;
+        }
+        .conflict-severity.short {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .conflict-severity.medium {
+            background: #ffe0b2;
+            color: #8a4b08;
+        }
+        .conflict-severity.large {
+            background: #f8d7da;
+            color: #842029;
+        }
+        .conflict-report-empty {
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #ecfdf5;
+            color: #166534;
+            text-align: center;
+            border: 1px solid #bbf7d0;
+        }
+        .gap-report-summary {
+            margin-top: 10px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: #f8f9fb;
+            border: 1px solid #d9e1ec;
+            color: #334155;
+        }
+        #gapReportTable {
+            margin-top: 18px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #gapReportTable th, #gapReportTable td {
+            border: 1px solid #d8dee6;
+            padding: 10px 12px;
+            font-size: 0.93em;
+            text-align: left;
+            vertical-align: top;
+        }
+        #gapReportTable th {
+            background: #eef3ff;
+            color: #243252;
+            font-weight: 800;
+        }
+        .gap-severity {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 88px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.82em;
+        }
+        .gap-severity.medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .gap-severity.large {
+            background: #ffe0b2;
+            color: #8a4b08;
+        }
+        .gap-severity.very-large {
+            background: #f8d7da;
+            color: #842029;
+        }
+        .gap-report-empty {
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #ecfdf5;
+            color: #166534;
+            text-align: center;
+            border: 1px solid #bbf7d0;
+        }
+        .availability-cell {
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .availability-cell.DISPONIVEL {
+            background-color: #d4edda; /* Verde claro */
+            color: #155724;
+        }
+        .availability-cell.INDISPONIVEL {
+            background-color: #f8d7da; /* Vermelho claro */
+            color: #721c24;
+        }
+        .availability-cell.UNKNOWN {
+            background-color: #e2e3e5; /* Cinza claro */
+            color: #383d41;
+        }
+        .availability-cell:hover {
+            filter: brightness(0.9);
+        }
+        .availability-time-cell {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .print-document {
+            width: 100%;
+            background: #ffffff;
+        }
+        .printable-schedule {
+            margin-bottom: 12px;
+            padding: 8px 10px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+        .printable-schedule-inner {
+            width: 100%;
+            max-width: 100%;
+        }
+        .print-brand-header {
+            display: grid;
+            grid-template-columns: 72px 1fr 72px;
+            align-items: center;
+            gap: 14px;
+            background: linear-gradient(135deg, #243252 0%, #313b63 100%);
+            color: #fff;
+            border-radius: 14px;
+            padding: 10px 16px;
+            margin: 0 0 10px;
+            box-shadow: 0 6px 18px rgba(36, 50, 82, 0.18);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .print-brand-logo {
+            width: 62px;
+            height: 62px;
+            object-fit: contain;
+            border-radius: 999px;
+            background: #fff;
+            padding: 2px;
+            flex-shrink: 0;
+            justify-self: start;
+        }
+        .print-brand-title {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            line-height: 1.1;
+            text-align: center;
+            justify-self: center;
+            width: 100%;
+        }
+        .print-brand-spacer {
+            width: 62px;
+            height: 62px;
+            justify-self: end;
+        }
+        .printable-schedule table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: none;
+            background: #fff;
+        }
+        .printable-schedule .grid-frame-shell {
+            box-shadow: none;
+        }
+        .printable-schedule th,
+        .printable-schedule td {
+            border: 1px solid var(--grid-line-color);
+            padding: 4px 6px;
+            text-align: center;
+            min-width: 70px;
+            font-size: 9px;
+            background: #ffffff;
+            color: #1f2937;
+        }
+        .printable-schedule th {
+            background: #eceff5;
+            color: #22304d;
+            font-weight: 800;
+            font-size: 12px;
+            padding: 6px 6px;
+            text-transform: uppercase;
+        }
+        .printable-schedule .class-cell.empty {
+            background: #ffffff !important;
+            color: #1f2937 !important;
+            border: 1px solid var(--grid-line-color) !important;
+        }
+        .printable-schedule .time-cell {
+            background: #f3f4f6;
+            font-weight: 900;
+            color: #3b4350;
+            font-size: 12px;
+        }
+        .printable-schedule .intervalo {
+            background: #ffecb3 !important;
+            color: #333;
+        }
+        .printable-schedule .subject {
+            font-size: 9px;
+            margin-bottom: 2px;
+        }
+        .printable-schedule .teacher {
+            font-size: 8px;
+            opacity: 1;
+        }
+
+
+        /* Estilos de Impressão */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .controls, .header, .modal, .schedule-wrapper { /* Esconde elementos da interface principal */
+                display: none !important;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                max-width: none;
+                border-radius: 0;
+                overflow: visible;
+            }
+            /* Novo container para os horários impressos */
+            #printContainer {
+                display: block !important; /* Garante que o container de impressão seja visível */
+                width: 100%;
+            }
+            #printContainer > h1 {
+                text-align: center;
+                margin: 0 0 14px;
+                color: #333;
+                font-size: 1.5em;
+            }
+        .printable-schedule:last-child {
+            page-break-after: avoid; /* Evita quebra de página após o último */
+        }
+            .printable-schedule h2 {
+                text-align: center;
+                margin-bottom: 8px;
+                color: #333;
+                font-size: 1.1em;
+            }
+            .printable-schedule .time-cell {
+                font-size: 12px;
+            }
+            .printable-schedule .intervalo {
+                background: #ffecb3 !important; /* Cor mais suave para intervalo na impressão */
+                color: #333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-copy">
+                <h1>Gerenciador de Horários Escolares</h1>
+                <p>Organize, revise, gere e exporte a grade com uma interface mais clara e focada.</p>
+            </div>
+            <div class="header-actions">
+                <button type="button" id="themeToggleButton" class="btn-history" onclick="toggleTheme()">Modo Escuro</button>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-section">
+                <span class="control-section-title">Filtros</span>
+                <div class="control-section-row">
+                    <div class="control-group">
+                        <label for="classSelect">Turma</label>
+                        <button type="button" class="nav-arrow" onclick="navigateClass(-1)" title="Turma anterior">◀</button>
+                        <select id="classSelect" onchange="renderSchedule()"></select>
+                        <button type="button" class="nav-arrow" onclick="navigateClass(1)" title="Próxima turma">▶</button>
+                    </div>
+                    <div class="control-group">
+                        <label for="teacherSelect">Professor</label>
+                        <select id="teacherSelect" onchange="renderSchedule()"></select>
+                    </div>
+                    <div class="control-group">
+                        <label for="subjectSelect">Disciplina</label>
+                        <select id="subjectSelect" onchange="renderSchedule()"></select>
+                    </div>
+                    <button onclick="clearFilters()">Limpar Filtros</button>
+                </div>
+            </div>
+            <div class="control-section">
+                <span class="control-section-title">Visual</span>
+                <div class="control-section-row">
+                    <div class="control-group">
+                        <label for="lineColorInput">Linhas</label>
+                        <div class="line-color-control">
+                            <input type="color" id="lineColorInput" value="#000000" onchange="updateGridLineColor(this.value)">
+                        </div>
+                    </div>
+                    <button type="button" id="toggleGridFrameButton" class="toggle-frame-btn" onclick="toggleGridFrame()">Moldura da Grade: Off</button>
+                    <div class="control-group">
+                        <label for="intervalColorInput">Intervalo</label>
+                        <div class="interval-control">
+                            <input type="color" id="intervalColorInput" value="#ffc107" onchange="updateIntervalStyle()">
+                            <input type="color" id="intervalFontColorInput" value="#000000" onchange="updateIntervalStyle()">
+                            <input type="text" id="intervalTextInput" class="interval-text-input" placeholder="Texto do intervalo" oninput="updateIntervalStyle(false)">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="headerBarColorInput">Cabeçalho</label>
+                        <div class="interval-control">
+                            <input type="color" id="headerBarColorInput" value="#667eea" onchange="updateHeaderBarStyle()">
+                            <input type="color" id="headerBarFontColorInput" value="#ffffff" onchange="updateHeaderBarStyle()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-section">
+                <span class="control-section-title">Dados</span>
+                <div class="control-section-row">
+                    <button id="undoButton" onclick="undoLastChange()" class="btn-history" disabled>Desfazer</button>
+                    <button id="redoButton" onclick="redoLastChange()" class="btn-history" disabled>Refazer</button>
+                    <button onclick="importSchedule()" class="btn-import">Importar Horários</button>
+                    <button onclick="exportSchedule()" class="btn-export">Exportar Horários</button>
+                    <button onclick="clearAllData()" class="btn-clear">Limpar Tudo</button>
+                </div>
+            </div>
+            <div class="control-section">
+                <span class="control-section-title">Relatórios e Planejamento</span>
+                <div class="control-section-row">
+                    <button onclick="openCurriculumModal()" class="btn-print">Ver Currículo</button>
+                    <button onclick="deriveAvailabilityFromSchedule()" class="btn-manage-availability-fundamental">Gerar Dispon. do Horário</button>
+                    <button onclick="manageTeachersAvailability('fundamental')" class="btn-manage-availability-fundamental">Dispon. Fundamental</button>
+                    <button onclick="manageTeachersAvailability('medio')" class="btn-manage-availability-medio">Dispon. Médio</button>
+                    <button onclick="exportTeachersAvailability()" class="btn-import-availability">Exportar Dispon.</button>
+                    <button onclick="openConflictReportModal()" class="btn-import-availability">Relatório de Choques</button>
+                    <button onclick="openGapReportModal()" class="btn-import-availability">Relatório de Janelas</button>
+                </div>
+            </div>
+            <div class="control-section">
+                <span class="control-section-title">Saída e Geração</span>
+                <div class="control-section-row">
+                    <button onclick="printAllSchedules()" class="btn-print">Imprimir Todos</button>
+                    <button onclick="saveScheduleAsset()" class="btn-export">Salvar PNG</button>
+                    <button onclick="openAutoGenerateModal()" class="btn-generate-schedule">✨ Gerar Horário Automático</button>
+                </div>
+            </div>
+            <input type="file" id="fileInput" accept=".json" style="display: none;">
+        </div>
+
+        <div class="content">
+            <div class="schedule-wrapper">
+                <div id="scheduleTableShell" class="schedule-table-shell">
+                    <table id="scheduleTable">
+                        <thead>
+                            <tr id="scheduleHeader">
+                                <th>Horário</th>
+                                <th>Segunda-feira</th>
+                                <th>Terça-feira</th>
+                                <th>Quarta-feira</th>
+                                <th>Quinta-feira</th>
+                                <th>Sexta-feira</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scheduleBody">
+                            <!-- Horários serão gerados aqui pelo JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Edição de Aula -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Editar Aula</h2>
+            <div id="conflictWarning">
+                ⚠️ Conflito detectado!
+                <div id="conflictDetails"></div>
+            </div>
+            <div class="form-group">
+                <label for="editSubject">Disciplina:</label>
+                <input type="text" id="editSubject" list="subjectList">
+                <datalist id="subjectList"></datalist>
+            </div>
+            <div class="form-group">
+                <label for="editTeacher">Professor:</label>
+                <input type="text" id="editTeacher" list="teacherList">
+                <datalist id="teacherList"></datalist>
+            </div>
+            <div class="form-group">
+                <label>Cor da Aula:</label>
+                <div id="colorPicker" class="color-picker">
+                    <!-- Opções de cor serão geradas aqui -->
+                </div>
+                <div class="custom-color-row">
+                    <input type="color" id="customColorInput" class="custom-color-input" value="#add8e6" onchange="selectCustomColor(this.value)">
+                    <span class="color-name">Escolher qualquer cor</span>
+                </div>
+                <div class="form-group">
+                    <label>Cores Recentes:</label>
+                    <div id="recentColors" class="recent-colors"></div>
+                </div>
+            </div>
+            <div class="font-controls">
+                <div class="form-group">
+                    <label>Cor da Fonte:</label>
+                    <div class="font-color-presets">
+                        <button type="button" id="fontColorBlackBtn" class="font-color-btn selected" onclick="selectFontColor('#000000')">Preto</button>
+                        <button type="button" id="fontColorWhiteBtn" class="font-color-btn" onclick="selectFontColor('#ffffff')">Branco</button>
+                    </div>
+                    <div class="font-color-custom">
+                        <input type="color" id="fontColorInput" class="custom-color-input" value="#000000" onchange="selectFontColor(this.value)">
+                        <span class="color-name">Outra cor da fonte</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fontSizeSelect">Tamanho da Fonte:</label>
+                    <select id="fontSizeSelect">
+                        <option value="11">Pequena</option>
+                        <option value="13" selected>Média</option>
+                        <option value="15">Grande</option>
+                        <option value="17">Extra Grande</option>
+                    </select>
+                    <div class="text-options">
+                        <label class="text-option">
+                            <input type="checkbox" id="allCapsToggle">
+                            <span>Texto em CAPS LOCK</span>
+                        </label>
+                        <label class="text-option">
+                            <input type="checkbox" id="applyTextStyleToAll">
+                            <span>Aplicar formatação de texto para todas as aulas</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button onclick="saveClass()">Salvar</button>
+                <button id="saveWithConflictButton" onclick="saveClass(true)" class="btn-import-availability" style="display: none;">Permitir Conflito e Salvar</button>
+                <button onclick="deleteClass()" class="btn-clear">Excluir</button>
+                <button onclick="closeModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Gerenciamento de Disponibilidade de Professores -->
+    <div id="availabilityModal" class="modal">
+        <div class="modal-content">
+            <h2 id="availabilityModalTitle">Gerenciar Disponibilidade de Professores</h2>
+            <div class="form-group">
+                <label for="availabilityTeacherSelect">Professor:</label>
+                <select id="availabilityTeacherSelect" onchange="renderAvailabilityTable(this.value, currentAvailabilityLevel)"></select>
+            </div>
+            <p>Nível de Ensino: <span id="availabilityLevelDisplay"></span></p>
+            <div class="schedule-wrapper">
+                <table id="availabilityTable">
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                            <th>Segunda-feira</th>
+                            <th>Terça-feira</th>
+                            <th>Quarta-feira</th>
+                            <th>Quinta-feira</th>
+                            <th>Sexta-feira</th>
+                        </tr>
+                    </thead>
+                    <tbody id="availabilityTableBody">
+                        <!-- Tabela de disponibilidade será gerada aqui -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-buttons">
+                <button onclick="closeAvailabilityModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOVO: Modal de Geração Automática de Horários -->
+    <div id="autoGenerateModal" class="modal">
+        <div class="modal-content">
+            <h2>Gerar Horário Automaticamente</h2>
+            <p>Selecione a turma para a qual deseja gerar ou completar o horário:</p>
+            <div class="form-group">
+                <label for="autoGenerateClassSelect">Turma:</label>
+                <select id="autoGenerateClassSelect"></select>
+            </div>
+            <div class="modal-buttons">
+                <button onclick="generateScheduleAutomatically()">Gerar Horário</button>
+                <button onclick="closeAutoGenerateModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="curriculumModal" class="modal">
+        <div class="modal-content">
+            <h2>Currículo por Turma</h2>
+            <div class="form-group">
+                <label for="curriculumClassSelect">Turma:</label>
+                <select id="curriculumClassSelect" onchange="renderCurriculumTable(this.value)"></select>
+            </div>
+            <div id="curriculumContent"></div>
+            <div class="modal-buttons">
+                <button onclick="closeCurriculumModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="conflictReportModal" class="modal">
+        <div class="modal-content">
+            <h2>Relatório de Choques de Professores</h2>
+            <div id="conflictReportSummary" class="conflict-report-summary"></div>
+            <div id="conflictReportContent"></div>
+            <div class="modal-buttons">
+                <button onclick="closeConflictReportModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="gapReportModal" class="modal">
+        <div class="modal-content">
+            <h2>Relatório de Janelas de Professores</h2>
+            <div id="gapReportSummary" class="gap-report-summary"></div>
+            <div id="gapReportContent"></div>
+            <div class="modal-buttons">
+                <button onclick="closeGapReportModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="printContainer" style="display: none;"></div>
+
+    <script>
+        // Variáveis globais
+        let scheduleData = {}; // Armazena os horários das aulas
+        let teachersAvailability = {}; // Armazena a disponibilidade dos professores
+        let recentCustomColors = []; // Armazena as ultimas cores personalizadas usadas
+        let currentSelectedColor = '#ADD8E6'; // Cor atualmente selecionada no modal
+        let currentFontColor = '#000000'; // Cor da fonte atualmente selecionada
+        let currentGridLineColor = '#000000'; // Cor global das linhas da grade
+        let currentGridFrameEnabled = false; // Moldura colorida opcional ao redor da grade
+        let currentIntervalColor = '#ffc107'; // Cor global da barra de intervalo
+        let currentIntervalFontColor = '#000000'; // Cor da fonte da barra de intervalo
+        let currentIntervalText = ''; // Texto global da barra de intervalo
+        let currentHeaderBarColor = '#667eea'; // Cor de fundo do cabecalho
+        let currentHeaderBarFontColor = '#ffffff'; // Cor da fonte do cabecalho
+        let currentTheme = 'light'; // Tema geral da interface
+        let classTeachingDatabase = {}; // Banco por turma/disciplina com professor e carga semanal
+        let curriculumRowCounter = 0; // Contador para linhas editáveis do currículo
+        let undoStack = []; // Histórico para desfazer
+        let redoStack = []; // Histórico para refazer
+        const isEmbeddedInsideENSPS = window.parent && window.parent !== window;
+        let isApplyingRemoteHorarioState = false;
+        let draggedScheduleKey = null; // Aula arrastada no modo drag and drop
+        let currentEditCell = null; // Célula atualmente em edição
+        let currentAvailabilityLevel = ''; // Nível de ensino atual no modal de disponibilidade (fundamental/medio)
+
+        // Dados de exemplo para professores e suas disciplinas
+        const teachersDatabase = {
+            'Helly': ['Matemática', 'Física', 'Física 1', 'Física 2', 'Física 3', 'Trilha Física'],
+            'Jordan': ['Gramática', 'Literatura'],
+            'Silânia': ['Geografia', 'Biologia', 'Geografia 1', 'Geografia 2', 'Trilha Geo'],
+            'Amanda': ['Química', 'Química 1', 'Química 2', 'Química 3', 'Trilha Quím'],
+            'Isadora': ['Biologia', 'Biologia 1', 'Biologia 2', 'Biologia 3', 'Trilha Biol.'],
+            'Bruno': ['Ed. Física', 'Ed. Física M.', 'Ed. Física F.'],
+            'Michael': ['Inglês', 'Filosofia'],
+            'Fabíola': ['Filosofia', 'Sociologia', 'Proj. de Vida'],
+            'Diogo': ['Matemática', 'Matemática Fundamental', 'Mat. Fundam.', 'Trilha Matemática', 'Trilha Mat.', 'Matemática 1', 'Matemática 2', 'Matemática 3', 'Matemática 4', 'Matemática 5'],
+            'Thayna': ['LPT', 'Paradidat.'],
+            'Márcia': ['Gramática', 'LPT', 'Paradidat.'],
+            'Rafaely': ['Geografia', 'Geografia 1', 'Geografia 2'],
+            'Elayne': ['Ciências', 'Química'],
+            'Alexandre': ['História', 'História 1', 'História 2'],
+            'Eduardo': ['Matemática'],
+            'Ravena': ['Redação', 'Prat Prod Txt'],
+            'Thamyres': ['Interpret', 'Literatura']
+        };
+
+        // Cores pré-definidas para as disciplinas
+        const colors = [
+            { name: 'Azul Claro', hex: '#ADD8E6' },
+            { name: 'Verde Menta', hex: '#98FB98' },
+            { name: 'Amarelo Pastel', hex: '#FFFACD' },
+            { name: 'Rosa Claro', hex: '#FFB6C1' },
+            { name: 'Lilás', hex: '#E6E6FA' },
+            { name: 'Pêssego', hex: '#FFDAB9' },
+            { name: 'Ciano', hex: '#E0FFFF' },
+            { name: 'Salmão', hex: '#FA8072' },
+            { name: 'Lavanda', hex: '#B0E0E6' },
+            { name: 'Bege', hex: '#F5F5DC' }
+        ];
+
+        // Mapeamento de disciplinas para cores (para consistência)
+        let subjectColors = {};
+
+        // Dias da semana
+        const dayNames = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira'];
+
+        // Definição dos horários para Ensino Fundamental e Ensino Médio
+        const timeSlotsFundamental = [
+            '07:00 - 07:50', '07:50 - 08:40',
+            'INTERVALO FUNDAMENTAL',
+            '09:00 - 09:50', '09:50 - 10:40', '10:40 - 11:30'
+        ];
+
+        const timeSlotsFundamental9Ano = [
+            '07:00 - 07:50', '07:50 - 08:40',
+            'INTERVALO FUNDAMENTAL',
+            '09:00 - 09:50', '09:50 - 10:40', '10:40 - 11:30', '11:30 - 12:20'
+        ];
+
+        const timeSlotsMedio = [
+            '07:00 - 07:45', '07:45 - 08:30', '08:30 - 09:15', '09:15 - 10:00',
+            'INTERVALO MEDIO',
+            '10:20 - 11:05', '11:05 - 11:50', '11:50 - 12:35'
+        ];
+
+        // Mapeamento de turmas para seus respectivos timeSlots e nível
+        const classTimeSlotsMap = {
+            '6ano': { slots: timeSlotsFundamental, level: 'fundamental' },
+            '7ano': { slots: timeSlotsFundamental, level: 'fundamental' },
+            '8ano': { slots: timeSlotsFundamental, level: 'fundamental' },
+            '9ano': { slots: timeSlotsFundamental9Ano, level: 'fundamental' },
+            '1em': { slots: timeSlotsMedio, level: 'medio' },
+            '2em': { slots: timeSlotsMedio, level: 'medio' },
+            '3em': { slots: timeSlotsMedio, level: 'medio' }
+        };
+
+        // Turmas que NÃO têm aulas à tarde (apenas para o Ensino Médio)
+        const noAfternoonClasses = [];
+
+        // NOVO: Currículo das turmas - quantas aulas de cada disciplina por semana
+        const classCurriculum = {
+            '6ano': {
+                'Português': 5, 'Matemática': 4, 'História': 3, 'Geografia': 3,
+                'Ciências': 3, 'Inglês': 2, 'Ed. Física': 2, 'Artes': 2, 'Religião': 1
+            },
+            '7ano': {
+                'Português': 5, 'Matemática': 4, 'História': 3, 'Geografia': 3,
+                'Ciências': 3, 'Inglês': 2, 'Ed. Física': 2, 'Artes': 2, 'Religião': 1
+            },
+            '8ano': {
+                'Português': 5, 'Matemática': 4, 'História': 3, 'Geografia': 3,
+                'Ciências': 3, 'Inglês': 2, 'Ed. Física': 2, 'Artes': 2, 'Religião': 1
+            },
+            '9ano': {
+                'Português': 5, 'Matemática': 4, 'História': 3, 'Geografia': 3,
+                'Ciências': 3, 'Inglês': 2, 'Ed. Física': 2, 'Artes': 2, 'Religião': 1
+            },
+            '1em': {
+                'Português': 4, 'Matemática': 4, 'Física': 3, 'Química': 3, 'Biologia': 3,
+                'História': 3, 'Geografia': 3, 'Sociologia': 2, 'Filosofia': 2, 'Inglês': 2, 'Ed. Física': 2
+            },
+            '2em': {
+                'Português': 4, 'Matemática': 4, 'Física': 3, 'Química': 3, 'Biologia': 3,
+                'História': 3, 'Geografia': 3, 'Sociologia': 2, 'Filosofia': 2, 'Inglês': 2, 'Ed. Física': 2
+            },
+            '3em': {
+                'Português': 4, 'Matemática': 4, 'Física': 3, 'Química': 3, 'Biologia': 3,
+                'História': 3, 'Geografia': 3, 'Sociologia': 2, 'Filosofia': 2, 'Inglês': 2, 'Ed. Física': 2
+            }
+        };
+
+        // Funções de inicialização e carregamento de dados
+        function initSchedule() {
+            loadData();
+            populateClassSelect();
+            populateTeacherSelect();
+            populateSubjectSelect();
+            populateColorPicker();
+            renderSchedule();
+            initializeHistory();
+            requestHorarioDbFromParent();
+            syncHorarioDbWithParent('Migração inicial do módulo de horários');
+        }
+
+        function saveData() {
+            localStorage.setItem('scheduleData', JSON.stringify(scheduleData));
+            localStorage.setItem('teachersAvailabilityData', JSON.stringify(teachersAvailability));
+            localStorage.setItem('subjectColors', JSON.stringify(subjectColors));
+            localStorage.setItem('recentCustomColors', JSON.stringify(recentCustomColors));
+            localStorage.setItem('classTeachingDatabase', JSON.stringify(classTeachingDatabase));
+            localStorage.setItem('gridLineColor', currentGridLineColor);
+            localStorage.setItem('gridFrameEnabled', JSON.stringify(currentGridFrameEnabled));
+            localStorage.setItem('intervalColor', currentIntervalColor);
+            localStorage.setItem('intervalFontColor', currentIntervalFontColor);
+            localStorage.setItem('intervalText', currentIntervalText);
+            localStorage.setItem('headerBarColor', currentHeaderBarColor);
+            localStorage.setItem('headerBarFontColor', currentHeaderBarFontColor);
+            localStorage.setItem('interfaceTheme', currentTheme);
+            syncHorarioDbWithParent();
+        }
+
+        function buildHorarioDbPayload() {
+            return {
+                scheduleData: cloneSerializableState(scheduleData),
+                teachersAvailability: cloneSerializableState(teachersAvailability),
+                subjectColors: cloneSerializableState(subjectColors),
+                recentCustomColors: cloneSerializableState(recentCustomColors),
+                classTeachingDatabase: cloneSerializableState(classTeachingDatabase),
+                currentGridLineColor,
+                currentGridFrameEnabled,
+                currentIntervalColor,
+                currentIntervalFontColor,
+                currentIntervalText,
+                currentHeaderBarColor,
+                currentHeaderBarFontColor,
+                currentTheme
+            };
+        }
+
+        function syncHorarioDbWithParent(reason = 'Atualização do módulo de horários') {
+            if (!isEmbeddedInsideENSPS || isApplyingRemoteHorarioState) return;
+            window.parent.postMessage({
+                type: 'horario:syncDb',
+                reason,
+                db: buildHorarioDbPayload()
+            }, '*');
+        }
+
+        function requestHorarioDbFromParent() {
+            if (!isEmbeddedInsideENSPS) return;
+            const payload = { type: 'horario:requestDb' };
+            window.parent.postMessage(payload, '*');
+            setTimeout(() => window.parent.postMessage(payload, '*'), 120);
+        }
+
+        function applyHorarioDbFromParent(db) {
+            if (!db || typeof db !== 'object') return;
+            isApplyingRemoteHorarioState = true;
+            applyStateSnapshot({
+                scheduleData: db.scheduleData || {},
+                teachersAvailability: db.teachersAvailability || {},
+                subjectColors: db.subjectColors || {},
+                recentCustomColors: Array.isArray(db.recentCustomColors) ? db.recentCustomColors : [],
+                classTeachingDatabase: db.classTeachingDatabase || {},
+                currentGridLineColor: db.currentGridLineColor || '#000000',
+                currentGridFrameEnabled: Boolean(db.currentGridFrameEnabled),
+                currentIntervalColor: db.currentIntervalColor || '#ffc107',
+                currentIntervalFontColor: db.currentIntervalFontColor || '#000000',
+                currentIntervalText: typeof db.currentIntervalText === 'string' ? db.currentIntervalText : '',
+                currentHeaderBarColor: db.currentHeaderBarColor || '#667eea',
+                currentHeaderBarFontColor: db.currentHeaderBarFontColor || '#ffffff',
+                currentTheme: db.currentTheme === 'dark' ? 'dark' : 'light'
+            });
+            initializeHistory();
+            isApplyingRemoteHorarioState = false;
+        }
+
+        function cloneSerializableState(data) {
+            return JSON.parse(JSON.stringify(data));
+        }
+
+        function getCurrentStateSnapshot() {
+            return {
+                scheduleData: cloneSerializableState(scheduleData),
+                teachersAvailability: cloneSerializableState(teachersAvailability),
+                subjectColors: cloneSerializableState(subjectColors),
+                recentCustomColors: cloneSerializableState(recentCustomColors),
+                classTeachingDatabase: cloneSerializableState(classTeachingDatabase),
+                currentGridLineColor,
+                currentGridFrameEnabled,
+                currentIntervalColor,
+                currentIntervalFontColor,
+                currentIntervalText,
+                currentHeaderBarColor,
+                currentHeaderBarFontColor,
+                currentTheme
+            };
+        }
+
+        function isSameSnapshot(firstSnapshot, secondSnapshot) {
+            return JSON.stringify(firstSnapshot) === JSON.stringify(secondSnapshot);
+        }
+
+        function updateHistoryButtons() {
+            const undoButton = document.getElementById('undoButton');
+            const redoButton = document.getElementById('redoButton');
+            if (undoButton) undoButton.disabled = undoStack.length <= 1;
+            if (redoButton) redoButton.disabled = redoStack.length === 0;
+        }
+
+        function initializeHistory() {
+            undoStack = [getCurrentStateSnapshot()];
+            redoStack = [];
+            updateHistoryButtons();
+        }
+
+        function recordHistoryState() {
+            const currentSnapshot = getCurrentStateSnapshot();
+            const lastSnapshot = undoStack[undoStack.length - 1];
+            if (lastSnapshot && isSameSnapshot(lastSnapshot, currentSnapshot)) {
+                updateHistoryButtons();
+                return;
+            }
+            undoStack.push(currentSnapshot);
+            if (undoStack.length > 80) {
+                undoStack.shift();
+            }
+            redoStack = [];
+            updateHistoryButtons();
+        }
+
+        function applyStateSnapshot(snapshot) {
+            scheduleData = cloneSerializableState(snapshot.scheduleData || {});
+            teachersAvailability = cloneSerializableState(snapshot.teachersAvailability || {});
+            subjectColors = cloneSerializableState(snapshot.subjectColors || {});
+            recentCustomColors = cloneSerializableState(snapshot.recentCustomColors || []);
+            classTeachingDatabase = cloneSerializableState(snapshot.classTeachingDatabase || {});
+            currentGridLineColor = snapshot.currentGridLineColor || '#000000';
+            currentGridFrameEnabled = Boolean(snapshot.currentGridFrameEnabled);
+            currentIntervalColor = snapshot.currentIntervalColor || '#ffc107';
+            currentIntervalFontColor = snapshot.currentIntervalFontColor || '#000000';
+            currentIntervalText = typeof snapshot.currentIntervalText === 'string' ? snapshot.currentIntervalText : '';
+            currentHeaderBarColor = snapshot.currentHeaderBarColor || '#667eea';
+            currentHeaderBarFontColor = snapshot.currentHeaderBarFontColor || '#ffffff';
+            currentTheme = snapshot.currentTheme || 'light';
+
+            syncClassCurriculumFromTeachingDatabase();
+            saveData();
+            populateClassSelect();
+            populateTeacherSelect();
+            populateSubjectSelect();
+            applyTheme(false);
+            updateGridFrameButton();
+            updateGridLineColor(currentGridLineColor, false);
+            updateIntervalStyle(false);
+            updateHeaderBarStyle(false);
+            renderSchedule();
+        }
+
+        function undoLastChange() {
+            if (undoStack.length <= 1) return;
+            const currentSnapshot = undoStack.pop();
+            redoStack.push(currentSnapshot);
+            const previousSnapshot = undoStack[undoStack.length - 1];
+            applyStateSnapshot(previousSnapshot);
+            updateHistoryButtons();
+        }
+
+        function redoLastChange() {
+            if (!redoStack.length) return;
+            const nextSnapshot = redoStack.pop();
+            undoStack.push(nextSnapshot);
+            applyStateSnapshot(nextSnapshot);
+            updateHistoryButtons();
+        }
+
+        function updateThemeToggleButton() {
+            const themeToggleButton = document.getElementById('themeToggleButton');
+            if (!themeToggleButton) return;
+            themeToggleButton.textContent = currentTheme === 'dark' ? 'Modo Claro' : 'Modo Escuro';
+        }
+
+        function applyTheme(persist = true) {
+            document.body.dataset.theme = currentTheme;
+            updateThemeToggleButton();
+            if (persist) {
+                localStorage.setItem('interfaceTheme', currentTheme);
+                recordHistoryState();
+            }
+        }
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(true);
+        }
+
+        function loadData() {
+            const storedSchedule = localStorage.getItem('scheduleData');
+            if (storedSchedule) {
+                scheduleData = JSON.parse(storedSchedule);
+            }
+            const storedTeachingDatabase = localStorage.getItem('classTeachingDatabase');
+            if (storedTeachingDatabase) {
+                classTeachingDatabase = JSON.parse(storedTeachingDatabase);
+            }
+            const storedAvailability = localStorage.getItem('teachersAvailabilityData');
+            if (storedAvailability) {
+                teachersAvailability = JSON.parse(storedAvailability);
+            }
+            const storedSubjectColors = localStorage.getItem('subjectColors');
+            if (storedSubjectColors) {
+                subjectColors = JSON.parse(storedSubjectColors);
+            } else {
+                // Se não houver cores salvas, atribui cores padrão às disciplinas conhecidas
+                assignDefaultSubjectColors();
+            }
+            const storedRecentColors = localStorage.getItem('recentCustomColors');
+            if (storedRecentColors) {
+                recentCustomColors = JSON.parse(storedRecentColors).filter(color => typeof color === 'string');
+            }
+            const storedGridLineColor = localStorage.getItem('gridLineColor');
+            if (storedGridLineColor) {
+                updateGridLineColor(storedGridLineColor, false);
+            } else {
+                updateGridLineColor(currentGridLineColor, false);
+            }
+            const storedGridFrameEnabled = localStorage.getItem('gridFrameEnabled');
+            if (storedGridFrameEnabled !== null) {
+                currentGridFrameEnabled = JSON.parse(storedGridFrameEnabled);
+            }
+            const storedIntervalColor = localStorage.getItem('intervalColor');
+            const storedIntervalFontColor = localStorage.getItem('intervalFontColor');
+            const storedIntervalText = localStorage.getItem('intervalText');
+            const storedHeaderBarColor = localStorage.getItem('headerBarColor');
+            const storedHeaderBarFontColor = localStorage.getItem('headerBarFontColor');
+            const storedTheme = localStorage.getItem('interfaceTheme');
+            if (storedIntervalColor) currentIntervalColor = storedIntervalColor;
+            if (storedIntervalFontColor) currentIntervalFontColor = storedIntervalFontColor;
+            if (typeof storedIntervalText === 'string') currentIntervalText = storedIntervalText;
+            if (storedHeaderBarColor) currentHeaderBarColor = storedHeaderBarColor;
+            if (storedHeaderBarFontColor) currentHeaderBarFontColor = storedHeaderBarFontColor;
+            if (storedTheme === 'dark' || storedTheme === 'light') currentTheme = storedTheme;
+            classTeachingDatabase = buildClassTeachingDatabase(classTeachingDatabase);
+            syncClassCurriculumFromTeachingDatabase();
+            localStorage.setItem('classTeachingDatabase', JSON.stringify(classTeachingDatabase));
+            applyTheme(false);
+            updateGridFrameButton();
+            updateIntervalStyle(false);
+            updateHeaderBarStyle(false);
+        }
+
+        function assignDefaultSubjectColors() {
+            let colorIndex = 0;
+            const allSubjects = new Set();
+            // Coleta todas as disciplinas do currículo
+            for (const classId in classCurriculum) {
+                for (const subject in classCurriculum[classId]) {
+                    allSubjects.add(subject);
+                }
+            }
+            // Coleta todas as disciplinas dos professores
+            for (const teacher in teachersDatabase) {
+                teachersDatabase[teacher].forEach(subject => allSubjects.add(subject));
+            }
+
+            allSubjects.forEach(subject => {
+                if (!subjectColors[subject]) {
+                    subjectColors[subject] = colors[colorIndex % colors.length].hex;
+                    colorIndex++;
+                }
+            });
+            saveData(); // Salva as cores padrão atribuídas
+        }
+
+        function getCompatibleTeachersForSubject(subject) {
+            return Object.entries(teachersDatabase)
+                .filter(([, subjects]) => subjects.includes(subject))
+                .map(([teacherName]) => teacherName)
+                .sort((a, b) => a.localeCompare(b, 'pt-BR'));
+        }
+
+        function getAllKnownSubjects() {
+            const allSubjects = new Set();
+
+            Object.values(classCurriculum).forEach(subjectMap => {
+                Object.keys(subjectMap || {}).forEach(subject => allSubjects.add(subject));
+            });
+
+            Object.values(classTeachingDatabase).forEach(subjectMap => {
+                Object.keys(subjectMap || {}).forEach(subject => allSubjects.add(subject));
+            });
+
+            Object.values(teachersDatabase).forEach(subjects => {
+                (subjects || []).forEach(subject => allSubjects.add(subject));
+            });
+
+            Object.values(scheduleData).forEach(classInfo => {
+                if (classInfo?.subject) allSubjects.add(classInfo.subject);
+            });
+
+            return Array.from(allSubjects).sort((a, b) => a.localeCompare(b, 'pt-BR'));
+        }
+
+        function inferTeacherFromCurrentSchedule(classId, subject) {
+            const teacherFrequency = {};
+
+            Object.entries(scheduleData).forEach(([key, classInfo]) => {
+                if (!classInfo || typeof classInfo !== 'object') return;
+                if (classInfo.subject !== subject || !classInfo.teacher) return;
+                if (!key.startsWith(`${classId}_`)) return;
+                teacherFrequency[classInfo.teacher] = (teacherFrequency[classInfo.teacher] || 0) + 1;
+            });
+
+            const rankedTeachers = Object.entries(teacherFrequency)
+                .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'pt-BR'));
+
+            return rankedTeachers[0]?.[0] || '';
+        }
+
+        function buildClassTeachingDatabase(existingDatabase = {}) {
+            const normalizedDatabase = {};
+
+            Object.entries(classCurriculum).forEach(([classId, subjectsMap]) => {
+                normalizedDatabase[classId] = {};
+
+                Object.entries(subjectsMap).forEach(([subject, weeklyLessons]) => {
+                    const compatibleTeachers = getCompatibleTeachersForSubject(subject);
+                    const scheduledTeacher = inferTeacherFromCurrentSchedule(classId, subject);
+                    const existingEntry = existingDatabase?.[classId]?.[subject] || {};
+                    const chosenTeacher = existingEntry.teacher || scheduledTeacher || compatibleTeachers[0] || '';
+
+                    normalizedDatabase[classId][subject] = {
+                        teacher: chosenTeacher,
+                        weeklyLessons,
+                        candidateTeachers: compatibleTeachers
+                    };
+                });
+            });
+
+            return normalizedDatabase;
+        }
+
+        function getMostFrequentTeacher(teacherFrequency = {}) {
+            const rankedTeachers = Object.entries(teacherFrequency)
+                .filter(([teacherName]) => teacherName)
+                .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'pt-BR'));
+
+            return rankedTeachers[0]?.[0] || '';
+        }
+
+        function buildTeachingDatabaseFromSchedule(scheduleSnapshot, existingDatabase = {}) {
+            const mergedDatabase = buildClassTeachingDatabase(existingDatabase);
+            const subjectStatsByClass = {};
+
+            Object.entries(scheduleSnapshot).forEach(([key, classInfo]) => {
+                if (!classInfo || typeof classInfo !== 'object') return;
+                if (!/^(6ano|7ano|8ano|9ano|1em|2em|3em)_\d+_\d+$/.test(key)) return;
+
+                const [classId] = key.split('_');
+                const subject = typeof classInfo.subject === 'string' ? classInfo.subject.trim() : '';
+                const teacher = typeof classInfo.teacher === 'string' ? classInfo.teacher.trim() : '';
+                if (!subject) return;
+
+                if (!subjectStatsByClass[classId]) subjectStatsByClass[classId] = {};
+                if (!subjectStatsByClass[classId][subject]) {
+                    subjectStatsByClass[classId][subject] = {
+                        count: 0,
+                        teacherFrequency: {}
+                    };
+                }
+
+                subjectStatsByClass[classId][subject].count += 1;
+                if (teacher) {
+                    subjectStatsByClass[classId][subject].teacherFrequency[teacher] =
+                        (subjectStatsByClass[classId][subject].teacherFrequency[teacher] || 0) + 1;
+                }
+            });
+
+            Object.entries(subjectStatsByClass).forEach(([classId, subjectsMap]) => {
+                if (!mergedDatabase[classId]) mergedDatabase[classId] = {};
+
+                Object.entries(subjectsMap).forEach(([subject, stats]) => {
+                    const compatibleTeachers = getCompatibleTeachersForSubject(subject);
+                    const inferredTeacher = getMostFrequentTeacher(stats.teacherFrequency);
+                    const existingEntry = mergedDatabase[classId][subject] || {};
+                    const selectedTeacher = inferredTeacher || existingEntry.teacher || compatibleTeachers[0] || '';
+
+                    mergedDatabase[classId][subject] = {
+                        teacher: selectedTeacher,
+                        weeklyLessons: stats.count,
+                        candidateTeachers: compatibleTeachers
+                    };
+                });
+            });
+
+            return mergedDatabase;
+        }
+
+        function syncClassCurriculumFromTeachingDatabase() {
+            Object.keys(classCurriculum).forEach(classId => {
+                const teachingEntries = classTeachingDatabase[classId] || {};
+                const nextCurriculum = {};
+
+                Object.entries(teachingEntries).forEach(([subject, entry]) => {
+                    const weeklyLessons = Number(entry?.weeklyLessons) || 0;
+                    if (weeklyLessons > 0) {
+                        nextCurriculum[subject] = weeklyLessons;
+                    }
+                });
+
+                classCurriculum[classId] = nextCurriculum;
+            });
+        }
+
+        function getTeachingPlanForClass(classId) {
+            const teachingEntries = classTeachingDatabase[classId] || {};
+            const plan = Object.entries(teachingEntries)
+                .filter(([, entry]) => Number(entry?.weeklyLessons) > 0)
+                .map(([subject, entry]) => {
+                    const candidateTeachers = Array.isArray(entry?.candidateTeachers) && entry.candidateTeachers.length
+                        ? entry.candidateTeachers
+                        : getCompatibleTeachersForSubject(subject);
+
+                    return {
+                        subject,
+                        teacher: entry?.teacher || '',
+                        weeklyLessons: Number(entry?.weeklyLessons) || 0,
+                        candidateTeachers
+                    };
+                })
+                .sort((a, b) => {
+                    const teacherPriorityA = a.teacher ? 0 : 1;
+                    const teacherPriorityB = b.teacher ? 0 : 1;
+                    if (teacherPriorityA !== teacherPriorityB) return teacherPriorityA - teacherPriorityB;
+                    if (a.candidateTeachers.length !== b.candidateTeachers.length) {
+                        return a.candidateTeachers.length - b.candidateTeachers.length;
+                    }
+                    if (a.weeklyLessons !== b.weeklyLessons) {
+                        return b.weeklyLessons - a.weeklyLessons;
+                    }
+                    return a.subject.localeCompare(b.subject, 'pt-BR');
+                });
+
+            if (plan.length > 0) return plan;
+
+            const fallbackCurriculum = classCurriculum[classId] || {};
+            return Object.entries(fallbackCurriculum).map(([subject, weeklyLessons]) => ({
+                subject,
+                teacher: '',
+                weeklyLessons,
+                candidateTeachers: getCompatibleTeachersForSubject(subject)
+            }));
+        }
+
+        function getClassGenerationPriority(classId) {
+            const teachingPlan = getTeachingPlanForClass(classId);
+            const totalLessons = teachingPlan.reduce((sum, entry) => sum + entry.weeklyLessons, 0);
+            const flexibilityScore = teachingPlan.reduce((sum, entry) => {
+                const teacherCount = entry.teacher ? 1 : Math.max(entry.candidateTeachers.length, 1);
+                return sum + teacherCount;
+            }, 0);
+
+            return {
+                classId,
+                totalLessons,
+                flexibilityScore
+            };
+        }
+
+        function teacherCanTakeSlot(scheduleSnapshot, classId, level, teacherName, timeIndex, dayIndex) {
+            return evaluateTeacherSlotAssignment(scheduleSnapshot, classId, level, teacherName, timeIndex, dayIndex).allowed;
+        }
+
+        function parseTimeToMinutes(timeText) {
+            const [hours, minutes] = timeText.split(':').map(Number);
+            if (Number.isNaN(hours) || Number.isNaN(minutes)) return null;
+            return hours * 60 + minutes;
+        }
+
+        function getSlotRangeMinutes(slotLabel) {
+            if (!slotLabel || slotLabel.startsWith('INTERVALO') || !slotLabel.includes(' - ')) return null;
+            const [startText, endText] = slotLabel.split(' - ').map(part => part.trim());
+            const start = parseTimeToMinutes(startText);
+            const end = parseTimeToMinutes(endText);
+            if (start === null || end === null || end <= start) return null;
+            return { start, end, label: slotLabel };
+        }
+
+        function getClassSlotRangeMinutes(classId, timeIndex) {
+            const slotLabel = classTimeSlotsMap[classId]?.slots?.[timeIndex];
+            return getSlotRangeMinutes(slotLabel);
+        }
+
+        function getOverlapMinutes(firstRange, secondRange) {
+            if (!firstRange || !secondRange) return 0;
+            return Math.max(0, Math.min(firstRange.end, secondRange.end) - Math.max(firstRange.start, secondRange.start));
+        }
+
+        function evaluateTeacherSlotAssignment(scheduleSnapshot, classId, level, teacherName, timeIndex, dayIndex) {
+            if (!teacherName) {
+                return { allowed: true, warnings: [] };
+            }
+
+            const availabilityKey = `${teacherName}_${level}_${timeIndex}_${dayIndex}`;
+            if (teachersAvailability[availabilityKey] === 'INDISPONIVEL') {
+                return { allowed: false, warnings: [] };
+            }
+
+            const currentRange = getClassSlotRangeMinutes(classId, timeIndex);
+            const warnings = [];
+
+            for (const existingKey in scheduleSnapshot) {
+                const existingClassInfo = scheduleSnapshot[existingKey];
+                if (!existingClassInfo || existingClassInfo.teacher !== teacherName) continue;
+
+                const [existingClassId, existingTimeIndex, existingDayIndex] = existingKey.split('_');
+                if (existingClassId === classId) continue;
+                if (Number(existingDayIndex) !== dayIndex) continue;
+
+                const { level: existingClassLevel } = classTimeSlotsMap[existingClassId];
+                const existingRange = getClassSlotRangeMinutes(existingClassId, Number(existingTimeIndex));
+                const overlapMinutes = getOverlapMinutes(currentRange, existingRange);
+
+                if (overlapMinutes <= 0) continue;
+                if (existingClassLevel === level) {
+                    return { allowed: false, warnings: [] };
+                }
+                if (overlapMinutes > 10) {
+                    return { allowed: false, warnings: [] };
+                }
+
+                warnings.push(`${teacherName}: choque curto de ${overlapMinutes} min entre ${getClassName(classId)} (${currentRange?.label || ''}) e ${getClassName(existingClassId)} (${existingRange?.label || ''}) em ${dayNames[dayIndex]}.`);
+            }
+
+            return { allowed: true, warnings };
+        }
+
+        function countSubjectInDay(scheduleSnapshot, classId, dayIndex, subject, totalSlots) {
+            let count = 0;
+            for (let slotIndex = 0; slotIndex < totalSlots; slotIndex++) {
+                const key = `${classId}_${slotIndex}_${dayIndex}`;
+                if (scheduleSnapshot[key]?.subject === subject) {
+                    count += 1;
+                }
+            }
+            return count;
+        }
+
+        function hasAdjacentSameSubject(scheduleSnapshot, classId, timeIndex, dayIndex, subject) {
+            const previousKey = `${classId}_${timeIndex - 1}_${dayIndex}`;
+            const nextKey = `${classId}_${timeIndex + 1}_${dayIndex}`;
+            return scheduleSnapshot[previousKey]?.subject === subject || scheduleSnapshot[nextKey]?.subject === subject;
+        }
+
+        function countTeacherInDayForClass(scheduleSnapshot, classId, dayIndex, teacherName, totalSlots) {
+            if (!teacherName) return 0;
+            let count = 0;
+            for (let slotIndex = 0; slotIndex < totalSlots; slotIndex++) {
+                const key = `${classId}_${slotIndex}_${dayIndex}`;
+                if (scheduleSnapshot[key]?.teacher === teacherName) {
+                    count += 1;
+                }
+            }
+            return count;
+        }
+
+        function createsTripleBlock(scheduleSnapshot, classId, timeIndex, dayIndex, matcher) {
+            const left1 = matcher(scheduleSnapshot[`${classId}_${timeIndex - 1}_${dayIndex}`]);
+            const left2 = matcher(scheduleSnapshot[`${classId}_${timeIndex - 2}_${dayIndex}`]);
+            const right1 = matcher(scheduleSnapshot[`${classId}_${timeIndex + 1}_${dayIndex}`]);
+            const right2 = matcher(scheduleSnapshot[`${classId}_${timeIndex + 2}_${dayIndex}`]);
+
+            return (left1 && left2) || (right1 && right2) || (left1 && right1);
+        }
+
+        function buildAssignableSlots(classId) {
+            const { slots: currentClassTimeSlots } = classTimeSlotsMap[classId];
+            return currentClassTimeSlots
+                .map((timeSlot, timeIndex) => ({ timeSlot, timeIndex }))
+                .filter(({ timeSlot }) => !timeSlot.startsWith('INTERVALO'))
+                .flatMap(({ timeIndex }) => dayNames.map((_, dayIndex) => ({ timeIndex, dayIndex })));
+        }
+
+        function getRemainingLessonsCount(remainingLessons) {
+            return Object.values(remainingLessons).reduce((sum, value) => sum + Math.max(0, value), 0);
+        }
+
+        function buildSlotCandidates(scheduleSnapshot, classId, teachingPlan, remainingLessons, slot, classLevel, totalSlots) {
+            const { timeIndex, dayIndex } = slot;
+            const candidates = [];
+            const remainingTotal = getRemainingLessonsCount(remainingLessons);
+
+            for (const planEntry of teachingPlan) {
+                const { subject, teacher, candidateTeachers } = planEntry;
+                if ((remainingLessons[subject] || 0) <= 0) continue;
+
+                const sameDayCount = countSubjectInDay(scheduleSnapshot, classId, dayIndex, subject, totalSlots);
+                if (sameDayCount >= 2) continue;
+
+                const teacherPool = teacher
+                    ? [teacher]
+                    : (candidateTeachers.length ? candidateTeachers : getCompatibleTeachersForSubject(subject));
+
+                for (const teacherName of teacherPool) {
+                    const assignmentStatus = evaluateTeacherSlotAssignment(scheduleSnapshot, classId, classLevel, teacherName, timeIndex, dayIndex);
+                    if (!assignmentStatus.allowed) {
+                        continue;
+                    }
+
+                    const sameTeacherDayCount = countTeacherInDayForClass(scheduleSnapshot, classId, dayIndex, teacherName, totalSlots);
+                    const createsTripleSubject = createsTripleBlock(
+                        scheduleSnapshot,
+                        classId,
+                        timeIndex,
+                        dayIndex,
+                        cell => cell?.subject === subject
+                    );
+                    const createsTripleTeacher = createsTripleBlock(
+                        scheduleSnapshot,
+                        classId,
+                        timeIndex,
+                        dayIndex,
+                        cell => cell?.teacher === teacherName
+                    );
+
+                    let score = 0;
+                    score += (remainingLessons[subject] || 0) * 10;
+                    score += remainingTotal;
+                    score -= sameDayCount * 6;
+                    if (hasAdjacentSameSubject(scheduleSnapshot, classId, timeIndex, dayIndex, subject)) {
+                        score -= 7;
+                    }
+                    score -= sameTeacherDayCount * 2;
+                    if (createsTripleSubject) {
+                        score -= 18;
+                    }
+                    if (createsTripleTeacher) {
+                        score -= 12;
+                    }
+                    if (teacher) {
+                        score += 4;
+                    } else {
+                        score -= candidateTeachers.length;
+                    }
+                    score -= assignmentStatus.warnings.length * 5;
+
+                    candidates.push({
+                        subject,
+                        teacher: teacherName,
+                        score,
+                        warnings: assignmentStatus.warnings
+                    });
+                }
+            }
+
+            return candidates.sort((a, b) => b.score - a.score || a.subject.localeCompare(b.subject, 'pt-BR'));
+        }
+
+        function generateScheduleWithBacktracking(classId, teachingPlan, baseSchedule) {
+            const { slots: currentClassTimeSlots, level: currentClassLevel } = classTimeSlotsMap[classId];
+            const assignableSlots = buildAssignableSlots(classId);
+            const workingSchedule = { ...baseSchedule };
+            const remainingLessons = {};
+            teachingPlan.forEach(({ subject, weeklyLessons }) => {
+                remainingLessons[subject] = weeklyLessons;
+            });
+
+            let bestSchedule = { ...workingSchedule };
+            let bestRemaining = { ...remainingLessons };
+            let bestUnallocated = getRemainingLessonsCount(remainingLessons);
+            let attempts = 0;
+            const maxAttempts = 25000;
+
+            function backtrack(slotIndex) {
+                attempts += 1;
+                if (attempts > maxAttempts) return false;
+
+                const currentUnallocated = getRemainingLessonsCount(remainingLessons);
+                if (currentUnallocated < bestUnallocated) {
+                    bestUnallocated = currentUnallocated;
+                    bestSchedule = { ...workingSchedule };
+                    bestRemaining = { ...remainingLessons };
+                    if (bestUnallocated === 0) return true;
+                }
+
+                if (slotIndex >= assignableSlots.length) {
+                    return currentUnallocated === 0;
+                }
+
+                const slotsLeft = assignableSlots.length - slotIndex;
+                if (currentUnallocated > slotsLeft) {
+                    return false;
+                }
+
+                const slot = assignableSlots[slotIndex];
+                const key = `${classId}_${slot.timeIndex}_${slot.dayIndex}`;
+
+                const candidates = buildSlotCandidates(
+                    workingSchedule,
+                    classId,
+                    teachingPlan,
+                    remainingLessons,
+                    slot,
+                    currentClassLevel,
+                    currentClassTimeSlots.length
+                );
+
+                for (const candidate of candidates) {
+                    workingSchedule[key] = {
+                        subject: candidate.subject,
+                        teacher: candidate.teacher,
+                        color: subjectColors[candidate.subject] || colors[0].hex
+                    };
+                    remainingLessons[candidate.subject] -= 1;
+
+                    if (backtrack(slotIndex + 1)) {
+                        return true;
+                    }
+
+                    remainingLessons[candidate.subject] += 1;
+                    delete workingSchedule[key];
+                }
+
+                return backtrack(slotIndex + 1);
+            }
+
+            const completed = backtrack(0);
+            return {
+                completed: completed || bestUnallocated === 0,
+                schedule: bestSchedule,
+                remainingLessons: bestRemaining
+            };
+        }
+
+        function collectShortOverlapWarnings(scheduleSnapshot, classId) {
+            const { level: classLevel } = classTimeSlotsMap[classId];
+            const warnings = new Set();
+
+            Object.entries(scheduleSnapshot).forEach(([key, classInfo]) => {
+                if (!key.startsWith(`${classId}_`) || !classInfo?.teacher) return;
+                const [, timeIndex, dayIndex] = key.split('_');
+                const status = evaluateTeacherSlotAssignment(
+                    scheduleSnapshot,
+                    classId,
+                    classLevel,
+                    classInfo.teacher,
+                    Number(timeIndex),
+                    Number(dayIndex)
+                );
+                status.warnings.forEach(warning => warnings.add(warning));
+            });
+
+            return Array.from(warnings);
+        }
+
+        function getConflictSeverityLabel(overlapMinutes) {
+            if (overlapMinutes <= 10) {
+                return { key: 'short', label: 'Curto' };
+            }
+            if (overlapMinutes <= 20) {
+                return { key: 'medium', label: 'Médio' };
+            }
+            return { key: 'large', label: 'Grande' };
+        }
+
+        function buildTeacherConflictReport() {
+            const entries = Object.entries(scheduleData)
+                .filter(([, classInfo]) => classInfo?.teacher)
+                .map(([key, classInfo]) => {
+                    const [classId, timeIndex, dayIndex] = key.split('_');
+                    return {
+                        key,
+                        classId,
+                        timeIndex: Number(timeIndex),
+                        dayIndex: Number(dayIndex),
+                        teacher: classInfo.teacher,
+                        subject: classInfo.subject || '',
+                        level: classTimeSlotsMap[classId]?.level || '',
+                        range: getClassSlotRangeMinutes(classId, Number(timeIndex))
+                    };
+                })
+                .filter(entry => entry.range);
+
+            const conflicts = [];
+
+            for (let i = 0; i < entries.length; i++) {
+                for (let j = i + 1; j < entries.length; j++) {
+                    const first = entries[i];
+                    const second = entries[j];
+
+                    if (first.teacher !== second.teacher) continue;
+                    if (first.dayIndex !== second.dayIndex) continue;
+                    if (first.classId === second.classId) continue;
+
+                    const overlapMinutes = getOverlapMinutes(first.range, second.range);
+                    if (overlapMinutes <= 0) continue;
+
+                    const severity = getConflictSeverityLabel(overlapMinutes);
+                    conflicts.push({
+                        teacher: first.teacher,
+                        dayLabel: dayNames[first.dayIndex],
+                        overlapMinutes,
+                        severity,
+                        first,
+                        second
+                    });
+                }
+            }
+
+            return conflicts.sort((a, b) => {
+                const teacherCompare = a.teacher.localeCompare(b.teacher, 'pt-BR');
+                if (teacherCompare !== 0) return teacherCompare;
+                if (a.dayLabel !== b.dayLabel) return a.dayLabel.localeCompare(b.dayLabel, 'pt-BR');
+                return b.overlapMinutes - a.overlapMinutes;
+            });
+        }
+
+        function getGapSeverityLabel(gapMinutes) {
+            if (gapMinutes >= 60) {
+                return { key: 'very-large', label: 'Muito Grande' };
+            }
+            if (gapMinutes >= 40) {
+                return { key: 'large', label: 'Grande' };
+            }
+            return { key: 'medium', label: 'Média' };
+        }
+
+        function buildTeacherGapReport() {
+            const entries = Object.entries(scheduleData)
+                .filter(([, classInfo]) => classInfo?.teacher)
+                .map(([key, classInfo]) => {
+                    const [classId, timeIndex, dayIndex] = key.split('_');
+                    return {
+                        key,
+                        classId,
+                        timeIndex: Number(timeIndex),
+                        dayIndex: Number(dayIndex),
+                        teacher: classInfo.teacher,
+                        subject: classInfo.subject || '',
+                        level: classTimeSlotsMap[classId]?.level || '',
+                        range: getClassSlotRangeMinutes(classId, Number(timeIndex))
+                    };
+                })
+                .filter(entry => entry.range);
+
+            const groupedByTeacherDay = {};
+            entries.forEach(entry => {
+                const groupKey = `${entry.teacher}__${entry.dayIndex}`;
+                if (!groupedByTeacherDay[groupKey]) {
+                    groupedByTeacherDay[groupKey] = [];
+                }
+                groupedByTeacherDay[groupKey].push(entry);
+            });
+
+            const gaps = [];
+
+            Object.values(groupedByTeacherDay).forEach(dayEntries => {
+                if (dayEntries.length < 2) return;
+                dayEntries.sort((a, b) => a.range.start - b.range.start);
+
+                for (let index = 0; index < dayEntries.length - 1; index++) {
+                    const currentEntry = dayEntries[index];
+                    const nextEntry = dayEntries[index + 1];
+                    const gapMinutes = nextEntry.range.start - currentEntry.range.end;
+                    if (gapMinutes <= 0) continue;
+
+                    const thresholdMinutes = 25;
+                    if (gapMinutes < thresholdMinutes) continue;
+
+                    gaps.push({
+                        teacher: currentEntry.teacher,
+                        dayLabel: dayNames[currentEntry.dayIndex],
+                        gapMinutes,
+                        thresholdMinutes,
+                        severity: getGapSeverityLabel(gapMinutes),
+                        currentEntry,
+                        nextEntry,
+                        crossesLevels: currentEntry.level !== nextEntry.level
+                    });
+                }
+            });
+
+            return gaps.sort((a, b) => {
+                const teacherCompare = a.teacher.localeCompare(b.teacher, 'pt-BR');
+                if (teacherCompare !== 0) return teacherCompare;
+                if (a.dayLabel !== b.dayLabel) return a.dayLabel.localeCompare(b.dayLabel, 'pt-BR');
+                return b.gapMinutes - a.gapMinutes;
+            });
+        }
+
+        function renderConflictReport() {
+            const summaryElement = document.getElementById('conflictReportSummary');
+            const contentElement = document.getElementById('conflictReportContent');
+            if (!summaryElement || !contentElement) return;
+
+            const conflicts = buildTeacherConflictReport();
+            const teacherCount = new Set(conflicts.map(conflict => conflict.teacher)).size;
+            const shortCount = conflicts.filter(conflict => conflict.severity.key === 'short').length;
+            const mediumCount = conflicts.filter(conflict => conflict.severity.key === 'medium').length;
+            const largeCount = conflicts.filter(conflict => conflict.severity.key === 'large').length;
+
+            summaryElement.innerHTML = conflicts.length
+                ? `Professores com choque: <strong>${teacherCount}</strong> | Total de choques: <strong>${conflicts.length}</strong> | Curtos: <strong>${shortCount}</strong> | Médios: <strong>${mediumCount}</strong> | Grandes: <strong>${largeCount}</strong>`
+                : 'Nenhum choque de professor encontrado no horário atual.';
+
+            if (!conflicts.length) {
+                contentElement.innerHTML = '<div class="conflict-report-empty">Nenhum choque detectado. A grade atual está limpa para os professores.</div>';
+                return;
+            }
+
+            const rows = conflicts.map(conflict => `
+                <tr>
+                    <td>${conflict.teacher}</td>
+                    <td><span class="conflict-severity ${conflict.severity.key}">${conflict.severity.label}</span></td>
+                    <td>${conflict.overlapMinutes} min</td>
+                    <td>${conflict.dayLabel}</td>
+                    <td>${getClassName(conflict.first.classId)}<br>${conflict.first.range.label}<br>${conflict.first.subject}</td>
+                    <td>${getClassName(conflict.second.classId)}<br>${conflict.second.range.label}<br>${conflict.second.subject}</td>
+                </tr>
+            `).join('');
+
+            contentElement.innerHTML = `
+                <table id="conflictReportTable">
+                    <thead>
+                        <tr>
+                            <th>Professor</th>
+                            <th>Severidade</th>
+                            <th>Choque</th>
+                            <th>Dia</th>
+                            <th>Aula 1</th>
+                            <th>Aula 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                </table>
+            `;
+        }
+
+        function openConflictReportModal() {
+            renderConflictReport();
+            document.getElementById('conflictReportModal').classList.add('active');
+        }
+
+        function closeConflictReportModal() {
+            document.getElementById('conflictReportModal').classList.remove('active');
+        }
+
+        function renderGapReport() {
+            const summaryElement = document.getElementById('gapReportSummary');
+            const contentElement = document.getElementById('gapReportContent');
+            if (!summaryElement || !contentElement) return;
+
+            const gaps = buildTeacherGapReport();
+            const teacherCount = new Set(gaps.map(gap => gap.teacher)).size;
+            const crossLevelCount = gaps.filter(gap => gap.crossesLevels).length;
+
+            summaryElement.innerHTML = gaps.length
+                ? `Professores com janelas: <strong>${teacherCount}</strong> | Total de janelas: <strong>${gaps.length}</strong> | Entre níveis: <strong>${crossLevelCount}</strong>`
+                : 'Nenhuma janela relevante encontrada no horário atual.';
+
+            if (!gaps.length) {
+                contentElement.innerHTML = '<div class="gap-report-empty">Nenhuma janela acima do limite configurado foi encontrada.</div>';
+                return;
+            }
+
+            const rows = gaps.map(gap => `
+                <tr>
+                    <td>${gap.teacher}</td>
+                    <td><span class="gap-severity ${gap.severity.key}">${gap.severity.label}</span></td>
+                    <td>${gap.gapMinutes} min</td>
+                    <td>${gap.dayLabel}</td>
+                    <td>${getClassName(gap.currentEntry.classId)}<br>${gap.currentEntry.range.label}<br>${gap.currentEntry.subject}</td>
+                    <td>${getClassName(gap.nextEntry.classId)}<br>${gap.nextEntry.range.label}<br>${gap.nextEntry.subject}</td>
+                    <td>${gap.crossesLevels ? `Entre níveis (${gap.thresholdMinutes} min)` : `Mesmo nível (${gap.thresholdMinutes} min)`}</td>
+                </tr>
+            `).join('');
+
+            contentElement.innerHTML = `
+                <table id="gapReportTable">
+                    <thead>
+                        <tr>
+                            <th>Professor</th>
+                            <th>Severidade</th>
+                            <th>Janela</th>
+                            <th>Dia</th>
+                            <th>Aula Anterior</th>
+                            <th>Próxima Aula</th>
+                            <th>Regra Aplicada</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                </table>
+            `;
+        }
+
+        function openGapReportModal() {
+            renderGapReport();
+            document.getElementById('gapReportModal').classList.add('active');
+        }
+
+        function closeGapReportModal() {
+            document.getElementById('gapReportModal').classList.remove('active');
+        }
+
+        function normalizeImportedScheduleData(importedData) {
+            const rawSchedule = importedData?.scheduleData && typeof importedData.scheduleData === 'object'
+                ? importedData.scheduleData
+                : importedData;
+
+            if (!rawSchedule || typeof rawSchedule !== 'object' || Array.isArray(rawSchedule)) {
+                throw new Error('Formato de horários inválido.');
+            }
+
+            const normalizedSchedule = {};
+
+            Object.entries(rawSchedule).forEach(([key, value]) => {
+                if (!/^(6ano|7ano|8ano|9ano|1em|2em|3em)_\d+_\d+$/.test(key)) return;
+                if (!value || typeof value !== 'object' || Array.isArray(value)) return;
+
+                const subject = typeof value.subject === 'string' ? value.subject.trim() : '';
+                const teacher = typeof value.teacher === 'string' ? value.teacher.trim() : '';
+                if (!subject) return;
+
+                normalizedSchedule[key] = {
+                    subject,
+                    teacher,
+                    color: value.color || subjectColors[subject] || colors[0].hex,
+                    fontColor: value.fontColor || '#000000',
+                    fontSize: value.fontSize || 13,
+                    allCaps: Boolean(value.allCaps)
+                };
+            });
+
+            if (Object.keys(normalizedSchedule).length === 0) {
+                throw new Error('Nenhuma aula válida encontrada no JSON.');
+            }
+
+            return normalizedSchedule;
+        }
+
+        // Funções para popular seletores
+        function populateClassSelect() {
+            const select = document.getElementById('classSelect');
+            select.innerHTML = '<option value="">Todas as Turmas</option>';
+            for (const classId in classTimeSlotsMap) {
+                const option = document.createElement('option');
+                option.value = classId;
+                option.textContent = getClassName(classId);
+                select.appendChild(option);
+            }
+            // Popula o seletor do modal de geração automática
+            const autoGenerateSelect = document.getElementById('autoGenerateClassSelect');
+            autoGenerateSelect.innerHTML = '<option value="">Selecione uma Turma</option><option value="__all__">Todas as Turmas</option>';
+            for (const classId in classTimeSlotsMap) {
+                const option = document.createElement('option');
+                option.value = classId;
+                option.textContent = getClassName(classId);
+                autoGenerateSelect.appendChild(option);
+            }
+
+            const curriculumSelect = document.getElementById('curriculumClassSelect');
+            if (curriculumSelect) {
+                curriculumSelect.innerHTML = '';
+                for (const classId in classTimeSlotsMap) {
+                    const option = document.createElement('option');
+                    option.value = classId;
+                    option.textContent = getClassName(classId);
+                    curriculumSelect.appendChild(option);
+                }
+            }
+        }
+
+        function populateTeacherSelect() {
+            const select = document.getElementById('teacherSelect');
+            select.innerHTML = '<option value="">Todos os Professores</option>';
+            const teacherDatalist = document.getElementById('teacherList');
+            teacherDatalist.innerHTML = ''; // Limpa o datalist
+
+            const allTeachers = new Set();
+            for (const teacherName in teachersDatabase) {
+                allTeachers.add(teacherName);
+            }
+
+            Array.from(allTeachers).sort((a, b) => a.localeCompare(b, 'pt-BR')).forEach(teacherName => {
+                const option = document.createElement('option');
+                option.value = teacherName;
+                option.textContent = teacherName;
+                select.appendChild(option);
+
+                const datalistOption = document.createElement('option');
+                datalistOption.value = teacherName;
+                teacherDatalist.appendChild(datalistOption);
+            });
+
+            // Popula o seletor de professor no modal de disponibilidade
+            const availabilityTeacherSelect = document.getElementById('availabilityTeacherSelect');
+            availabilityTeacherSelect.innerHTML = '<option value="">Selecione um Professor</option>';
+            Array.from(allTeachers).sort((a, b) => a.localeCompare(b, 'pt-BR')).forEach(teacherName => {
+                const option = document.createElement('option');
+                option.value = teacherName;
+                option.textContent = teacherName;
+                availabilityTeacherSelect.appendChild(option);
+            });
+        }
+
+        function populateSubjectSelect() {
+            const select = document.getElementById('subjectSelect');
+            select.innerHTML = '<option value="">Todas as Disciplinas</option>';
+            const subjectDatalist = document.getElementById('subjectList');
+            subjectDatalist.innerHTML = ''; // Limpa o datalist
+
+            const allSubjects = new Set();
+            // Coleta todas as disciplinas do currículo
+            for (const classId in classCurriculum) {
+                for (const subject in classCurriculum[classId]) {
+                    allSubjects.add(subject);
+                }
+            }
+            // Coleta todas as disciplinas dos professores
+            for (const teacher in teachersDatabase) {
+                teachersDatabase[teacher].forEach(subject => allSubjects.add(subject));
+            }
+
+            Array.from(allSubjects).sort((a, b) => a.localeCompare(b, 'pt-BR')).forEach(subject => {
+                const option = document.createElement('option');
+                option.value = subject;
+                option.textContent = subject;
+                select.appendChild(option);
+
+                const datalistOption = document.createElement('option');
+                datalistOption.value = subject;
+                subjectDatalist.appendChild(datalistOption);
+            });
+        }
+
+        function populateColorPicker(selectedColor = colors[0].hex) {
+            currentSelectedColor = selectedColor;
+            const colorPicker = document.getElementById('colorPicker');
+            colorPicker.innerHTML = '';
+            colors.forEach(color => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'color-option-wrapper';
+                wrapper.onclick = () => selectColor(color.hex);
+
+                const option = document.createElement('div');
+                option.className = 'color-option';
+                option.style.backgroundColor = color.hex;
+                if (color.hex === selectedColor) {
+                    option.classList.add('selected');
+                }
+                option.dataset.color = color.hex;
+
+                const name = document.createElement('span');
+                name.className = 'color-name';
+                name.textContent = color.name;
+
+                wrapper.appendChild(option);
+                wrapper.appendChild(name);
+                colorPicker.appendChild(wrapper);
+            });
+            const customColorInput = document.getElementById('customColorInput');
+            if (customColorInput) customColorInput.value = selectedColor;
+            renderRecentColors(selectedColor);
+        }
+
+        function selectColor(hex) {
+            currentSelectedColor = hex;
+            document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+            const selectedOption = document.querySelector(`.color-option[data-color="${hex}"]`);
+            if (selectedOption) {
+                selectedOption.classList.add('selected');
+            }
+            const customColorInput = document.getElementById('customColorInput');
+            if (customColorInput) customColorInput.value = hex;
+            document.querySelectorAll('.recent-color').forEach(opt => {
+                opt.classList.toggle('selected', opt.dataset.color === hex);
+            });
+            // Atualiza a cor da disciplina atual no modal de edição
+            const currentSubject = document.getElementById('editSubject').value;
+            if (currentSubject) {
+                subjectColors[currentSubject] = hex;
+                saveData();
+                renderSchedule(); // Re-renderiza para aplicar a nova cor
+            }
+        }
+
+        function renderRecentColors(selectedColor = '') {
+            const recentColorsContainer = document.getElementById('recentColors');
+            if (!recentColorsContainer) return;
+
+            recentColorsContainer.innerHTML = '';
+
+            if (recentCustomColors.length === 0) {
+                recentColorsContainer.innerHTML = '<span class="color-name">Nenhuma cor personalizada usada ainda.</span>';
+                return;
+            }
+
+            recentCustomColors.forEach(color => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'recent-color';
+                if (color === selectedColor) button.classList.add('selected');
+                button.style.backgroundColor = color;
+                button.dataset.color = color;
+                button.title = color;
+                button.onclick = () => selectColor(color);
+                recentColorsContainer.appendChild(button);
+            });
+        }
+
+        function rememberRecentColor(hex) {
+            recentCustomColors = [hex, ...recentCustomColors.filter(color => color !== hex)].slice(0, 10);
+            saveData();
+        }
+
+        function selectCustomColor(hex) {
+            rememberRecentColor(hex);
+            populateColorPicker(hex);
+            selectColor(hex);
+        }
+
+        function selectFontColor(hex) {
+            currentFontColor = hex;
+            const fontInput = document.getElementById('fontColorInput');
+            if (fontInput) fontInput.value = hex;
+            const blackBtn = document.getElementById('fontColorBlackBtn');
+            const whiteBtn = document.getElementById('fontColorWhiteBtn');
+            if (blackBtn) blackBtn.classList.toggle('selected', hex.toLowerCase() === '#000000');
+            if (whiteBtn) whiteBtn.classList.toggle('selected', hex.toLowerCase() === '#ffffff');
+        }
+
+        function updateGridLineColor(hex, persist = true) {
+            currentGridLineColor = hex;
+            document.documentElement.style.setProperty('--grid-line-color', hex);
+            const lineColorInput = document.getElementById('lineColorInput');
+            if (lineColorInput) lineColorInput.value = hex;
+            if (persist) {
+                localStorage.setItem('gridLineColor', hex);
+            }
+            renderSchedule();
+            if (persist) recordHistoryState();
+        }
+
+        function updateGridFrameButton() {
+            const button = document.getElementById('toggleGridFrameButton');
+            if (!button) return;
+            button.textContent = `Moldura da Grade: ${currentGridFrameEnabled ? 'On' : 'Off'}`;
+            button.classList.toggle('active', currentGridFrameEnabled);
+        }
+
+        function toggleGridFrame() {
+            currentGridFrameEnabled = !currentGridFrameEnabled;
+            updateGridFrameButton();
+            saveData();
+            renderSchedule();
+            recordHistoryState();
+        }
+
+        function updateIntervalStyle(persist = true) {
+            const intervalColorInput = document.getElementById('intervalColorInput');
+            const intervalFontColorInput = document.getElementById('intervalFontColorInput');
+            const intervalTextInput = document.getElementById('intervalTextInput');
+            if (intervalColorInput) {
+                if (persist) currentIntervalColor = intervalColorInput.value;
+                intervalColorInput.value = currentIntervalColor;
+            }
+            if (intervalFontColorInput) {
+                if (persist) currentIntervalFontColor = intervalFontColorInput.value;
+                intervalFontColorInput.value = currentIntervalFontColor;
+            }
+            if (intervalTextInput) {
+                if (persist) currentIntervalText = intervalTextInput.value;
+                intervalTextInput.value = currentIntervalText;
+            }
+            if (persist) {
+                localStorage.setItem('intervalColor', currentIntervalColor);
+                localStorage.setItem('intervalFontColor', currentIntervalFontColor);
+                localStorage.setItem('intervalText', currentIntervalText);
+            }
+            renderSchedule();
+            if (persist) recordHistoryState();
+        }
+
+        function updateHeaderBarStyle(persist = true) {
+            const headerBarColorInput = document.getElementById('headerBarColorInput');
+            const headerBarFontColorInput = document.getElementById('headerBarFontColorInput');
+            if (headerBarColorInput) {
+                if (persist) currentHeaderBarColor = headerBarColorInput.value;
+                headerBarColorInput.value = currentHeaderBarColor;
+            }
+            if (headerBarFontColorInput) {
+                if (persist) currentHeaderBarFontColor = headerBarFontColorInput.value;
+                headerBarFontColorInput.value = currentHeaderBarFontColor;
+            }
+            document.documentElement.style.setProperty('--header-bar-bg', currentHeaderBarColor);
+            document.documentElement.style.setProperty('--header-bar-color', currentHeaderBarFontColor);
+            if (persist) {
+                localStorage.setItem('headerBarColor', currentHeaderBarColor);
+                localStorage.setItem('headerBarFontColor', currentHeaderBarFontColor);
+            }
+            renderSchedule();
+            if (persist) recordHistoryState();
+        }
+
+        function getIntervalDisplayText(time) {
+            const fallback = time.replace('INTERVALO ', '');
+            return currentIntervalText.trim() || fallback;
+        }
+
+        function getClassShortName(classId) {
+            const names = {
+                '6ano': '6º ANO EF',
+                '7ano': '7º ANO EF',
+                '8ano': '8º ANO EF',
+                '9ano': '9º ANO EF',
+                '1em': '1º ANO EM',
+                '2em': '2º ANO EM',
+                '3em': '3º ANO EM'
+            };
+            return names[classId] || 'HORÁRIO';
+        }
+
+        function getPrintTitle(classId = '', isPrintingAll = false) {
+            const currentYear = new Date().getFullYear();
+            if (isPrintingAll || !classId) return `HORÁRIO ENSPS ${currentYear}`;
+            return `HORÁRIO ${getClassName(classId)}`;
+        }
+
+        function generatePrintBrandHeaderHTML(title) {
+            return `
+                <div class="print-brand-header">
+                    <img class="print-brand-logo" src="https://raw.githubusercontent.com/ciliocavalcante-design/ensps/main/LOGO%20ENSPS%202024.5.png" alt="Logo ENSPS" crossorigin="anonymous">
+                    <div class="print-brand-title">${title}</div>
+                    <div class="print-brand-spacer" aria-hidden="true"></div>
+                </div>
+            `;
+        }
+
+        function generateScheduleHeaderHTML(classId) {
+            const headerCellStyle = `background: ${currentHeaderBarColor}; color: ${currentHeaderBarFontColor};`;
+            return `
+                <thead>
+                    <tr>
+                        <th style="${headerCellStyle}">${getClassShortName(classId)}</th>
+                        <th style="${headerCellStyle}">Segunda-feira</th>
+                        <th style="${headerCellStyle}">Terça-feira</th>
+                        <th style="${headerCellStyle}">Quarta-feira</th>
+                        <th style="${headerCellStyle}">Quinta-feira</th>
+                        <th style="${headerCellStyle}">Sexta-feira</th>
+                    </tr>
+                </thead>
+            `;
+        }
+
+        function wrapScheduleTableHTML(tableHTML) {
+            const shellClass = currentGridFrameEnabled ? 'schedule-table-shell grid-frame-shell' : 'schedule-table-shell';
+            return `<div class="${shellClass}">${tableHTML}</div>`;
+        }
+
+        function buildPrintableSchedulesMarkup(classIdsToPrint, isPrintingAll) {
+            const titleMarkup = isPrintingAll ? generatePrintBrandHeaderHTML(getPrintTitle('', true)) : '';
+            const schedulesMarkup = classIdsToPrint.map(classId => {
+                const title = getPrintTitle(classId, false);
+                const tableHTML = wrapScheduleTableHTML(`<table>${generateScheduleHeaderHTML(classId)}<tbody>${generateScheduleTableHTML(classId)}</tbody></table>`);
+                return `
+                    <div class="printable-schedule">
+                        <div class="printable-schedule-inner">
+                            ${isPrintingAll ? '' : generatePrintBrandHeaderHTML(title)}
+                            ${tableHTML}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            return `<div class="print-document">${titleMarkup}${schedulesMarkup}</div>`;
+        }
+
+        function buildPrintablePdfPageMarkup(classIdsOnPage, pageIndex, isPrintingAll) {
+            const pageTitleMarkup = isPrintingAll && pageIndex === 0
+                ? generatePrintBrandHeaderHTML(getPrintTitle('', true))
+                : '';
+
+            const schedulesMarkup = classIdsOnPage.map(classId => `
+                <div class="printable-schedule">
+                    <div class="printable-schedule-inner">
+                        ${wrapScheduleTableHTML(`<table>${generateScheduleHeaderHTML(classId)}<tbody>${generateScheduleTableHTML(classId)}</tbody></table>`)}
+                    </div>
+                </div>
+            `).join('');
+
+            return `
+                <div class="print-document">
+                    ${pageTitleMarkup}
+                    ${schedulesMarkup}
+                </div>
+            `;
+        }
+
+        function getPdfPageGroups(classIdsToPrint) {
+            return classIdsToPrint.map(classId => [classId]);
+        }
+
+        function applyTextFormattingToAll(fontSize, allCaps) {
+            Object.keys(scheduleData).forEach(key => {
+                if (!scheduleData[key] || typeof scheduleData[key] !== 'object') return;
+                scheduleData[key].fontSize = fontSize;
+                scheduleData[key].allCaps = allCaps;
+            });
+        }
+
+        function applyVisualStyleToTeacher(teacher, color, fontColor, sourceKey = '') {
+            if (!teacher) return;
+
+            Object.keys(scheduleData).forEach(existingKey => {
+                const classInfo = scheduleData[existingKey];
+                if (!classInfo || typeof classInfo !== 'object') return;
+                if (classInfo.teacher !== teacher) return;
+
+                scheduleData[existingKey] = {
+                    ...classInfo,
+                    color,
+                    fontColor: fontColor || classInfo.fontColor || '#000000'
+                };
+            });
+
+            if (sourceKey && scheduleData[sourceKey]) {
+                scheduleData[sourceKey].color = color;
+                scheduleData[sourceKey].fontColor = fontColor || scheduleData[sourceKey].fontColor || '#000000';
+            }
+        }
+
+        // Funções de renderização do horário
+        function renderSchedule() {
+            const classId = document.getElementById('classSelect').value;
+            const teacherFilter = document.getElementById('teacherSelect').value;
+            const subjectFilter = document.getElementById('subjectSelect').value;
+
+            const scheduleTable = document.getElementById('scheduleTable');
+            const scheduleTableShell = document.getElementById('scheduleTableShell');
+            const scheduleThead = scheduleTable.querySelector('thead');
+            const scheduleBody = document.getElementById('scheduleBody');
+            scheduleBody.innerHTML = '';
+            if (scheduleTableShell) {
+                scheduleTableShell.className = currentGridFrameEnabled ? 'schedule-table-shell grid-frame-shell' : 'schedule-table-shell';
+            }
+
+            if (!classId) {
+                scheduleThead.innerHTML = '';
+                const allClassIds = Object.keys(classTimeSlotsMap);
+                scheduleBody.innerHTML = `<tr><td colspan="6"><div class="all-schedules-stack">${allClassIds.map(currentClassId => {
+                    const tableHTML = wrapScheduleTableHTML(`<table>${generateScheduleHeaderHTML(currentClassId)}<tbody>${generateScheduleTableHTML(currentClassId, teacherFilter, subjectFilter)}</tbody></table>`);
+                    return `<div class="stacked-schedule">${tableHTML}</div>`;
+                }).join('')}</div></td></tr>`;
+                return;
+            }
+
+            scheduleThead.innerHTML = generateScheduleHeaderHTML(classId);
+            scheduleBody.innerHTML = generateScheduleTableHTML(classId, teacherFilter, subjectFilter);
+        }
+
+        function navigateClass(direction) {
+            const classSelect = document.getElementById('classSelect');
+            const values = Array.from(classSelect.options).map(option => option.value);
+            const currentIndex = values.indexOf(classSelect.value);
+            const classOnlyValues = values.filter(value => value);
+
+            if (classOnlyValues.length === 0) return;
+
+            if (!classSelect.value) {
+                classSelect.value = direction > 0 ? classOnlyValues[0] : classOnlyValues[classOnlyValues.length - 1];
+                renderSchedule();
+                return;
+            }
+
+            const currentClassIndex = classOnlyValues.indexOf(classSelect.value);
+            const nextIndex = (currentClassIndex + direction + classOnlyValues.length) % classOnlyValues.length;
+            classSelect.value = classOnlyValues[nextIndex];
+            renderSchedule();
+        }
+
+        function deriveAvailabilityFromSchedule() {
+            let updated = 0;
+            Object.entries(scheduleData).forEach(([key, classInfo]) => {
+                if (!classInfo || !classInfo.teacher) return;
+                const [classId, timeIndex, dayIndex] = key.split('_');
+                const classMeta = classTimeSlotsMap[classId];
+                if (!classMeta) return;
+                const availabilityKey = `${classInfo.teacher}_${classMeta.level}_${timeIndex}_${dayIndex}`;
+                teachersAvailability[availabilityKey] = 'DISPONIVEL';
+                updated++;
+            });
+            saveData();
+            recordHistoryState();
+            alert(`Disponibilidades geradas a partir do horário. ${updated} marcações atualizadas.`);
+        }
+
+        function handleCellDragStart(event, key) {
+            if (!scheduleData[key]) {
+                event.preventDefault();
+                return;
+            }
+            draggedScheduleKey = key;
+            event.dataTransfer.effectAllowed = 'move';
+            event.dataTransfer.setData('text/plain', key);
+            event.currentTarget.classList.add('dragging');
+        }
+
+        function handleCellDragOver(event) {
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'move';
+            event.currentTarget.classList.add('drag-over');
+        }
+
+        function handleCellDragLeave(event) {
+            event.currentTarget.classList.remove('drag-over');
+        }
+
+        function handleCellDrop(event, targetKey) {
+            event.preventDefault();
+            event.currentTarget.classList.remove('drag-over');
+
+            const sourceKey = draggedScheduleKey || event.dataTransfer.getData('text/plain');
+            if (!sourceKey || sourceKey === targetKey) return;
+
+            const [sourceClassId] = sourceKey.split('_');
+            const [targetClassId] = targetKey.split('_');
+            if (sourceClassId !== targetClassId) return;
+
+            const sourceValue = scheduleData[sourceKey] ? { ...scheduleData[sourceKey] } : null;
+            const targetValue = scheduleData[targetKey] ? { ...scheduleData[targetKey] } : null;
+
+            if (targetValue) {
+                scheduleData[sourceKey] = targetValue;
+            } else {
+                delete scheduleData[sourceKey];
+            }
+
+            if (sourceValue) {
+                scheduleData[targetKey] = sourceValue;
+            } else {
+                delete scheduleData[targetKey];
+            }
+
+            const keysToValidate = [sourceKey, targetKey].filter(key => {
+                const classInfo = scheduleData[key];
+                return classInfo && classInfo.teacher;
+            });
+
+            const conflictMessages = keysToValidate.map(key => {
+                const classInfo = scheduleData[key];
+                const [classId, timeIndex, dayIndex] = key.split('_');
+                return getConflictInfo(classId, Number(timeIndex), Number(dayIndex), classInfo.teacher, classInfo.subject, key);
+            }).filter(Boolean);
+
+            if (conflictMessages.length > 0) {
+                if (sourceValue) {
+                    scheduleData[sourceKey] = sourceValue;
+                } else {
+                    delete scheduleData[sourceKey];
+                }
+
+                if (targetValue) {
+                    scheduleData[targetKey] = targetValue;
+                } else {
+                    delete scheduleData[targetKey];
+                }
+
+                draggedScheduleKey = null;
+                renderSchedule();
+                const details = conflictMessages.map(message => `- ${message}`).join('\n');
+                const shouldAllow = confirm(`Choque detectado na troca:\n${details}\n\nDeseja permitir a troca mesmo assim?`);
+                if (!shouldAllow) {
+                    return;
+                }
+
+                if (targetValue) {
+                    scheduleData[sourceKey] = targetValue;
+                } else {
+                    delete scheduleData[sourceKey];
+                }
+
+                if (sourceValue) {
+                    scheduleData[targetKey] = sourceValue;
+                } else {
+                    delete scheduleData[targetKey];
+                }
+
+                saveData();
+                renderSchedule();
+                recordHistoryState();
+                return;
+            }
+
+            draggedScheduleKey = null;
+            saveData();
+            renderSchedule();
+            recordHistoryState();
+        }
+
+        function handleCellDragEnd(event) {
+            draggedScheduleKey = null;
+            document.querySelectorAll('.class-cell').forEach(cell => {
+                cell.classList.remove('dragging', 'drag-over');
+            });
+            if (event?.currentTarget) {
+                event.currentTarget.classList.remove('dragging');
+            }
+        }
+
+        function generateScheduleTableHTML(classIdToRender, teacherFilter = '', subjectFilter = '') {
+            const { slots: currentTimeSlots, level: currentClassLevel } = classTimeSlotsMap[classIdToRender];
+            let tableHTML = '';
+
+            currentTimeSlots.forEach((time, timeIndex) => {
+                tableHTML += '<tr>';
+                if (time.startsWith('INTERVALO')) {
+                    tableHTML += `<td class="time-cell intervalo" colspan="6" style="background: ${currentIntervalColor} !important; color: ${currentIntervalFontColor} !important;">${getIntervalDisplayText(time)}</td>`;
+                } else {
+                    tableHTML += `<td class="time-cell">${time}</td>`;
+                    for (let day = 0; day < dayNames.length; day++) {
+                        const key = `${classIdToRender}_${timeIndex}_${day}`;
+                        const classInfo = scheduleData[key];
+
+                        // Lógica para pular horários da tarde para turmas específicas do Ensino Médio
+                        const isAfternoonTimeSlot = ['13:00 - 13:45', '13:45 - 14:30', '14:30 - 15:15', 'INTERVALO MEDIO TARDE', '15:35 - 16:20', '16:20 - 17:05', '17:05 - 17:50'].includes(time);
+                        const shouldSkipAfternoon = noAfternoonClasses.includes(classIdToRender) && isAfternoonTimeSlot;
+
+                        if (shouldSkipAfternoon) {
+                            tableHTML += `<td class="class-cell empty" data-class-id="${classIdToRender}" data-time-index="${timeIndex}" data-day-index="${day}"></td>`;
+                            continue;
+                        }
+
+                        let cellContent = '';
+                        let cellStyle = '';
+                        let cellClass = 'class-cell';
+                        let isConflict = false;
+
+                        if (classInfo) {
+                            // Aplica filtros
+                            const matchesTeacher = !teacherFilter || classInfo.teacher === teacherFilter;
+                            const matchesSubject = !subjectFilter || classInfo.subject === subjectFilter;
+
+                            if (matchesTeacher && matchesSubject) {
+                                const fontColor = classInfo.fontColor || '#000000';
+                                const fontSize = classInfo.fontSize || 13;
+                                const textTransform = classInfo.allCaps ? 'uppercase' : 'none';
+                                const teacherHtml = classInfo.teacher
+                                    ? `<div class="teacher" style="color: ${fontColor}; font-size: ${Math.max(fontSize - 2, 9)}px; text-transform: ${textTransform};">${classInfo.teacher}</div>`
+                                    : '';
+                                cellContent = `<div class="subject" style="color: ${fontColor}; font-size: ${fontSize}px; text-transform: ${textTransform};">${classInfo.subject}</div>${teacherHtml}`;
+                                cellStyle = `background-color: ${classInfo.color || subjectColors[classInfo.subject] || colors[0].hex}; color: ${fontColor};`;
+
+                                // Verifica conflitos de professor
+                                isConflict = classInfo.teacher ? checkConflicts(classIdToRender, timeIndex, day, classInfo.teacher, classInfo.subject) : false;
+                                if (isConflict) {
+                                    cellClass += ' conflict';
+                                    cellStyle += `border: 2px solid ${currentGridLineColor};`;
+                                }
+                            } else {
+                                cellClass += ' empty'; // Se não passar no filtro, mostra como vazio
+                            }
+                        } else {
+                            cellClass += ' empty';
+                        }
+
+                        tableHTML += `<td class="${cellClass}" style="${cellStyle}" 
+                                        data-class-id="${classIdToRender}" 
+                                        data-time-index="${timeIndex}" 
+                                        data-day-index="${day}" 
+                                        draggable="${classInfo ? 'true' : 'false'}"
+                                        ondragstart="handleCellDragStart(event, '${key}')"
+                                        ondragover="handleCellDragOver(event)"
+                                        ondragleave="handleCellDragLeave(event)"
+                                        ondrop="handleCellDrop(event, '${key}')"
+                                        ondragend="handleCellDragEnd(event)"
+                                        onclick="openModal(this)">${cellContent}</td>`;
+                    }
+                }
+                tableHTML += '</tr>';
+            });
+            return tableHTML;
+        }
+
+        function getClassName(classId) {
+            // Retorna um nome mais legível para a turma
+            if (classId.endsWith('ano')) {
+                return `${classId.replace('ano', 'º Ano Fundamental')}`;
+            } else if (classId.endsWith('em')) {
+                return `${classId.replace('em', 'º Ano Ensino Médio')}`;
+            }
+            return classId;
+        }
+
+        function clearFilters() {
+            document.getElementById('classSelect').value = '';
+            document.getElementById('teacherSelect').value = '';
+            document.getElementById('subjectSelect').value = '';
+            renderSchedule();
+        }
+
+        // Funções do Modal de Edição
+        function openModal(cell) {
+            currentEditCell = cell;
+            const classId = cell.dataset.classId;
+            const timeIndex = cell.dataset.timeIndex;
+            const dayIndex = cell.dataset.dayIndex;
+            const key = `${classId}_${timeIndex}_${dayIndex}`;
+            const classInfo = scheduleData[key];
+
+            document.getElementById('modalTitle').textContent = `Editar Aula (${getClassName(classId)} - ${dayNames[dayIndex]} - ${classTimeSlotsMap[classId].slots[timeIndex]})`;
+
+            if (classInfo) {
+                document.getElementById('editSubject').value = classInfo.subject;
+                document.getElementById('editTeacher').value = classInfo.teacher;
+                populateColorPicker(classInfo.color || subjectColors[classInfo.subject]);
+                selectFontColor(classInfo.fontColor || '#000000');
+                document.getElementById('fontSizeSelect').value = String(classInfo.fontSize || 13);
+                document.getElementById('allCapsToggle').checked = Boolean(classInfo.allCaps);
+            } else {
+                document.getElementById('editSubject').value = '';
+                document.getElementById('editTeacher').value = '';
+                populateColorPicker(colors[0].hex); // Seleciona a primeira cor padrão
+                selectFontColor('#000000');
+                document.getElementById('fontSizeSelect').value = '13';
+                document.getElementById('allCapsToggle').checked = false;
+            }
+            document.getElementById('applyTextStyleToAll').checked = false;
+
+            // Esconde o aviso de conflito por padrão
+            document.getElementById('conflictWarning').style.display = 'none';
+            document.getElementById('conflictDetails').innerHTML = '';
+            document.getElementById('saveWithConflictButton').style.display = 'none';
+
+            document.getElementById('editModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('editModal').classList.remove('active');
+            currentEditCell = null;
+            renderSchedule(); // Re-renderiza para limpar possíveis destaques de conflito
+        }
+
+        function saveClass(forceConflict = false) {
+            if (!currentEditCell) return;
+
+            const classId = currentEditCell.dataset.classId;
+            const timeIndex = currentEditCell.dataset.timeIndex;
+            const dayIndex = currentEditCell.dataset.dayIndex;
+            const key = `${classId}_${timeIndex}_${dayIndex}`;
+
+            const subject = document.getElementById('editSubject').value.trim();
+            const teacher = document.getElementById('editTeacher').value.trim();
+            const selectedColor = currentSelectedColor || document.getElementById('customColorInput')?.value || document.querySelector('.color-option.selected')?.dataset.color || colors[0].hex;
+            const selectedFontColor = currentFontColor || document.getElementById('fontColorInput')?.value || '#000000';
+            const selectedFontSize = parseInt(document.getElementById('fontSizeSelect')?.value || '13', 10);
+            const allCaps = document.getElementById('allCapsToggle')?.checked || false;
+            const applyTextStyleToAll = document.getElementById('applyTextStyleToAll')?.checked || false;
+
+            if (subject) {
+                // Atribui a cor selecionada à disciplina para consistência futura
+                subjectColors[subject] = selectedColor;
+
+                // Verifica conflitos antes de salvar
+                const conflictInfo = teacher ? getConflictInfo(classId, timeIndex, dayIndex, teacher, subject, key) : null;
+                const isConflict = Boolean(conflictInfo);
+                if (isConflict && !forceConflict) {
+                    const conflictWarning = document.getElementById('conflictWarning');
+                    const conflictDetails = document.getElementById('conflictDetails');
+                    conflictDetails.innerHTML = conflictInfo;
+                    conflictWarning.style.display = 'block';
+                    document.getElementById('saveWithConflictButton').style.display = 'inline-block';
+                    return; // Não salva se houver conflito
+                }
+
+                scheduleData[key] = { subject, teacher, color: selectedColor, fontColor: selectedFontColor, fontSize: selectedFontSize, allCaps };
+                applyVisualStyleToTeacher(teacher, selectedColor, selectedFontColor, key);
+                if (applyTextStyleToAll) {
+                    applyTextFormattingToAll(selectedFontSize, allCaps);
+                }
+            } else {
+                delete scheduleData[key]; // Remove a aula se a disciplina estiver vazia
+            }
+
+            saveData();
+            recordHistoryState();
+            closeModal();
+        }
+
+        function deleteClass() {
+            if (!currentEditCell) return;
+
+            const classId = currentEditCell.dataset.classId;
+            const timeIndex = currentEditCell.dataset.timeIndex;
+            const dayIndex = currentEditCell.dataset.dayIndex;
+            const key = `${classId}_${timeIndex}_${dayIndex}`;
+
+            delete scheduleData[key];
+            saveData();
+            recordHistoryState();
+            closeModal();
+        }
+
+        function clearAllData() {
+            if (confirm('Tem certeza que deseja limpar TODOS os horários e disponibilidades? Esta ação é irreversível!')) {
+                scheduleData = {};
+                teachersAvailability = {};
+                subjectColors = {}; // Limpa também as cores das disciplinas
+                classTeachingDatabase = buildClassTeachingDatabase({});
+                syncClassCurriculumFromTeachingDatabase();
+                assignDefaultSubjectColors();
+                saveData();
+                populateClassSelect();
+                populateTeacherSelect();
+                populateSubjectSelect();
+                renderSchedule();
+                recordHistoryState();
+                alert('Todos os dados foram limpos.');
+            }
+        }
+
+        // Função de verificação de conflitos
+        function getConflictInfo(currentClassId, currentTimeIndex, currentDay, newTeacher, newSubject, currentKeyBeingEdited = null) {
+            const { slots: currentTimeSlots, level: currentClassLevel } = classTimeSlotsMap[currentClassId];
+            const currentTimeSlot = currentTimeSlots[currentTimeIndex];
+
+            // 1. Conflito de Disponibilidade do Professor
+            const availabilityKey = `${newTeacher}_${currentClassLevel}_${currentTimeIndex}_${currentDay}`;
+            if (teachersAvailability[availabilityKey] === 'INDISPONIVEL') {
+                return `${newTeacher} está indisponível em ${dayNames[currentDay]} às ${currentTimeSlot} para ${getClassName(currentClassId)}.`;
+            }
+
+            // 2. Conflito de Professor em Duas Turmas ao Mesmo Tempo
+            for (const key in scheduleData) {
+                // Ignora a própria célula que está sendo editada
+                if (key === currentKeyBeingEdited) continue;
+
+                const existingClassInfo = scheduleData[key];
+                const [existingClassId, existingTimeIndex, existingDay] = key.split('_');
+
+                // Verifica se é o mesmo dia e mesmo índice de horário
+                if (parseInt(existingTimeIndex) === parseInt(currentTimeIndex) && parseInt(existingDay) === parseInt(currentDay)) {
+                    // Pega o nível da turma existente para comparar corretamente
+                    const { level: existingClassLevel } = classTimeSlotsMap[existingClassId];
+
+                    // Se os níveis são diferentes, não é um conflito de horário real, pois os timeSlots são diferentes
+                    // Ex: 7:00 Fundamental vs 7:30 Médio. São "timeIndex 0" mas horários diferentes.
+                    if (existingClassLevel !== currentClassLevel) {
+                        continue;
+                    }
+
+                    // Se o professor é o mesmo, há um conflito
+                    if (existingClassInfo.teacher === newTeacher) {
+                        return `${newTeacher} já está alocado em ${getClassName(existingClassId)} na ${dayNames[currentDay]} às ${currentTimeSlot}.`;
+                    }
+                }
+            }
+
+            // 3. Conflito de Turma com Duas Aulas ao Mesmo Tempo (já é evitado pela estrutura do scheduleData)
+            // Uma turma só pode ter uma aula por slot, pois a chave é única: classId_timeIndex_day
+
+            return null; // Nenhum conflito encontrado
+        }
+
+        function checkConflicts(currentClassId, currentTimeIndex, currentDay, newTeacher, newSubject, currentKeyBeingEdited = null) {
+            return Boolean(getConflictInfo(currentClassId, currentTimeIndex, currentDay, newTeacher, newSubject, currentKeyBeingEdited));
+        }
+
+        function exportSchedule() {
+            const dataStr = JSON.stringify(scheduleData, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'horarios_escolares.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function importSchedule() {
+            const input = document.getElementById('fileInput');
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    try {
+                        const importedData = JSON.parse(event.target.result);
+                        scheduleData = normalizeImportedScheduleData(importedData);
+                        classTeachingDatabase = buildTeachingDatabaseFromSchedule(scheduleData, classTeachingDatabase);
+                        syncClassCurriculumFromTeachingDatabase();
+                        saveData();
+                        renderSchedule();
+                        recordHistoryState();
+                        alert(`Horários importados com sucesso! ${Object.keys(scheduleData).length} aulas carregadas.\n\nO currículo por turma também foi atualizado com professores e quantidades semanais a partir desse arquivo.`);
+                    } catch (error) {
+                        alert(`Erro ao importar arquivo. ${error.message || 'Verifique se é um JSON válido.'}`);
+                    }
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+
+        function getCurriculumTeacherOptionsHTML(subject, selectedTeacher = '') {
+            const compatibleTeachers = getCompatibleTeachersForSubject(subject);
+            const options = new Set(compatibleTeachers);
+            if (selectedTeacher) {
+                options.add(selectedTeacher);
+            }
+
+            const orderedOptions = Array.from(options).sort((a, b) => a.localeCompare(b, 'pt-BR'));
+
+            return ['<option value="">Selecione</option>', ...orderedOptions.map(teacher => `
+                <option value="${teacher}" ${teacher === selectedTeacher ? 'selected' : ''}>${teacher}</option>
+            `)].join('');
+        }
+
+        function createCurriculumRowHTML({ rowId, subject = '', teacher = '', weeklyLessons = 1 }) {
+            const subjectOptions = getAllKnownSubjects().map(knownSubject => `
+                <option value="${knownSubject}"></option>
+            `).join('');
+
+            return `
+                <tr data-row-id="${rowId}">
+                    <td>
+                        <input type="text" value="${subject}" list="curriculumSubjectList-${rowId}" class="curriculum-subject-input" onchange="handleCurriculumSubjectChange('${rowId}', this.value)">
+                        <datalist id="curriculumSubjectList-${rowId}">${subjectOptions}</datalist>
+                    </td>
+                    <td>
+                        <select class="curriculum-teacher-select">
+                            ${getCurriculumTeacherOptionsHTML(subject, teacher)}
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" min="1" step="1" value="${Math.max(Number(weeklyLessons) || 1, 1)}" class="curriculum-weekly-input">
+                    </td>
+                    <td>
+                        <button type="button" class="curriculum-remove-btn" onclick="removeCurriculumRow('${rowId}')">Remover</button>
+                    </td>
+                </tr>
+            `;
+        }
+
+        function handleCurriculumSubjectChange(rowId, subject) {
+            const row = document.querySelector(`#curriculumTable tbody tr[data-row-id="${rowId}"]`);
+            if (!row) return;
+
+            const teacherSelect = row.querySelector('.curriculum-teacher-select');
+            const currentTeacher = teacherSelect?.value || '';
+            if (teacherSelect) {
+                teacherSelect.innerHTML = getCurriculumTeacherOptionsHTML(subject, currentTeacher);
+            }
+        }
+
+        function addCurriculumRow(subject = '', teacher = '', weeklyLessons = 1) {
+            const tbody = document.querySelector('#curriculumTable tbody');
+            if (!tbody) return;
+
+            curriculumRowCounter += 1;
+            tbody.insertAdjacentHTML('beforeend', createCurriculumRowHTML({
+                rowId: `curriculum-row-${curriculumRowCounter}`,
+                subject,
+                teacher,
+                weeklyLessons
+            }));
+        }
+
+        function removeCurriculumRow(rowId) {
+            const row = document.querySelector(`#curriculumTable tbody tr[data-row-id="${rowId}"]`);
+            if (row) row.remove();
+        }
+
+        function saveCurriculumForClass() {
+            const curriculumSelect = document.getElementById('curriculumClassSelect');
+            const classId = curriculumSelect?.value;
+            if (!classId) return;
+
+            const rows = Array.from(document.querySelectorAll('#curriculumTable tbody tr'));
+            const nextEntries = {};
+
+            rows.forEach(row => {
+                const subject = row.querySelector('.curriculum-subject-input')?.value?.trim() || '';
+                const teacher = row.querySelector('.curriculum-teacher-select')?.value?.trim() || '';
+                const weeklyLessons = Number(row.querySelector('.curriculum-weekly-input')?.value) || 0;
+                if (!subject || weeklyLessons <= 0) return;
+
+                nextEntries[subject] = {
+                    teacher,
+                    weeklyLessons,
+                    candidateTeachers: getCompatibleTeachersForSubject(subject)
+                };
+            });
+
+            classTeachingDatabase[classId] = nextEntries;
+            syncClassCurriculumFromTeachingDatabase();
+            saveData();
+            populateSubjectSelect();
+            populateTeacherSelect();
+            renderCurriculumTable(classId);
+            recordHistoryState();
+            alert(`Currículo de ${getClassName(classId)} salvo com sucesso.`);
+        }
+
+        function renderCurriculumTable(classId) {
+            const curriculumContent = document.getElementById('curriculumContent');
+            if (!curriculumContent) return;
+
+            const teachingEntries = classTeachingDatabase[classId] || {};
+            const rows = Object.entries(teachingEntries)
+                .filter(([, entry]) => Number(entry?.weeklyLessons) > 0)
+                .sort((a, b) => a[0].localeCompare(b[0], 'pt-BR'));
+
+            curriculumContent.innerHTML = `
+                <table id="curriculumTable">
+                    <thead>
+                        <tr>
+                            <th>Disciplina</th>
+                            <th>Professor</th>
+                            <th>Aulas Semanais</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div class="curriculum-actions">
+                    <button type="button" onclick="addCurriculumRow()">Adicionar Disciplina</button>
+                    <button type="button" class="btn-export" onclick="saveCurriculumForClass()">Salvar Currículo</button>
+                </div>
+            `;
+
+            if (!rows.length) {
+                addCurriculumRow();
+                curriculumContent.insertAdjacentHTML('beforeend', '<div class="curriculum-empty">Base vazia para esta turma. Você pode montar manualmente ou importar um JSON de horários para preencher automaticamente.</div>');
+                return;
+            }
+
+            rows.forEach(([subject, entry]) => {
+                addCurriculumRow(subject, entry.teacher || '', entry.weeklyLessons || 1);
+            });
+        }
+
+        function openCurriculumModal() {
+            const curriculumSelect = document.getElementById('curriculumClassSelect');
+            const currentClassId = document.getElementById('classSelect')?.value;
+            if (curriculumSelect && currentClassId) {
+                curriculumSelect.value = currentClassId;
+            }
+            const selectedClassId = curriculumSelect?.value || Object.keys(classTimeSlotsMap)[0];
+            renderCurriculumTable(selectedClassId);
+            document.getElementById('curriculumModal').classList.add('active');
+        }
+
+        function closeCurriculumModal() {
+            document.getElementById('curriculumModal').classList.remove('active');
+        }
+
+        // NOVA FUNÇÃO: Importar Disponibilidade dos Professores
+        function importTeachersAvailability() {
+            const input = document.getElementById('fileInput');
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    try {
+                        const importedData = JSON.parse(event.target.result);
+                        // Verifica se o formato é o esperado para disponibilidade
+                        // A chave agora inclui o nível de ensino, então ajustamos a validação
+                        if (importedData && typeof importedData === 'object' && !Array.isArray(importedData) && Object.keys(importedData).every(key => {
+                            const parts = key.split('_');
+                            return parts.length === 4 && (parts[1] === 'fundamental' || parts[1] === 'medio') && (importedData[key] === 'DISPONIVEL' || importedData[key] === 'INDISPONIVEL');
+                        })) {
+                            teachersAvailability = { ...teachersAvailability, ...importedData }; // Mescla com dados existentes
+                            localStorage.setItem('teachersAvailabilityData', JSON.stringify(teachersAvailability)); // Salva no localStorage
+                            recordHistoryState();
+                            alert('Disponibilidade dos professores importada com sucesso!');
+                            // Se o modal de edição ou disponibilidade estiver aberto, reavalia conflitos/renderiza
+                            if (document.getElementById('editModal').classList.contains('active')) {
+                                checkConflicts();
+                            }
+                            if (document.getElementById('availabilityModal').classList.contains('active')) {
+                                const selectedTeacher = document.getElementById('availabilityTeacherSelect').value;
+                                if (selectedTeacher) {
+                                    renderAvailabilityTable(selectedTeacher, currentAvailabilityLevel);
+                                }
+                            }
+                        } else {
+                            alert('Erro: O arquivo JSON não parece ser um arquivo de disponibilidade de professores válido. Verifique o formato (ex: "Prof. Nome_fundamental_0_0": "DISPONIVEL").');
+                        }
+                    } catch (error) {
+                        console.error('Erro ao importar disponibilidade:', error);
+                        alert('Erro ao importar arquivo de disponibilidade. Verifique se é um JSON válido.');
+                    }
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+
+        // NOVO: Função para exportar a disponibilidade dos professores
+        function exportTeachersAvailability() {
+            const dataStr = JSON.stringify(teachersAvailability, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'disponibilidade_professores.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            alert('Disponibilidade dos professores exportada com sucesso para "disponibilidade_professores.json"!');
+        }
+
+        // NOVO: Função para abrir o modal de gerenciamento de disponibilidade
+        function manageTeachersAvailability(level) {
+            currentAvailabilityLevel = level; // Salva o nível de ensino atual
+            const modalTitle = document.getElementById('availabilityModalTitle');
+            if (level === 'fundamental') {
+                modalTitle.textContent = 'Gerenciar Disponibilidade - Ensino Fundamental';
+            } else if (level === 'medio') {
+                modalTitle.textContent = 'Gerenciar Disponibilidade - Ensino Médio';
+            }
+            document.getElementById('availabilityLevelDisplay').textContent = level.toUpperCase(); // Exibe o nível no modal
+
+            document.getElementById('availabilityModal').classList.add('active');
+            populateTeacherSelect(); // Garante que o seletor de professor esteja populado
+
+            // Renderiza a tabela para o primeiro professor ou para o selecionado anteriormente
+            const selectedTeacher = document.getElementById('availabilityTeacherSelect').value;
+            if (selectedTeacher) {
+                renderAvailabilityTable(selectedTeacher, level);
+            } else {
+                // Limpa a tabela se nenhum professor estiver selecionado
+                document.getElementById('availabilityTableBody').innerHTML = '';
+            }
+        }
+
+        // NOVO: Função para fechar o modal de gerenciamento de disponibilidade
+        function closeAvailabilityModal() {
+            document.getElementById('availabilityModal').classList.remove('active');
+            currentAvailabilityLevel = ''; // Limpa o nível ao fechar
+        }
+
+        // NOVO: Função para renderizar a tabela de disponibilidade de um professor
+        function renderAvailabilityTable(teacherName, level) {
+            const availabilityTableBody = document.getElementById('availabilityTableBody');
+            availabilityTableBody.innerHTML = ''; // Limpa o conteúdo atual
+
+            if (!teacherName) {
+                return; // Não renderiza se nenhum professor for selecionado
+            }
+
+            const timeSlotsToUse = level === 'fundamental' ? timeSlotsFundamental : timeSlotsMedio;
+
+            timeSlotsToUse.forEach((time, timeIndex) => {
+                let rowHTML = '<tr>';
+                rowHTML += `<td class="availability-time-cell">${time}</td>`;
+                for (let day = 0; day < 5; day++) { // 5 dias da semana
+                    if (time.startsWith('INTERVALO')) {
+                        rowHTML += `<td class="intervalo" colspan="5">${time.replace('INTERVALO ', '')}</td>`;
+                        break;
+                    } else {
+                        // A chave de disponibilidade agora inclui o nível de ensino para diferenciar
+                        const availabilityKey = `${teacherName}_${level}_${timeIndex}_${day}`;
+                        const status = teachersAvailability[availabilityKey] || 'UNKNOWN'; // Padrão 'UNKNOWN'
+                        rowHTML += `<td class="availability-cell ${status}" 
+                                        onclick="toggleAvailability('${teacherName}', '${level}', ${timeIndex}, ${day})">
+                                        ${status === 'DISPONIVEL' ? '✅ Disponível' : status === 'INDISPONIVEL' ? '❌ Indisponível' : '❓ Não Definido'}
+                                    </td>`;
+                    }
+                }
+                rowHTML += '</tr>';
+                availabilityTableBody.innerHTML += rowHTML;
+            });
+        }
+
+        // NOVO: Função para alternar a disponibilidade de um professor em um horário/dia
+        function toggleAvailability(teacherName, level, timeIndex, dayIndex) {
+            // A chave de disponibilidade agora inclui o nível de ensino
+            const availabilityKey = `${teacherName}_${level}_${timeIndex}_${dayIndex}`;
+            let currentStatus = teachersAvailability[availabilityKey];
+
+            // Alterna entre DISPONIVEL, INDISPONIVEL, UNKNOWN
+            if (currentStatus === 'DISPONIVEL') {
+                teachersAvailability[availabilityKey] = 'INDISPONIVEL';
+            } else if (currentStatus === 'INDISPONIVEL') {
+                delete teachersAvailability[availabilityKey]; // Remove para voltar a 'UNKNOWN'
+            } else { // UNKNOWN ou undefined
+                teachersAvailability[availabilityKey] = 'DISPONIVEL';
+            }
+
+            localStorage.setItem('teachersAvailabilityData', JSON.stringify(teachersAvailability)); // Salva no localStorage
+            renderAvailabilityTable(teacherName, level); // Re-renderiza a tabela para refletir a mudança
+            recordHistoryState();
+
+            // Se o modal de edição de aula estiver aberto, re-verifica os conflitos
+            if (document.getElementById('editModal').classList.contains('active')) {
+                checkConflicts();
+            }
+        }
+
+
+        // NOVA FUNÇÃO: Imprimir todos os horários
+        async function printAllSchedules(returnAfterBuild = false) {
+            const printContainer = document.getElementById('printContainer');
+            printContainer.innerHTML = ''; // Limpa qualquer conteúdo anterior
+            const selectedClassId = document.getElementById('classSelect').value;
+            const classIdsToPrint = selectedClassId ? [selectedClassId] : Object.keys(classTimeSlotsMap);
+            const isPrintingAll = !selectedClassId;
+            printContainer.innerHTML = buildPrintableSchedulesMarkup(classIdsToPrint, isPrintingAll);
+            await waitForImages(printContainer);
+            if (returnAfterBuild) {
+                return printContainer.outerHTML;
+            }
+            // Salva o estado atual do body
+            const originalBodyInnerHTML = document.body.innerHTML;
+            const originalBodyOverflow = document.body.style.overflow;
+            // Esconde o conteúdo principal e mostra o container de impressão
+            document.body.innerHTML = printContainer.outerHTML;
+            document.body.style.overflow = 'visible'; // Garante que o conteúdo não seja cortado
+            window.print();
+            // Restaura o body após a impressão
+            document.body.innerHTML = originalBodyInnerHTML;
+            document.body.style.overflow = originalBodyOverflow;
+            initSchedule(); // Re-inicializa para garantir que os listeners e o estado estejam corretos
+        }
+
+        async function saveScheduleAsset() {
+            const selectedClassId = document.getElementById('classSelect').value;
+            if (!selectedClassId) {
+                await saveSchedulesAsPrintedPdf();
+                return;
+            }
+            await exportSelectedClassPng(selectedClassId);
+        }
+
+        async function saveSchedulesAsPrintedPdf() {
+            const printableMarkup = await printAllSchedules(true);
+            const originalBodyInnerHTML = document.body.innerHTML;
+            const originalBodyOverflow = document.body.style.overflow;
+
+            document.body.innerHTML = printableMarkup;
+            document.body.style.overflow = 'visible';
+            window.print();
+            document.body.innerHTML = originalBodyInnerHTML;
+            document.body.style.overflow = originalBodyOverflow;
+            initSchedule();
+        }
+
+        function createExportSandbox(markup, width = '1400px') {
+            const sandbox = document.createElement('div');
+            sandbox.className = 'export-sandbox';
+            sandbox.style.position = 'fixed';
+            sandbox.style.left = '-10000px';
+            sandbox.style.top = '0';
+            sandbox.style.width = width;
+            sandbox.style.background = '#ffffff';
+            sandbox.style.padding = '20px';
+            sandbox.style.zIndex = '-1';
+            sandbox.innerHTML = markup;
+            document.body.appendChild(sandbox);
+            return sandbox;
+        }
+
+        function waitForImages(container) {
+            const images = Array.from(container.querySelectorAll('img'));
+            if (!images.length) return Promise.resolve();
+
+            return Promise.all(images.map(img => new Promise(resolve => {
+                if (img.complete && img.naturalWidth > 0) {
+                    resolve();
+                    return;
+                }
+
+                const done = () => {
+                    img.removeEventListener('load', done);
+                    img.removeEventListener('error', done);
+                    resolve();
+                };
+
+                img.addEventListener('load', done, { once: true });
+                img.addEventListener('error', done, { once: true });
+            })));
+        }
+
+        async function exportSelectedClassPng(classId) {
+            if (typeof html2canvas === 'undefined') {
+                alert('Biblioteca de PNG não carregada.');
+                return;
+            }
+
+            const markup = buildPrintableSchedulesMarkup([classId], false);
+            const sandbox = createExportSandbox(markup, '1500px');
+            const target = sandbox.querySelector('.print-document');
+
+            try {
+                await waitForImages(sandbox);
+                const canvas = await html2canvas(target, {
+                    backgroundColor: '#ffffff',
+                    scale: 2,
+                    useCORS: true
+                });
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = `horario_${classId}.png`;
+                link.click();
+            } finally {
+                sandbox.remove();
+            }
+        }
+
+        async function exportSchedulesPdf(classIdsToPrint, isPrintingAll) {
+            if (typeof html2canvas === 'undefined' || !window.jspdf?.jsPDF) {
+                alert('Bibliotecas de PDF não carregadas.');
+                return;
+            }
+
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const pageWidth = pdf.internal.pageSize.getWidth();
+            const pageHeight = pdf.internal.pageSize.getHeight();
+            const margin = 8;
+            const contentWidth = pageWidth - margin * 2;
+
+            const pageGroups = getPdfPageGroups(classIdsToPrint);
+
+            for (let index = 0; index < pageGroups.length; index++) {
+                const classIdsOnPage = pageGroups[index];
+                const markup = buildPrintablePdfPageMarkup(classIdsOnPage, index, isPrintingAll);
+                const sandbox = createExportSandbox(markup, '1500px');
+                const target = sandbox.querySelector('.print-document');
+
+                try {
+                    await waitForImages(sandbox);
+                    const canvas = await html2canvas(target, {
+                        backgroundColor: '#ffffff',
+                        scale: 2,
+                        useCORS: true
+                    });
+
+                    const imgData = canvas.toDataURL('image/png');
+                    let renderedWidthMm = contentWidth;
+                    let renderedHeightMm = (canvas.height * renderedWidthMm) / canvas.width;
+                    const usablePageHeight = pageHeight - margin * 2;
+
+                    if (renderedHeightMm > usablePageHeight) {
+                        renderedHeightMm = usablePageHeight;
+                        renderedWidthMm = (canvas.width * renderedHeightMm) / canvas.height;
+                    }
+
+                    const offsetX = margin + ((contentWidth - renderedWidthMm) / 2);
+
+                    if (index > 0) {
+                        pdf.addPage();
+                    }
+                    pdf.addImage(imgData, 'PNG', offsetX, margin, renderedWidthMm, renderedHeightMm);
+                } finally {
+                    sandbox.remove();
+                }
+            }
+
+            if (isPrintingAll && classIdsToPrint.length > 1) {
+                pdf.save('horarios_ensps_2026.pdf');
+            } else {
+                pdf.save(`horario_${classIdsToPrint[0] || 'ensps'}.pdf`);
+            }
+        }
+
+        // NOVO: Funções para o Modal de Geração Automática
+        function openAutoGenerateModal() {
+            document.getElementById('autoGenerateModal').classList.add('active');
+            // O seletor de turma já é populado na initSchedule
+        }
+
+        function closeAutoGenerateModal() {
+            document.getElementById('autoGenerateModal').classList.remove('active');
+        }
+
+        function generateSingleClassSchedule(classId, baseScheduleSnapshot = scheduleData) {
+            const teachingPlan = getTeachingPlanForClass(classId);
+            if (!teachingPlan.length) {
+                return {
+                    classId,
+                    success: false,
+                    blocked: true,
+                    message: `Currículo não definido para a turma ${getClassName(classId)}.`
+                };
+            }
+
+            // Cria uma cópia temporária do scheduleData para a turma, para não alterar o global diretamente durante a tentativa
+            let tempScheduleData = { ...baseScheduleSnapshot }; // Começa com o horário existente
+
+            Object.keys(tempScheduleData).forEach(key => {
+                if (key.startsWith(`${classId}_`)) {
+                    delete tempScheduleData[key];
+                }
+            });
+
+            const generationResult = generateScheduleWithBacktracking(classId, teachingPlan, tempScheduleData);
+
+            let allSubjectsAllocated = generationResult.completed;
+            let missingSubjects = [];
+            teachingPlan.forEach(({ subject, weeklyLessons }) => {
+                const remaining = generationResult.remainingLessons[subject] || 0;
+                if (remaining > 0) {
+                    allSubjectsAllocated = false;
+                    missingSubjects.push(`${subject} (${remaining} aulas faltando)`);
+                }
+            });
+            const shortOverlapWarnings = collectShortOverlapWarnings(generationResult.schedule, classId);
+            const warningSuffix = shortOverlapWarnings.length
+                ? shortOverlapWarnings
+                : [];
+
+            return {
+                classId,
+                success: allSubjectsAllocated,
+                blocked: false,
+                schedule: generationResult.schedule,
+                missingSubjects,
+                shortOverlapWarnings: warningSuffix
+            };
+        }
+
+        // NOVO: Função para gerar o horário automaticamente (esqueleto inicial)
+        function generateScheduleAutomatically() {
+            const selectedValue = document.getElementById('autoGenerateClassSelect').value;
+
+            if (!selectedValue) {
+                alert('Por favor, selecione uma turma para gerar o horário.');
+                return;
+            }
+
+            const classIdsToGenerate = selectedValue === '__all__'
+                ? Object.keys(classTimeSlotsMap).sort((a, b) => {
+                    const priorityA = getClassGenerationPriority(a);
+                    const priorityB = getClassGenerationPriority(b);
+                    if (priorityA.flexibilityScore !== priorityB.flexibilityScore) {
+                        return priorityA.flexibilityScore - priorityB.flexibilityScore;
+                    }
+                    if (priorityA.totalLessons !== priorityB.totalLessons) {
+                        return priorityB.totalLessons - priorityA.totalLessons;
+                    }
+                    return getClassName(a).localeCompare(getClassName(b), 'pt-BR');
+                })
+                : [selectedValue];
+
+            let workingSchedule = { ...scheduleData };
+            const messages = [];
+            const shortWarnings = [];
+            let hasIncomplete = false;
+            let hasBlocked = false;
+
+            classIdsToGenerate.forEach(classId => {
+                const result = generateSingleClassSchedule(classId, workingSchedule);
+                if (result.blocked) {
+                    hasBlocked = true;
+                    messages.push(result.message);
+                    return;
+                }
+
+                workingSchedule = result.schedule;
+
+                if (result.success) {
+                    messages.push(`${getClassName(classId)}: gerado com sucesso.`);
+                } else {
+                    hasIncomplete = true;
+                    messages.push(`${getClassName(classId)}: incompleto. Faltam ${result.missingSubjects.join(', ')}.`);
+                }
+
+                if (result.shortOverlapWarnings.length) {
+                    result.shortOverlapWarnings.forEach(warning => shortWarnings.push(warning));
+                }
+            });
+
+            scheduleData = workingSchedule;
+            saveData();
+            renderSchedule();
+            recordHistoryState();
+
+            const warningSuffix = shortWarnings.length
+                ? `\n\nAvisos de choque curto permitidos:\n- ${Array.from(new Set(shortWarnings)).join('\n- ')}`
+                : '';
+
+            if (hasBlocked) {
+                alert(`Geração concluída com pendências:\n- ${messages.join('\n- ')}${warningSuffix}`);
+            } else if (hasIncomplete) {
+                alert(`Geração concluída, mas com lacunas:\n- ${messages.join('\n- ')}${warningSuffix}`);
+            } else {
+                alert(`Geração concluída com sucesso:\n- ${messages.join('\n- ')}${warningSuffix}`);
+            }
+            closeAutoGenerateModal(); // Fecha o modal após a tentativa de geração
+        }
+
+
+        // Fechar modal de edição ao clicar fora
+        document.getElementById('editModal').addEventListener('click', (e) => {
+            if (e.target.id === 'editModal') closeModal();
+        });
+
+        // Fechar modal de disponibilidade ao clicar fora
+        document.getElementById('availabilityModal').addEventListener('click', (e) => {
+            if (e.target.id === 'availabilityModal') closeAvailabilityModal();
+        });
+
+        // NOVO: Fechar modal de geração automática ao clicar fora
+        document.getElementById('autoGenerateModal').addEventListener('click', (e) => {
+            if (e.target.id === 'autoGenerateModal') closeAutoGenerateModal();
+        });
+
+        document.getElementById('curriculumModal').addEventListener('click', (e) => {
+            if (e.target.id === 'curriculumModal') closeCurriculumModal();
+        });
+
+        document.getElementById('conflictReportModal').addEventListener('click', (e) => {
+            if (e.target.id === 'conflictReportModal') closeConflictReportModal();
+        });
+
+        document.getElementById('gapReportModal').addEventListener('click', (e) => {
+            if (e.target.id === 'gapReportModal') closeGapReportModal();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            const modifierPressed = event.ctrlKey || event.metaKey;
+            if (!modifierPressed || event.altKey) return;
+
+            const key = event.key.toLowerCase();
+            if (key !== 'z') return;
+
+            event.preventDefault();
+            if (event.shiftKey) {
+                redoLastChange();
+            } else {
+                undoLastChange();
+            }
+        });
+
+        window.addEventListener('message', event => {
+            const data = event.data;
+            if (!data || typeof data !== 'object') return;
+            if (data.type === 'ensps:horarioDbSync') {
+                applyHorarioDbFromParent(data.db);
+            }
+        });
+
+        // Inicializar
+        initSchedule();
+    </script>
+</body>
+</html>
