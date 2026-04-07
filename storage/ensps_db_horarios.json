@@ -1,14 +1,5 @@
 {
-  "scheduleData": {
-    "6ano_0_0": {
-      "subject": "Ed. Física",
-      "teacher": "Bruno",
-      "color": "#ADD8E6",
-      "fontColor": "#000000",
-      "fontSize": 13,
-      "allCaps": false
-    }
-  },
+  "scheduleData": {},
   "teachersAvailability": {},
   "subjectColors": {
     "Português": "#ADD8E6",
@@ -17,7 +8,7 @@
     "Geografia": "#FFB6C1",
     "Ciências": "#E6E6FA",
     "Inglês": "#FFDAB9",
-    "Ed. Física": "#ADD8E6",
+    "Ed. Física": "#E0FFFF",
     "Artes": "#FA8072",
     "Religião": "#B0E0E6",
     "Física": "#F5F5DC",
