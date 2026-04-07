@@ -4000,5 +4000,21 @@
         ]
       }
     }
-  }
+  },
+  "horarios": {
+    "scheduleData": {},
+    "teachersAvailability": {},
+    "subjectColors": {},
+    "recentCustomColors": [],
+    "classTeachingDatabase": {},
+    "currentGridLineColor": "#000000",
+    "currentGridFrameEnabled": false,
+    "currentIntervalColor": "#ffc107",
+    "currentIntervalFontColor": "#000000",
+    "currentIntervalText": "",
+    "currentHeaderBarColor": "#667eea",
+    "currentHeaderBarFontColor": "#ffffff",
+    "currentTheme": "light"
+  },
+  "boletimInformativo": null
 }
