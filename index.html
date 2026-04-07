@@ -2843,7 +2843,7 @@
       if (!nextHash || nextHash === currentHash || nextHash === ultimoHashBoletimRecebido) return;
       ultimoHashBoletimRecebido = nextHash;
       enspsDB.boletimInformativo = nextDb;
-      persistirENSPSDB({ reason: data.reason || 'Atualização do boletim informativo integrado' });
+      persistirENSPSDB({ reason: data.reason || 'Atualização do boletim informativo integrado', remote: false });
       if (remotoInicializado) salvarEscopoRemoto('boletim', nextDb, { force: true, reason: data.reason || 'Atualização do boletim informativo integrado', silent: true });
       return;
     }
@@ -2893,7 +2893,7 @@
       if (!nextHash || nextHash === currentHash || nextHash === ultimoHashHorarioRecebido) return;
       ultimoHashHorarioRecebido = nextHash;
       enspsDB.horarios = nextDb;
-      persistirENSPSDB({ reason: data.reason || 'Atualização do módulo de horários' });
+      persistirENSPSDB({ reason: data.reason || 'Atualização do módulo de horários', remote: false });
       if (remotoInicializado) salvarEscopoRemoto('horarios', nextDb, { force: true, reason: data.reason || 'Atualização do módulo de horários', silent: true });
     }
   });
