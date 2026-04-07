@@ -2,6 +2,16 @@
 
 Este projeto foi preparado para usar o GitHub como armazenamento principal do `ensps_db`, com o Cloudflare Pages Functions no meio para proteger o token.
 
+Hoje esse banco unifica:
+
+- frequência de alunos
+- advertências
+- comunicados
+- entrega de materiais
+- folha/frequência de professores
+- horários escolares
+- boletim informativo
+
 ## Como funciona
 
 - O navegador carrega e salva o banco em `/api/db`
