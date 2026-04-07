@@ -59,7 +59,505 @@
       "Interpret": "#F5F5DC"
     },
     "recentCustomColors": [],
-    "classTeachingDatabase": {},
+    "classTeachingDatabase": {
+      "6ano": {
+        "Português": {
+          "teacher": "",
+          "weeklyLessons": 5,
+          "candidateTeachers": []
+        },
+        "Matemática": {
+          "teacher": "Diogo",
+          "weeklyLessons": 4,
+          "candidateTeachers": [
+            "Diogo",
+            "Eduardo",
+            "Helly"
+          ]
+        },
+        "História": {
+          "teacher": "Alexandre",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Alexandre"
+          ]
+        },
+        "Geografia": {
+          "teacher": "Rafaely",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Rafaely",
+            "Silânia"
+          ]
+        },
+        "Ciências": {
+          "teacher": "Elayne",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Elayne"
+          ]
+        },
+        "Inglês": {
+          "teacher": "Michael",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Michael"
+          ]
+        },
+        "Ed. Física": {
+          "teacher": "Bruno",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Bruno"
+          ]
+        },
+        "Artes": {
+          "teacher": "",
+          "weeklyLessons": 2,
+          "candidateTeachers": []
+        },
+        "Religião": {
+          "teacher": "",
+          "weeklyLessons": 1,
+          "candidateTeachers": []
+        }
+      },
+      "7ano": {
+        "Português": {
+          "teacher": "",
+          "weeklyLessons": 5,
+          "candidateTeachers": []
+        },
+        "Matemática": {
+          "teacher": "Diogo",
+          "weeklyLessons": 4,
+          "candidateTeachers": [
+            "Diogo",
+            "Eduardo",
+            "Helly"
+          ]
+        },
+        "História": {
+          "teacher": "Alexandre",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Alexandre"
+          ]
+        },
+        "Geografia": {
+          "teacher": "Rafaely",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Rafaely",
+            "Silânia"
+          ]
+        },
+        "Ciências": {
+          "teacher": "Elayne",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Elayne"
+          ]
+        },
+        "Inglês": {
+          "teacher": "Michael",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Michael"
+          ]
+        },
+        "Ed. Física": {
+          "teacher": "Bruno",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Bruno"
+          ]
+        },
+        "Artes": {
+          "teacher": "",
+          "weeklyLessons": 2,
+          "candidateTeachers": []
+        },
+        "Religião": {
+          "teacher": "",
+          "weeklyLessons": 1,
+          "candidateTeachers": []
+        }
+      },
+      "8ano": {
+        "Português": {
+          "teacher": "",
+          "weeklyLessons": 5,
+          "candidateTeachers": []
+        },
+        "Matemática": {
+          "teacher": "Diogo",
+          "weeklyLessons": 4,
+          "candidateTeachers": [
+            "Diogo",
+            "Eduardo",
+            "Helly"
+          ]
+        },
+        "História": {
+          "teacher": "Alexandre",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Alexandre"
+          ]
+        },
+        "Geografia": {
+          "teacher": "Rafaely",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Rafaely",
+            "Silânia"
+          ]
+        },
+        "Ciências": {
+          "teacher": "Elayne",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Elayne"
+          ]
+        },
+        "Inglês": {
+          "teacher": "Michael",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Michael"
+          ]
+        },
+        "Ed. Física": {
+          "teacher": "Bruno",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Bruno"
+          ]
+        },
+        "Artes": {
+          "teacher": "",
+          "weeklyLessons": 2,
+          "candidateTeachers": []
+        },
+        "Religião": {
+          "teacher": "",
+          "weeklyLessons": 1,
+          "candidateTeachers": []
+        }
+      },
+      "9ano": {
+        "Português": {
+          "teacher": "",
+          "weeklyLessons": 5,
+          "candidateTeachers": []
+        },
+        "Matemática": {
+          "teacher": "Diogo",
+          "weeklyLessons": 4,
+          "candidateTeachers": [
+            "Diogo",
+            "Eduardo",
+            "Helly"
+          ]
+        },
+        "História": {
+          "teacher": "Alexandre",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Alexandre"
+          ]
+        },
+        "Geografia": {
+          "teacher": "Rafaely",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Rafaely",
+            "Silânia"
+          ]
+        },
+        "Ciências": {
+          "teacher": "Elayne",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Elayne"
+          ]
+        },
+        "Inglês": {
+          "teacher": "Michael",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Michael"
+          ]
+        },
+        "Ed. Física": {
+          "teacher": "Bruno",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Bruno"
+          ]
+        },
+        "Artes": {
+          "teacher": "",
+          "weeklyLessons": 2,
+          "candidateTeachers": []
+        },
+        "Religião": {
+          "teacher": "",
+          "weeklyLessons": 1,
+          "candidateTeachers": []
+        }
+      },
+      "1em": {
+        "Português": {
+          "teacher": "",
+          "weeklyLessons": 4,
+          "candidateTeachers": []
+        },
+        "Matemática": {
+          "teacher": "Diogo",
+          "weeklyLessons": 4,
+          "candidateTeachers": [
+            "Diogo",
+            "Eduardo",
+            "Helly"
+          ]
+        },
+        "Física": {
+          "teacher": "Helly",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Helly"
+          ]
+        },
+        "Química": {
+          "teacher": "Amanda",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Amanda",
+            "Elayne"
+          ]
+        },
+        "Biologia": {
+          "teacher": "Isadora",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Isadora",
+            "Silânia"
+          ]
+        },
+        "História": {
+          "teacher": "Alexandre",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Alexandre"
+          ]
+        },
+        "Geografia": {
+          "teacher": "Rafaely",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Rafaely",
+            "Silânia"
+          ]
+        },
+        "Sociologia": {
+          "teacher": "Fabíola",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Fabíola"
+          ]
+        },
+        "Filosofia": {
+          "teacher": "Fabíola",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Fabíola",
+            "Michael"
+          ]
+        },
+        "Inglês": {
+          "teacher": "Michael",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Michael"
+          ]
+        },
+        "Ed. Física": {
+          "teacher": "Bruno",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Bruno"
+          ]
+        }
+      },
+      "2em": {
+        "Português": {
+          "teacher": "",
+          "weeklyLessons": 4,
+          "candidateTeachers": []
+        },
+        "Matemática": {
+          "teacher": "Diogo",
+          "weeklyLessons": 4,
+          "candidateTeachers": [
+            "Diogo",
+            "Eduardo",
+            "Helly"
+          ]
+        },
+        "Física": {
+          "teacher": "Helly",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Helly"
+          ]
+        },
+        "Química": {
+          "teacher": "Amanda",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Amanda",
+            "Elayne"
+          ]
+        },
+        "Biologia": {
+          "teacher": "Isadora",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Isadora",
+            "Silânia"
+          ]
+        },
+        "História": {
+          "teacher": "Alexandre",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Alexandre"
+          ]
+        },
+        "Geografia": {
+          "teacher": "Rafaely",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Rafaely",
+            "Silânia"
+          ]
+        },
+        "Sociologia": {
+          "teacher": "Fabíola",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Fabíola"
+          ]
+        },
+        "Filosofia": {
+          "teacher": "Fabíola",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Fabíola",
+            "Michael"
+          ]
+        },
+        "Inglês": {
+          "teacher": "Michael",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Michael"
+          ]
+        },
+        "Ed. Física": {
+          "teacher": "Bruno",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Bruno"
+          ]
+        }
+      },
+      "3em": {
+        "Português": {
+          "teacher": "",
+          "weeklyLessons": 4,
+          "candidateTeachers": []
+        },
+        "Matemática": {
+          "teacher": "Diogo",
+          "weeklyLessons": 4,
+          "candidateTeachers": [
+            "Diogo",
+            "Eduardo",
+            "Helly"
+          ]
+        },
+        "Física": {
+          "teacher": "Helly",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Helly"
+          ]
+        },
+        "Química": {
+          "teacher": "Amanda",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Amanda",
+            "Elayne"
+          ]
+        },
+        "Biologia": {
+          "teacher": "Isadora",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Isadora",
+            "Silânia"
+          ]
+        },
+        "História": {
+          "teacher": "Alexandre",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Alexandre"
+          ]
+        },
+        "Geografia": {
+          "teacher": "Rafaely",
+          "weeklyLessons": 3,
+          "candidateTeachers": [
+            "Rafaely",
+            "Silânia"
+          ]
+        },
+        "Sociologia": {
+          "teacher": "Fabíola",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Fabíola"
+          ]
+        },
+        "Filosofia": {
+          "teacher": "Fabíola",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Fabíola",
+            "Michael"
+          ]
+        },
+        "Inglês": {
+          "teacher": "Michael",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Michael"
+          ]
+        },
+        "Ed. Física": {
+          "teacher": "Bruno",
+          "weeklyLessons": 2,
+          "candidateTeachers": [
+            "Bruno"
+          ]
+        }
+      }
+    },
     "currentGridLineColor": "#000000",
     "currentGridFrameEnabled": false,
     "currentIntervalColor": "#ffc107",
