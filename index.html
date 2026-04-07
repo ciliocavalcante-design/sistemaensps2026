@@ -2843,7 +2843,7 @@
       if (!nextHash || nextHash === currentHash || nextHash === ultimoHashBoletimRecebido) return;
       ultimoHashBoletimRecebido = nextHash;
       enspsDB.boletimInformativo = nextDb;
-      persistirENSPSDB({ reason: data.reason || 'Atualização do boletim informativo integrado', remote: false });
+      persistirENSPSDB({ reason: data.reason || 'Atualização do boletim informativo integrado', remote: false, markDirty: true });
       if (remotoInicializado) salvarEscopoRemoto('boletim', nextDb, { force: true, reason: data.reason || 'Atualização do boletim informativo integrado', silent: true });
       return;
     }
@@ -2893,7 +2893,7 @@
       if (!nextHash || nextHash === currentHash || nextHash === ultimoHashHorarioRecebido) return;
       ultimoHashHorarioRecebido = nextHash;
       enspsDB.horarios = nextDb;
-      persistirENSPSDB({ reason: data.reason || 'Atualização do módulo de horários', remote: false });
+      persistirENSPSDB({ reason: data.reason || 'Atualização do módulo de horários', remote: false, markDirty: true });
       if (remotoInicializado) salvarEscopoRemoto('horarios', nextDb, { force: true, reason: data.reason || 'Atualização do módulo de horários', silent: true });
     }
   });
@@ -3184,6 +3184,7 @@
     let remotoTimer = null;
     let remotoMotivoPendente = 'Atualização do sistema';
     let remotoUltimaLeituraEm = 0;
+    let remotoPossuiAlteracoesLocaisPendentes = false;
 
     function lerJSONSeguro(valor, fallback) {
       try {
@@ -3308,7 +3309,7 @@
       registrosFrequencia = Array.isArray(enspsDB.frequenciaAlunos) ? enspsDB.frequenciaAlunos : [];
       advertenciasSalvas = Array.isArray(enspsDB.advertencias) ? enspsDB.advertencias : [];
       comunicadosRegistros = Array.isArray(enspsDB.comunicadosProfessores) ? enspsDB.comunicadosProfessores : [];
-      persistirENSPSDB({ remote: false });
+      persistirENSPSDB({ remote: false, markDirty: false });
 
       if (typeof renderTabelaFrequencia === 'function') renderTabelaFrequencia();
       if (typeof atualizarFaltasAcumuladas === 'function') atualizarFaltasAcumuladas();
@@ -3345,6 +3346,7 @@
     }
 
     function persistirENSPSDB(options = {}) {
+      const { markDirty = null } = options;
       try {
         localStorage.setItem(ENSPS_DB_KEY, JSON.stringify(enspsDB));
       } catch (erro) {
@@ -3355,6 +3357,8 @@
           console.warn('ENSPS: não foi possível persistir o banco localmente.', erroSecundario);
         }
       }
+      if (markDirty === true) remotoPossuiAlteracoesLocaisPendentes = true;
+      if (markDirty === false) remotoPossuiAlteracoesLocaisPendentes = false;
       if (options.remote !== false) agendarPersistenciaRemota(options.reason || 'Atualização do sistema');
     }
 
@@ -3362,7 +3366,7 @@
       enspsDB.frequenciaAlunos = registrosFrequencia;
       enspsDB.advertencias = advertenciasSalvas;
       enspsDB.comunicadosProfessores = comunicadosRegistros;
-      persistirENSPSDB({ reason });
+      persistirENSPSDB({ reason, markDirty: true });
     }
 
     function obterDeliveriesMateriais() {
@@ -3516,6 +3520,7 @@
         remotoUltimoSha = payload.sha || remotoUltimoSha;
         remotoUltimoErro = '';
         remotoUltimaLeituraEm = Date.now();
+        remotoPossuiAlteracoesLocaisPendentes = false;
         const caminhoRemoto = formatarCaminhoRemoto(payload.path);
         atualizarStatusBancoRemoto(`GitHub sincronizado com sucesso. ${caminhoRemoto ? `Arquivo: ${caminhoRemoto}` : ''}`.trim(), 'ok');
         if (!silent) alert('✅ Banco sincronizado com sucesso no GitHub!');
@@ -3559,6 +3564,7 @@
         remotoUltimoErro = '';
         remotoUltimaLeituraEm = Date.now();
         atualizarShaRemoto(scope, payload.sha || '');
+        remotoPossuiAlteracoesLocaisPendentes = false;
         const caminhoRemoto = formatarCaminhoRemoto(payload.path);
         atualizarStatusBancoRemoto(`GitHub sincronizado com sucesso. ${caminhoRemoto ? `Arquivo: ${caminhoRemoto}` : ''}`.trim(), 'ok');
         if (!silent) alert(`✅ ${scope} sincronizado com sucesso no GitHub!`);
@@ -3601,6 +3607,10 @@
 
     async function sincronizarBancoRemotoEmSegundoPlano(reason = 'Verificação automática do banco remoto') {
       if (!remotoInicializado || remotoSincronizando) return false;
+      if (remotoPossuiAlteracoesLocaisPendentes) {
+        atualizarStatusBancoRemoto('Alterações locais ainda não foram confirmadas no GitHub. A sincronização automática vai aguardar para não sobrescrever seus dados.', 'aviso');
+        return false;
+      }
       const bancoRemoto = await carregarBancoRemoto();
       if (!bancoRemoto) return false;
       const remotoSerializado = JSON.stringify(bancoRemoto);
@@ -3921,7 +3931,7 @@
             registrosFrequencia = Array.isArray(enspsDB.frequenciaAlunos) ? enspsDB.frequenciaAlunos : [];
             advertenciasSalvas = Array.isArray(enspsDB.advertencias) ? enspsDB.advertencias : [];
             comunicadosRegistros = Array.isArray(enspsDB.comunicadosProfessores) ? enspsDB.comunicadosProfessores : [];
-            persistirENSPSDB({ reason: 'Importação manual de backup' });
+            persistirENSPSDB({ reason: 'Importação manual de backup', markDirty: true });
 
             alert('✅ Backup importado com sucesso!');
             renderTabelaFrequencia();
