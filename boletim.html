@@ -2871,6 +2871,7 @@
         const isEmbeddedInsideENSPS = window.parent && window.parent !== window;
         let parentComunicadosCache = [];
         let isApplyingRemoteBoletimDb = false;
+        let isApplyingParentComunicados = false;
         if (isEmbeddedInsideENSPS) {
             document.body.classList.add('is-embedded-ensps');
         }
@@ -2917,6 +2918,7 @@
         }
 
         function aplicarComunicadosDoPai(rawItems = []) {
+            isApplyingParentComunicados = true;
             parentComunicadosCache = Array.isArray(rawItems) ? rawItems : [];
             const activeCalendar = getActiveCalendar();
             const period = normalizePeriod(activeCalendar.period || DEFAULT_CALENDAR_PERIOD);
@@ -2928,11 +2930,13 @@
                 return itemDates.some(date => isDateWithinCalendarPeriod(date, period));
             }).map(mapParentComunicadoToBoletim));
             activeCalendar.comunicados = normalizeComunicadosList(comunicados);
-            saveCalendarDbToStorage();
+            safeSetCalendarStorage(calendarDb);
+            mirrorLegacyStorageFromState();
             updateComunicadosSidebar(getCurrentSelectedDateKey());
             if (comunicadosModal?.classList.contains('is-open')) {
                 renderComunicadosList(comunicadosFilterMode === 'day' ? getCurrentSelectedDateKey() : null);
             }
+            isApplyingParentComunicados = false;
         }
 
         function aplicarBootstrapComunicadosDoPai() {
@@ -2951,7 +2955,7 @@
         }
 
         function sincronizarBancoBoletimComPai(reason = 'Atualização do boletim informativo') {
-            if (!isEmbeddedInsideENSPS || isApplyingRemoteBoletimDb || !calendarDb) return;
+            if (!isEmbeddedInsideENSPS || isApplyingRemoteBoletimDb || isApplyingParentComunicados || !calendarDb) return;
             window.parent.postMessage({
                 type: 'boletim:syncDb',
                 reason,
@@ -2959,12 +2963,24 @@
             }, '*');
         }
 
+        function safeSetCalendarStorage(value) {
+            try {
+                localStorage.setItem(CALENDAR_DB_KEY, JSON.stringify(value));
+                return true;
+            } catch (error) {
+                const isQuotaError = error && (error.name === 'QuotaExceededError' || error.name === 'NS_ERROR_DOM_QUOTA_REACHED');
+                if (!isQuotaError) throw error;
+                console.warn('ENSPS Boletim: calendarMultiDb excedeu a cota local; seguindo com banco em memória/nuvem.', error);
+                return false;
+            }
+        }
+
         function aplicarBancoBoletimDoPai(rawDb) {
             if (!rawDb || typeof rawDb !== 'object') return;
             isApplyingRemoteBoletimDb = true;
             calendarDb = normalizeCalendarDb(rawDb);
-            localStorage.setItem(CALENDAR_DB_KEY, JSON.stringify(calendarDb));
-            loadCalendarDbFromStorage();
+            safeSetCalendarStorage(calendarDb);
+            syncStateFromActiveCalendar();
             refreshCalendarMeta();
             updateCalendarSelectOptions();
             renderCurrentMonth();
@@ -3533,14 +3549,14 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
             syncActiveCalendarFromState();
             const footerLogoValue = calendarDb?.ui?.footerLogo || localStorage.getItem('footerLogo') || null;
             try {
-                localStorage.setItem(CALENDAR_DB_KEY, JSON.stringify(calendarDb));
+                safeSetCalendarStorage(calendarDb);
             } catch (error) {
                 const isQuotaError = error && (error.name === 'QuotaExceededError' || error.name === 'NS_ERROR_DOM_QUOTA_REACHED');
                 if (!isQuotaError) throw error;
                 const snapshot = JSON.parse(JSON.stringify(calendarDb));
                 if (!snapshot.ui) snapshot.ui = {};
                 snapshot.ui.footerLogo = null;
-                localStorage.setItem(CALENDAR_DB_KEY, JSON.stringify(snapshot));
+                safeSetCalendarStorage(snapshot);
                 if (footerLogoValue) {
                     localStorage.setItem('footerLogo', footerLogoValue);
                     if (!calendarDb.ui) calendarDb.ui = {};
@@ -3555,11 +3571,16 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
             try {
                 const savedDb = localStorage.getItem(CALENDAR_DB_KEY);
                 if (savedDb) {
+                    if (savedDb.length > 900000) {
+                        console.warn('ENSPS Boletim: cache local pesado demais; ignorando leitura local e aguardando nuvem.');
+                        calendarDb = createDefaultCalendarDb();
+                        return;
+                    }
                     calendarDb = normalizeCalendarDb(JSON.parse(savedDb));
                 } else {
                     const legacySnapshot = getLegacyStorageSnapshot();
                     calendarDb = legacySnapshot ? normalizeCalendarDb(legacySnapshot) : createDefaultCalendarDb();
-                    localStorage.setItem(CALENDAR_DB_KEY, JSON.stringify(calendarDb));
+                    safeSetCalendarStorage(calendarDb);
                 }
             } catch (error) {
                 console.warn('Falha ao carregar banco estruturado, recriando base padrão.', error);
@@ -5607,7 +5628,6 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
             aplicarBootstrapComunicadosDoPai();
             solicitarComunicadosDoPai();
             solicitarBancoBoletimDoPai();
-            sincronizarBancoBoletimComPai('Migração inicial do boletim informativo');
         }
         document.addEventListener('DOMContentLoaded', initCalendar);
     </script>
