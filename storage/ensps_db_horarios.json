@@ -1,5 +1,14 @@
 {
-  "scheduleData": {},
+  "scheduleData": {
+    "6ano_0_0": {
+      "subject": "Ed. Física",
+      "teacher": "Bruno",
+      "color": "#ADD8E6",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": false
+    }
+  },
   "teachersAvailability": {},
   "subjectColors": {
     "Português": "#ADD8E6",
