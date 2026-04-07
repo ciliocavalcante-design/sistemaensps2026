@@ -2780,13 +2780,18 @@
     const section = document.getElementById(sectionId);
     if(section) section.classList.add('active');
     if(sectionId === 'gestor' || sectionId === 'estatisticas') atualizarDashboardGestor();
-    if(sectionId === 'backup-central') atualizarResumoBackupCentral();
+    if(sectionId === 'backup-central') {
+      atualizarResumoBackupCentral();
+      dispararBootBancoRemoto();
+    }
     if(sectionId === 'tab-boletim') {
+      dispararBootBancoRemoto();
       inicializarBoletimIntegrado();
       setTimeout(() => enviarComunicadosParaBoletim(), 120);
       setTimeout(() => enviarBancoBoletimParaFrame(), 220);
     }
     if(sectionId === 'tab-horario') {
+      dispararBootBancoRemoto();
       inicializarHorarioIntegrado();
       setTimeout(() => enviarBancoHorarioParaFrame(), 180);
     }
@@ -8084,22 +8089,6 @@ Separe cada tema com uma linha em branco. Sem markdown, sem bullets extras.`;
     bootBancoRemotoDisparado = true;
     setTimeout(() => iniciarBancoRemotoQuandoPossivel(), 250);
   };
-
-  setTimeout(() => dispararBootBancoRemoto(), 4500);
-  window.addEventListener('pointerdown', dispararBootBancoRemoto, { once: true, passive: true });
-  window.addEventListener('keydown', dispararBootBancoRemoto, { once: true });
-
-  window.addEventListener('focus', () => {
-    sincronizarBancoRemotoEmSegundoPlano('Verificação ao voltar para a janela');
-  });
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') {
-      sincronizarBancoRemotoEmSegundoPlano('Verificação ao voltar para a aba');
-    }
-  });
-  setInterval(() => {
-    sincronizarBancoRemotoEmSegundoPlano('Verificação periódica entre dispositivos');
-  }, 120000);
 
   </script>
 </body>
