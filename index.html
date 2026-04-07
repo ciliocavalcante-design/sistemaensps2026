@@ -3361,6 +3361,15 @@
       });
     }
 
+    function formatarCaminhoRemoto(pathInfo) {
+      if (!pathInfo) return '';
+      if (typeof pathInfo === 'string') return pathInfo;
+      if (typeof pathInfo === 'object') {
+        return Object.values(pathInfo).filter(Boolean).join(', ');
+      }
+      return String(pathInfo);
+    }
+
     async function carregarBancoRemoto() {
       try {
         const resposta = await fetch(REMOTE_DB_ENDPOINT, { headers: { 'Accept': 'application/json' } });
@@ -3418,7 +3427,8 @@
         remotoUltimoSha = payload.sha || remotoUltimoSha;
         remotoUltimoErro = '';
         remotoUltimaLeituraEm = Date.now();
-        atualizarStatusBancoRemoto(`GitHub sincronizado com sucesso. ${payload.path ? `Arquivo: ${payload.path}` : ''}`.trim(), 'ok');
+        const caminhoRemoto = formatarCaminhoRemoto(payload.path);
+        atualizarStatusBancoRemoto(`GitHub sincronizado com sucesso. ${caminhoRemoto ? `Arquivo: ${caminhoRemoto}` : ''}`.trim(), 'ok');
         if (!silent) alert('✅ Banco sincronizado com sucesso no GitHub!');
         return true;
       } catch (erro) {
@@ -8002,17 +8012,4 @@ Separe cada tema com uma linha em branco. Sem markdown, sem bullets extras.`;
 
   inicializarBancoRemoto();
   window.addEventListener('focus', () => {
-    sincronizarBancoRemotoEmSegundoPlano('Verificação ao voltar para a janela');
-  });
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') {
-      sincronizarBancoRemotoEmSegundoPlano('Verificação ao voltar para a aba');
-    }
-  });
-  setInterval(() => {
-    sincronizarBancoRemotoEmSegundoPlano('Verificação periódica entre dispositivos');
-  }, 30000);
-
-  </script>
-</body>
-</html>
+    sincronizarBancoRemotoEmSegundoPlano('Verificação ao voltar para a jane
