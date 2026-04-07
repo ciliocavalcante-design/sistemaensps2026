@@ -155,7 +155,16 @@ async function salvarArquivo(config, db, sha, reason) {
 
   const payload = await resposta.json().catch(() => ({}));
   if (!resposta.ok) {
-    throw new Error(payload.message || `GitHub PUT falhou (${resposta.status})`);
+    const mensagem = payload.message || `GitHub PUT falhou (${resposta.status})`;
+    const isShaConflict = resposta.status === 409 || /expected\s+[a-f0-9]{40}/i.test(mensagem) || /does not match/i.test(mensagem);
+    if (isShaConflict) {
+      const atual = await buscarArquivo(config);
+      const shaAtual = atual?.sha || '';
+      if (shaAtual && shaAtual !== sha) {
+        return salvarArquivo(config, db, shaAtual, reason);
+      }
+    }
+    throw new Error(mensagem);
   }
 
   return {
@@ -181,7 +190,7 @@ export async function onRequestGet(context) {
         return json({
           ok: true,
           data: extrairEscopoDoLegado(config.scope, legado.data),
-          sha: legado.sha,
+          sha: '',
           path: legado.path,
           branch: legado.branch,
           fromLegacy: true
@@ -222,21 +231,4 @@ export async function onRequestPost(context) {
     const reason = body?.reason || 'Atualiza banco ENSPS';
 
     if (typeof db === 'undefined') {
-      return json({ ok: false, error: 'Corpo inválido. Envie { db }.' }, 400);
-    }
-
-    let sha = shaInformado;
-    if (!sha) {
-      const atual = await buscarArquivo(config);
-      sha = atual?.sha || '';
-    }
-
-    const salvo = await salvarArquivo(config, db, sha, reason);
-    return json(salvo);
-  } catch (error) {
-    return json({
-      ok: false,
-      error: error.message || 'Erro ao salvar banco remoto'
-    }, 500);
-  }
-}
+      return json({ ok: false, error: 'Corpo inválid
