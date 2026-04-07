@@ -3142,11 +3142,10 @@
     // =========================
     const ENSPS_DB_KEY = 'ensps_db';
     const REMOTE_DB_ENDPOINT = '/api/db';
-    const REMOTE_DB_SCOPES = ['core', 'horarios', 'boletim'];
     let remotoDisponivel = false;
     let remotoInicializado = false;
     let remotoSincronizando = false;
-    let remotoUltimoSha = { core: '', horarios: '', boletim: '' };
+    let remotoUltimoSha = '';
     let remotoUltimoErro = '';
     let remotoTimer = null;
     let remotoMotivoPendente = 'Atualização do sistema';
@@ -3362,83 +3361,26 @@
       });
     }
 
-    function montarParteCoreDoBanco() {
-      enspsDB.professoresMateriais = { deliveries: obterDeliveriesMateriais() };
-      enspsDB.professoresFolha = obterFolhaProfessores();
-      return {
-        schemaVersion: 2,
-        frequenciaAlunos: Array.isArray(enspsDB.frequenciaAlunos) ? enspsDB.frequenciaAlunos : [],
-        advertencias: Array.isArray(enspsDB.advertencias) ? enspsDB.advertencias : [],
-        comunicadosProfessores: Array.isArray(enspsDB.comunicadosProfessores) ? enspsDB.comunicadosProfessores : [],
-        professoresMateriais: enspsDB.professoresMateriais,
-        professoresFolha: enspsDB.professoresFolha
-      };
-    }
-
-    function montarPartesBancoRemoto() {
-      return {
-        core: montarParteCoreDoBanco(),
-        horarios: obterBancoHorario(),
-        boletim: obterBancoBoletim()
-      };
-    }
-
-    function montarENSPSDBComPartes(partes = {}) {
-      return normalizarENSPSDB({
-        ...(partes.core && typeof partes.core === 'object' ? partes.core : {}),
-        horarios: partes.horarios && typeof partes.horarios === 'object' ? partes.horarios : {},
-        boletimInformativo: typeof partes.boletim !== 'undefined' ? partes.boletim : null
-      });
-    }
-
-    async function carregarEscopoRemoto(scope) {
-      const resposta = await fetch(`${REMOTE_DB_ENDPOINT}?scope=${encodeURIComponent(scope)}`, {
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (resposta.status === 404) {
-        remotoUltimoSha[scope] = '';
-        return { scope, notFound: true, data: null };
-      }
-
-      if (!resposta.ok) throw new Error(`Falha ao consultar ${scope} remoto (${resposta.status})`);
-
-      const payload = await resposta.json();
-      remotoUltimoSha[scope] = payload.fromLegacy ? '' : (payload.sha || remotoUltimoSha[scope] || '');
-
-      return {
-        scope,
-        data: typeof payload.data === 'undefined' ? null : payload.data,
-        path: payload.path || '',
-        fromLegacy: Boolean(payload.fromLegacy)
-      };
-    }
-
     async function carregarBancoRemoto() {
       try {
-        const resultados = await Promise.all(REMOTE_DB_SCOPES.map(scope => carregarEscopoRemoto(scope)));
-        const encontrados = resultados.filter(item => !item.notFound);
-
-        if (!encontrados.length) {
+        const resposta = await fetch(REMOTE_DB_ENDPOINT, { headers: { 'Accept': 'application/json' } });
+        if (resposta.status === 404) {
           remotoDisponivel = true;
-          remotoUltimoSha = { core: '', horarios: '', boletim: '' };
-          atualizarStatusBancoRemoto('GitHub conectado. Ainda não existem arquivos remotos; o próximo salvamento criará o banco modular na pasta do repositório.', 'aviso');
+          remotoUltimoSha = '';
+          atualizarStatusBancoRemoto('GitHub conectado. Ainda não existe arquivo remoto; o próximo salvamento criará o banco na pasta do repositório.', 'aviso');
           return null;
         }
-
+        if (!resposta.ok) throw new Error(`Falha ao consultar API remota (${resposta.status})`);
+        const payload = await resposta.json();
         remotoDisponivel = true;
+        remotoUltimoSha = payload.sha || '';
         remotoUltimaLeituraEm = Date.now();
-
-        const partes = {
-          core: resultados.find(item => item.scope === 'core' && !item.notFound)?.data || {},
-          horarios: resultados.find(item => item.scope === 'horarios' && !item.notFound)?.data || {},
-          boletim: resultados.find(item => item.scope === 'boletim' && !item.notFound)
-            ? resultados.find(item => item.scope === 'boletim').data
-            : null
-        };
-
-        atualizarStatusBancoRemoto('GitHub conectado. Bancos remotos carregados com sucesso.', 'ok');
-        return montarENSPSDBComPartes(partes);
+        if (!payload.data || typeof payload.data !== 'object') {
+          atualizarStatusBancoRemoto('GitHub conectado. Arquivo remoto vazio; o banco local será usado até o primeiro envio.', 'aviso');
+          return null;
+        }
+        atualizarStatusBancoRemoto('GitHub conectado. Banco remoto carregado com sucesso.', 'ok');
+        return normalizarENSPSDB(payload.data);
       } catch (erro) {
         remotoDisponivel = false;
         remotoUltimoErro = erro.message || String(erro);
@@ -3452,35 +3394,31 @@
       if (!remotoInicializado && !force) return false;
       if (remotoSincronizando) return false;
       remotoSincronizando = true;
-      atualizarStatusBancoRemoto('Sincronizando bancos com o GitHub...', 'aviso');
+      atualizarStatusBancoRemoto('Sincronizando banco com o GitHub...', 'aviso');
 
       try {
-        const partes = montarPartesBancoRemoto();
-        const respostas = await Promise.all(REMOTE_DB_SCOPES.map(async scope => {
-          const resposta = await fetch(`${REMOTE_DB_ENDPOINT}?scope=${encodeURIComponent(scope)}`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              db: partes[scope],
-              sha: remotoUltimoSha[scope] || undefined,
-              reason: `${reason} [${scope}]`
-            })
-          });
+        enspsDB.professoresMateriais = { deliveries: obterDeliveriesMateriais() };
+        enspsDB.professoresFolha = obterFolhaProfessores();
+        const resposta = await fetch(REMOTE_DB_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            db: enspsDB,
+            sha: remotoUltimoSha || undefined,
+            reason
+          })
+        });
 
-          const payload = await resposta.json().catch(() => ({}));
-          if (!resposta.ok || !payload.ok) {
-            throw new Error(payload.error || `Falha ao salvar ${scope} no GitHub (${resposta.status})`);
-          }
-
-          remotoUltimoSha[scope] = payload.sha || remotoUltimoSha[scope] || '';
-          return payload;
-        }));
+        const payload = await resposta.json().catch(() => ({}));
+        if (!resposta.ok || !payload.ok) {
+          throw new Error(payload.error || `Falha ao salvar no GitHub (${resposta.status})`);
+        }
 
         remotoDisponivel = true;
+        remotoUltimoSha = payload.sha || remotoUltimoSha;
         remotoUltimoErro = '';
         remotoUltimaLeituraEm = Date.now();
-        const caminhos = respostas.map(item => item.path).filter(Boolean).join(', ');
-        atualizarStatusBancoRemoto(`GitHub sincronizado com sucesso. ${caminhos ? `Arquivos: ${caminhos}` : ''}`.trim(), 'ok');
+        atualizarStatusBancoRemoto(`GitHub sincronizado com sucesso. ${payload.path ? `Arquivo: ${payload.path}` : ''}`.trim(), 'ok');
         if (!silent) alert('✅ Banco sincronizado com sucesso no GitHub!');
         return true;
       } catch (erro) {
@@ -8075,3 +8013,6 @@ Separe cada tema com uma linha em branco. Sem markdown, sem bullets extras.`;
     sincronizarBancoRemotoEmSegundoPlano('Verificação periódica entre dispositivos');
   }, 30000);
 
+  </script>
+</body>
+</html>
