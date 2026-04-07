@@ -6134,11 +6134,11 @@
             "reminderText": "",
             "reminderDate": "",
             "createdAt": "2026-03-26T17:55:10.180Z",
-            "updatedAt": "2026-04-07T17:11:18.265Z"
+            "updatedAt": "2026-04-07T17:12:58.375Z"
           }
         ],
         "settings": {
-          "currentMonth": 0,
+          "currentMonth": 1,
           "currentSelectedEventColor": "green",
           "customSelectedEventColor": "#1f8eed",
           "printColorIntensity": 12,
