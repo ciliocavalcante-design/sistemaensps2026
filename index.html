@@ -3315,6 +3315,7 @@
         advertencias: Array.isArray(enspsDB.advertencias) ? enspsDB.advertencias : [],
         comunicadosProfessores: Array.isArray(enspsDB.comunicadosProfessores) ? enspsDB.comunicadosProfessores : [],
         horarios: {
+          scheduleData: enspsDB.horarios && typeof enspsDB.horarios.scheduleData === 'object' ? enspsDB.horarios.scheduleData : {},
           teachersAvailability: enspsDB.horarios && typeof enspsDB.horarios.teachersAvailability === 'object' ? enspsDB.horarios.teachersAvailability : {},
           subjectColors: enspsDB.horarios && typeof enspsDB.horarios.subjectColors === 'object' ? enspsDB.horarios.subjectColors : {},
           recentCustomColors: enspsDB.horarios && Array.isArray(enspsDB.horarios.recentCustomColors) ? enspsDB.horarios.recentCustomColors : [],
@@ -3334,17 +3335,16 @@
       };
     }
 
-    function persistirENSPSDB(options = {}) {
+    function persistirCacheLocalLeveENSPSDB() {
       try {
-        localStorage.setItem(ENSPS_DB_KEY, JSON.stringify(enspsDB));
+        localStorage.setItem(ENSPS_DB_KEY, JSON.stringify(criarCacheLocalLeveENSPSDB()));
       } catch (erro) {
-        try {
-          localStorage.setItem(ENSPS_DB_KEY, JSON.stringify(criarCacheLocalLeveENSPSDB()));
-          console.warn('ENSPS: banco grande demais para localStorage, usando cache local reduzido.', erro);
-        } catch (erroSecundario) {
-          console.warn('ENSPS: não foi possível persistir o banco localmente.', erroSecundario);
-        }
+        console.warn('ENSPS: não foi possível persistir o cache local reduzido.', erro);
       }
+    }
+
+    function persistirENSPSDB(options = {}) {
+      persistirCacheLocalLeveENSPSDB();
       if (options.remote !== false) agendarPersistenciaRemota(options.reason || 'Atualização do sistema');
     }
 
@@ -8078,11 +8078,17 @@ Separe cada tema com uma linha em branco. Sem markdown, sem bullets extras.`;
     }
   };
 
-  if (typeof window.requestIdleCallback === 'function') {
-    window.requestIdleCallback(() => iniciarBancoRemotoQuandoPossivel(), { timeout: 2000 });
-  } else {
-    setTimeout(() => iniciarBancoRemotoQuandoPossivel(), 1200);
-  }
+  let bootBancoRemotoDisparado = false;
+  const dispararBootBancoRemoto = () => {
+    if (bootBancoRemotoDisparado) return;
+    bootBancoRemotoDisparado = true;
+    setTimeout(() => iniciarBancoRemotoQuandoPossivel(), 250);
+  };
+
+  setTimeout(() => dispararBootBancoRemoto(), 4500);
+  window.addEventListener('pointerdown', dispararBootBancoRemoto, { once: true, passive: true });
+  window.addEventListener('keydown', dispararBootBancoRemoto, { once: true });
+
   window.addEventListener('focus', () => {
     sincronizarBancoRemotoEmSegundoPlano('Verificação ao voltar para a janela');
   });
@@ -8093,7 +8099,7 @@ Separe cada tema com uma linha em branco. Sem markdown, sem bullets extras.`;
   });
   setInterval(() => {
     sincronizarBancoRemotoEmSegundoPlano('Verificação periódica entre dispositivos');
-  }, 30000);
+  }, 120000);
 
   </script>
 </body>
