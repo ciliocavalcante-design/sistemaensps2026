@@ -3200,7 +3200,16 @@
           : {},
         boletimInformativo: origem.boletimInformativo && typeof origem.boletimInformativo === 'object'
           ? origem.boletimInformativo
-          : null,
+          : (
+              origem.calendars && Array.isArray(origem.calendars)
+                ? {
+                    version: origem.version || 2,
+                    activeCalendarId: origem.activeCalendarId || origem.calendars[0]?.id || 'ensps-2026',
+                    calendars: origem.calendars,
+                    ui: origem.ui && typeof origem.ui === 'object' ? origem.ui : { footerLogo: null }
+                  }
+                : null
+            ),
         professoresMateriais: {
           deliveries: professoresMateriais.deliveries && typeof professoresMateriais.deliveries === 'object'
             ? professoresMateriais.deliveries
