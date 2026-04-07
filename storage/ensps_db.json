@@ -6,5 +6,5 @@
     "horarios": "storage/ensps_db_horarios.json",
     "boletim": "storage/ensps_db_boletim.json"
   },
-  "note": "Arquivo leve. A API /api/db junta/divide os bancos automaticamente."
+  "note": "Banco remoto modular. A API junta/divide os arquivos automaticamente."
 }
