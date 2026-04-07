@@ -2815,6 +2815,7 @@
     if (data.type === 'boletim:syncDb') {
       enspsDB.boletimInformativo = data.db && typeof data.db === 'object' ? data.db : obterBancoBoletim();
       persistirENSPSDB({ reason: data.reason || 'Atualização do boletim informativo integrado' });
+      if (remotoInicializado) salvarBancoRemoto({ force: true, reason: data.reason || 'Atualização do boletim informativo integrado', silent: true });
       return;
     }
 
@@ -2859,6 +2860,7 @@
         ...(data.db && typeof data.db === 'object' ? data.db : {})
       };
       persistirENSPSDB({ reason: data.reason || 'Atualização do módulo de horários' });
+      if (remotoInicializado) salvarBancoRemoto({ force: true, reason: data.reason || 'Atualização do módulo de horários', silent: true });
     }
   });
 
@@ -3147,6 +3149,7 @@
     let remotoUltimoErro = '';
     let remotoTimer = null;
     let remotoMotivoPendente = 'Atualização do sistema';
+    let remotoUltimaLeituraEm = 0;
 
     function lerJSONSeguro(valor, fallback) {
       try {
@@ -3362,6 +3365,7 @@
         const payload = await resposta.json();
         remotoDisponivel = true;
         remotoUltimoSha = payload.sha || '';
+        remotoUltimaLeituraEm = Date.now();
         if (!payload.data || typeof payload.data !== 'object') {
           atualizarStatusBancoRemoto('GitHub conectado. Arquivo remoto vazio; o banco local será usado até o primeiro envio.', 'aviso');
           return null;
@@ -3404,6 +3408,7 @@
         remotoDisponivel = true;
         remotoUltimoSha = payload.sha || remotoUltimoSha;
         remotoUltimoErro = '';
+        remotoUltimaLeituraEm = Date.now();
         atualizarStatusBancoRemoto(`GitHub sincronizado com sucesso. ${payload.path ? `Arquivo: ${payload.path}` : ''}`.trim(), 'ok');
         if (!silent) alert('✅ Banco sincronizado com sucesso no GitHub!');
         return true;
@@ -3441,6 +3446,19 @@
       if (remotoDisponivel) {
         await salvarBancoRemoto({ force: true, reason: 'Migração inicial do banco local para o GitHub', silent: true });
       }
+    }
+
+    async function sincronizarBancoRemotoEmSegundoPlano(reason = 'Verificação automática do banco remoto') {
+      if (!remotoInicializado || remotoSincronizando) return false;
+      const bancoRemoto = await carregarBancoRemoto();
+      if (!bancoRemoto) return false;
+      const remotoSerializado = JSON.stringify(bancoRemoto);
+      const localSerializado = JSON.stringify(normalizarENSPSDB(enspsDB));
+      if (remotoSerializado === localSerializado) return false;
+      enspsDB = bancoRemoto;
+      aplicarENSPSDBNaTela();
+      atualizarStatusBancoRemoto(`Banco remoto atualizado no dispositivo. ${reason}`, 'ok');
+      return true;
     }
 
     // =========================
@@ -7974,6 +7992,17 @@ Separe cada tema com uma linha em branco. Sem markdown, sem bullets extras.`;
   }
 
   inicializarBancoRemoto();
+  window.addEventListener('focus', () => {
+    sincronizarBancoRemotoEmSegundoPlano('Verificação ao voltar para a janela');
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      sincronizarBancoRemotoEmSegundoPlano('Verificação ao voltar para a aba');
+    }
+  });
+  setInterval(() => {
+    sincronizarBancoRemotoEmSegundoPlano('Verificação periódica entre dispositivos');
+  }, 30000);
 
   </script>
 </body>
