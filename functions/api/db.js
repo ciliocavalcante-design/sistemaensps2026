@@ -54,6 +54,21 @@ async function githubRequest(config, url, init = {}) {
   return response;
 }
 
+async function baixarTextoBruto(config, url) {
+  const resposta = await githubRequest(config, url, {
+    headers: {
+      'Accept': 'application/vnd.github.raw'
+    }
+  });
+
+  if (!resposta.ok) {
+    const erro = await resposta.text();
+    throw new Error(`GitHub RAW falhou (${resposta.status}): ${erro}`);
+  }
+
+  return resposta.text();
+}
+
 async function buscarArquivo(config) {
   const url = `${GITHUB_API_BASE}/repos/${config.owner}/${config.repo}/contents/${config.path}?ref=${encodeURIComponent(config.branch)}`;
   const resposta = await githubRequest(config, url);
@@ -66,7 +81,27 @@ async function buscarArquivo(config) {
   }
 
   const payload = await resposta.json();
-  const content = typeof payload.content === 'string' ? decodeBase64Utf8(payload.content) : '{}';
+  let content = '{}';
+
+  if (typeof payload.content === 'string' && payload.content.trim()) {
+    content = decodeBase64Utf8(payload.content);
+  } else if (typeof payload.download_url === 'string' && payload.download_url) {
+    content = await baixarTextoBruto(config, payload.download_url);
+  } else if (typeof payload.git_url === 'string' && payload.git_url) {
+    const blobResposta = await githubRequest(config, payload.git_url);
+    if (!blobResposta.ok) {
+      const erro = await blobResposta.text();
+      throw new Error(`GitHub BLOB falhou (${blobResposta.status}): ${erro}`);
+    }
+
+    const blobPayload = await blobResposta.json();
+    if (typeof blobPayload.content === 'string' && blobPayload.content.trim()) {
+      content = decodeBase64Utf8(blobPayload.content);
+    } else {
+      content = await baixarTextoBruto(config, `${GITHUB_API_BASE}/repos/${config.owner}/${config.repo}/contents/${config.path}?ref=${encodeURIComponent(config.branch)}`);
+    }
+  }
+
   return {
     sha: payload.sha || '',
     path: payload.path || config.path,
