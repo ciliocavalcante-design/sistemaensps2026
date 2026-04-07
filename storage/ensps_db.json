@@ -3306,6 +3306,22 @@
       "updatedAt": "2026-03-31T16:59:45.604Z"
     }
   ],
+  "horarios": {
+    "scheduleData": {},
+    "teachersAvailability": {},
+    "subjectColors": {},
+    "recentCustomColors": [],
+    "classTeachingDatabase": {},
+    "currentGridLineColor": "#000000",
+    "currentGridFrameEnabled": true,
+    "currentIntervalColor": "#ffc107",
+    "currentIntervalFontColor": "#000000",
+    "currentIntervalText": "",
+    "currentHeaderBarColor": "#667eea",
+    "currentHeaderBarFontColor": "#ffffff",
+    "currentTheme": "light"
+  },
+  "boletimInformativo": null,
   "professoresMateriais": {
     "deliveries": {
       "Prof. Silânia": {
@@ -4000,21 +4016,5 @@
         ]
       }
     }
-  },
-  "horarios": {
-    "scheduleData": {},
-    "teachersAvailability": {},
-    "subjectColors": {},
-    "recentCustomColors": [],
-    "classTeachingDatabase": {},
-    "currentGridLineColor": "#000000",
-    "currentGridFrameEnabled": false,
-    "currentIntervalColor": "#ffc107",
-    "currentIntervalFontColor": "#000000",
-    "currentIntervalText": "",
-    "currentHeaderBarColor": "#667eea",
-    "currentHeaderBarFontColor": "#ffffff",
-    "currentTheme": "light"
-  },
-  "boletimInformativo": null
+  }
 }
