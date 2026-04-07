@@ -2597,7 +2597,248 @@
     "currentHeaderBarFontColor": "#ffffff",
     "currentTheme": "light"
   },
-  "boletimInformativo": null,
+  "boletimInformativo": {
+    "version": 2,
+    "activeCalendarId": "ensps-2026",
+    "calendars": [
+      {
+        "id": "ensps-2026",
+        "name": "Calendário ENSPS 2026",
+        "period": {
+          "startYear": 2026,
+          "startMonth": 0,
+          "endYear": 2027,
+          "endMonth": 0
+        },
+        "events": {
+          "2026-01-01": [
+            {
+              "id": "evt_mnovxk0z_1",
+              "text": "Feriado: Confraternização Universal",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2026-04-21": [
+            {
+              "id": "evt_mnovxk0z_2",
+              "text": "Feriado: Tiradentes",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2026-05-01": [
+            {
+              "id": "evt_mnovxk0z_3",
+              "text": "Feriado: Dia do Trabalho",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2026-09-07": [
+            {
+              "id": "evt_mnovxk0z_4",
+              "text": "Feriado: Independência do Brasil",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2026-10-12": [
+            {
+              "id": "evt_mnovxk0z_5",
+              "text": "Feriado: Nossa Senhora Aparecida",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2026-11-02": [
+            {
+              "id": "evt_mnovxk0z_6",
+              "text": "Feriado: Finados",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2026-11-15": [
+            {
+              "id": "evt_mnovxk0z_7",
+              "text": "Feriado: Proclamação da República",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2026-12-25": [
+            {
+              "id": "evt_mnovxk0z_8",
+              "text": "Feriado: Natal",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2026-02-16": [
+            {
+              "id": "evt_mnovxk0z_9",
+              "text": "Feriado: Carnaval",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2026-02-17": [
+            {
+              "id": "evt_mnovxk10_a",
+              "text": "Feriado: Carnaval",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2026-02-18": [
+            {
+              "id": "evt_mnovxk10_b",
+              "text": "Feriado: Quarta-feira de Cinzas",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2026-04-03": [
+            {
+              "id": "evt_mnovxk10_c",
+              "text": "Feriado: Sexta-feira Santa",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2026-06-04": [
+            {
+              "id": "evt_mnovxk10_d",
+              "text": "Feriado: Corpus Christi",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2027-01-01": [
+            {
+              "id": "evt_mnovxk10_e",
+              "text": "Feriado: Confraternização Universal",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2027-04-21": [
+            {
+              "id": "evt_mnovxk10_f",
+              "text": "Feriado: Tiradentes",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2027-05-01": [
+            {
+              "id": "evt_mnovxk10_g",
+              "text": "Feriado: Dia do Trabalho",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2027-09-07": [
+            {
+              "id": "evt_mnovxk10_h",
+              "text": "Feriado: Independência do Brasil",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2027-10-12": [
+            {
+              "id": "evt_mnovxk10_i",
+              "text": "Feriado: Nossa Senhora Aparecida",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2027-11-02": [
+            {
+              "id": "evt_mnovxk10_j",
+              "text": "Feriado: Finados",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2027-11-15": [
+            {
+              "id": "evt_mnovxk10_k",
+              "text": "Feriado: Proclamação da República",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2027-12-25": [
+            {
+              "id": "evt_mnovxk10_l",
+              "text": "Feriado: Natal",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2027-02-08": [
+            {
+              "id": "evt_mnovxk10_m",
+              "text": "Feriado: Carnaval",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2027-02-09": [
+            {
+              "id": "evt_mnovxk10_n",
+              "text": "Feriado: Carnaval",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2027-02-10": [
+            {
+              "id": "evt_mnovxk10_o",
+              "text": "Feriado: Quarta-feira de Cinzas",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2027-03-26": [
+            {
+              "id": "evt_mnovxk10_p",
+              "text": "Feriado: Sexta-feira Santa",
+              "color": "holiday",
+              "customColor": null
+            }
+          ],
+          "2027-05-27": [
+            {
+              "id": "evt_mnovxk10_q",
+              "text": "Feriado: Corpus Christi",
+              "color": "holiday",
+              "customColor": null
+            }
+          ]
+        },
+        "monthNotes": {},
+        "comunicados": [],
+        "settings": {
+          "currentMonth": 0,
+          "currentSelectedEventColor": "green",
+          "customSelectedEventColor": "#1f8eed",
+          "printColorIntensity": 12,
+          "printBorderOnly": false,
+          "boldEventText": false,
+          "startDateContagem": null,
+          "endDateContagem": null,
+          "currentTheme": "light"
+        }
+      }
+    ],
+    "ui": {
+      "footerLogo": null
+    }
+  },
   "professoresMateriais": {
     "deliveries": {}
   },
