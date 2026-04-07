@@ -3282,8 +3282,43 @@
       if (typeof enviarBancoHorarioParaFrame === 'function') enviarBancoHorarioParaFrame();
     }
 
+    function criarCacheLocalLeveENSPSDB() {
+      return {
+        schemaVersion: enspsDB.schemaVersion || 2,
+        frequenciaAlunos: Array.isArray(enspsDB.frequenciaAlunos) ? enspsDB.frequenciaAlunos : [],
+        advertencias: Array.isArray(enspsDB.advertencias) ? enspsDB.advertencias : [],
+        comunicadosProfessores: Array.isArray(enspsDB.comunicadosProfessores) ? enspsDB.comunicadosProfessores : [],
+        horarios: {
+          teachersAvailability: enspsDB.horarios && typeof enspsDB.horarios.teachersAvailability === 'object' ? enspsDB.horarios.teachersAvailability : {},
+          subjectColors: enspsDB.horarios && typeof enspsDB.horarios.subjectColors === 'object' ? enspsDB.horarios.subjectColors : {},
+          recentCustomColors: enspsDB.horarios && Array.isArray(enspsDB.horarios.recentCustomColors) ? enspsDB.horarios.recentCustomColors : [],
+          classTeachingDatabase: enspsDB.horarios && typeof enspsDB.horarios.classTeachingDatabase === 'object' ? enspsDB.horarios.classTeachingDatabase : {},
+          currentGridLineColor: enspsDB.horarios?.currentGridLineColor || '#000000',
+          currentGridFrameEnabled: Boolean(enspsDB.horarios?.currentGridFrameEnabled),
+          currentIntervalColor: enspsDB.horarios?.currentIntervalColor || '#ffc107',
+          currentIntervalFontColor: enspsDB.horarios?.currentIntervalFontColor || '#000000',
+          currentIntervalText: typeof enspsDB.horarios?.currentIntervalText === 'string' ? enspsDB.horarios.currentIntervalText : '',
+          currentHeaderBarColor: enspsDB.horarios?.currentHeaderBarColor || '#667eea',
+          currentHeaderBarFontColor: enspsDB.horarios?.currentHeaderBarFontColor || '#ffffff',
+          currentTheme: enspsDB.horarios?.currentTheme === 'dark' ? 'dark' : 'light'
+        },
+        boletimInformativo: null,
+        professoresMateriais: enspsDB.professoresMateriais && typeof enspsDB.professoresMateriais === 'object' ? enspsDB.professoresMateriais : { deliveries: {} },
+        professoresFolha: enspsDB.professoresFolha && typeof enspsDB.professoresFolha === 'object' ? enspsDB.professoresFolha : { frequencyRecords: [], extraAvulsaRecords: {} }
+      };
+    }
+
     function persistirENSPSDB(options = {}) {
-      localStorage.setItem(ENSPS_DB_KEY, JSON.stringify(enspsDB));
+      try {
+        localStorage.setItem(ENSPS_DB_KEY, JSON.stringify(enspsDB));
+      } catch (erro) {
+        try {
+          localStorage.setItem(ENSPS_DB_KEY, JSON.stringify(criarCacheLocalLeveENSPSDB()));
+          console.warn('ENSPS: banco grande demais para localStorage, usando cache local reduzido.', erro);
+        } catch (erroSecundario) {
+          console.warn('ENSPS: não foi possível persistir o banco localmente.', erroSecundario);
+        }
+      }
       if (options.remote !== false) agendarPersistenciaRemota(options.reason || 'Atualização do sistema');
     }
 
@@ -7957,59 +7992,4 @@ Separe cada tema com uma linha em branco. Sem markdown, sem bullets extras.`;
     blocos.forEach((bloco, idx) => {
       const linhas = bloco.trim().split('\n');
       const tituloLinha = linhas[0] || '';
-      const corpo = linhas.slice(1).join('\n').trim();
-
-      const card = document.createElement('div');
-      card.style.cssText = 'background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;position:relative;';
-
-      const numMatch = tituloLinha.match(/TEMA\s*(\d+)\s*[:\-]?\s*(.*)/i);
-      const numero = numMatch ? numMatch[1] : (idx + 1);
-      const titulo = numMatch ? numMatch[2].trim() : tituloLinha.trim();
-
-      card.innerHTML = `
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px;">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span style="background:var(--brand);color:#fff;font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:20px;flex-shrink:0;">Tema ${numero}</span>
-            <strong style="font-size:.92rem;color:var(--ink);">${titulo}</strong>
-          </div>
-          <button onclick="temasCopiarUm(this)" data-texto="${(titulo + '\n' + corpo).replace(/"/g,'&quot;')}"
-            style="background:var(--card2);border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:4px 10px;font-size:.74rem;cursor:pointer;flex-shrink:0;">
-            📋 Copiar
-          </button>
-        </div>
-        <p style="font-size:.84rem;color:var(--muted);line-height:1.6;margin:0;">${corpo.replace(/\n/g,'<br>')}</p>
-      `;
-      lista.appendChild(card);
-    });
-
-    resultado.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  function temasCopiarUm(btn) {
-    const texto = btn.dataset.texto;
-    navigator.clipboard.writeText(texto).then(() => {
-      const orig = btn.textContent;
-      btn.textContent = '✅ Copiado!';
-      setTimeout(() => btn.textContent = orig, 1500);
-    });
-  }
-
-  function temasCopiarTodos() {
-    const cards = document.querySelectorAll('#temas-lista [data-texto]');
-    const texto = [...cards].map((b, i) => `--- Tema ${i+1} ---\n` + b.dataset.texto).join('\n\n');
-    navigator.clipboard.writeText(texto).then(() => alert('Todos os temas copiados!'));
-  }
-
-  function temasSalvarTxt() {
-    const cards = document.querySelectorAll('#temas-lista [data-texto]');
-    const texto = [...cards].map((b, i) => `--- Tema ${i+1} ---\n` + b.dataset.texto).join('\n\n');
-    const blob = new Blob([texto], { type: 'text/plain;charset=utf-8' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'temas_redacao.txt';
-    a.click();
-  }
-
-  inicializarBancoRemoto();
-  window.addEventListener('focus', () => {
-    sincronizarBancoRemotoEmSegundoPlano('Verificação ao voltar para a jane
+      const corpo = linhas.slice(1).join('\n').tri
