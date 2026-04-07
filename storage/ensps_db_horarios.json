@@ -1,5 +1,14 @@
 {
-  "scheduleData": {},
+  "scheduleData": {
+    "6ano_0_0": {
+      "subject": "Filosofia",
+      "teacher": "Michael",
+      "color": "#ADD8E6",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": false
+    }
+  },
   "teachersAvailability": {},
   "subjectColors": {
     "Português": "#ADD8E6",
@@ -15,7 +24,7 @@
     "Química": "#ADD8E6",
     "Biologia": "#98FB98",
     "Sociologia": "#FFFACD",
-    "Filosofia": "#FFB6C1",
+    "Filosofia": "#ADD8E6",
     "Física 1": "#E6E6FA",
     "Física 2": "#FFDAB9",
     "Física 3": "#E0FFFF",
