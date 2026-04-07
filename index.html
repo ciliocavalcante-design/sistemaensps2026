@@ -3404,7 +3404,7 @@
       if (!resposta.ok) throw new Error(`Falha ao consultar ${scope} remoto (${resposta.status})`);
 
       const payload = await resposta.json();
-      remotoUltimoSha[scope] = payload.sha || remotoUltimoSha[scope] || '';
+      remotoUltimoSha[scope] = payload.fromLegacy ? '' : (payload.sha || remotoUltimoSha[scope] || '');
 
       return {
         scope,
@@ -8075,6 +8075,3 @@ Separe cada tema com uma linha em branco. Sem markdown, sem bullets extras.`;
     sincronizarBancoRemotoEmSegundoPlano('Verificação periódica entre dispositivos');
   }, 30000);
 
-  </script>
-</body>
-</html>
