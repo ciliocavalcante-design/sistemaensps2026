@@ -14,7 +14,7 @@
       "events": {
         "2026-01-01": [
           {
-            "id": "evt_mnovxk0z_1",
+            "id": "evt_mnf84gdw_1",
             "text": "Feriado: Confraternização Universal",
             "color": "holiday",
             "customColor": null
@@ -22,7 +22,7 @@
         ],
         "2026-04-21": [
           {
-            "id": "evt_mnovxk0z_2",
+            "id": "evt_mnf84gdw_2",
             "text": "Feriado: Tiradentes",
             "color": "holiday",
             "customColor": null
@@ -30,7 +30,7 @@
         ],
         "2026-05-01": [
           {
-            "id": "evt_mnovxk0z_3",
+            "id": "evt_mnf84gdw_3",
             "text": "Feriado: Dia do Trabalho",
             "color": "holiday",
             "customColor": null
@@ -38,7 +38,7 @@
         ],
         "2026-09-07": [
           {
-            "id": "evt_mnovxk0z_4",
+            "id": "evt_mnf84gdw_4",
             "text": "Feriado: Independência do Brasil",
             "color": "holiday",
             "customColor": null
@@ -46,7 +46,7 @@
         ],
         "2026-10-12": [
           {
-            "id": "evt_mnovxk0z_5",
+            "id": "evt_mnf84gdw_5",
             "text": "Feriado: Nossa Senhora Aparecida",
             "color": "holiday",
             "customColor": null
@@ -54,7 +54,7 @@
         ],
         "2026-11-02": [
           {
-            "id": "evt_mnovxk0z_6",
+            "id": "evt_mnf84gdw_6",
             "text": "Feriado: Finados",
             "color": "holiday",
             "customColor": null
@@ -62,7 +62,7 @@
         ],
         "2026-11-15": [
           {
-            "id": "evt_mnovxk0z_7",
+            "id": "evt_mnf84gdw_7",
             "text": "Feriado: Proclamação da República",
             "color": "holiday",
             "customColor": null
@@ -70,7 +70,7 @@
         ],
         "2026-12-25": [
           {
-            "id": "evt_mnovxk0z_8",
+            "id": "evt_mnf84gdw_8",
             "text": "Feriado: Natal",
             "color": "holiday",
             "customColor": null
@@ -78,7 +78,7 @@
         ],
         "2026-02-16": [
           {
-            "id": "evt_mnovxk0z_9",
+            "id": "evt_mnf84gdx_9",
             "text": "Feriado: Carnaval",
             "color": "holiday",
             "customColor": null
@@ -86,7 +86,7 @@
         ],
         "2026-02-17": [
           {
-            "id": "evt_mnovxk10_a",
+            "id": "evt_mnf84gdx_a",
             "text": "Feriado: Carnaval",
             "color": "holiday",
             "customColor": null
@@ -94,7 +94,7 @@
         ],
         "2026-02-18": [
           {
-            "id": "evt_mnovxk10_b",
+            "id": "evt_mnf84gdx_b",
             "text": "Feriado: Quarta-feira de Cinzas",
             "color": "holiday",
             "customColor": null
@@ -102,7 +102,7 @@
         ],
         "2026-04-03": [
           {
-            "id": "evt_mnovxk10_c",
+            "id": "evt_mnf84gdx_c",
             "text": "Feriado: Sexta-feira Santa",
             "color": "holiday",
             "customColor": null
@@ -110,7 +110,7 @@
         ],
         "2026-06-04": [
           {
-            "id": "evt_mnovxk10_d",
+            "id": "evt_mnf84gdx_d",
             "text": "Feriado: Corpus Christi",
             "color": "holiday",
             "customColor": null
@@ -118,7 +118,7 @@
         ],
         "2027-01-01": [
           {
-            "id": "evt_mnovxk10_e",
+            "id": "evt_mnf84gdx_e",
             "text": "Feriado: Confraternização Universal",
             "color": "holiday",
             "customColor": null
@@ -126,7 +126,7 @@
         ],
         "2027-04-21": [
           {
-            "id": "evt_mnovxk10_f",
+            "id": "evt_mnf84gdx_f",
             "text": "Feriado: Tiradentes",
             "color": "holiday",
             "customColor": null
@@ -134,7 +134,7 @@
         ],
         "2027-05-01": [
           {
-            "id": "evt_mnovxk10_g",
+            "id": "evt_mnf84gdx_g",
             "text": "Feriado: Dia do Trabalho",
             "color": "holiday",
             "customColor": null
@@ -142,7 +142,7 @@
         ],
         "2027-09-07": [
           {
-            "id": "evt_mnovxk10_h",
+            "id": "evt_mnf84gdx_h",
             "text": "Feriado: Independência do Brasil",
             "color": "holiday",
             "customColor": null
@@ -150,7 +150,7 @@
         ],
         "2027-10-12": [
           {
-            "id": "evt_mnovxk10_i",
+            "id": "evt_mnf84gdx_i",
             "text": "Feriado: Nossa Senhora Aparecida",
             "color": "holiday",
             "customColor": null
@@ -158,7 +158,7 @@
         ],
         "2027-11-02": [
           {
-            "id": "evt_mnovxk10_j",
+            "id": "evt_mnf84gdx_j",
             "text": "Feriado: Finados",
             "color": "holiday",
             "customColor": null
@@ -166,7 +166,7 @@
         ],
         "2027-11-15": [
           {
-            "id": "evt_mnovxk10_k",
+            "id": "evt_mnf84gdx_k",
             "text": "Feriado: Proclamação da República",
             "color": "holiday",
             "customColor": null
@@ -174,7 +174,7 @@
         ],
         "2027-12-25": [
           {
-            "id": "evt_mnovxk10_l",
+            "id": "evt_mnf84gdx_l",
             "text": "Feriado: Natal",
             "color": "holiday",
             "customColor": null
@@ -182,7 +182,7 @@
         ],
         "2027-02-08": [
           {
-            "id": "evt_mnovxk10_m",
+            "id": "evt_mnf84gdx_m",
             "text": "Feriado: Carnaval",
             "color": "holiday",
             "customColor": null
@@ -190,7 +190,7 @@
         ],
         "2027-02-09": [
           {
-            "id": "evt_mnovxk10_n",
+            "id": "evt_mnf84gdx_n",
             "text": "Feriado: Carnaval",
             "color": "holiday",
             "customColor": null
@@ -198,7 +198,7 @@
         ],
         "2027-02-10": [
           {
-            "id": "evt_mnovxk10_o",
+            "id": "evt_mnf84gdx_o",
             "text": "Feriado: Quarta-feira de Cinzas",
             "color": "holiday",
             "customColor": null
@@ -206,7 +206,7 @@
         ],
         "2027-03-26": [
           {
-            "id": "evt_mnovxk10_p",
+            "id": "evt_mnf84gdx_p",
             "text": "Feriado: Sexta-feira Santa",
             "color": "holiday",
             "customColor": null
@@ -214,7 +214,7 @@
         ],
         "2027-05-27": [
           {
-            "id": "evt_mnovxk10_q",
+            "id": "evt_mnf84gdx_q",
             "text": "Feriado: Corpus Christi",
             "color": "holiday",
             "customColor": null
@@ -232,7 +232,7 @@
           "reminderText": "",
           "reminderDate": "",
           "createdAt": "2026-03-26T17:55:10.180Z",
-          "updatedAt": "2026-04-07T17:57:42.397Z"
+          "updatedAt": "2026-04-07T17:59:34.415Z"
         }
       ],
       "settings": {
