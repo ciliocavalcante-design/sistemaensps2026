@@ -1,1550 +1,513 @@
 {
-  "scheduleData": {
-    "6ano_0_0": {
-      "subject": "Ciências",
-      "teacher": "Elayne",
-      "color": "#68f872",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_0_1": {
-      "subject": "LPT",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_0_2": {
-      "subject": "Avaliação",
-      "teacher": "",
-      "color": "#e6e6e6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_0_3": {
-      "subject": "Gramática",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_0_4": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_1_0": {
-      "subject": "Ciências",
-      "teacher": "Elayne",
-      "color": "#68f872",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_1_1": {
-      "subject": "LPT",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_1_2": {
-      "subject": "Avaliação",
-      "teacher": "",
-      "color": "#e6e6e6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_1_3": {
-      "subject": "Gramática",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_1_4": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_3_0": {
-      "subject": "Inglês",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_3_1": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_3_2": {
-      "subject": "Geografia",
-      "teacher": "Silânia",
-      "color": "#7afdff",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_3_3": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_3_4": {
-      "subject": "Geografia",
-      "teacher": "Silânia",
-      "color": "#7afdff",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_4_0": {
-      "subject": "Inglês",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_4_1": {
-      "subject": "Filosofia",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_4_2": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_4_3": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_4_4": {
-      "subject": "Ciências",
-      "teacher": "Elayne",
-      "color": "#68f872",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_5_0": {
-      "subject": "Ed. Física M.",
-      "teacher": "Bruno",
-      "color": "#ae2929",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_5_1": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_5_2": {
-      "subject": "Ed. Física F.",
-      "teacher": "Bruno",
-      "color": "#ae2929",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "6ano_5_3": {
-      "subject": "Paradidat.",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_0_0": {
-      "subject": "Paradidat.",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_0_1": {
-      "subject": "Inglês",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_0_2": {
-      "subject": "Avaliação",
-      "teacher": "",
-      "color": "#e6e6e6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_0_3": {
-      "subject": "Inglês",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_0_4": {
-      "subject": "Geografia",
-      "teacher": "Silânia",
-      "color": "#7afdff",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_1_0": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_1_1": {
-      "subject": "Filosofia",
-      "teacher": "Fabíola",
-      "color": "#FFB6C1",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_1_2": {
-      "subject": "Avaliação",
-      "teacher": "",
-      "color": "#e6e6e6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_1_3": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_1_4": {
-      "subject": "Geografia",
-      "teacher": "Silânia",
-      "color": "#7afdff",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_3_0": {
-      "subject": "Ciências",
-      "teacher": "Elayne",
-      "color": "#68f872",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_3_1": {
-      "subject": "Gramática",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_3_2": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_3_3": {
-      "subject": "LPT",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_3_4": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_4_0": {
-      "subject": "Ciências",
-      "teacher": "Elayne",
-      "color": "#68f872",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_4_1": {
-      "subject": "Gramática",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_4_2": {
-      "subject": "Ciências",
-      "teacher": "Elayne",
-      "color": "#68f872",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_4_3": {
-      "subject": "LPT",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_4_4": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_5_0": {
-      "subject": "Ed. Física M.",
-      "teacher": "Bruno",
-      "color": "#ae2929",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_5_2": {
-      "subject": "Ed. Física F.",
-      "teacher": "Bruno",
-      "color": "#ae2929",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_5_3": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "7ano_5_4": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_0_0": {
-      "subject": "LPT",
-      "teacher": "Thayna",
-      "color": "#ffebeb",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_0_1": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_0_2": {
-      "subject": "Avaliação",
-      "teacher": "",
-      "color": "#e6e6e6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_0_3": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_0_4": {
-      "subject": "Ciências",
-      "teacher": "Elayne",
-      "color": "#68f872",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_1_0": {
-      "subject": "LPT",
-      "teacher": "Thayna",
-      "color": "#ffebeb",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_1_1": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_1_2": {
-      "subject": "Avaliação",
-      "teacher": "",
-      "color": "#e6e6e6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_1_3": {
-      "subject": "Inglês",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_1_4": {
-      "subject": "Ciências",
-      "teacher": "Elayne",
-      "color": "#68f872",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_3_0": {
-      "subject": "Gramática",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_3_1": {
-      "subject": "Filosofia",
-      "teacher": "Fabíola",
-      "color": "#FFB6C1",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_3_2": {
-      "subject": "Ciências",
-      "teacher": "Elayne",
-      "color": "#68f872",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_3_3": {
-      "subject": "Inglês",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_3_4": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_4_0": {
-      "subject": "Gramática",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_4_1": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffc561",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_4_2": {
-      "subject": "Paradidat.",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_4_3": {
-      "subject": "Geografia",
-      "teacher": "Silânia",
-      "color": "#7afdff",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_4_4": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_5_0": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_5_1": {
-      "subject": "Ed. Física",
-      "teacher": "Bruno",
-      "color": "#ae2929",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "8ano_5_2": {
-      "subject": "Geografia",
-      "teacher": "Silânia",
-      "color": "#7afdff",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_0_0": {
-      "subject": "Matemática",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_0_1": {
-      "subject": "Química",
-      "teacher": "Elayne",
-      "color": "#68f872",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_0_2": {
-      "subject": "Avaliação",
-      "teacher": "",
-      "color": "#e6e6e6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_0_3": {
-      "subject": "Matemática",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_0_4": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_1_0": {
-      "subject": "Paradidat.",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_1_1": {
-      "subject": "Inglês",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_1_2": {
-      "subject": "Avaliação",
-      "teacher": "",
-      "color": "#e6e6e6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_1_3": {
-      "subject": "Matemática",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_1_4": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_3_0": {
-      "subject": "LPT",
-      "teacher": "Thayna",
-      "color": "#ffebeb",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_3_1": {
-      "subject": "Física",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_3_2": {
-      "subject": "Gramática",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_3_3": {
-      "subject": "Física",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_3_4": {
-      "subject": "Química",
-      "teacher": "Elayne",
-      "color": "#68f872",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_4_0": {
-      "subject": "LPT",
-      "teacher": "Thayna",
-      "color": "#ffebeb",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_4_1": {
-      "subject": "Filosofia",
-      "teacher": "Fabíola",
-      "color": "#FFB6C1",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_4_2": {
-      "subject": "Biologia",
-      "teacher": "Silânia",
-      "color": "#7afdff",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_4_3": {
-      "subject": "Inglês",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_4_4": {
-      "subject": "Geografia",
-      "teacher": "Silânia",
-      "color": "#7afdff",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_5_0": {
-      "subject": "Biologia",
-      "teacher": "Silânia",
-      "color": "#7afdff",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_5_1": {
-      "subject": "Matemática",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_5_2": {
-      "subject": "Gramática",
-      "teacher": "Márcia",
-      "color": "#FFFACD",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_5_3": {
-      "subject": "Ed. Física",
-      "teacher": "Bruno",
-      "color": "#ae2929",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_5_4": {
-      "subject": "Geografia",
-      "teacher": "Silânia",
-      "color": "#7afdff",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_7_1": {
-      "subject": "Matemática",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_0_0": {
-      "subject": "Biologia",
-      "teacher": "Isadora",
-      "color": "#2c8faf",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_0_1": {
-      "subject": "Gramática",
-      "teacher": "Jordan",
-      "color": "#E6E6FA",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_0_2": {
-      "subject": "Geografia",
-      "teacher": "Rafaely",
-      "color": "#E0FFFF",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_0_3": {
-      "subject": "Biologia",
-      "teacher": "Isadora",
-      "color": "#2c8faf",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_0_4": {
-      "subject": "Mat. Fundam.",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_1_0": {
-      "subject": "Redação",
-      "teacher": "Ravena",
-      "color": "#ffe9d6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_1_1": {
-      "subject": "Gramática",
-      "teacher": "Jordan",
-      "color": "#E6E6FA",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_1_2": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_1_3": {
-      "subject": "Sociologia",
-      "teacher": "Fabíola",
-      "color": "#FFB6C1",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_1_4": {
-      "subject": "Trilha Mat.",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_2_0": {
-      "subject": "Prat Prod Txt",
-      "teacher": "Ravena",
-      "color": "#ffe9d6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_2_1": {
-      "subject": "Matemática",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_2_2": {
-      "subject": "Matemática",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_2_3": {
-      "subject": "Biologia",
-      "teacher": "Isadora",
-      "color": "#2c8faf",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_2_4": {
-      "subject": "Física",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_3_0": {
-      "subject": "Biologia",
-      "teacher": "Isadora",
-      "color": "#2c8faf",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_3_1": {
-      "subject": "Matemática",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_3_2": {
-      "subject": "Matemática",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_3_3": {
-      "subject": "Filosofia",
-      "teacher": "Fabíola",
-      "color": "#FFB6C1",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_3_4": {
-      "subject": "Geografia",
-      "teacher": "Rafaely",
-      "color": "#E0FFFF",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_5_0": {
-      "subject": "Física",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_5_1": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_5_2": {
-      "subject": "Inglês",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_5_3": {
-      "subject": "Interpret",
-      "teacher": "Thamyres",
-      "color": "#218735",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_5_4": {
-      "subject": "Física",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_6_0": {
-      "subject": "Literatura",
-      "teacher": "Thayna",
-      "color": "#ffebeb",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_6_1": {
-      "subject": "Química",
-      "teacher": "Amanda",
-      "color": "#FA8072",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_6_2": {
-      "subject": "Química",
-      "teacher": "Amanda",
-      "color": "#FA8072",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_6_3": {
-      "subject": "Interpret",
-      "teacher": "Thamyres",
-      "color": "#218735",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_6_4": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_7_1": {
-      "subject": "Química",
-      "teacher": "Amanda",
-      "color": "#FA8072",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_0_0": {
-      "subject": "Redação",
-      "teacher": "Ravena",
-      "color": "#ffe9d6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_0_2": {
-      "subject": "Trilha L.C.",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_0_3": {
-      "subject": "Proj. de Vida",
-      "teacher": "Fabíola",
-      "color": "#FFB6C1",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_0_4": {
-      "subject": "Geografia",
-      "teacher": "Rafaely",
-      "color": "#E0FFFF",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_1_0": {
-      "subject": "Física",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_1_1": {
-      "subject": "Química",
-      "teacher": "Amanda",
-      "color": "#FA8072",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_1_2": {
-      "subject": "Trilha L.C.",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_1_3": {
-      "subject": "Interpret",
-      "teacher": "Thamyres",
-      "color": "#218735",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_1_4": {
-      "subject": "Física",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_2_0": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_2_1": {
-      "subject": "Gramática",
-      "teacher": "Jordan",
-      "color": "#E6E6FA",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_2_2": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_2_3": {
-      "subject": "Filosofia",
-      "teacher": "Fabíola",
-      "color": "#FFB6C1",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_2_4": {
-      "subject": "Matemática",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_3_0": {
-      "subject": "Prat Prod Txt",
-      "teacher": "Ravena",
-      "color": "#ffe9d6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_3_1": {
-      "subject": "Gramática",
-      "teacher": "Jordan",
-      "color": "#E6E6FA",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_3_2": {
-      "subject": "Inglês",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_3_3": {
-      "subject": "Literatura",
-      "teacher": "Thamyres",
-      "color": "#218735",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_3_4": {
-      "subject": "Matemática",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_5_0": {
-      "subject": "Biologia",
-      "teacher": "Isadora",
-      "color": "#2c8faf",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_5_1": {
-      "subject": "Química",
-      "teacher": "Amanda",
-      "color": "#FA8072",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_5_2": {
-      "subject": "Matemática",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_5_3": {
-      "subject": "Biologia",
-      "teacher": "Isadora",
-      "color": "#2c8faf",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_5_4": {
-      "subject": "Geografia",
-      "teacher": "Rafaely",
-      "color": "#E0FFFF",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_6_0": {
-      "subject": "Biologia",
-      "teacher": "Isadora",
-      "color": "#2c8faf",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_6_1": {
-      "subject": "Sociologia",
-      "teacher": "Fabíola",
-      "color": "#FFB6C1",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_6_2": {
-      "subject": "Matemática",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_6_3": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_6_4": {
-      "subject": "Física",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_7_3": {
-      "subject": "Ed. Física",
-      "teacher": "Bruno",
-      "color": "#ae2929",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_0_0": {
-      "subject": "História 2",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_0_1": {
-      "subject": "Matemática 1",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_0_2": {
-      "subject": "Trilha Quím",
-      "teacher": "Amanda",
-      "color": "#FA8072",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_0_3": {
-      "subject": "Literatura",
-      "teacher": "Thamyres",
-      "color": "#218735",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_0_4": {
-      "subject": "Física 3",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_1_0": {
-      "subject": "Biologia 1",
-      "teacher": "Isadora",
-      "color": "#2c8faf",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_1_1": {
-      "subject": "Matemática 2",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_1_2": {
-      "subject": "Matemática 3",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_1_3": {
-      "subject": "Biologia 3",
-      "teacher": "Isadora",
-      "color": "#2c8faf",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_1_4": {
-      "subject": "Geografia 1",
-      "teacher": "Rafaely",
-      "color": "#E0FFFF",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_2_0": {
-      "subject": "Biologia 2",
-      "teacher": "Isadora",
-      "color": "#2c8faf",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_2_1": {
-      "subject": "Química 1",
-      "teacher": "Amanda",
-      "color": "#FA8072",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_2_2": {
-      "subject": "Inglês",
-      "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_2_3": {
-      "subject": "Interpret",
-      "teacher": "Thamyres",
-      "color": "#218735",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_2_4": {
-      "subject": "Geografia 2",
-      "teacher": "Rafaely",
-      "color": "#E0FFFF",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_3_0": {
-      "subject": "Trilha Geo",
-      "teacher": "Silânia",
-      "color": "#7afdff",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_3_1": {
-      "subject": "Química 2",
-      "teacher": "Amanda",
-      "color": "#FA8072",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_3_2": {
-      "subject": "História 1",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_3_3": {
-      "subject": "Trilha Biol.",
-      "teacher": "Isadora",
-      "color": "#2c8faf",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_3_4": {
-      "subject": "Trilha Física",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_5_0": {
-      "subject": "Redação",
-      "teacher": "Ravena",
-      "color": "#ffe9d6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_5_1": {
-      "subject": "Gramática",
-      "teacher": "Jordan",
-      "color": "#E6E6FA",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_5_2": {
-      "subject": "Química 3",
-      "teacher": "Amanda",
-      "color": "#FA8072",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_5_3": {
-      "subject": "Física 1",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_5_4": {
-      "subject": "Matemática 4",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_6_0": {
-      "subject": "Redação",
-      "teacher": "Ravena",
-      "color": "#ffe9d6",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_6_1": {
-      "subject": "Gramática",
-      "teacher": "Jordan",
-      "color": "#E6E6FA",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_6_2": {
-      "subject": "História 1",
-      "teacher": "Alexandre",
-      "color": "#d5fbd5",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_6_3": {
-      "subject": "Filosofia",
-      "teacher": "Fabíola",
-      "color": "#FFB6C1",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_6_4": {
-      "subject": "Matemática 5",
-      "teacher": "Diogo",
-      "color": "#fff261",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_7_0": {
-      "subject": "Física 2",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "3em_7_1": {
-      "subject": "Sociologia",
-      "teacher": "Fabíola",
-      "color": "#FFB6C1",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "1em_7_3": {
-      "subject": "Ed. Física",
-      "teacher": "Bruno",
-      "color": "#ae2929",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "2em_0_1": {
-      "subject": "Química",
-      "teacher": "Amanda",
-      "color": "#FA8072",
-      "fontColor": "#000000",
-      "fontSize": 15,
-      "allCaps": true
-    },
-    "9ano_6_1": {
-      "subject": "Matemática",
-      "teacher": "Helly",
-      "color": "#ea4879",
-      "fontColor": "#ffffff",
-      "fontSize": 15,
-      "allCaps": true
+  "scheduleData": {},
+  "teachersAvailability": {},
+  "subjectColors": {},
+  "recentCustomColors": [],
+  "classTeachingDatabase": {
+    "6ano": {
+      "Português": {
+        "teacher": "",
+        "weeklyLessons": 5,
+        "candidateTeachers": []
+      },
+      "Matemática": {
+        "teacher": "Diogo",
+        "weeklyLessons": 4,
+        "candidateTeachers": [
+          "Diogo",
+          "Eduardo",
+          "Helly"
+        ]
+      },
+      "História": {
+        "teacher": "Alexandre",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Alexandre"
+        ]
+      },
+      "Geografia": {
+        "teacher": "Rafaely",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Rafaely",
+          "Silânia"
+        ]
+      },
+      "Ciências": {
+        "teacher": "Elayne",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Elayne"
+        ]
+      },
+      "Inglês": {
+        "teacher": "Michael",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Michael"
+        ]
+      },
+      "Ed. Física": {
+        "teacher": "Bruno",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Bruno"
+        ]
+      },
+      "Artes": {
+        "teacher": "",
+        "weeklyLessons": 2,
+        "candidateTeachers": []
+      },
+      "Religião": {
+        "teacher": "",
+        "weeklyLessons": 1,
+        "candidateTeachers": []
+      }
+    },
+    "7ano": {
+      "Português": {
+        "teacher": "",
+        "weeklyLessons": 5,
+        "candidateTeachers": []
+      },
+      "Matemática": {
+        "teacher": "Diogo",
+        "weeklyLessons": 4,
+        "candidateTeachers": [
+          "Diogo",
+          "Eduardo",
+          "Helly"
+        ]
+      },
+      "História": {
+        "teacher": "Alexandre",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Alexandre"
+        ]
+      },
+      "Geografia": {
+        "teacher": "Rafaely",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Rafaely",
+          "Silânia"
+        ]
+      },
+      "Ciências": {
+        "teacher": "Elayne",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Elayne"
+        ]
+      },
+      "Inglês": {
+        "teacher": "Michael",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Michael"
+        ]
+      },
+      "Ed. Física": {
+        "teacher": "Bruno",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Bruno"
+        ]
+      },
+      "Artes": {
+        "teacher": "",
+        "weeklyLessons": 2,
+        "candidateTeachers": []
+      },
+      "Religião": {
+        "teacher": "",
+        "weeklyLessons": 1,
+        "candidateTeachers": []
+      }
+    },
+    "8ano": {
+      "Português": {
+        "teacher": "",
+        "weeklyLessons": 5,
+        "candidateTeachers": []
+      },
+      "Matemática": {
+        "teacher": "Diogo",
+        "weeklyLessons": 4,
+        "candidateTeachers": [
+          "Diogo",
+          "Eduardo",
+          "Helly"
+        ]
+      },
+      "História": {
+        "teacher": "Alexandre",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Alexandre"
+        ]
+      },
+      "Geografia": {
+        "teacher": "Rafaely",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Rafaely",
+          "Silânia"
+        ]
+      },
+      "Ciências": {
+        "teacher": "Elayne",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Elayne"
+        ]
+      },
+      "Inglês": {
+        "teacher": "Michael",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Michael"
+        ]
+      },
+      "Ed. Física": {
+        "teacher": "Bruno",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Bruno"
+        ]
+      },
+      "Artes": {
+        "teacher": "",
+        "weeklyLessons": 2,
+        "candidateTeachers": []
+      },
+      "Religião": {
+        "teacher": "",
+        "weeklyLessons": 1,
+        "candidateTeachers": []
+      }
+    },
+    "9ano": {
+      "Português": {
+        "teacher": "",
+        "weeklyLessons": 5,
+        "candidateTeachers": []
+      },
+      "Matemática": {
+        "teacher": "Diogo",
+        "weeklyLessons": 4,
+        "candidateTeachers": [
+          "Diogo",
+          "Eduardo",
+          "Helly"
+        ]
+      },
+      "História": {
+        "teacher": "Alexandre",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Alexandre"
+        ]
+      },
+      "Geografia": {
+        "teacher": "Rafaely",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Rafaely",
+          "Silânia"
+        ]
+      },
+      "Ciências": {
+        "teacher": "Elayne",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Elayne"
+        ]
+      },
+      "Inglês": {
+        "teacher": "Michael",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Michael"
+        ]
+      },
+      "Ed. Física": {
+        "teacher": "Bruno",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Bruno"
+        ]
+      },
+      "Artes": {
+        "teacher": "",
+        "weeklyLessons": 2,
+        "candidateTeachers": []
+      },
+      "Religião": {
+        "teacher": "",
+        "weeklyLessons": 1,
+        "candidateTeachers": []
+      }
+    },
+    "1em": {
+      "Português": {
+        "teacher": "",
+        "weeklyLessons": 4,
+        "candidateTeachers": []
+      },
+      "Matemática": {
+        "teacher": "Diogo",
+        "weeklyLessons": 4,
+        "candidateTeachers": [
+          "Diogo",
+          "Eduardo",
+          "Helly"
+        ]
+      },
+      "Física": {
+        "teacher": "Helly",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Helly"
+        ]
+      },
+      "Química": {
+        "teacher": "Amanda",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Amanda",
+          "Elayne"
+        ]
+      },
+      "Biologia": {
+        "teacher": "Isadora",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Isadora",
+          "Silânia"
+        ]
+      },
+      "História": {
+        "teacher": "Alexandre",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Alexandre"
+        ]
+      },
+      "Geografia": {
+        "teacher": "Rafaely",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Rafaely",
+          "Silânia"
+        ]
+      },
+      "Sociologia": {
+        "teacher": "Fabíola",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Fabíola"
+        ]
+      },
+      "Filosofia": {
+        "teacher": "Fabíola",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Fabíola",
+          "Michael"
+        ]
+      },
+      "Inglês": {
+        "teacher": "Michael",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Michael"
+        ]
+      },
+      "Ed. Física": {
+        "teacher": "Bruno",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Bruno"
+        ]
+      }
+    },
+    "2em": {
+      "Português": {
+        "teacher": "",
+        "weeklyLessons": 4,
+        "candidateTeachers": []
+      },
+      "Matemática": {
+        "teacher": "Diogo",
+        "weeklyLessons": 4,
+        "candidateTeachers": [
+          "Diogo",
+          "Eduardo",
+          "Helly"
+        ]
+      },
+      "Física": {
+        "teacher": "Helly",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Helly"
+        ]
+      },
+      "Química": {
+        "teacher": "Amanda",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Amanda",
+          "Elayne"
+        ]
+      },
+      "Biologia": {
+        "teacher": "Isadora",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Isadora",
+          "Silânia"
+        ]
+      },
+      "História": {
+        "teacher": "Alexandre",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Alexandre"
+        ]
+      },
+      "Geografia": {
+        "teacher": "Rafaely",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Rafaely",
+          "Silânia"
+        ]
+      },
+      "Sociologia": {
+        "teacher": "Fabíola",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Fabíola"
+        ]
+      },
+      "Filosofia": {
+        "teacher": "Fabíola",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Fabíola",
+          "Michael"
+        ]
+      },
+      "Inglês": {
+        "teacher": "Michael",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Michael"
+        ]
+      },
+      "Ed. Física": {
+        "teacher": "Bruno",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Bruno"
+        ]
+      }
+    },
+    "3em": {
+      "Português": {
+        "teacher": "",
+        "weeklyLessons": 4,
+        "candidateTeachers": []
+      },
+      "Matemática": {
+        "teacher": "Diogo",
+        "weeklyLessons": 4,
+        "candidateTeachers": [
+          "Diogo",
+          "Eduardo",
+          "Helly"
+        ]
+      },
+      "Física": {
+        "teacher": "Helly",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Helly"
+        ]
+      },
+      "Química": {
+        "teacher": "Amanda",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Amanda",
+          "Elayne"
+        ]
+      },
+      "Biologia": {
+        "teacher": "Isadora",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Isadora",
+          "Silânia"
+        ]
+      },
+      "História": {
+        "teacher": "Alexandre",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Alexandre"
+        ]
+      },
+      "Geografia": {
+        "teacher": "Rafaely",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Rafaely",
+          "Silânia"
+        ]
+      },
+      "Sociologia": {
+        "teacher": "Fabíola",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Fabíola"
+        ]
+      },
+      "Filosofia": {
+        "teacher": "Fabíola",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Fabíola",
+          "Michael"
+        ]
+      },
+      "Inglês": {
+        "teacher": "Michael",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Michael"
+        ]
+      },
+      "Ed. Física": {
+        "teacher": "Bruno",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Bruno"
+        ]
+      }
     }
   },
-  "importedAt": "2026-04-07",
-  "sourceFile": "horarios_escolares (6).json"
+  "currentGridLineColor": "#000000",
+  "currentGridFrameEnabled": false,
+  "currentIntervalColor": "#ffc107",
+  "currentIntervalFontColor": "#000000",
+  "currentIntervalText": "",
+  "currentHeaderBarColor": "#667eea",
+  "currentHeaderBarFontColor": "#ffffff",
+  "currentTheme": "light"
 }
