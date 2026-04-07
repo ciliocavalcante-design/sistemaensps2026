@@ -1,5 +1,14 @@
 {
-  "scheduleData": {},
+  "scheduleData": {
+    "6ano_0_0": {
+      "subject": "Ciências",
+      "teacher": "Elayne",
+      "color": "#98FB98",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": false
+    }
+  },
   "teachersAvailability": {},
   "subjectColors": {
     "Português": "#ADD8E6",
