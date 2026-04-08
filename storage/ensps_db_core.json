@@ -399,6 +399,48 @@
       "data": "2026-02-11",
       "status": "segunda-chamada",
       "justificativa": ""
+    },
+    {
+      "id": 1775645119268,
+      "aluno": "EMILY SOUSA BRAGA",
+      "data": "2026-02-25",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645142497,
+      "aluno": "PAULO VICTOR CUSTODIO DE OLIVEIRA",
+      "data": "2026-02-25",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645147130,
+      "aluno": "ALEXIA MARIA SOUSA",
+      "data": "2026-02-25",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645150333,
+      "aluno": "EDUARDO HERBERTE CORREIA DE ALENCAR",
+      "data": "2026-02-25",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645156544,
+      "aluno": "JOAO LEVI MESQUITA ROCHA",
+      "data": "2026-02-25",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645160994,
+      "aluno": "LUCAS GABRIEL BRITO DE MOURA",
+      "data": "2026-02-25",
+      "status": "segunda-chamada",
+      "justificativa": ""
     }
   ],
   "advertencias": [
