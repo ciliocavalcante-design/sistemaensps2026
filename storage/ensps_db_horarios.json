@@ -2584,11 +2584,11 @@
     }
   },
   "currentGridLineColor": "#000000",
-  "currentGridFrameEnabled": false,
-  "currentIntervalColor": "#ffc107",
-  "currentIntervalFontColor": "#000000",
+  "currentGridFrameEnabled": true,
+  "currentIntervalColor": "#000770",
+  "currentIntervalFontColor": "#ffffff",
   "currentIntervalText": "",
-  "currentHeaderBarColor": "#667eea",
+  "currentHeaderBarColor": "#000770",
   "currentHeaderBarFontColor": "#ffffff",
   "currentTheme": "light"
 }
