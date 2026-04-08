@@ -93,13 +93,6 @@
       "justificativa": ""
     },
     {
-      "id": 1775644915478,
-      "aluno": "JOAO LUCAS MAIA ARAGAO",
-      "data": "2026-02-04",
-      "status": "segunda-chamada",
-      "justificativa": ""
-    },
-    {
       "id": 1775644924498,
       "aluno": "YASMIN SOUZA BARROS",
       "data": "2026-02-04",
@@ -1230,6 +1223,20 @@
       "id": 1775653995186,
       "aluno": "JOAO LUCAS MAIA ARAGAO",
       "data": "2026-03-11",
+      "status": "presente",
+      "justificativa": ""
+    },
+    {
+      "id": 1775654097816,
+      "aluno": "JOAO LUCAS CAETANO CISNE",
+      "data": "2026-02-04",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775654099016,
+      "aluno": "JOAO LUCAS MAIA ARAGAO",
+      "data": "2026-02-04",
       "status": "presente",
       "justificativa": ""
     }
