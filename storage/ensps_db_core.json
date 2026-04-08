@@ -177,20 +177,6 @@
       "justificativa": ""
     },
     {
-      "id": 1775644992045,
-      "aluno": "JOAO LUCAS MAIA ARAGAO",
-      "data": "2026-02-11",
-      "status": "segunda-chamada",
-      "justificativa": ""
-    },
-    {
-      "id": 1775644993485,
-      "aluno": "JOAO LUCAS CAETANO CISNE",
-      "data": "2026-02-11",
-      "status": "presente",
-      "justificativa": ""
-    },
-    {
       "id": 1775644999604,
       "aluno": "LAIS MONTE DAVID CERQUEIRA",
       "data": "2026-02-11",
@@ -1237,6 +1223,20 @@
       "id": 1775654099016,
       "aluno": "JOAO LUCAS MAIA ARAGAO",
       "data": "2026-02-04",
+      "status": "presente",
+      "justificativa": ""
+    },
+    {
+      "id": 1775654119717,
+      "aluno": "JOAO LUCAS CAETANO CISNE",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775654120466,
+      "aluno": "JOAO LUCAS MAIA ARAGAO",
+      "data": "2026-02-11",
       "status": "presente",
       "justificativa": ""
     }
