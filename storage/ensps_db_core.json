@@ -4547,6 +4547,27 @@
       "usaLinhasAssinatura": false,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775657406365,
+      "aluno": "LORENA DOMINGOS DE OLIVEIRA",
+      "matricula": "2020050",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-08",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito",
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).\nO(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.",
+      "responsavel": "",
+      "usaLinhasAssinatura": false,
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
