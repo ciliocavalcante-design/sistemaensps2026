@@ -397,9 +397,11 @@
     .kv strong { display: inline-block; min-width: 160px; }
     .section-title { margin: 12px 0 4px; font-weight: 700; text-transform: uppercase; color: #000; font-size: .85rem; }
     .signs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
-    .signs .sign-slot { min-height: 112px; display:flex; flex-direction:column; justify-content:flex-end; }
-    .signs .signature-image { display:block; max-width: 230px; max-height: 92px; width:auto; height:auto; object-fit: contain; margin: 0 auto 14px; }
-    .signs .line { border-top: 1px solid #000; margin-top: 62px; padding-top: 5px; text-align: center; font-size: .82rem; color: #000; }
+    .signs .sign-slot { min-height: 118px; display:flex; flex-direction:column; justify-content:flex-end; }
+    .signs .signature-image { display:block; width:auto; height:auto; object-fit: contain; margin: 0 auto 0; }
+    .signs .signature-image-adv { max-width: 270px; max-height: 112px; }
+    .signs .signature-image-rel { max-width: 215px; max-height: 86px; }
+    .signs .line { border-top: 1px solid #000; margin-top: 4px; padding-top: 5px; text-align: center; font-size: .82rem; color: #000; }
     .endereco-fixo { font-size: .88rem; color: #333; margin-bottom: 3px; }
     .motivos-pre { font-family: Consolas,'Courier New',monospace; font-size: 1em; margin: 4px 0 0; color: #000; }
     .motivo-sugerir { font-size: .76rem; color: var(--brand); background: var(--brand-dim); padding: 3px 9px; border-radius: 7px; margin-left: 6px; border: 0; cursor: pointer; }
@@ -5026,7 +5028,7 @@ Senha temporária: ensps2026`;
       const exibirLinhasAssinatura = !!(document.getElementById("mostrarAssinaturas") && document.getElementById("mostrarAssinaturas").checked);
       const exibirAssinaturaAdvertencia = !!(document.getElementById("mostrarAssinaturaAdvertencia") && document.getElementById("mostrarAssinaturaAdvertencia").checked);
       const assinaturaAdvertenciaHtml = exibirAssinaturaAdvertencia
-        ? `<img class="signature-image" src="${assinaturaAdvertenciaUrl}" alt="Assinatura da advertência">`
+        ? `<img class="signature-image signature-image-adv" src="${assinaturaAdvertenciaUrl}" alt="Assinatura da advertência">`
         : "";
 
       div.innerHTML=
@@ -5615,7 +5617,7 @@ Senha temporária: ensps2026`;
       const escola = "ESCOLA NOSSA SENHORA DO PERPÉTUO SOCORRO";
       const exibirAssinaturaRelatorio = !!(document.getElementById('mostrarAssinaturaRelatorio') && document.getElementById('mostrarAssinaturaRelatorio').checked);
       const assinaturaRelatorioHtml = exibirAssinaturaRelatorio
-        ? `<img class="signature-image" src="${assinaturaRelatorioUrl}" alt="Assinatura do relatório">`
+        ? `<img class="signature-image signature-image-rel" src="${assinaturaRelatorioUrl}" alt="Assinatura do relatório">`
         : '';
 
       const respostas = [];
