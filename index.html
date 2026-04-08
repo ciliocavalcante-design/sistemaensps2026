@@ -2427,6 +2427,7 @@
                   <th>Data</th>
                   <th>Quantidade</th>
                   <th>Alunos / Status</th>
+                  <th>Boletim</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -3944,6 +3945,36 @@
         .sort((a,b) => new Date(b.data) - new Date(a.data));
     }
 
+    function eventoBoletimEhRelevante(texto = ''){
+      return /(avali|prova|simulad|recupera|2ª chamada|segunda chamada|teste|trabalho|semin[aá]rio)/i.test(String(texto));
+    }
+
+    function obterEventosBoletimNaData(dateKey){
+      const boletimDb = obterBancoBoletim();
+      if(!boletimDb || !Array.isArray(boletimDb.calendars)) return [];
+
+      const calendarios = boletimDb.calendars;
+      const ativo = calendarios.find(calendar => calendar.id === boletimDb.activeCalendarId);
+      const listaBase = ativo ? [ativo, ...calendarios.filter(calendar => calendar.id !== ativo.id)] : calendarios;
+
+      const eventos = [];
+      listaBase.forEach(calendar => {
+        const dayEvents = Array.isArray(calendar?.events?.[dateKey]) ? calendar.events[dateKey] : [];
+        dayEvents.forEach(eventObj => {
+          const texto = typeof eventObj?.text === 'string' ? eventObj.text.trim() : '';
+          if(!texto) return;
+          if(eventObj?.color === 'holiday') return;
+          if(eventObj?.color === 'non-school-day') return;
+          if(/dia n[aã]o letivo/i.test(texto)) return;
+          eventos.push(texto);
+        });
+      });
+
+      const unicos = [...new Set(eventos)];
+      const relevantes = unicos.filter(eventoBoletimEhRelevante);
+      return relevantes.length ? relevantes : unicos;
+    }
+
     function renderTabelaSegundaChamadaPorDia(){
       const tbody = document.querySelector('#tabelaSegundaChamadaPorDia tbody');
       if(!tbody) return;
@@ -3952,7 +3983,7 @@
       tbody.innerHTML = '';
 
       if(!registrosPorDia.length){
-        tbody.innerHTML = '<tr><td colspan="3" style="text-align:center" class="muted">Nenhum registro de falta ou 2ª chamada ainda</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center" class="muted">Nenhum registro de falta ou 2ª chamada ainda</td></tr>';
         return;
       }
 
@@ -3974,15 +4005,17 @@
 
       Object.keys(gruposPorSerie).sort().forEach(serie => {
         const trSerie = document.createElement('tr');
-        trSerie.innerHTML = `<td colspan="3" style="background:var(--surface);font-weight:700;color:var(--ink);">${serie}</td>`;
+        trSerie.innerHTML = `<td colspan="4" style="background:var(--surface);font-weight:700;color:var(--ink);">${serie}</td>`;
         tbody.appendChild(trSerie);
 
         gruposPorSerie[serie].forEach(item => {
+          const eventosBoletim = obterEventosBoletimNaData(item.data);
           const tr = document.createElement('tr');
           tr.innerHTML = `
             <td>${fmtData(item.data)}</td>
             <td><span class="badge badge-segunda-chamada">${item.total}</span></td>
             <td>${item.alunosTexto}</td>
+            <td>${eventosBoletim.length ? eventosBoletim.join('; ') : '—'}</td>
           `;
           tbody.appendChild(tr);
         });
