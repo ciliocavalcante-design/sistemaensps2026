@@ -1393,6 +1393,27 @@
       "data": "2026-03-03",
       "status": "segunda-chamada",
       "justificativa": ""
+    },
+    {
+      "id": 1775662974412,
+      "aluno": "ANA LIVIA NASCIMENTO FEITOSA",
+      "data": "2026-04-06",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775662982120,
+      "aluno": "JOSE THALYS FRAGA OLIVEIRA",
+      "data": "2026-04-06",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775662984072,
+      "aluno": "MAILY EVELY DOS SANTOS RIBEIRO",
+      "data": "2026-04-06",
+      "status": "segunda-chamada",
+      "justificativa": ""
     }
   ],
   "advertencias": [
