@@ -4936,7 +4936,8 @@
       },
       "Prof. Amanda": {
         "Roteiros-1ª Etapa": true,
-        "Avaliações Parciais-1ª Etapa": true
+        "Avaliações Parciais-1ª Etapa": true,
+        "Avaliações Bimestrais-1ª Etapa": true
       },
       "Prof. Michael": {
         "Roteiros-1ª Etapa": true,
@@ -4961,7 +4962,8 @@
       },
       "Prof. Elayne": {
         "Roteiros-1ª Etapa": true,
-        "Avaliações Parciais-1ª Etapa": true
+        "Avaliações Parciais-1ª Etapa": true,
+        "Avaliações Bimestrais-1ª Etapa": true
       },
       "Prof. Jordan": {
         "Roteiros-1ª Etapa": true,
@@ -4992,14 +4994,16 @@
       },
       "Prof. Diogo": {
         "Roteiros-1ª Etapa": true,
-        "Avaliações Parciais-1ª Etapa": true
+        "Avaliações Parciais-1ª Etapa": true,
+        "Avaliações Bimestrais-1ª Etapa": true
       },
       "Prof. Marcos": {
         "Roteiros-1ª Etapa": true
       },
       "Prof. Bruno": {
         "Roteiros-1ª Etapa": false,
-        "Avaliações Parciais-1ª Etapa": true
+        "Avaliações Parciais-1ª Etapa": true,
+        "Avaliações Bimestrais-1ª Etapa": true
       },
       "Prof. Thayna": {
         "Roteiros-1ª Etapa": true,
