@@ -239,6 +239,7 @@
     .badge { display: inline-block; padding: 3px 9px; border-radius: 6px; font-size: .74rem; font-weight: 600; }
     .badge-presente    { background: var(--success-dim); color: #4ade80; }
     .badge-falta       { background: var(--danger-dim);  color: #f87171; }
+    .badge-segunda-chamada { background: #11243f; color: #93c5fd; }
     .badge-justificada { background: var(--warning-dim); color: #fbbf24; }
     .badge-sem-fardamento { background: var(--purple-dim); color: #c4b5fd; }
     .badge-warning     { background: var(--warning-dim); color: #fbbf24; }
@@ -270,6 +271,7 @@
     }
     .presenca-btn.presente      { background: var(--success-dim); color: #4ade80; border-color: #166534; }
     .presenca-btn.falta         { background: var(--danger-dim);  color: #f87171; border-color: #7f1d1d; }
+    .presenca-btn.segunda-chamada { background: #11243f; color: #93c5fd; border-color: #1d4ed8; }
     .presenca-btn.justificada   { background: var(--warning-dim); color: #fbbf24; border-color: #92400e; }
     .presenca-btn.sem-fardamento{ background: var(--purple-dim);  color: #c4b5fd; border-color: #4c1d95; }
     .presenca-btn:hover { filter: brightness(1.15); }
@@ -616,12 +618,13 @@
       border-radius: 16px;
       padding: 18px;
       box-shadow: 0 18px 40px rgba(0,0,0,.18);
+      overflow: hidden;
     }
     .boletim-integrado-frame,
     .horario-integrado-frame {
       width: 100%;
-      height: calc(100vh - 120px);
-      min-height: 1380px;
+      height: calc(100dvh - 170px);
+      min-height: 980px;
       border: 1px solid var(--border);
       border-radius: 12px;
       background: #fff;
@@ -639,6 +642,11 @@
     .boletim-integrado-toolbar .muted,
     .horario-integrado-toolbar .muted {
       font-size: .82rem;
+    }
+    .boletim-integrado-toolbar > div,
+    .horario-integrado-toolbar > div {
+      flex: 1;
+      min-width: 240px;
     }
 
     /* ── PRINT ── */
@@ -1131,6 +1139,58 @@
       #tab-materiais .container { padding: 14px; }
       .row { grid-template-columns: 1fr 1fr; }
       .col-3, .col-4 { grid-column: span 6; }
+      #tab-boletim, #tab-horario { min-height: calc(100dvh - 56px); }
+      .boletim-integrado-shell { padding: 10px; }
+      .boletim-integrado-card,
+      .horario-integrado-card {
+        border-radius: 14px;
+        padding: 12px;
+        box-shadow: 0 12px 28px rgba(0,0,0,.18);
+      }
+      .boletim-integrado-toolbar,
+      .horario-integrado-toolbar {
+        align-items: stretch;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .boletim-integrado-toolbar > div,
+      .horario-integrado-toolbar > div {
+        min-width: 0;
+      }
+      .boletim-integrado-toolbar h3,
+      .horario-integrado-toolbar h3 {
+        font-size: .98rem;
+        line-height: 1.25;
+      }
+      .boletim-integrado-toolbar .muted,
+      .horario-integrado-toolbar .muted {
+        font-size: .76rem;
+        line-height: 1.45;
+      }
+      .boletim-integrado-toolbar .btn-ghost,
+      .horario-integrado-toolbar .btn-ghost {
+        width: 100%;
+        justify-content: center;
+      }
+      .boletim-integrado-frame,
+      .horario-integrado-frame {
+        height: calc(100dvh - 235px);
+        min-height: 620px;
+        border-radius: 10px;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .boletim-integrado-shell { padding: 16px; }
+      .boletim-integrado-card,
+      .horario-integrado-card {
+        padding: 16px;
+      }
+      .boletim-integrado-frame,
+      .horario-integrado-frame {
+        height: calc(100dvh - 195px);
+        min-height: 760px;
+      }
     }
 </style>
 <style id="planilha-ajustes">
@@ -1320,6 +1380,7 @@
                   <th>Aluno(a)</th>
                   <th>Série</th>
                   <th>Faltas</th>
+                  <th>2ª Chamada</th>
                   <th>Faltas Justificadas</th>
                   <th>Sem Fardamento</th>
                 </tr>
@@ -1594,6 +1655,10 @@
           <div class="stat-card" style="background:linear-gradient(135deg, var(--danger) 0%, #dc2626 100%)">
             <h3 id="statFaltas">0</h3>
             <p>Faltas</p>
+          </div>
+          <div class="stat-card" style="background:linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%)">
+            <h3 id="statSegundaChamada">0</h3>
+            <p>2ª Chamada</p>
           </div>
           <div class="stat-card" style="background:linear-gradient(135deg, var(--warning) 0%, #f59e0b 100%)">
             <h3 id="statJustificadas">0</h3>
@@ -2295,6 +2360,10 @@
               <h3 id="totalFaltas">0</h3>
               <p>Faltas Totais</p>
             </div>
+            <div class="stat-card" style="background:linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%)">
+              <h3 id="totalSegundaChamada">0</h3>
+              <p>2ª Chamada</p>
+            </div>
           </div>
         </div>
         <div class="card" id="gestor-card-export">
@@ -2333,6 +2402,21 @@
                   <th>Série</th>
                   <th>Faltas</th>
                   <th>Advertências</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card" id="gestor-card-segunda-chamada">
+          <h3>📅 Faltas e 2ª Chamada por Dia</h3>
+          <div class="table-container">
+            <table id="tabelaSegundaChamadaPorDia">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Quantidade</th>
+                  <th>Alunos / Status</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -3727,6 +3811,10 @@
                       onclick="marcarPresenca('${aluno.nome}', 'falta')">
                 ✗ F
               </button>
+              <button class="presenca-btn ${statusAtual === 'segunda-chamada' ? 'segunda-chamada' : ''}" 
+                      onclick="marcarPresenca('${aluno.nome}', 'segunda-chamada')">
+                2ª CH
+              </button>
               <button class="presenca-btn ${statusAtual === 'justificada' ? 'justificada' : ''}" 
                       onclick="marcarPresenca('${aluno.nome}', 'justificada')">
                 📝 J
@@ -3768,6 +3856,8 @@
       sincronizarBancoPrincipal();
       alert('✅ Frequências salvas com sucesso!');
       atualizarFaltasAcumuladas();
+      renderTabelaSegundaChamadaPorDia();
+      atualizarDashboardGestor();
     });
 
     function atualizarFaltasAcumuladas(){
@@ -3779,13 +3869,15 @@
       alunosDB.forEach(aluno => {
         const registros = registrosFrequencia.filter(r => r.aluno === aluno.nome);
         const faltas = registros.filter(r => r.status === 'falta').length;
+        const segundaChamada = registros.filter(r => r.status === 'segunda-chamada').length;
         const justificadas = registros.filter(r => r.status === 'justificada').length;
         const semFardamento = registros.filter(r => r.status === 'sem-fardamento').length;
 
-        if(faltas > 0 || justificadas > 0 || semFardamento > 0){
+        if(faltas > 0 || segundaChamada > 0 || justificadas > 0 || semFardamento > 0){
           estatisticas[aluno.nome] = {
             serie: aluno.serie,
             faltas,
+            segundaChamada,
             justificadas,
             semFardamento
           };
@@ -3800,8 +3892,59 @@
           <td>${nome}</td>
           <td>${stats.serie}</td>
           <td><span class="badge badge-falta">${stats.faltas}</span></td>
+          <td><span class="badge badge-segunda-chamada">${stats.segundaChamada}</span></td>
           <td><span class="badge badge-justificada">${stats.justificadas}</span></td>
           <td><span class="badge badge-sem-fardamento">${stats.semFardamento}</span></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function obterResumoSegundaChamadaPorDia(){
+      const agrupado = {};
+
+      registrosFrequencia
+        .filter(reg => reg.status === 'falta' || reg.status === 'segunda-chamada')
+        .forEach(reg => {
+          if(!agrupado[reg.data]){
+            agrupado[reg.data] = { data: reg.data, alunos: [] };
+          }
+          agrupado[reg.data].alunos.push({
+            nome: reg.aluno,
+            status: reg.status
+          });
+        });
+
+      return Object.values(agrupado)
+        .map(item => ({
+          data: item.data,
+          total: item.alunos.length,
+          alunos: item.alunos,
+          alunosTexto: item.alunos
+            .map(aluno => `${aluno.nome} (${aluno.status === 'segunda-chamada' ? '2ª chamada' : 'falta'})`)
+            .join(', ')
+        }))
+        .sort((a,b) => new Date(b.data) - new Date(a.data));
+    }
+
+    function renderTabelaSegundaChamadaPorDia(){
+      const tbody = document.querySelector('#tabelaSegundaChamadaPorDia tbody');
+      if(!tbody) return;
+
+      const registrosPorDia = obterResumoSegundaChamadaPorDia();
+      tbody.innerHTML = '';
+
+      if(!registrosPorDia.length){
+        tbody.innerHTML = '<tr><td colspan="3" style="text-align:center" class="muted">Nenhum registro de falta ou 2ª chamada ainda</td></tr>';
+        return;
+      }
+
+      registrosPorDia.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${fmtData(item.data)}</td>
+          <td><span class="badge badge-segunda-chamada">${item.total}</span></td>
+          <td>${item.alunosTexto}</td>
         `;
         tbody.appendChild(tr);
       });
@@ -3851,7 +3994,7 @@
         let maxConsecutivas = 0;
 
         registros.forEach(r => {
-          if(r.status === 'falta'){
+          if(r.status === 'falta' || r.status === 'segunda-chamada'){
             faltasConsecutivas++;
             maxConsecutivas = Math.max(maxConsecutivas, faltasConsecutivas);
           } else {
@@ -3936,6 +4079,8 @@
             alert('✅ Backup importado com sucesso!');
             renderTabelaFrequencia();
             atualizarFaltasAcumuladas();
+            renderTabelaSegundaChamadaPorDia();
+            atualizarDashboardGestor();
             renderPendenciasAssinatura();
             renderComunicadosLista();
             atualizarResumoBackupCentral();
@@ -3963,6 +4108,8 @@
         sincronizarBancoPrincipal();
         renderTabelaFrequencia();
         atualizarFaltasAcumuladas();
+        renderTabelaSegundaChamadaPorDia();
+        atualizarDashboardGestor();
         alert('✅ Todas as frequências foram apagadas.');
       }
     });
@@ -5296,15 +5443,18 @@ Senha temporária: ensps2026`;
         );
 
         const faltas = freqAluno.filter(r => r.status === 'falta').length;
+        const segundaChamada = freqAluno.filter(r => r.status === 'segunda-chamada').length;
         const justificadas = freqAluno.filter(r => r.status === 'justificada').length;
         const semFardamento = freqAluno.filter(r => r.status === 'sem-fardamento').length;
 
         const statAdv = document.getElementById('statAdvertencias');
         const statFaltas = document.getElementById('statFaltas');
+        const statSegundaChamada = document.getElementById('statSegundaChamada');
         const statJust = document.getElementById('statJustificadas');
         const statSF = document.getElementById('statSemFardamento');
         if(statAdv) statAdv.textContent = advAluno.length;
         if(statFaltas) statFaltas.textContent = faltas;
+        if(statSegundaChamada) statSegundaChamada.textContent = segundaChamada;
         if(statJust) statJust.textContent = justificadas;
         if(statSF) statSF.textContent = semFardamento;
 
@@ -5377,6 +5527,8 @@ Senha temporária: ensps2026`;
               badgeClass = 'badge-presente'; statusText = 'Presente';
             } else if(reg.status === 'falta'){
               badgeClass = 'badge-falta'; statusText = 'Falta';
+            } else if(reg.status === 'segunda-chamada'){
+              badgeClass = 'badge-segunda-chamada'; statusText = '2ª Chamada';
             } else if(reg.status === 'justificada'){
               badgeClass = 'badge-justificada'; statusText = 'Justificada';
             } else {
@@ -5418,9 +5570,11 @@ Senha temporária: ensps2026`;
       const totalAlunosEl = document.getElementById('totalAlunos');
       const totalAdvEl = document.getElementById('totalAdvertencias');
       const totalFaltasEl = document.getElementById('totalFaltas');
+      const totalSegundaChamadaEl = document.getElementById('totalSegundaChamada');
       if(totalAlunosEl) totalAlunosEl.textContent = alunosDB.length;
       if(totalAdvEl) totalAdvEl.textContent = advertenciasSalvas.length;
       if(totalFaltasEl) totalFaltasEl.textContent = registrosFrequencia.filter(r => r.status === 'falta').length;
+      if(totalSegundaChamadaEl) totalSegundaChamadaEl.textContent = registrosFrequencia.filter(r => r.status === 'segunda-chamada').length;
 
       const estatisticasAlunos = {};
 
@@ -5487,6 +5641,8 @@ Senha temporária: ensps2026`;
       if(top10Faltas.length === 0){
         tbodyFaltas.innerHTML = '<tr><td colspan="5" style="text-align:center" class="muted">Nenhum registro ainda</td></tr>';
       }
+
+      renderTabelaSegundaChamadaPorDia();
     }
 
     const btnRelatorioCompleto = document.getElementById('btnRelatorioCompleto');
@@ -5501,8 +5657,19 @@ Senha temporária: ensps2026`;
         relatorio += `Total de Alunos: ${alunosDB.length}\n`;
         relatorio += `Total de Advertências: ${advertenciasSalvas.length}\n`;
         relatorio += `Total de Faltas Registradas: ${registrosFrequencia.filter(r => r.status === 'falta').length}\n`;
+        relatorio += `Total de 2ª Chamada: ${registrosFrequencia.filter(r => r.status === 'segunda-chamada').length}\n`;
         relatorio += `Total de Faltas Justificadas: ${registrosFrequencia.filter(r => r.status === 'justificada').length}\n`;
         relatorio += `Total de Presenças sem Fardamento: ${registrosFrequencia.filter(r => r.status === 'sem-fardamento').length}\n\n`;
+
+        const segundaChamadaPorDia = obterResumoSegundaChamadaPorDia();
+        if(segundaChamadaPorDia.length){
+          relatorio += `REGISTROS DE FALTAS E 2ª CHAMADA POR DIA\n`;
+          relatorio += `-`.repeat(60) + '\n';
+          segundaChamadaPorDia.forEach(item => {
+            relatorio += `${fmtData(item.data)} - ${item.total} aluno(s): ${item.alunosTexto}\n`;
+          });
+          relatorio += '\n';
+        }
 
         relatorio += `ALUNOS COM MAIS FALTAS\n`;
         relatorio += `-`.repeat(60) + '\n';
