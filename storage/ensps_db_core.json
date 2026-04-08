@@ -4509,6 +4509,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775655915054,
+      "aluno": "LUCAS DOS SANTOS SAMPAIO",
+      "matricula": "2025059",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-08",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(a) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.\n\nConsiderando as inúmeras ocorrências anteriores relacionadas ao uso indevido de aparelho celular em sala de aula, fica terminantemente proibido ao(à) aluno(a) comparecer à escola portando celular para uso durante o período das aulas.\n\nCaso o(a) estudante traga o aparelho, somente poderá assistir às aulas mediante a entrega do celular à coordenação, onde ficará sob guarda até o término do turno.\n\nRessaltamos que, em caso de reincidência e novo flagrante, poderão ser adotadas medidas disciplinares mais rigorosas, conforme o regimento escolar.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
