@@ -397,6 +397,8 @@
     .kv strong { display: inline-block; min-width: 160px; }
     .section-title { margin: 12px 0 4px; font-weight: 700; text-transform: uppercase; color: #000; font-size: .85rem; }
     .signs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+    .signs .sign-slot { min-height: 86px; display:flex; flex-direction:column; justify-content:flex-end; }
+    .signs .signature-image { display:block; max-width: 180px; max-height: 70px; width:auto; height:auto; object-fit: contain; margin: 0 auto 6px; }
     .signs .line { border-top: 1px solid #000; margin-top: 50px; padding-top: 5px; text-align: center; font-size: .82rem; color: #000; }
     .endereco-fixo { font-size: .88rem; color: #333; margin-bottom: 3px; }
     .motivos-pre { font-family: Consolas,'Courier New',monospace; font-size: 1em; margin: 4px 0 0; color: #000; }
@@ -1446,6 +1448,12 @@
                 Exibir linhas de assinatura
               </label>
             </div>
+            <div class="col-12" style="margin-top:8px;">
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:500;">
+                <input type="checkbox" id="mostrarAssinaturaAdvertencia" checked onchange="renderPreview()" style="width:auto;accent-color:var(--brand);">
+                Exibir assinatura da advertência
+              </label>
+            </div>
           </div>
 
           <h2 style="margin-top:18px">Dados do Aluno</h2>
@@ -1616,6 +1624,10 @@
 
           <div class="actions">
             <button class="btn" id="btnAtualizarRelatorio">🔄 Atualizar</button>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:500;font-size:.82rem;color:var(--ink);margin:0 0 6px;">
+              <input type="checkbox" id="mostrarAssinaturaRelatorio" checked onchange="renderRelatorioPreview()" style="width:auto;accent-color:var(--brand);">
+              Exibir assinatura do relatório
+            </label>
             <div style="margin-bottom:6px;">
               <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">💬 Instrução para a IA <span style="font-weight:400;color:var(--hint);">(opcional)</span></label>
               <input type="text" id="instrucaoRel" placeholder="Ex: foque nas dificuldades de leitura, tom empático..." style="font-size:.82rem;">
@@ -4964,6 +4976,8 @@ Senha temporária: ensps2026`;
 
     // Logo preview advertência
     let logoFile=null, logoDataUrl="https://raw.githubusercontent.com/ciliocavalcante-design/ensps/main/LOGO%20ENSPS%202024.5.png";
+    const assinaturaAdvertenciaUrl = "https://raw.githubusercontent.com/ciliocavalcante-design/ensps/main/Aviso%20oficial%20da%20escola.png";
+    const assinaturaRelatorioUrl = "https://raw.githubusercontent.com/ciliocavalcante-design/ensps/main/Assinatura%20corrigida%20de%20Ci%CC%81lio%20Cavalcante.png";
     // Logo carregada automaticamente do GitHub
 
     const MESES=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
@@ -5009,6 +5023,12 @@ Senha temporária: ensps2026`;
         </div>`;
       }
 
+      const exibirLinhasAssinatura = !!(document.getElementById("mostrarAssinaturas") && document.getElementById("mostrarAssinaturas").checked);
+      const exibirAssinaturaAdvertencia = !!(document.getElementById("mostrarAssinaturaAdvertencia") && document.getElementById("mostrarAssinaturaAdvertencia").checked);
+      const assinaturaAdvertenciaHtml = exibirAssinaturaAdvertencia
+        ? `<img class="signature-image" src="${assinaturaAdvertenciaUrl}" alt="Assinatura da advertência">`
+        : "";
+
       div.innerHTML=
       `<header>${logoDataUrl?`<img class="logo" src="${logoDataUrl}">`:""}<div><h3>${escola}</h3>
         <span class="endereco-fixo">${enderecoFixo}</span>
@@ -5023,7 +5043,7 @@ Senha temporária: ensps2026`;
       <div class="kv"><strong>Natureza:</strong> ${natureza}</div>
       ${motivosHTML}
       <div class="section-title">Descrição</div><div style="white-space:pre-wrap">${desc}</div>
-      ${(document.getElementById("mostrarAssinaturas")&&document.getElementById("mostrarAssinaturas").checked)?'<div class="signs"><div><div class="line">Responsável</div></div><div><div class="line">Escola</div></div></div>':'' }
+      ${exibirLinhasAssinatura ? `<div class="signs"><div class="sign-slot"><div class="line">Responsável</div></div><div class="sign-slot">${assinaturaAdvertenciaHtml}<div class="line">Escola</div></div></div>` : '' }
       <div class="adv-data-extenso">${linhaCidadeData(cidadeFixa,data)}</div>`;
       return div;
     }
@@ -5593,6 +5613,10 @@ Senha temporária: ensps2026`;
       const ensino = document.getElementById('ensinoRelatorio') ? (document.getElementById('ensinoRelatorio').value || '—') : '—';
       const data = document.getElementById('dataRelatorio') ? (document.getElementById('dataRelatorio').value || '') : '';
       const escola = "ESCOLA NOSSA SENHORA DO PERPÉTUO SOCORRO";
+      const exibirAssinaturaRelatorio = !!(document.getElementById('mostrarAssinaturaRelatorio') && document.getElementById('mostrarAssinaturaRelatorio').checked);
+      const assinaturaRelatorioHtml = exibirAssinaturaRelatorio
+        ? `<img class="signature-image" src="${assinaturaRelatorioUrl}" alt="Assinatura do relatório">`
+        : '';
 
       const respostas = [];
       document.querySelectorAll('.resposta-item').forEach(item => {
@@ -5637,8 +5661,8 @@ Senha temporária: ensps2026`;
           ${respostasHTML}
 
           <div class="signs">
-            <div><div class="line">Professor(a) / Coordenador(a)</div></div>
-            <div><div class="line">Direção</div></div>
+            <div class="sign-slot">${assinaturaRelatorioHtml}<div class="line">Professor(a) / Coordenador(a)</div></div>
+            <div class="sign-slot"><div class="line">Direção</div></div>
           </div>
 
           <div class="adv-data-extenso">${linhaCidadeData(cidadeFixa, data)}</div>
