@@ -397,6 +397,7 @@
     .kv strong { display: inline-block; min-width: 160px; }
     .section-title { margin: 12px 0 4px; font-weight: 700; text-transform: uppercase; color: #000; font-size: .85rem; }
     .signs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+    .signs.signs-single { grid-template-columns: minmax(260px, 420px); justify-content: center; }
     .signs .sign-slot { min-height: 118px; display:flex; flex-direction:column; justify-content:flex-end; }
     .signs .signature-image { display:block; width:auto; height:auto; object-fit: contain; margin: 0 auto 0; }
     .signs .signature-image-adv { max-width: 270px; max-height: 112px; }
@@ -1629,6 +1630,10 @@
             <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:500;font-size:.82rem;color:var(--ink);margin:0 0 6px;">
               <input type="checkbox" id="mostrarAssinaturaRelatorio" checked onchange="renderRelatorioPreview()" style="width:auto;accent-color:var(--brand);">
               Exibir assinatura do relatório
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:500;font-size:.82rem;color:var(--ink);margin:0 0 6px;">
+              <input type="checkbox" id="ocultarDirecaoRelatorio" onchange="renderRelatorioPreview()" style="width:auto;accent-color:var(--brand);">
+              Ocultar linha da direção e centralizar assinatura
             </label>
             <div style="margin-bottom:6px;">
               <label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">💬 Instrução para a IA <span style="font-weight:400;color:var(--hint);">(opcional)</span></label>
@@ -5616,6 +5621,7 @@ Senha temporária: ensps2026`;
       const data = document.getElementById('dataRelatorio') ? (document.getElementById('dataRelatorio').value || '') : '';
       const escola = "ESCOLA NOSSA SENHORA DO PERPÉTUO SOCORRO";
       const exibirAssinaturaRelatorio = !!(document.getElementById('mostrarAssinaturaRelatorio') && document.getElementById('mostrarAssinaturaRelatorio').checked);
+      const ocultarDirecaoRelatorio = !!(document.getElementById('ocultarDirecaoRelatorio') && document.getElementById('ocultarDirecaoRelatorio').checked);
       const assinaturaRelatorioHtml = exibirAssinaturaRelatorio
         ? `<img class="signature-image signature-image-rel" src="${assinaturaRelatorioUrl}" alt="Assinatura do relatório">`
         : '';
@@ -5662,9 +5668,9 @@ Senha temporária: ensps2026`;
 
           ${respostasHTML}
 
-          <div class="signs">
+          <div class="signs ${ocultarDirecaoRelatorio ? 'signs-single' : ''}">
             <div class="sign-slot">${assinaturaRelatorioHtml}<div class="line">Professor(a) / Coordenador(a)</div></div>
-            <div class="sign-slot"><div class="line">Direção</div></div>
+            ${ocultarDirecaoRelatorio ? '' : '<div class="sign-slot"><div class="line">Direção</div></div>'}
           </div>
 
           <div class="adv-data-extenso">${linhaCidadeData(cidadeFixa, data)}</div>
