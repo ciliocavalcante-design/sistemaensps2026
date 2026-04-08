@@ -2410,6 +2410,16 @@
         </div>
         <div class="card" id="gestor-card-segunda-chamada">
           <h3>📅 Faltas e 2ª Chamada por Dia</h3>
+          <div class="filters" style="margin-top:12px;">
+            <div class="filter-group">
+              <label for="filtroAlunoSegundaChamada">Filtrar por aluno</label>
+              <input list="alunosListFiltroSegundaChamada" id="filtroAlunoSegundaChamada" placeholder="Digite o nome do aluno...">
+              <datalist id="alunosListFiltroSegundaChamada"></datalist>
+            </div>
+          </div>
+          <div class="actions" style="margin-top:0;">
+            <button class="btn-ghost" id="btnExportarSegundaChamadaJson">⬇️ Exportar 2ª Chamada (JSON)</button>
+          </div>
           <div class="table-container">
             <table id="tabelaSegundaChamadaPorDia">
               <thead>
@@ -3901,18 +3911,24 @@
     }
 
     function obterResumoSegundaChamadaPorDia(){
+      const filtroAluno = (document.getElementById('filtroAlunoSegundaChamada')?.value || '').trim().toUpperCase();
       const agrupado = {};
 
       registrosFrequencia
         .filter(reg => reg.status === 'falta' || reg.status === 'segunda-chamada')
         .forEach(reg => {
+          if(filtroAluno && reg.aluno.toUpperCase() !== filtroAluno) return;
+          const alunoInfo = alunosDB.find(aluno => aluno.nome === reg.aluno);
+          const serie = alunoInfo ? alunoInfo.serie : 'Sem série';
           if(!agrupado[reg.data]){
-            agrupado[reg.data] = { data: reg.data, alunos: [] };
+            agrupado[reg.data] = { data: reg.data, alunos: [], series: new Set() };
           }
           agrupado[reg.data].alunos.push({
             nome: reg.aluno,
-            status: reg.status
+            status: reg.status,
+            serie
           });
+          agrupado[reg.data].series.add(serie);
         });
 
       return Object.values(agrupado)
@@ -3920,6 +3936,7 @@
           data: item.data,
           total: item.alunos.length,
           alunos: item.alunos,
+          series: [...item.series].sort(),
           alunosTexto: item.alunos
             .map(aluno => `${aluno.nome} (${aluno.status === 'segunda-chamada' ? '2ª chamada' : 'falta'})`)
             .join(', ')
@@ -3939,14 +3956,36 @@
         return;
       }
 
+      const gruposPorSerie = {};
       registrosPorDia.forEach(item => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${fmtData(item.data)}</td>
-          <td><span class="badge badge-segunda-chamada">${item.total}</span></td>
-          <td>${item.alunosTexto}</td>
-        `;
-        tbody.appendChild(tr);
+        item.series.forEach(serie => {
+          if(!gruposPorSerie[serie]) gruposPorSerie[serie] = [];
+          const alunosDaSerie = item.alunos.filter(aluno => aluno.serie === serie);
+          if(!alunosDaSerie.length) return;
+          gruposPorSerie[serie].push({
+            data: item.data,
+            total: alunosDaSerie.length,
+            alunosTexto: alunosDaSerie
+              .map(aluno => `${aluno.nome} (${aluno.status === 'segunda-chamada' ? '2ª chamada' : 'falta'})`)
+              .join(', ')
+          });
+        });
+      });
+
+      Object.keys(gruposPorSerie).sort().forEach(serie => {
+        const trSerie = document.createElement('tr');
+        trSerie.innerHTML = `<td colspan="3" style="background:var(--surface);font-weight:700;color:var(--ink);">${serie}</td>`;
+        tbody.appendChild(trSerie);
+
+        gruposPorSerie[serie].forEach(item => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${fmtData(item.data)}</td>
+            <td><span class="badge badge-segunda-chamada">${item.total}</span></td>
+            <td>${item.alunosTexto}</td>
+          `;
+          tbody.appendChild(tr);
+        });
       });
     }
 
@@ -3981,6 +4020,53 @@
 
       baixarArquivo(csv, `frequencia_${mes}.csv`, 'text/csv');
     });
+
+    const filtroAlunoSegundaChamada = document.getElementById('filtroAlunoSegundaChamada');
+    if(filtroAlunoSegundaChamada){
+      filtroAlunoSegundaChamada.addEventListener('input', function(){
+        renderTabelaSegundaChamadaPorDia();
+      });
+    }
+
+    const btnExportarSegundaChamadaJson = document.getElementById('btnExportarSegundaChamadaJson');
+    if(btnExportarSegundaChamadaJson){
+      btnExportarSegundaChamadaJson.addEventListener('click', function(){
+        const filtroAluno = (document.getElementById('filtroAlunoSegundaChamada')?.value || '').trim().toUpperCase();
+        const registros = registrosFrequencia
+          .filter(reg => reg.status === 'segunda-chamada')
+          .filter(reg => !filtroAluno || reg.aluno.toUpperCase() === filtroAluno)
+          .map(reg => {
+            const alunoInfo = alunosDB.find(aluno => aluno.nome === reg.aluno);
+            return {
+              id: reg.id,
+              aluno: reg.aluno,
+              serie: alunoInfo ? alunoInfo.serie : '',
+              turma: alunoInfo ? alunoInfo.turma : '',
+              data: reg.data,
+              status: reg.status,
+              justificativa: reg.justificativa || ''
+            };
+          });
+
+        if(!registros.length){
+          alert('Nenhum registro de 2ª chamada encontrado para exportar.');
+          return;
+        }
+
+        const payload = {
+          exportadoEm: new Date().toISOString(),
+          total: registros.length,
+          filtroAluno: filtroAlunoSegundaChamada?.value?.trim() || '',
+          registros
+        };
+
+        baixarArquivo(
+          JSON.stringify(payload, null, 2),
+          `segunda_chamada_${new Date().toISOString().split('T')[0]}.json`,
+          'application/json'
+        );
+      });
+    }
 
     document.getElementById('btnAlunosFaltosos').addEventListener('click', function(){
       const alunosFaltosos = [];
@@ -5562,6 +5648,16 @@ Senha temporária: ensps2026`;
         if(btn) btn.click();
       }
     };
+
+    const alunosListFiltroSegundaChamada = document.getElementById('alunosListFiltroSegundaChamada');
+    if(alunosListFiltroSegundaChamada){
+      alunosListFiltroSegundaChamada.innerHTML = '';
+      alunosDB.forEach(aluno => {
+        const option = document.createElement('option');
+        option.value = aluno.nome;
+        alunosListFiltroSegundaChamada.appendChild(option);
+      });
+    }
 
     // =========================
     // DASHBOARD DO GESTOR
