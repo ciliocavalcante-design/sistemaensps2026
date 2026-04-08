@@ -5050,7 +5050,9 @@ Senha temporária: ensps2026`;
       <div class="kv"><strong>Natureza:</strong> ${natureza}</div>
       ${motivosHTML}
       <div class="section-title">Descrição</div><div style="white-space:pre-wrap">${desc}</div>
-      ${exibirLinhasAssinatura ? `<div class="signs"><div class="sign-slot"><div class="line">Responsável</div></div><div class="sign-slot">${assinaturaAdvertenciaHtml}<div class="line">Escola</div></div></div>` : '' }
+      ${exibirLinhasAssinatura
+        ? `<div class="signs"><div class="sign-slot"><div class="line">Responsável</div></div><div class="sign-slot">${assinaturaAdvertenciaHtml}<div class="line">Escola</div></div></div>`
+        : `<div class="signs signs-single"><div class="sign-slot">${assinaturaAdvertenciaHtml}<div class="line">Escola</div></div></div>` }
       <div class="adv-data-extenso">${linhaCidadeData(cidadeFixa,data)}</div>`;
       return div;
     }
