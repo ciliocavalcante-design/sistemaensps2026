@@ -168,6 +168,153 @@
       "data": "2026-02-04",
       "status": "segunda-chamada",
       "justificativa": ""
+    },
+    {
+      "id": 1775644983559,
+      "aluno": "AGNES MARIA DE OLIVEIRA CARVALHO",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644985917,
+      "aluno": "BERNARD BRAZ QUEIROGA SABINO",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644992045,
+      "aluno": "JOAO LUCAS MAIA ARAGAO",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644993485,
+      "aluno": "JOAO LUCAS CAETANO CISNE",
+      "data": "2026-02-11",
+      "status": "presente",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644999604,
+      "aluno": "LAIS MONTE DAVID CERQUEIRA",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645002729,
+      "aluno": "SOPHIA MARIAH FERREIRA DO NASCIMENTO",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645011617,
+      "aluno": "ABINER SOARES BRAGA",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645015177,
+      "aluno": "ANA SOPHIA ANASTACIO DE ABREU",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645017978,
+      "aluno": "DAVI DE OLIVEIRA COSTA",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645023545,
+      "aluno": "LUCAS GABRIEL BRITO DE MOURA",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645028465,
+      "aluno": "EDUARDO HERBERTE CORREIA DE ALENCAR",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645032026,
+      "aluno": "GUSTAVO PINHEIRO MOREIRA",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645035351,
+      "aluno": "JOAO ARTHUR ALVES MARTINS",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645038568,
+      "aluno": "LARA DE OLIVEIRA COLARES",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645040833,
+      "aluno": "LAURA LISE ARAUJO FREITAS",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645047447,
+      "aluno": "MARCIO MIGUEL LIMA SARAIVA",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645049345,
+      "aluno": "MARIA ALICE MENEZES DA ROCHA",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645055696,
+      "aluno": "MIGUEL DO NASCIMENTO AGUIAR",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645057594,
+      "aluno": "PEDRO IAN RIBEIRO DA PAZ PERES",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645059651,
+      "aluno": "PEDRO JORGE DA SILVA QUEIROZ DE ALMEIDA",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645061151,
+      "aluno": "PEDRO MIGUEL NASCIMENTO SOUSA",
+      "data": "2026-02-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
     }
   ],
   "advertencias": [
