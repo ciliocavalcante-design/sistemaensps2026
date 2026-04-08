@@ -2970,6 +2970,7 @@
       ultimoHashBoletimRecebido = nextHash;
       enspsDB.boletimInformativo = nextDb;
       persistirENSPSDB({ reason: data.reason || 'Atualização do boletim informativo integrado', remote: false, markDirty: true });
+      sincronizarComunicadosDoBoletimNaAbaPrincipal(nextDb);
       if (remotoInicializado) salvarEscopoRemoto('boletim', nextDb, { force: true, reason: data.reason || 'Atualização do boletim informativo integrado', silent: true });
       return;
     }
@@ -4432,6 +4433,47 @@
       enviarComunicadosParaBoletim();
     }
 
+    function extrairComunicadosDoBoletimParaPrincipal(db){
+      if(!db || typeof db !== 'object' || !Array.isArray(db.calendars)) return [];
+      const itens = [];
+      db.calendars.forEach(calendar => {
+        if(!calendar || !Array.isArray(calendar.comunicados)) return;
+        calendar.comunicados.forEach(item => {
+          if(!item || typeof item !== 'object') return;
+          const dates = Array.isArray(item.dates) ? item.dates.filter(date => /^\d{4}-\d{2}-\d{2}$/.test(String(date || '').trim())) : [];
+          const agora = new Date().toISOString();
+          itens.push({
+            id: item.id || `${calendar.id || 'boletim'}_${dates[0] || Date.now()}`,
+            titulo: item.title || 'Sem título',
+            categoria: 'Boletim Informativo',
+            publico: item.audience || '',
+            data: dates[0] || '',
+            texto: item.body || '',
+            dates,
+            reminderText: item.reminderText || '',
+            reminderDate: item.reminderDate || '',
+            calendarId: calendar.id || '',
+            calendarNome: calendar.name || '',
+            origin: 'boletim',
+            createdAt: item.createdAt || agora,
+            updatedAt: item.updatedAt || agora
+          });
+        });
+      });
+      return itens;
+    }
+
+    function sincronizarComunicadosDoBoletimNaAbaPrincipal(db, { persistir = true } = {}){
+      const comunicadosBoletim = extrairComunicadosDoBoletimParaPrincipal(db);
+      const preservados = (Array.isArray(comunicadosRegistros) ? comunicadosRegistros : []).filter(item => String(item.origin || '') !== 'boletim');
+      comunicadosRegistros = [...preservados, ...comunicadosBoletim];
+      if(comunicadoAtualId && !comunicadosRegistros.some(item => String(item.id) === String(comunicadoAtualId))){
+        comunicadosLimparFormulario();
+      }
+      if(persistir) salvarComunicadosRegistros();
+      renderComunicadosLista();
+    }
+
     function comunicadosLimparFormulario(){
       comunicadoAtualId = null;
       ['com-titulo', 'com-categoria', 'com-publico', 'com-data', 'com-texto', 'com-instrucao-ia'].forEach(id => {
@@ -4441,9 +4483,9 @@
     }
 
     function comunicadosCarregar(id){
-      const comunicado = comunicadosRegistros.find(item => item.id === id);
+      const comunicado = comunicadosRegistros.find(item => String(item.id) === String(id));
       if(!comunicado) return;
-      comunicadoAtualId = id;
+      comunicadoAtualId = comunicado.id;
       document.getElementById('com-titulo').value = comunicado.titulo || '';
       document.getElementById('com-categoria').value = comunicado.categoria || '';
       document.getElementById('com-publico').value = comunicado.publico || '';
@@ -4476,8 +4518,8 @@
               </div>
             </div>
             <div style="display:flex;gap:6px;flex-wrap:wrap;">
-              <button class="btn-ghost btn-small" onclick="comunicadosCarregar(${item.id})">Abrir</button>
-              <button class="btn-danger btn-small" onclick="comunicadosExcluir(${item.id})">Excluir</button>
+              <button class="btn-ghost btn-small" data-id="${String(item.id).replace(/"/g,'&quot;')}" onclick="comunicadosCarregar(this.dataset.id)">Abrir</button>
+              <button class="btn-danger btn-small" data-id="${String(item.id).replace(/"/g,'&quot;')}" onclick="comunicadosExcluir(this.dataset.id)">Excluir</button>
             </div>
           </div>
           <div style="margin-top:10px;white-space:pre-wrap;line-height:1.6;font-size:.84rem;color:var(--ink);">${item.texto || ''}</div>
@@ -4489,8 +4531,8 @@
 
     window.comunicadosExcluir = function(id){
       if(!confirm('Deseja excluir este comunicado?')) return;
-      comunicadosRegistros = comunicadosRegistros.filter(item => item.id !== id);
-      if(comunicadoAtualId === id) comunicadosLimparFormulario();
+      comunicadosRegistros = comunicadosRegistros.filter(item => String(item.id) !== String(id));
+      if(comunicadoAtualId && String(comunicadoAtualId) === String(id)) comunicadosLimparFormulario();
       salvarComunicadosRegistros();
       renderComunicadosLista();
     };
@@ -4559,6 +4601,8 @@
         }
       });
     }
+
+    sincronizarComunicadosDoBoletimNaAbaPrincipal(obterBancoBoletim(), { persistir: false });
 
     function baixarArquivo(conteudo, nomeArquivo, tipo){
       const blob = new Blob([conteudo], {type: tipo});
