@@ -1491,6 +1491,27 @@
       "data": "2026-04-06",
       "status": "segunda-chamada",
       "justificativa": ""
+    },
+    {
+      "id": 1775663094185,
+      "aluno": "ANA LIVIA NASCIMENTO FEITOSA",
+      "data": "2026-04-08",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775663099896,
+      "aluno": "JOSE THALYS FRAGA OLIVEIRA",
+      "data": "2026-04-08",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775663102436,
+      "aluno": "SARA GABRIELE SILVA GOMES",
+      "data": "2026-04-08",
+      "status": "segunda-chamada",
+      "justificativa": ""
     }
   ],
   "advertencias": [
