@@ -632,13 +632,6 @@
       "justificativa": ""
     },
     {
-      "id": 1775645463027,
-      "aluno": "JOAO LUCAS MAIA ARAGAO",
-      "data": "2026-03-11",
-      "status": "segunda-chamada",
-      "justificativa": ""
-    },
-    {
       "id": 1775645466669,
       "aluno": "JULIO LEVI ABREU MIRANDA DA ROCHA",
       "data": "2026-03-11",
@@ -1224,6 +1217,20 @@
       "aluno": "ANA CECILIA CAVALCANTE PONTES",
       "data": "2026-03-10",
       "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775653981991,
+      "aluno": "JOAO LUCAS CAETANO CISNE",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775653995186,
+      "aluno": "JOAO LUCAS MAIA ARAGAO",
+      "data": "2026-03-11",
+      "status": "presente",
       "justificativa": ""
     }
   ],
