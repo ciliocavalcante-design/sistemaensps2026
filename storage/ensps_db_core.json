@@ -623,6 +623,118 @@
       "data": "2026-03-04",
       "status": "segunda-chamada",
       "justificativa": ""
+    },
+    {
+      "id": 1775645457151,
+      "aluno": "BERNARD BRAZ QUEIROGA SABINO",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645463027,
+      "aluno": "JOAO LUCAS MAIA ARAGAO",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645466669,
+      "aluno": "JULIO LEVI ABREU MIRANDA DA ROCHA",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645470777,
+      "aluno": "REBEKA BRISENO FERREIRA",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645479375,
+      "aluno": "ANA CECILIA CAVALCANTE PONTES",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645483102,
+      "aluno": "GIDEAO DOS SANTOS SAMPAIO",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645488391,
+      "aluno": "ANTONIO CAUE SILVEIRA BARBOZA",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645495748,
+      "aluno": "JOSE GABRIEL SOUZA CLAUDIO",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645497982,
+      "aluno": "MARIA JULIA RODRIGUES GOMES",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645500167,
+      "aluno": "MATEUS ARRAIS ALMEIDA",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645504665,
+      "aluno": "PIETRA DA SILVA SOUZA SUASSUNA",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645516320,
+      "aluno": "SOPHIA AYLA MENDES BESSA",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645523907,
+      "aluno": "MARIA CLARA ARRAIS DO NASCIMENTO",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645525092,
+      "aluno": "MARIA EDUARDA MOREIRA KLEN",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645528019,
+      "aluno": "RUAN DE LIMA VIEIRA BARBOSA",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775645530678,
+      "aluno": "VICTORIA LIMA FALCAO",
+      "data": "2026-03-11",
+      "status": "segunda-chamada",
+      "justificativa": ""
     }
   ],
   "advertencias": [
