@@ -1,6 +1,91 @@
 {
   "schemaVersion": 2,
-  "frequenciaAlunos": [],
+  "frequenciaAlunos": [
+    {
+      "id": 1775644835982,
+      "aluno": "RAFAEL HOLANDA BAIMA JUNIOR",
+      "data": "2026-01-28",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644838450,
+      "aluno": "RAYZON DE AMORIM MONTE",
+      "data": "2026-01-28",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644841011,
+      "aluno": "VALENTINA LIMA FERREIRA GOMES",
+      "data": "2026-01-28",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644856178,
+      "aluno": "ANA SOPHIA ANASTACIO DE ABREU",
+      "data": "2026-01-28",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644859032,
+      "aluno": "GIDEAO DOS SANTOS SAMPAIO",
+      "data": "2026-01-28",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644861813,
+      "aluno": "JOAO ARTHUR ALVES MARTINS",
+      "data": "2026-01-28",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644866516,
+      "aluno": "LUCAS GABRIEL BRITO DE MOURA",
+      "data": "2026-01-28",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644881033,
+      "aluno": "MARIA LYVIA OLIVEIRA SOUZA",
+      "data": "2026-01-28",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644883166,
+      "aluno": "PAULO CESAR DO NASCIMENTO RODRIGUES",
+      "data": "2026-01-28",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644885051,
+      "aluno": "PEDRO RICKSON DA COSTA ALMADA",
+      "data": "2026-01-28",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644892960,
+      "aluno": "ANTONIO MARQUES DOS SANTOS NETO",
+      "data": "2026-01-28",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    },
+    {
+      "id": 1775644896729,
+      "aluno": "MARIA CLARA ARRAIS DO NASCIMENTO",
+      "data": "2026-01-28",
+      "status": "segunda-chamada",
+      "justificativa": ""
+    }
+  ],
   "advertencias": [
     {
       "id": 1769781378584,
