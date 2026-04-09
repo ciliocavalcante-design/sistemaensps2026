@@ -83,7 +83,9 @@
       "aluno": "PEDRO RICKSON DA COSTA ALMADA",
       "data": "2026-01-28",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:36.444Z"
     },
     {
       "id": 1775644892960,
