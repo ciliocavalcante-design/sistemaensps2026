@@ -904,14 +904,18 @@
       "aluno": "CLARICE DE FREITAS MENESES NUNES",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:46.510Z"
     },
     {
       "id": 1775645598968,
       "aluno": "JOSE GABRIEL SOUZA CLAUDIO",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:40.226Z"
     },
     {
       "id": 1775645616977,
