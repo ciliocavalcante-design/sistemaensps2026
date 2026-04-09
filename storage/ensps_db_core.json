@@ -260,28 +260,36 @@
       "aluno": "GUSTAVO PINHEIRO MOREIRA",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:13.064Z"
     },
     {
       "id": 1775645035351,
       "aluno": "JOAO ARTHUR ALVES MARTINS",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:10.831Z"
     },
     {
       "id": 1775645038568,
       "aluno": "LARA DE OLIVEIRA COLARES",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:08.378Z"
     },
     {
       "id": 1775645040833,
       "aluno": "LAURA LISE ARAUJO FREITAS",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:07.412Z"
     },
     {
       "id": 1775645047447,
