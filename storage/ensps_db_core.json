@@ -186,14 +186,18 @@
       "aluno": "MARIA FERNANDA NASCIMENTO DA SILVA",
       "data": "2026-02-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:40.212Z"
     },
     {
       "id": 1775644965892,
       "aluno": "RITA LAISE MILHOME CARRA TRAJANO",
       "data": "2026-02-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:39.326Z"
     },
     {
       "id": 1775644967888,
