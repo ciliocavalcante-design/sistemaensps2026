@@ -820,14 +820,18 @@
       "aluno": "MARIA EDUARDA MOREIRA KLEN",
       "data": "2026-03-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:12.725Z"
     },
     {
       "id": 1775645528019,
       "aluno": "RUAN DE LIMA VIEIRA BARBOSA",
       "data": "2026-03-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:08.242Z"
     },
     {
       "id": 1775645530678,
