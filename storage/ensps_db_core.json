@@ -1288,7 +1288,9 @@
       "aluno": "JOAO MARCELO RIOLO DA SILVA",
       "data": "2026-02-27",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T18:54:52.603Z"
     },
     {
       "id": 1775662726026,
@@ -1348,7 +1350,9 @@
       "aluno": "SILVIA CIBELE SILVA LIMA",
       "data": "2026-03-03",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "zero",
+      "segundaChamadaAtualizadaEm": "2026-04-09T18:54:57.220Z"
     },
     {
       "id": 1775662786752,
