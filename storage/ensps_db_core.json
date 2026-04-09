@@ -971,14 +971,18 @@
       "aluno": "ANNA LIVIA BARROSO AZEVEDO",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:37.875Z"
     },
     {
       "id": 1775645631030,
       "aluno": "DANIEL MESQUITA DE OLIVEIRA",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:36.027Z"
     },
     {
       "id": 1775645633362,
