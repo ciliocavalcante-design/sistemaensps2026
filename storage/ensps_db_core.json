@@ -4903,6 +4903,82 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775747149490,
+      "aluno": "SAMUEL ANTONIO DE ABREU ALVES VIEIRA",
+      "matricula": "2014111",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-09",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na na quadra com a vestimenta em desacordo com o padrão de fardamento da aula de educação física de forma recorrente.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775747149600,
+      "aluno": "PEDRO VINICIUS BARROS LIMA",
+      "matricula": "2016081",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-09",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na na quadra com a vestimenta em desacordo com o padrão de fardamento da aula de educação física de forma recorrente.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775747149754,
+      "aluno": "MARIA ISABEL DO NASCIMENTO BARBOSA",
+      "matricula": "2015025",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-09",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na na quadra com a vestimenta em desacordo com o padrão de fardamento da aula de educação física de forma recorrente.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775747149348,
+      "aluno": "ISADORA REBOUÇAS MILITÃO",
+      "matricula": "2017029",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-09",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na na quadra com a vestimenta em desacordo com o padrão de fardamento da aula de educação física de forma recorrente.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
