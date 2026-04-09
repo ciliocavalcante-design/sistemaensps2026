@@ -1295,7 +1295,9 @@
       "aluno": "MARIA CLARA PINTO RODRIGUES",
       "data": "2026-02-27",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T18:54:49.287Z"
     },
     {
       "id": 1775662729429,
