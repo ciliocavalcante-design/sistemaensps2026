@@ -96,14 +96,18 @@
       "aluno": "ANTONIO MARQUES DOS SANTOS NETO",
       "data": "2026-01-28",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:08.927Z"
     },
     {
       "id": 1775644896729,
       "aluno": "MARIA CLARA ARRAIS DO NASCIMENTO",
       "data": "2026-01-28",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:07.743Z"
     },
     {
       "id": 1775644909470,
@@ -196,7 +200,9 @@
       "aluno": "VICTORIA LIMA FALCAO",
       "data": "2026-02-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:09.876Z"
     },
     {
       "id": 1775644983559,
