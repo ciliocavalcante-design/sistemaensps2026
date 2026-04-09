@@ -1836,7 +1836,9 @@
       "aluno": "LANA NUNES DO NASCIMENTO",
       "data": "2026-04-06",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:47:55.641Z"
     },
     {
       "id": 1775663011985,
