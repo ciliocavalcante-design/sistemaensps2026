@@ -540,14 +540,18 @@
       "aluno": "JOSE GABRIEL SOUZA CLAUDIO",
       "data": "2026-02-25",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:08.844Z"
     },
     {
       "id": 1775645225627,
       "aluno": "MARIA JULIA RODRIGUES GOMES",
       "data": "2026-02-25",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:09.644Z"
     },
     {
       "id": 1775645232991,
