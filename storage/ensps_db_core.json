@@ -8,7 +8,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:34:43.747Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:34:43.747Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644838450,
@@ -17,7 +19,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:34:42.297Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:34:42.297Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644841011,
@@ -26,7 +30,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:34:24.296Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:34:24.296Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644856178,
@@ -35,7 +41,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:45.495Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:45.495Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644859032,
@@ -44,7 +52,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:42.262Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:42.262Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644861813,
@@ -53,7 +63,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:39.797Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:39.797Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644866516,
@@ -62,7 +74,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:23.912Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:23.912Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644881033,
@@ -71,7 +85,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:39.763Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:39.763Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644883166,
@@ -80,7 +96,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:38.597Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:38.597Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644885051,
@@ -89,7 +107,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:36.444Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:36.444Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644892960,
@@ -98,7 +118,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:08.927Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:08.927Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644896729,
@@ -107,7 +129,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:07.743Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:07.743Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644909470,
@@ -116,7 +140,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:34:48.747Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:34:48.747Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644924498,
@@ -125,7 +151,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:34:46.797Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:34:46.797Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644932775,
@@ -134,7 +162,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:46.730Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:46.730Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644940643,
@@ -143,7 +173,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:48.711Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:48.711Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644941977,
@@ -152,7 +184,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:47.461Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:47.461Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644943155,
@@ -161,7 +195,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:46.144Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:46.144Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644947711,
@@ -170,7 +206,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:43.844Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:43.844Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644951335,
@@ -179,7 +217,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:42.527Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:42.527Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644962583,
@@ -188,7 +228,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:40.212Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:40.212Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644965892,
@@ -197,7 +239,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:39.326Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:39.326Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644967888,
@@ -206,7 +250,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:09.876Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:09.876Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644983559,
@@ -215,7 +261,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:36:03.146Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:36:03.146Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644985917,
@@ -224,7 +272,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:35:46.830Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:35:46.830Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775644999604,
@@ -233,7 +283,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:35:38.563Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:35:38.563Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645002729,
@@ -242,7 +294,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:35:42.063Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:35:42.063Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645011617,
@@ -251,7 +305,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:29.694Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:29.694Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645015177,
@@ -260,7 +316,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:25.428Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:25.428Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645017978,
@@ -269,7 +327,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:20.495Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:20.495Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645023545,
@@ -278,7 +338,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:05.611Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:05.611Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645028465,
@@ -287,7 +349,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:17.861Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:17.861Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645032026,
@@ -296,7 +360,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:13.064Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:13.064Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645035351,
@@ -305,7 +371,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:10.831Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:10.831Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645038568,
@@ -314,7 +382,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:08.378Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:08.378Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645040833,
@@ -323,7 +393,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:07.412Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:07.412Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645047447,
@@ -332,7 +404,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:00.262Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:00.262Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645049345,
@@ -341,7 +415,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:59.112Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:59.112Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645055696,
@@ -350,7 +426,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:56.945Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:56.945Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645057594,
@@ -359,7 +437,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:52.945Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:52.945Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645059651,
@@ -368,7 +448,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:50.528Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:50.528Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645061151,
@@ -377,7 +459,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:48.778Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:48.778Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645072296,
@@ -386,7 +470,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:01.794Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:01.794Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645074501,
@@ -395,7 +481,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:00.980Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:00.980Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645077444,
@@ -404,7 +492,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:56.596Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:56.596Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645080486,
@@ -413,7 +503,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:55.011Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:55.011Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645086194,
@@ -422,7 +514,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:53.227Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:53.227Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645087797,
@@ -431,7 +525,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:50.744Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:50.744Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645095994,
@@ -454,7 +550,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:45:17.992Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:45:17.992Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645102411,
@@ -463,7 +561,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:47.259Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:47.259Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645104478,
@@ -472,7 +572,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:44.959Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:44.959Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645107186,
@@ -481,7 +583,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:42.726Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:42.726Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645119268,
@@ -613,7 +717,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:36:26.396Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:36:26.396Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645258862,
@@ -720,7 +826,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:37:16.213Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:37:16.213Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645466669,
@@ -736,7 +844,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:37:10.913Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:37:10.913Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645479375,
@@ -745,7 +855,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:01.211Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:01.211Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645483102,
@@ -761,7 +873,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:31.428Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:31.428Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645495748,
@@ -770,7 +884,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:16.361Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:16.361Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645497982,
@@ -779,7 +895,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:10.893Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:10.893Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645500167,
@@ -788,7 +906,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:09.577Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:09.577Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645504665,
@@ -797,7 +917,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:31.894Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:31.894Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645516320,
@@ -806,7 +928,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:30.844Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:30.844Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645523907,
@@ -815,7 +939,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:17.126Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:17.126Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645525092,
@@ -824,7 +950,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:12.725Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:12.725Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645528019,
@@ -833,7 +961,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:08.242Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:08.242Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645530678,
@@ -842,7 +972,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:05.658Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:05.658Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645550460,
@@ -865,7 +997,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:38:03.729Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:38:03.729Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645557348,
@@ -902,7 +1036,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:37:19.330Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:37:19.330Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645578563,
@@ -932,7 +1068,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:46.510Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:46.510Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645598968,
@@ -941,7 +1079,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:40.226Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:40.226Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645616977,
@@ -957,7 +1097,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:38.610Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:38.610Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645628523,
@@ -973,7 +1115,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:37.875Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:37.875Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645631030,
@@ -982,7 +1126,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:36.027Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:36.027Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645633362,
@@ -991,7 +1137,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:31.609Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:31.609Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645635990,
@@ -1000,7 +1148,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:30.509Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:30.509Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645640547,
@@ -1009,7 +1159,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:24.509Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:24.509Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645642107,
@@ -1018,7 +1170,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:22.659Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:22.659Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645645042,
@@ -1034,7 +1188,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:19.510Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:19.510Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775645676445,
@@ -1274,7 +1430,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:28.877Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:28.877Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775653726990,
@@ -1283,7 +1441,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:27.096Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:27.096Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775653729854,
@@ -1292,7 +1452,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:23.227Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:23.227Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775653744320,
@@ -1301,7 +1463,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:16.510Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:16.510Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775653765742,
@@ -1310,7 +1474,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:45:42.692Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:45:42.692Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775653766853,
@@ -1326,7 +1492,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:37:06.596Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:37:06.596Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775653812642,
@@ -1342,7 +1510,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:37:00.446Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:37:00.446Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775653867339,
@@ -1351,7 +1521,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:43.278Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:43.278Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775653887368,
@@ -1360,7 +1532,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:41.995Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:41.995Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775653896493,
@@ -1369,7 +1543,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:37.111Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:37.111Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775653903010,
@@ -1378,7 +1554,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:52.028Z"
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:52.028Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-09T19:46:45.842Z"
     },
     {
       "id": 1775653981991,
