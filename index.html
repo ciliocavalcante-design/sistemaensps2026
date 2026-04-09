@@ -2516,17 +2516,20 @@
         <div class="card" id="gestor-card-segunda-chamada">
           <div class="collapsible-card-header">
             <h3 class="collapsible-card-title">📅 Faltas e 2ª Chamada por Dia</h3>
-            <button
-              type="button"
-              class="btn-ghost collapse-toggle"
-              data-target="segundaChamadaContainer"
-              aria-expanded="true"
-              aria-controls="segundaChamadaContainer"
-              title="Recolher ou expandir"
-            >
-              <span class="chevron">▾</span>
-              <span class="collapse-toggle-label">Recolher</span>
-            </button>
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;">
+              <button class="btn-ghost" id="btnArquivarEncerradosSegundaChamada">📦 Arquivar fez/zero</button>
+              <button
+                type="button"
+                class="btn-ghost collapse-toggle"
+                data-target="segundaChamadaContainer"
+                aria-expanded="true"
+                aria-controls="segundaChamadaContainer"
+                title="Recolher ou expandir"
+              >
+                <span class="chevron">▾</span>
+                <span class="collapse-toggle-label">Recolher</span>
+              </button>
+            </div>
           </div>
           <div class="collapsible-card-body" id="segundaChamadaContainer">
             <div class="filters" style="margin-top:12px;">
@@ -2553,9 +2556,6 @@
                 <h3 id="segundaChamadaArquivadas" style="color:#fff;">0</h3>
                 <p style="color:rgba(255,255,255,.88);">Arquivadas</p>
               </div>
-            </div>
-            <div class="actions" style="margin-top:0;margin-bottom:10px;">
-              <button class="btn-ghost" id="btnArquivarEncerradosSegundaChamada">📦 Arquivar fez/zero</button>
             </div>
             <div class="table-container">
               <table id="tabelaSegundaChamadaPorDia">
