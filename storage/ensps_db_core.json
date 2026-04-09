@@ -2040,6 +2040,22 @@
       "data": "2026-04-06",
       "status": "segunda-chamada",
       "justificativa": ""
+    },
+    {
+      "id": 1775769231515,
+      "aluno": "ANA CECILIA CAVALCANTE PONTES",
+      "data": "2026-04-09",
+      "status": "presente",
+      "justificativa": "",
+      "uniformeDetalhes": null
+    },
+    {
+      "id": 1775769241117,
+      "aluno": "ABINER SOARES BRAGA",
+      "data": "2026-04-09",
+      "status": "presente",
+      "justificativa": "",
+      "uniformeDetalhes": null
     }
   ],
   "advertencias": [
@@ -5399,8 +5415,8 @@
       "descricao": "O(A) estudante apresentou-se na na quadra com a vestimenta em desacordo com o padrão de fardamento da aula de educação física de forma recorrente.",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-04-09T21:14:23.423Z"
     },
     {
       "id": 1775747149600,
