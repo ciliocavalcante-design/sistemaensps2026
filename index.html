@@ -351,6 +351,45 @@
     .stats-card h3 { margin: 0 0 6px; font-size: .8rem; color: var(--muted); font-weight: 500; }
     .stats-card .number { font-size: 2rem; font-weight: 700; color: var(--ink); margin: 0; }
     .stats-card .subtitle { font-size: .76rem; color: var(--hint); margin-top: 4px; }
+    .collapsible-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 0;
+    }
+    .collapsible-card-title {
+      margin: 0;
+      flex: 1;
+    }
+    .collapse-toggle {
+      width: auto;
+      margin: 0;
+      padding: 6px 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--border);
+    }
+    .collapse-toggle:hover {
+      background: var(--card2);
+    }
+    .collapse-toggle .chevron {
+      display: inline-block;
+      font-size: .9rem;
+      transition: transform .2s ease;
+    }
+    .collapse-toggle[aria-expanded="false"] .chevron {
+      transform: rotate(-90deg);
+    }
+    .collapsible-card-body {
+      margin-top: 12px;
+    }
+    .collapsible-card-body.is-collapsed {
+      display: none;
+    }
     .professor-stats-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
     .professor-stats-table th, .professor-stats-table td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); font-size: .82rem; }
     .professor-stats-table th { background: var(--surface); color: var(--hint); font-size: .72rem; text-transform: uppercase; }
@@ -2398,8 +2437,22 @@
           </div>
         </div>
         <div class="card" id="gestor-card-top10-adv">
-          <h3>🏆 Top 10 - Alunos com Mais Advertências</h3>
-          <div class="table-container">
+          <div class="collapsible-card-header">
+            <h3 class="collapsible-card-title">🏆 Top 10 - Alunos com Mais Advertências</h3>
+            <button
+              type="button"
+              class="btn-ghost collapse-toggle"
+              data-target="top10AdvertenciasContainer"
+              aria-expanded="true"
+              aria-controls="top10AdvertenciasContainer"
+              title="Recolher ou expandir"
+            >
+              <span class="chevron">▾</span>
+              <span class="collapse-toggle-label">Recolher</span>
+            </button>
+          </div>
+          <div class="collapsible-card-body" id="top10AdvertenciasContainer">
+            <div class="table-container">
             <table id="tabelaTop10Advertencias">
               <thead>
                 <tr>
@@ -2412,11 +2465,26 @@
               </thead>
               <tbody></tbody>
             </table>
+            </div>
           </div>
         </div>
         <div class="card" id="gestor-card-top10">
-          <h3>🏆 Top 10 - Alunos com Mais Faltas</h3>
-          <div class="table-container">
+          <div class="collapsible-card-header">
+            <h3 class="collapsible-card-title">🏆 Top 10 - Alunos com Mais Faltas</h3>
+            <button
+              type="button"
+              class="btn-ghost collapse-toggle"
+              data-target="top10FaltasContainer"
+              aria-expanded="true"
+              aria-controls="top10FaltasContainer"
+              title="Recolher ou expandir"
+            >
+              <span class="chevron">▾</span>
+              <span class="collapse-toggle-label">Recolher</span>
+            </button>
+          </div>
+          <div class="collapsible-card-body" id="top10FaltasContainer">
+            <div class="table-container">
             <table id="tabelaTop10Faltas">
               <thead>
                 <tr>
@@ -2429,6 +2497,7 @@
               </thead>
               <tbody></tbody>
             </table>
+            </div>
           </div>
         </div>
         <div class="card" id="gestor-card-segunda-chamada">
@@ -5889,6 +5958,60 @@ Senha temporária: ensps2026`;
     // =========================
     // DASHBOARD DO GESTOR
     // =========================
+    const dashboardCollapseStateKey = 'ensps-dashboard-collapse-state';
+
+    function carregarEstadoColapsadoDashboard(){
+      try {
+        return JSON.parse(localStorage.getItem(dashboardCollapseStateKey) || '{}');
+      } catch (error) {
+        return {};
+      }
+    }
+
+    function salvarEstadoColapsadoDashboard(state){
+      try {
+        localStorage.setItem(dashboardCollapseStateKey, JSON.stringify(state));
+      } catch (error) {
+        // Ignora falhas de armazenamento para nao quebrar a interface.
+      }
+    }
+
+    function atualizarBotaoColapsavel(botao, expandido){
+      if(!botao) return;
+      botao.setAttribute('aria-expanded', String(expandido));
+      const label = botao.querySelector('.collapse-toggle-label');
+      if(label) label.textContent = expandido ? 'Recolher' : 'Expandir';
+    }
+
+    function definirEstadoColapsavelDashboard(targetId, expandido){
+      const conteudo = document.getElementById(targetId);
+      const botao = document.querySelector(`.collapse-toggle[data-target="${targetId}"]`);
+      if(!conteudo || !botao) return;
+
+      conteudo.classList.toggle('is-collapsed', !expandido);
+      conteudo.setAttribute('aria-hidden', String(!expandido));
+      atualizarBotaoColapsavel(botao, expandido);
+
+      const state = carregarEstadoColapsadoDashboard();
+      state[targetId] = expandido;
+      salvarEstadoColapsadoDashboard(state);
+    }
+
+    function inicializarCardsColapsaveisDashboard(){
+      const state = carregarEstadoColapsadoDashboard();
+      document.querySelectorAll('.collapse-toggle[data-target]').forEach(botao => {
+        const targetId = botao.dataset.target;
+        const expandido = state[targetId] !== false;
+
+        botao.onclick = () => {
+          const estaExpandido = botao.getAttribute('aria-expanded') === 'true';
+          definirEstadoColapsavelDashboard(targetId, !estaExpandido);
+        };
+
+        definirEstadoColapsavelDashboard(targetId, expandido);
+      });
+    }
+
     function atualizarDashboardGestor(){
       const totalAlunosEl = document.getElementById('totalAlunos');
       const totalAdvEl = document.getElementById('totalAdvertencias');
@@ -5968,6 +6091,8 @@ Senha temporária: ensps2026`;
       renderTabelaSegundaChamadaPorDia();
       renderRelatorioSegundaChamada();
     }
+
+    inicializarCardsColapsaveisDashboard();
 
     const btnRelatorioCompleto = document.getElementById('btnRelatorioCompleto');
     if(btnRelatorioCompleto){
