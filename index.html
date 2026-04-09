@@ -291,6 +291,43 @@
     /* ── FILTERS ── */
     .filters { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; margin-bottom: 14px; }
     .filter-group { flex: 1; min-width: 140px; }
+    .uniforme-opcoes-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .uniforme-opcao {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--ink);
+      font-size: .88rem;
+    }
+    .uniforme-opcao input[type="checkbox"],
+    .uniforme-opcao input[type="radio"] {
+      width: auto;
+      margin-top: 2px;
+      accent-color: var(--brand);
+    }
+    .uniforme-subopcoes {
+      margin: 8px 0 0 28px;
+      display: grid;
+      gap: 8px;
+    }
+    .uniforme-resumo-box {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: .84rem;
+      line-height: 1.5;
+    }
 
     /* ── STATS CARDS ── */
     .stats-grid {
@@ -1451,6 +1488,42 @@
         </div>
       </main>
     </section>
+
+    <div class="modal-overlay" id="uniformeModal">
+      <div class="modal-content" style="max-width:760px;">
+        <div class="modal-header">
+          <h2>Detalhar Sem Fardamento</h2>
+          <button type="button" class="modal-close" onclick="fecharModalUniforme()">Fechar</button>
+        </div>
+        <p class="muted" id="uniformeModalAlunoInfo" style="margin:0 0 12px;">Selecione as ocorrências do aluno.</p>
+        <div class="uniforme-opcoes-grid" id="uniformeOpcoesGrid">
+          <label class="uniforme-opcao"><input type="checkbox" value="a-paisana"><span>À paisana</span></label>
+          <label class="uniforme-opcao"><input type="checkbox" value="farda-ed-fisica-dia-inapropriado"><span>Farda de Educação Física em dia inapropriado</span></label>
+          <label class="uniforme-opcao"><input type="checkbox" value="sem-farda-ed-fisica-com-farda-normal"><span>Sem fardamento de Educação Física com farda normal</span></label>
+          <label class="uniforme-opcao"><input type="checkbox" value="sem-farda-ed-fisica-a-paisana"><span>Sem fardamento de Educação Física e à paisana</span></label>
+          <label class="uniforme-opcao"><input type="checkbox" value="blusa-feira-dia-inapropriado"><span>Blusa da feira em dia inapropriado</span></label>
+          <label class="uniforme-opcao"><input type="checkbox" value="a-paisana-justificado"><span>À paisana justificado pelos pais</span></label>
+          <label class="uniforme-opcao"><input type="checkbox" value="fardamento-misturado"><span>Fardamento misturado com roupa</span></label>
+          <div class="uniforme-opcao" style="display:block;">
+            <label style="display:flex;align-items:flex-start;gap:10px;">
+              <input type="checkbox" id="uniformeCalcadoInapropriado">
+              <span>Calçado inapropriado</span>
+            </label>
+            <div class="uniforme-subopcoes">
+              <label class="uniforme-opcao"><input type="radio" name="uniformeCalcadoTipo" value="chinela"><span>Chinela</span></label>
+              <label class="uniforme-opcao"><input type="radio" name="uniformeCalcadoTipo" value="crocs"><span>Crocs</span></label>
+              <label class="uniforme-opcao"><input type="radio" name="uniformeCalcadoTipo" value="sapato-cor-inadequada"><span>Sapato de cor inadequada</span></label>
+            </div>
+          </div>
+          <label class="uniforme-opcao"><input type="checkbox" value="calcado-inapropriado-justificado"><span>Calçado inapropriado justificado pelos pais</span></label>
+        </div>
+        <div class="uniforme-resumo-box" id="uniformeResumoPreview">Nenhuma opção selecionada ainda.</div>
+        <div class="actions">
+          <button type="button" class="btn" onclick="salvarDetalhesUniforme()">Salvar ocorrência</button>
+          <button type="button" class="btn-ghost" onclick="fecharModalUniforme()">Cancelar</button>
+        </div>
+      </div>
+    </div>
 
     <!-- ==================== SEÇÃO: ADVERTÊNCIAS ==================== -->
     <section id="advertencia" class="content-section">
@@ -3907,6 +3980,22 @@
     let advertenciasSalvas = Array.isArray(enspsDB.advertencias) ? enspsDB.advertencias : [];
     let comunicadosRegistros = Array.isArray(enspsDB.comunicadosProfessores) ? enspsDB.comunicadosProfessores : [];
     let comunicadoAtualId = null;
+    let uniformeModalContexto = null;
+    const uniformeOcorrenciaLabels = {
+      'a-paisana': 'À paisana',
+      'farda-ed-fisica-dia-inapropriado': 'Farda de Educação Física em dia inapropriado',
+      'sem-farda-ed-fisica-com-farda-normal': 'Sem fardamento de Educação Física com farda normal',
+      'sem-farda-ed-fisica-a-paisana': 'Sem fardamento de Educação Física e à paisana',
+      'blusa-feira-dia-inapropriado': 'Blusa da feira em dia inapropriado',
+      'a-paisana-justificado': 'À paisana justificado pelos pais',
+      'fardamento-misturado': 'Fardamento misturado com roupa',
+      'calcado-inapropriado-justificado': 'Calçado inapropriado justificado pelos pais'
+    };
+    const uniformeCalcadoLabels = {
+      chinela: 'Calçado inapropriado: chinela',
+      crocs: 'Calçado inapropriado: crocs',
+      'sapato-cor-inadequada': 'Calçado inapropriado: sapato de cor inadequada'
+    };
     advertenciasSalvas = advertenciasSalvas.map(adv => {
       const temCampoLinhas = Object.prototype.hasOwnProperty.call(adv, 'usaLinhasAssinatura');
       const temCampoPendencia = Object.prototype.hasOwnProperty.call(adv, 'pendenciaAssinatura');
@@ -3970,6 +4059,104 @@
       document.getElementById('matriculaGestor').value = aluno ? aluno.matricula : '';
     });
 
+    function obterResumoDetalhesUniforme(detalhes = {}){
+      const itens = Array.isArray(detalhes.itens) ? detalhes.itens : [];
+      const partes = itens.map(item => uniformeOcorrenciaLabels[item]).filter(Boolean);
+      if(detalhes.calcadoInapropriado && detalhes.calcadoTipo && uniformeCalcadoLabels[detalhes.calcadoTipo]){
+        partes.push(uniformeCalcadoLabels[detalhes.calcadoTipo]);
+      }
+      return partes.join('; ');
+    }
+
+    function resetarModalUniforme(){
+      document.querySelectorAll('#uniformeOpcoesGrid input[type="checkbox"]').forEach(input => {
+        input.checked = false;
+      });
+      document.querySelectorAll('#uniformeOpcoesGrid input[type="radio"]').forEach(input => {
+        input.checked = false;
+      });
+      const preview = document.getElementById('uniformeResumoPreview');
+      if(preview) preview.textContent = 'Nenhuma opção selecionada ainda.';
+    }
+
+    function atualizarResumoModalUniforme(){
+      const detalhes = coletarDetalhesModalUniforme();
+      const preview = document.getElementById('uniformeResumoPreview');
+      if(!preview) return;
+      const resumo = obterResumoDetalhesUniforme(detalhes);
+      preview.textContent = resumo || 'Nenhuma opção selecionada ainda.';
+    }
+
+    function coletarDetalhesModalUniforme(){
+      const itens = [...document.querySelectorAll('#uniformeOpcoesGrid input[type="checkbox"][value]:checked')].map(input => input.value);
+      const calcadoInapropriado = !!document.getElementById('uniformeCalcadoInapropriado')?.checked;
+      const calcadoTipo = document.querySelector('input[name="uniformeCalcadoTipo"]:checked')?.value || '';
+      return { itens, calcadoInapropriado, calcadoTipo };
+    }
+
+    function preencherModalUniforme(detalhes = {}){
+      resetarModalUniforme();
+      const itens = Array.isArray(detalhes.itens) ? detalhes.itens : [];
+      itens.forEach(item => {
+        const input = document.querySelector(`#uniformeOpcoesGrid input[type="checkbox"][value="${item}"]`);
+        if(input) input.checked = true;
+      });
+      const calcadoInput = document.getElementById('uniformeCalcadoInapropriado');
+      if(calcadoInput) calcadoInput.checked = !!detalhes.calcadoInapropriado;
+      if(detalhes.calcadoTipo){
+        const radio = document.querySelector(`input[name="uniformeCalcadoTipo"][value="${detalhes.calcadoTipo}"]`);
+        if(radio) radio.checked = true;
+      }
+      atualizarResumoModalUniforme();
+    }
+
+    window.abrirModalUniforme = function(nomeAluno){
+      const data = document.getElementById('dataFreq').value;
+      if(!data){
+        alert('Selecione uma data!');
+        return;
+      }
+
+      const registroAtual = registrosFrequencia.find(r => r.aluno === nomeAluno && r.data === data);
+      uniformeModalContexto = { nomeAluno, data };
+      preencherModalUniforme(registroAtual?.uniformeDetalhes || {});
+
+      const info = document.getElementById('uniformeModalAlunoInfo');
+      if(info) info.textContent = `${nomeAluno} · ${fmtData(data)} · selecione uma ou mais ocorrências.`;
+      document.getElementById('uniformeModal')?.classList.add('active');
+    };
+
+    window.fecharModalUniforme = function(){
+      uniformeModalContexto = null;
+      document.getElementById('uniformeModal')?.classList.remove('active');
+    };
+
+    window.salvarDetalhesUniforme = function(){
+      if(!uniformeModalContexto) return;
+      const detalhes = coletarDetalhesModalUniforme();
+      if(!detalhes.itens.length && !detalhes.calcadoInapropriado){
+        alert('Selecione pelo menos uma ocorrência.');
+        return;
+      }
+      if(detalhes.calcadoInapropriado && !detalhes.calcadoTipo){
+        alert('Selecione a subopção de calçado inapropriado.');
+        return;
+      }
+
+      registrosFrequencia = registrosFrequencia.filter(r => !(r.aluno === uniformeModalContexto.nomeAluno && r.data === uniformeModalContexto.data));
+      registrosFrequencia.push({
+        id: Date.now(),
+        aluno: uniformeModalContexto.nomeAluno,
+        data: uniformeModalContexto.data,
+        status: 'sem-fardamento',
+        justificativa: obterResumoDetalhesUniforme(detalhes),
+        uniformeDetalhes: detalhes
+      });
+
+      fecharModalUniforme();
+      renderTabelaFrequencia();
+    };
+
     function renderTabelaFrequencia(){
       const tbody = document.querySelector('#tabelaFrequencia tbody');
       const serie = document.getElementById('filtroSerie').value;
@@ -4014,7 +4201,7 @@
                 📝 J
               </button>
               <button class="presenca-btn ${statusAtual === 'sem-fardamento' ? 'sem-fardamento' : ''}" 
-                      onclick="marcarPresenca('${aluno.nome}', 'sem-fardamento')">
+                      onclick="abrirModalUniforme('${aluno.nome.replace(/'/g, "\\'")}')">
                 👕 SF
               </button>
             </div>
@@ -4040,7 +4227,8 @@
         aluno: nomeAluno,
         data,
         status,
-        justificativa: ''
+        justificativa: '',
+        uniformeDetalhes: null
       });
 
       renderTabelaFrequencia();
@@ -5072,6 +5260,12 @@
     document.getElementById('filtroSerie').addEventListener('change', renderTabelaFrequencia);
     document.getElementById('filtroEnsino').addEventListener('change', renderTabelaFrequencia);
     document.getElementById('dataFreq').addEventListener('change', renderTabelaFrequencia);
+    document.querySelectorAll('#uniformeOpcoesGrid input').forEach(input => {
+      input.addEventListener('change', atualizarResumoModalUniforme);
+    });
+    document.getElementById('uniformeModal')?.addEventListener('click', function(event){
+      if(event.target.id === 'uniformeModal') fecharModalUniforme();
+    });
 
     renderTabelaFrequencia();
     atualizarFaltasAcumuladas();
