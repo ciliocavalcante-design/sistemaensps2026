@@ -1309,7 +1309,9 @@
       "aluno": "SILVIA CIBELE SILVA LIMA",
       "data": "2026-02-27",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "zero",
+      "segundaChamadaAtualizadaEm": "2026-04-09T18:54:36.703Z"
     },
     {
       "id": 1775662770807,
