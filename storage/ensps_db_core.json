@@ -40,14 +40,18 @@
       "aluno": "GIDEAO DOS SANTOS SAMPAIO",
       "data": "2026-01-28",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:42.262Z"
     },
     {
       "id": 1775644861813,
       "aluno": "JOAO ARTHUR ALVES MARTINS",
       "data": "2026-01-28",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:39.797Z"
     },
     {
       "id": 1775644866516,
