@@ -1261,14 +1261,18 @@
       "aluno": "ANGELO VINICIUS LEITE SILVA FILHO",
       "data": "2026-02-27",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T18:52:23.688Z"
     },
     {
       "id": 1775662693666,
       "aluno": "BEATRIZ SOLANGE CHAVES MAGALHAES",
       "data": "2026-02-27",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T18:52:19.671Z"
     },
     {
       "id": 1775662695769,
