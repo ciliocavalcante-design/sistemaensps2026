@@ -925,7 +925,9 @@
       "aluno": "PIETRA DA SILVA SOUZA SUASSUNA",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:43:38.610Z"
     },
     {
       "id": 1775645628523,
