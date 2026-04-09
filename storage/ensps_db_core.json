@@ -813,7 +813,9 @@
       "aluno": "MARIA CLARA ARRAIS DO NASCIMENTO",
       "data": "2026-03-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:17.126Z"
     },
     {
       "id": 1775645525092,
@@ -1018,7 +1020,9 @@
       "aluno": "MARIA JULIA FERREIRA DE SOUSA",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:19.510Z"
     },
     {
       "id": 1775645676445,
