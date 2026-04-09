@@ -628,7 +628,9 @@
       "aluno": "BERNARD BRAZ QUEIROGA SABINO",
       "data": "2026-03-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:37:16.213Z"
     },
     {
       "id": 1775645466669,
@@ -784,7 +786,9 @@
       "aluno": "VALENTINA LIMA FERREIRA GOMES",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:37:19.330Z"
     },
     {
       "id": 1775645578563,
