@@ -1286,7 +1286,9 @@
       "aluno": "ANA LIVIA MATIAS PINHEIRO",
       "data": "2026-03-09",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:45:42.692Z"
     },
     {
       "id": 1775653766853,
