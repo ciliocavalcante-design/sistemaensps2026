@@ -1393,7 +1393,9 @@
       "aluno": "NICOLLY SOUZA RABAY",
       "data": "2026-03-03",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaAtualizadaEm": "2026-04-09T18:52:39.638Z"
     },
     {
       "id": 1775662937044,
