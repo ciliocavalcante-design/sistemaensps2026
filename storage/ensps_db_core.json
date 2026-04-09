@@ -452,7 +452,9 @@
       "aluno": "IAN DA SILVA OLIVEIRA",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:45:17.992Z"
     },
     {
       "id": 1775645102411,
