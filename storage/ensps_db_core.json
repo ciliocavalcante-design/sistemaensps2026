@@ -769,14 +769,18 @@
       "aluno": "PIETRA DA SILVA SOUZA SUASSUNA",
       "data": "2026-03-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:31.894Z"
     },
     {
       "id": 1775645516320,
       "aluno": "SOPHIA AYLA MENDES BESSA",
       "data": "2026-03-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:30.844Z"
     },
     {
       "id": 1775645523907,
@@ -1214,14 +1218,18 @@
       "aluno": "EMANUEL LOHAN SILVEIRA MARQUES",
       "data": "2026-03-09",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:28.877Z"
     },
     {
       "id": 1775653726990,
       "aluno": "EVELYN DE ALMEIDA ABREU",
       "data": "2026-03-09",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:27.096Z"
     },
     {
       "id": 1775653729854,
