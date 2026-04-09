@@ -2501,41 +2501,71 @@
           </div>
         </div>
         <div class="card" id="gestor-card-segunda-chamada">
-          <h3>📅 Faltas e 2ª Chamada por Dia</h3>
-          <div class="filters" style="margin-top:12px;">
-            <div class="filter-group">
-              <label for="filtroAlunoSegundaChamada">Filtrar por aluno</label>
-              <input list="alunosListFiltroSegundaChamada" id="filtroAlunoSegundaChamada" placeholder="Digite o nome do aluno...">
-              <datalist id="alunosListFiltroSegundaChamada"></datalist>
+          <div class="collapsible-card-header">
+            <h3 class="collapsible-card-title">📅 Faltas e 2ª Chamada por Dia</h3>
+            <button
+              type="button"
+              class="btn-ghost collapse-toggle"
+              data-target="segundaChamadaContainer"
+              aria-expanded="true"
+              aria-controls="segundaChamadaContainer"
+              title="Recolher ou expandir"
+            >
+              <span class="chevron">▾</span>
+              <span class="collapse-toggle-label">Recolher</span>
+            </button>
+          </div>
+          <div class="collapsible-card-body" id="segundaChamadaContainer">
+            <div class="filters" style="margin-top:12px;">
+              <div class="filter-group">
+                <label for="filtroAlunoSegundaChamada">Filtrar por aluno</label>
+                <input list="alunosListFiltroSegundaChamada" id="filtroAlunoSegundaChamada" placeholder="Digite o nome do aluno...">
+                <datalist id="alunosListFiltroSegundaChamada"></datalist>
+              </div>
             </div>
-          </div>
-          <div class="actions" style="margin-top:0;">
-            <button class="btn-ghost" id="btnExportarSegundaChamadaJson">⬇️ Exportar 2ª Chamada (JSON)</button>
-          </div>
-          <div class="table-container">
-            <table id="tabelaSegundaChamadaPorDia">
-              <thead>
-                <tr>
-                  <th>Data</th>
-                  <th>Quantidade</th>
-                  <th>Alunos / Status</th>
-                  <th>Boletim</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+            <div class="actions" style="margin-top:0;">
+              <button class="btn-ghost" id="btnExportarSegundaChamadaJson">⬇️ Exportar 2ª Chamada (JSON)</button>
+            </div>
+            <div class="table-container">
+              <table id="tabelaSegundaChamadaPorDia">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Quantidade</th>
+                    <th>Alunos / Status</th>
+                    <th>Boletim</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
           </div>
         </div>
         <div class="card" id="gestor-card-relatorio-segunda-chamada">
-          <h3>🖨️ Relatório de 2ª Chamada</h3>
-          <p class="muted" style="margin:0 0 12px;">Relatório para impressão com registros organizados por série e por dia.</p>
-          <div class="actions">
-            <button class="btn" id="btnGerarRelatorioSegundaChamada">📄 Gerar Relatório</button>
-            <button class="btn-ghost" id="btnImprimirRelatorioSegundaChamada">🖨️ Imprimir / PDF</button>
-            <button class="btn-ghost" id="btnBaixarPdfRelatorioSegundaChamada">⬇️ Baixar PDF</button>
+          <div class="collapsible-card-header">
+            <h3 class="collapsible-card-title">🖨️ Relatório de 2ª Chamada</h3>
+            <button
+              type="button"
+              class="btn-ghost collapse-toggle"
+              data-target="relatorioSegundaChamadaContainer"
+              aria-expanded="true"
+              aria-controls="relatorioSegundaChamadaContainer"
+              title="Recolher ou expandir"
+            >
+              <span class="chevron">▾</span>
+              <span class="collapse-toggle-label">Recolher</span>
+            </button>
           </div>
-          <div class="preview" id="relatorioSegundaChamadaPrintWrap" style="margin-top:14px;">
-            <div class="doc" id="relatorioSegundaChamadaPreview"></div>
+          <div class="collapsible-card-body" id="relatorioSegundaChamadaContainer">
+            <p class="muted" style="margin:0 0 12px;">Relatório para impressão com registros organizados por série e por dia.</p>
+            <div class="actions">
+              <button class="btn" id="btnGerarRelatorioSegundaChamada">📄 Gerar Relatório</button>
+              <button class="btn-ghost" id="btnImprimirRelatorioSegundaChamada">🖨️ Imprimir / PDF</button>
+              <button class="btn-ghost" id="btnBaixarPdfRelatorioSegundaChamada">⬇️ Baixar PDF</button>
+            </div>
+            <div class="preview" id="relatorioSegundaChamadaPrintWrap" style="margin-top:14px;">
+              <div class="doc" id="relatorioSegundaChamadaPreview"></div>
+            </div>
           </div>
         </div>
       </main>
@@ -5959,6 +5989,12 @@ Senha temporária: ensps2026`;
     // DASHBOARD DO GESTOR
     // =========================
     const dashboardCollapseStateKey = 'ensps-dashboard-collapse-state';
+    const dashboardCollapseDefaults = {
+      top10AdvertenciasContainer: false,
+      top10FaltasContainer: false,
+      segundaChamadaContainer: true,
+      relatorioSegundaChamadaContainer: true
+    };
 
     function carregarEstadoColapsadoDashboard(){
       try {
@@ -6001,7 +6037,9 @@ Senha temporária: ensps2026`;
       const state = carregarEstadoColapsadoDashboard();
       document.querySelectorAll('.collapse-toggle[data-target]').forEach(botao => {
         const targetId = botao.dataset.target;
-        const expandido = state[targetId] !== false;
+        const expandido = Object.prototype.hasOwnProperty.call(state, targetId)
+          ? state[targetId]
+          : dashboardCollapseDefaults[targetId] !== false;
 
         botao.onclick = () => {
           const estaExpandido = botao.getAttribute('aria-expanded') === 'true';
