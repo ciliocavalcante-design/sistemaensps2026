@@ -184,7 +184,9 @@
       "aluno": "BERNARD BRAZ QUEIROGA SABINO",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:35:46.830Z"
     },
     {
       "id": 1775644999604,
@@ -200,7 +202,9 @@
       "aluno": "SOPHIA MARIAH FERREIRA DO NASCIMENTO",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:35:42.063Z"
     },
     {
       "id": 1775645011617,
