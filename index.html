@@ -240,6 +240,9 @@
     .badge-presente    { background: var(--success-dim); color: #4ade80; }
     .badge-falta       { background: var(--danger-dim);  color: #f87171; }
     .badge-segunda-chamada { background: #11243f; color: #93c5fd; }
+    .badge-segunda-pendente { background: var(--warning-dim); color: #fbbf24; }
+    .badge-segunda-realizada { background: var(--success-dim); color: #4ade80; }
+    .badge-segunda-zero { background: var(--danger-dim); color: #f87171; }
     .badge-justificada { background: var(--warning-dim); color: #fbbf24; }
     .badge-sem-fardamento { background: var(--purple-dim); color: #c4b5fd; }
     .badge-warning     { background: var(--warning-dim); color: #fbbf24; }
@@ -275,6 +278,15 @@
     .presenca-btn.justificada   { background: var(--warning-dim); color: #fbbf24; border-color: #92400e; }
     .presenca-btn.sem-fardamento{ background: var(--purple-dim);  color: #c4b5fd; border-color: #4c1d95; }
     .presenca-btn:hover { filter: brightness(1.15); }
+    .segunda-chamada-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .segunda-chamada-actions button {
+      width: auto;
+      margin: 0;
+    }
 
     /* ── FILTERS ── */
     .filters { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; margin-bottom: 14px; }
@@ -2434,6 +2446,7 @@
             <button class="btn" id="btnRelatorioCompleto">📊 Relatório Completo</button>
             <button class="btn-ghost" id="btnExportarAdvertencias">⚠️ Todas Advertências</button>
             <button class="btn-ghost" id="btnExportarFrequenciaGeral">📋 Frequência Geral</button>
+            <button class="btn-ghost" id="btnExportarSegundaChamadaJson">⬇️ Exportar 2ª Chamada (JSON)</button>
           </div>
         </div>
         <div class="card" id="gestor-card-top10-adv">
@@ -2523,17 +2536,30 @@
                 <datalist id="alunosListFiltroSegundaChamada"></datalist>
               </div>
             </div>
-            <div class="actions" style="margin-top:0;">
-              <button class="btn-ghost" id="btnExportarSegundaChamadaJson">⬇️ Exportar 2ª Chamada (JSON)</button>
+            <div class="stats-grid" id="segundaChamadaResumoGrid" style="margin:0 0 12px;">
+              <div class="stat-card">
+                <h3 id="segundaChamadaPendentes">0</h3>
+                <p>Pendentes por fazer</p>
+              </div>
+              <div class="stat-card" style="background:linear-gradient(135deg, var(--success) 0%, #16a34a 100%)">
+                <h3 id="segundaChamadaRealizadas" style="color:#fff;">0</h3>
+                <p style="color:rgba(255,255,255,.88);">Já realizaram</p>
+              </div>
+              <div class="stat-card" style="background:linear-gradient(135deg, var(--danger) 0%, #b91c1c 100%)">
+                <h3 id="segundaChamadaZero" style="color:#fff;">0</h3>
+                <p style="color:rgba(255,255,255,.88);">Receberão zero</p>
+              </div>
             </div>
             <div class="table-container">
               <table id="tabelaSegundaChamadaPorDia">
                 <thead>
                   <tr>
                     <th>Data</th>
-                    <th>Quantidade</th>
-                    <th>Alunos / Status</th>
+                    <th>Aluno(a)</th>
+                    <th>Série</th>
+                    <th>Situação</th>
                     <th>Boletim</th>
+                    <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -4046,38 +4072,67 @@
       });
     }
 
-    function obterResumoSegundaChamadaPorDia(){
+    const segundaChamadaSituacoes = {
+      pendente: { label: 'Pendente', badgeClass: 'badge-segunda-pendente' },
+      realizada: { label: 'Realizada', badgeClass: 'badge-segunda-realizada' },
+      zero: { label: 'Zero', badgeClass: 'badge-segunda-zero' }
+    };
+
+    function obterSituacaoSegundaChamada(registro){
+      if(!registro || registro.status !== 'segunda-chamada') return '';
+      return registro.segundaChamadaSituacao || 'pendente';
+    }
+
+    function obterRegistrosSegundaChamada(){
       const filtroAluno = (document.getElementById('filtroAlunoSegundaChamada')?.value || '').trim().toUpperCase();
+
+      return registrosFrequencia
+        .filter(reg => reg.status === 'segunda-chamada')
+        .filter(reg => !filtroAluno || reg.aluno.toUpperCase() === filtroAluno)
+        .map(reg => {
+          const alunoInfo = alunosDB.find(aluno => aluno.nome === reg.aluno);
+          const situacao = obterSituacaoSegundaChamada(reg);
+          return {
+            ...reg,
+            serie: alunoInfo ? alunoInfo.serie : 'Sem série',
+            turma: alunoInfo ? alunoInfo.turma : '',
+            situacao,
+            boletim: obterEventosBoletimNaData(reg.data)
+          };
+        })
+        .sort((a, b) => {
+          const ordemSituacao = { pendente: 0, realizada: 1, zero: 2 };
+          const diffSituacao = (ordemSituacao[a.situacao] ?? 9) - (ordemSituacao[b.situacao] ?? 9);
+          if(diffSituacao !== 0) return diffSituacao;
+          const diffData = new Date(b.data) - new Date(a.data);
+          if(diffData !== 0) return diffData;
+          return a.aluno.localeCompare(b.aluno, 'pt-BR');
+        });
+    }
+
+    function obterResumoSegundaChamadaPorDia(){
       const agrupado = {};
 
-      registrosFrequencia
-        .filter(reg => reg.status === 'falta' || reg.status === 'segunda-chamada')
-        .forEach(reg => {
-          if(filtroAluno && reg.aluno.toUpperCase() !== filtroAluno) return;
-          const alunoInfo = alunosDB.find(aluno => aluno.nome === reg.aluno);
-          const serie = alunoInfo ? alunoInfo.serie : 'Sem série';
-          if(!agrupado[reg.data]){
-            agrupado[reg.data] = { data: reg.data, alunos: [], series: new Set() };
-          }
-          agrupado[reg.data].alunos.push({
-            nome: reg.aluno,
-            status: reg.status,
-            serie
-          });
-          agrupado[reg.data].series.add(serie);
-        });
+      obterRegistrosSegundaChamada().forEach(reg => {
+        if(!agrupado[reg.data]){
+          agrupado[reg.data] = {
+            data: reg.data,
+            total: 0,
+            pendentes: 0,
+            realizadas: 0,
+            zero: 0,
+            alunos: []
+          };
+        }
 
-      return Object.values(agrupado)
-        .map(item => ({
-          data: item.data,
-          total: item.alunos.length,
-          alunos: item.alunos,
-          series: [...item.series].sort(),
-          alunosTexto: item.alunos
-            .map(aluno => `${aluno.nome} (${aluno.status === 'segunda-chamada' ? '2ª chamada' : 'falta'})`)
-            .join(', ')
-        }))
-        .sort((a,b) => new Date(b.data) - new Date(a.data));
+        agrupado[reg.data].total++;
+        if(reg.situacao === 'pendente') agrupado[reg.data].pendentes++;
+        if(reg.situacao === 'realizada') agrupado[reg.data].realizadas++;
+        if(reg.situacao === 'zero') agrupado[reg.data].zero++;
+        agrupado[reg.data].alunos.push(reg);
+      });
+
+      return Object.values(agrupado).sort((a,b) => new Date(b.data) - new Date(a.data));
     }
 
     function eventoBoletimEhRelevante(texto = ''){
@@ -4110,82 +4165,110 @@
       return relevantes.length ? relevantes : unicos;
     }
 
+    function atualizarResumoSegundaChamada(){
+      const registros = obterRegistrosSegundaChamada();
+      const pendentes = registros.filter(reg => reg.situacao === 'pendente').length;
+      const realizadas = registros.filter(reg => reg.situacao === 'realizada').length;
+      const zero = registros.filter(reg => reg.situacao === 'zero').length;
+
+      const elPendentes = document.getElementById('segundaChamadaPendentes');
+      const elRealizadas = document.getElementById('segundaChamadaRealizadas');
+      const elZero = document.getElementById('segundaChamadaZero');
+      if(elPendentes) elPendentes.textContent = pendentes;
+      if(elRealizadas) elRealizadas.textContent = realizadas;
+      if(elZero) elZero.textContent = zero;
+    }
+
     function renderTabelaSegundaChamadaPorDia(){
       const tbody = document.querySelector('#tabelaSegundaChamadaPorDia tbody');
       if(!tbody) return;
 
-      const registrosPorDia = obterResumoSegundaChamadaPorDia();
+      const registros = obterRegistrosSegundaChamada();
       tbody.innerHTML = '';
+      atualizarResumoSegundaChamada();
 
-      if(!registrosPorDia.length){
-        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center" class="muted">Nenhum registro de falta ou 2ª chamada ainda</td></tr>';
+      if(!registros.length){
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center" class="muted">Nenhum registro de 2ª chamada ainda</td></tr>';
         return;
       }
 
       const gruposPorSerie = {};
-      registrosPorDia.forEach(item => {
-        item.series.forEach(serie => {
-          if(!gruposPorSerie[serie]) gruposPorSerie[serie] = [];
-          const alunosDaSerie = item.alunos.filter(aluno => aluno.serie === serie);
-          if(!alunosDaSerie.length) return;
-          gruposPorSerie[serie].push({
-            data: item.data,
-            total: alunosDaSerie.length,
-            alunosTexto: alunosDaSerie
-              .map(aluno => `${aluno.nome} (${aluno.status === 'segunda-chamada' ? '2ª chamada' : 'falta'})`)
-              .join(', ')
-          });
-        });
+      registros.forEach(reg => {
+        if(!gruposPorSerie[reg.serie]) gruposPorSerie[reg.serie] = [];
+        gruposPorSerie[reg.serie].push(reg);
       });
 
       Object.keys(gruposPorSerie).sort().forEach(serie => {
         const trSerie = document.createElement('tr');
-        trSerie.innerHTML = `<td colspan="4" style="background:var(--surface);font-weight:700;color:var(--ink);">${serie}</td>`;
+        trSerie.innerHTML = `<td colspan="6" style="background:var(--surface);font-weight:700;color:var(--ink);">${serie}</td>`;
         tbody.appendChild(trSerie);
 
-        gruposPorSerie[serie].forEach(item => {
-          const eventosBoletim = obterEventosBoletimNaData(item.data);
+        gruposPorSerie[serie].forEach(reg => {
+          const configSituacao = segundaChamadaSituacoes[reg.situacao] || segundaChamadaSituacoes.pendente;
           const tr = document.createElement('tr');
           tr.innerHTML = `
-            <td>${fmtData(item.data)}</td>
-            <td><span class="badge badge-segunda-chamada">${item.total}</span></td>
-            <td>${item.alunosTexto}</td>
-            <td>${eventosBoletim.length ? eventosBoletim.join('; ') : '—'}</td>
+            <td>${fmtData(reg.data)}</td>
+            <td>${reg.aluno}${reg.turma ? ` (${reg.turma})` : ''}</td>
+            <td>${reg.serie}</td>
+            <td><span class="badge ${configSituacao.badgeClass}">${configSituacao.label}</span></td>
+            <td>${reg.boletim.length ? reg.boletim.join('; ') : '—'}</td>
+            <td>
+              <div class="segunda-chamada-actions">
+                <button class="${reg.situacao === 'realizada' ? 'btn-success' : 'btn-ghost'} btn-small" onclick="atualizarBaixaSegundaChamada(${reg.id}, 'realizada')">Fez</button>
+                <button class="${reg.situacao === 'zero' ? 'btn-danger' : 'btn-ghost'} btn-small" onclick="atualizarBaixaSegundaChamada(${reg.id}, 'zero')">Zero</button>
+                <button class="${reg.situacao === 'pendente' ? 'btn-warning' : 'btn-ghost'} btn-small" onclick="atualizarBaixaSegundaChamada(${reg.id}, 'pendente')">Pendente</button>
+              </div>
+            </td>
           `;
           tbody.appendChild(tr);
         });
       });
     }
 
+    window.atualizarBaixaSegundaChamada = function(id, situacao){
+      const registro = registrosFrequencia.find(reg => reg.id === id && reg.status === 'segunda-chamada');
+      if(!registro) return;
+
+      registro.segundaChamadaSituacao = situacao;
+      registro.segundaChamadaAtualizadaEm = new Date().toISOString();
+      sincronizarBancoPrincipal('Atualização de baixa da 2ª chamada');
+      renderTabelaSegundaChamadaPorDia();
+      renderRelatorioSegundaChamada();
+    };
+
     function obterDadosRelatorioSegundaChamada(){
-      const agrupadoPorSerie = {};
+      const registros = obterRegistrosSegundaChamada();
+      const agrupadoPorSituacao = {
+        pendente: {},
+        realizada: {},
+        zero: {}
+      };
 
-      registrosFrequencia
-        .filter(reg => reg.status === 'segunda-chamada')
-        .forEach(reg => {
-          const alunoInfo = alunosDB.find(aluno => aluno.nome === reg.aluno);
-          const serie = alunoInfo ? alunoInfo.serie : 'Sem série';
-          const turma = alunoInfo ? alunoInfo.turma : '';
+      registros.forEach(reg => {
+        if(!agrupadoPorSituacao[reg.situacao][reg.serie]) agrupadoPorSituacao[reg.situacao][reg.serie] = {};
+        if(!agrupadoPorSituacao[reg.situacao][reg.serie][reg.data]){
+          agrupadoPorSituacao[reg.situacao][reg.serie][reg.data] = {
+            data: reg.data,
+            boletim: reg.boletim,
+            alunos: []
+          };
+        }
 
-          if(!agrupadoPorSerie[serie]) agrupadoPorSerie[serie] = {};
-          if(!agrupadoPorSerie[serie][reg.data]) {
-            agrupadoPorSerie[serie][reg.data] = {
-              data: reg.data,
-              alunos: [],
-              boletim: obterEventosBoletimNaData(reg.data)
-            };
-          }
-
-          agrupadoPorSerie[serie][reg.data].alunos.push({
-            nome: reg.aluno,
-            turma,
-            justificativa: reg.justificativa || ''
-          });
+        agrupadoPorSituacao[reg.situacao][reg.serie][reg.data].alunos.push({
+          nome: reg.aluno,
+          turma: reg.turma,
+          justificativa: reg.justificativa || ''
         });
+      });
 
-      return Object.keys(agrupadoPorSerie).sort().map(serie => ({
-        serie,
-        dias: Object.values(agrupadoPorSerie[serie]).sort((a, b) => new Date(a.data) - new Date(b.data))
+      return Object.keys(agrupadoPorSituacao).map(situacao => ({
+        situacao,
+        label: segundaChamadaSituacoes[situacao].label,
+        badgeClass: segundaChamadaSituacoes[situacao].badgeClass,
+        series: Object.keys(agrupadoPorSituacao[situacao]).sort().map(serie => ({
+          serie,
+          dias: Object.values(agrupadoPorSituacao[situacao][serie]).sort((a, b) => new Date(a.data) - new Date(b.data))
+        }))
       }));
     }
 
@@ -4193,10 +4276,13 @@
       const preview = document.getElementById('relatorioSegundaChamadaPreview');
       if(!preview) return;
 
-      const grupos = obterDadosRelatorioSegundaChamada();
-      const totalRegistros = grupos.reduce((acc, grupo) => acc + grupo.dias.reduce((sum, dia) => sum + dia.alunos.length, 0), 0);
+      const gruposPorSituacao = obterDadosRelatorioSegundaChamada();
+      const totalRegistros = gruposPorSituacao.reduce((acc, grupo) => acc + grupo.series.reduce((sumSeries, serie) => sumSeries + serie.dias.reduce((sumDias, dia) => sumDias + dia.alunos.length, 0), 0), 0);
+      const totalPendentes = gruposPorSituacao.find(grupo => grupo.situacao === 'pendente')?.series.reduce((sumSeries, serie) => sumSeries + serie.dias.reduce((sumDias, dia) => sumDias + dia.alunos.length, 0), 0) || 0;
+      const totalRealizadas = gruposPorSituacao.find(grupo => grupo.situacao === 'realizada')?.series.reduce((sumSeries, serie) => sumSeries + serie.dias.reduce((sumDias, dia) => sumDias + dia.alunos.length, 0), 0) || 0;
+      const totalZero = gruposPorSituacao.find(grupo => grupo.situacao === 'zero')?.series.reduce((sumSeries, serie) => sumSeries + serie.dias.reduce((sumDias, dia) => sumDias + dia.alunos.length, 0), 0) || 0;
 
-      if(!grupos.length){
+      if(!totalRegistros){
         preview.innerHTML = `
           <header>
             <div>
@@ -4210,22 +4296,33 @@
         return;
       }
 
-      const blocos = grupos.map(grupo => `
-        <div style="margin-top:18px;">
-          <div class="section-title">${grupo.serie}</div>
-          ${grupo.dias.map(dia => `
-            <div style="margin-top:10px;padding:10px 12px;border:1px solid #d1d5db;border-radius:10px;">
-              <div style="font-weight:700;font-size:.92rem;margin-bottom:6px;">${fmtData(dia.data)} · ${dia.alunos.length} aluno(s)</div>
-              <div style="font-size:.84rem;line-height:1.6;">
-                ${dia.alunos.map(aluno => `${aluno.nome}${aluno.turma ? ` (${aluno.turma})` : ''}${aluno.justificativa ? ` - ${aluno.justificativa}` : ''}`).join('<br>')}
+      const blocos = gruposPorSituacao.map(grupo => {
+        const totalGrupo = grupo.series.reduce((sumSeries, serie) => sumSeries + serie.dias.reduce((sumDias, dia) => sumDias + dia.alunos.length, 0), 0);
+        if(!totalGrupo) return '';
+
+        return `
+          <div style="margin-top:18px;">
+            <div class="section-title">${grupo.label}</div>
+            <p class="kv"><strong>Total nesta situação:</strong> ${totalGrupo}</p>
+            ${grupo.series.map(serie => `
+              <div style="margin-top:14px;">
+                <div class="section-title">${serie.serie}</div>
+                ${serie.dias.map(dia => `
+                  <div style="margin-top:10px;padding:10px 12px;border:1px solid #d1d5db;border-radius:10px;">
+                    <div style="font-weight:700;font-size:.92rem;margin-bottom:6px;">${fmtData(dia.data)} · ${dia.alunos.length} aluno(s)</div>
+                    <div style="font-size:.84rem;line-height:1.6;">
+                      ${dia.alunos.map(aluno => `${aluno.nome}${aluno.turma ? ` (${aluno.turma})` : ''}${aluno.justificativa ? ` - ${aluno.justificativa}` : ''}`).join('<br>')}
+                    </div>
+                    <div style="margin-top:8px;font-size:.8rem;color:#374151;">
+                      <strong>Boletim:</strong> ${dia.boletim.length ? dia.boletim.join('; ') : '—'}
+                    </div>
+                  </div>
+                `).join('')}
               </div>
-              <div style="margin-top:8px;font-size:.8rem;color:#374151;">
-                <strong>Boletim:</strong> ${dia.boletim.length ? dia.boletim.join('; ') : '—'}
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      `).join('');
+            `).join('')}
+          </div>
+        `;
+      }).join('');
 
       preview.innerHTML = `
         <header>
@@ -4237,6 +4334,9 @@
         <h2>Relatório por Série e Dia</h2>
         <p class="kv"><strong>Data de emissão:</strong> ${new Date().toLocaleDateString('pt-BR')}</p>
         <p class="kv"><strong>Total de registros:</strong> ${totalRegistros}</p>
+        <p class="kv"><strong>Pendentes:</strong> ${totalPendentes}</p>
+        <p class="kv"><strong>Realizadas:</strong> ${totalRealizadas}</p>
+        <p class="kv"><strong>Zero por não fazer:</strong> ${totalZero}</p>
         ${blocos}
       `;
     }
@@ -4316,28 +4416,25 @@
     if(filtroAlunoSegundaChamada){
       filtroAlunoSegundaChamada.addEventListener('input', function(){
         renderTabelaSegundaChamadaPorDia();
+        renderRelatorioSegundaChamada();
       });
     }
 
     const btnExportarSegundaChamadaJson = document.getElementById('btnExportarSegundaChamadaJson');
     if(btnExportarSegundaChamadaJson){
       btnExportarSegundaChamadaJson.addEventListener('click', function(){
-        const filtroAluno = (document.getElementById('filtroAlunoSegundaChamada')?.value || '').trim().toUpperCase();
-        const registros = registrosFrequencia
-          .filter(reg => reg.status === 'segunda-chamada')
-          .filter(reg => !filtroAluno || reg.aluno.toUpperCase() === filtroAluno)
-          .map(reg => {
-            const alunoInfo = alunosDB.find(aluno => aluno.nome === reg.aluno);
-            return {
-              id: reg.id,
-              aluno: reg.aluno,
-              serie: alunoInfo ? alunoInfo.serie : '',
-              turma: alunoInfo ? alunoInfo.turma : '',
-              data: reg.data,
-              status: reg.status,
-              justificativa: reg.justificativa || ''
-            };
-          });
+        const registros = obterRegistrosSegundaChamada().map(reg => ({
+          id: reg.id,
+          aluno: reg.aluno,
+          serie: reg.serie,
+          turma: reg.turma,
+          data: reg.data,
+          status: reg.status,
+          situacao: reg.situacao,
+          boletim: reg.boletim,
+          justificativa: reg.justificativa || '',
+          atualizadoEm: reg.segundaChamadaAtualizadaEm || ''
+        }));
 
         if(!registros.length){
           alert('Nenhum registro de 2ª chamada encontrado para exportar.');
@@ -6150,10 +6247,10 @@ Senha temporária: ensps2026`;
 
         const segundaChamadaPorDia = obterResumoSegundaChamadaPorDia();
         if(segundaChamadaPorDia.length){
-          relatorio += `REGISTROS DE FALTAS E 2ª CHAMADA POR DIA\n`;
+          relatorio += `CONTROLE DE 2ª CHAMADA\n`;
           relatorio += `-`.repeat(60) + '\n';
           segundaChamadaPorDia.forEach(item => {
-            relatorio += `${fmtData(item.data)} - ${item.total} aluno(s): ${item.alunosTexto}\n`;
+            relatorio += `${fmtData(item.data)} - total ${item.total} | pendentes ${item.pendentes} | realizaram ${item.realizadas} | zero ${item.zero}\n`;
           });
           relatorio += '\n';
         }
