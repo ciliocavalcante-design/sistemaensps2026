@@ -1197,7 +1197,9 @@
       "aluno": "BERNARD BRAZ QUEIROGA SABINO",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:48:36.908Z"
     },
     {
       "id": 1775645682075,
