@@ -4050,7 +4050,9 @@
         assinaturaRecebidaEm
       };
     });
-    sincronizarBancoPrincipal();
+    enspsDB.frequenciaAlunos = registrosFrequencia;
+    enspsDB.advertencias = advertenciasSalvas;
+    enspsDB.comunicadosProfessores = comunicadosRegistros;
 
     document.getElementById('dataFreq').valueAsDate = new Date();
 
