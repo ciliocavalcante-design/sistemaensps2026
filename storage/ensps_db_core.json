@@ -137,28 +137,36 @@
       "aluno": "ALEXANDRE GUILHERMINO MOREIRA MARQUES",
       "data": "2026-02-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:48.711Z"
     },
     {
       "id": 1775644941977,
       "aluno": "ANTONIO CAUE SILVEIRA BARBOZA",
       "data": "2026-02-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:47.461Z"
     },
     {
       "id": 1775644943155,
       "aluno": "CAIO AUDREY DE ALBUQUERQUE CASTRO",
       "data": "2026-02-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:46.144Z"
     },
     {
       "id": 1775644947711,
       "aluno": "EMANUEL LOHAN SILVEIRA MARQUES",
       "data": "2026-02-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:43.844Z"
     },
     {
       "id": 1775644951335,
