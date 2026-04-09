@@ -69,14 +69,18 @@
       "aluno": "MARIA LYVIA OLIVEIRA SOUZA",
       "data": "2026-01-28",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:39.763Z"
     },
     {
       "id": 1775644883166,
       "aluno": "PAULO CESAR DO NASCIMENTO RODRIGUES",
       "data": "2026-01-28",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:38.597Z"
     },
     {
       "id": 1775644885051,
@@ -161,7 +165,9 @@
       "aluno": "JOSE GABRIEL SOUZA CLAUDIO",
       "data": "2026-02-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:42.527Z"
     },
     {
       "id": 1775644962583,
