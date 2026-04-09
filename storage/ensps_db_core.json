@@ -244,7 +244,9 @@
       "aluno": "LUCAS GABRIEL BRITO DE MOURA",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:05.611Z"
     },
     {
       "id": 1775645028465,
@@ -286,14 +288,18 @@
       "aluno": "MARCIO MIGUEL LIMA SARAIVA",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:00.262Z"
     },
     {
       "id": 1775645049345,
       "aluno": "MARIA ALICE MENEZES DA ROCHA",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:59.112Z"
     },
     {
       "id": 1775645055696,
