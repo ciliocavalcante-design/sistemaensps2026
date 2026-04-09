@@ -223,14 +223,18 @@
       "aluno": "ABINER SOARES BRAGA",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:29.694Z"
     },
     {
       "id": 1775645015177,
       "aluno": "ANA SOPHIA ANASTACIO DE ABREU",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:25.428Z"
     },
     {
       "id": 1775645017978,
