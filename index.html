@@ -2549,6 +2549,13 @@
                 <h3 id="segundaChamadaZero" style="color:#fff;">0</h3>
                 <p style="color:rgba(255,255,255,.88);">Receberão zero</p>
               </div>
+              <div class="stat-card" style="background:linear-gradient(135deg, #475569 0%, #334155 100%)">
+                <h3 id="segundaChamadaArquivadas" style="color:#fff;">0</h3>
+                <p style="color:rgba(255,255,255,.88);">Arquivadas</p>
+              </div>
+            </div>
+            <div class="actions" style="margin-top:0;margin-bottom:10px;">
+              <button class="btn-ghost" id="btnArquivarEncerradosSegundaChamada">📦 Arquivar fez/zero</button>
             </div>
             <div class="table-container">
               <table id="tabelaSegundaChamadaPorDia">
@@ -4097,10 +4104,13 @@
             serie: alunoInfo ? alunoInfo.serie : 'Sem série',
             turma: alunoInfo ? alunoInfo.turma : '',
             situacao,
+            arquivada: !!reg.segundaChamadaArquivada,
             boletim: obterEventosBoletimNaData(reg.data)
           };
         })
         .sort((a, b) => {
+          const diffArquivada = Number(a.arquivada) - Number(b.arquivada);
+          if(diffArquivada !== 0) return diffArquivada;
           const ordemSituacao = { pendente: 0, realizada: 1, zero: 2 };
           const diffSituacao = (ordemSituacao[a.situacao] ?? 9) - (ordemSituacao[b.situacao] ?? 9);
           if(diffSituacao !== 0) return diffSituacao;
@@ -4113,7 +4123,7 @@
     function obterResumoSegundaChamadaPorDia(){
       const agrupado = {};
 
-      obterRegistrosSegundaChamada().forEach(reg => {
+      obterRegistrosSegundaChamada().filter(reg => !reg.arquivada).forEach(reg => {
         if(!agrupado[reg.data]){
           agrupado[reg.data] = {
             data: reg.data,
@@ -4167,16 +4177,20 @@
 
     function atualizarResumoSegundaChamada(){
       const registros = obterRegistrosSegundaChamada();
-      const pendentes = registros.filter(reg => reg.situacao === 'pendente').length;
-      const realizadas = registros.filter(reg => reg.situacao === 'realizada').length;
-      const zero = registros.filter(reg => reg.situacao === 'zero').length;
+      const ativos = registros.filter(reg => !reg.arquivada);
+      const pendentes = ativos.filter(reg => reg.situacao === 'pendente').length;
+      const realizadas = ativos.filter(reg => reg.situacao === 'realizada').length;
+      const zero = ativos.filter(reg => reg.situacao === 'zero').length;
+      const arquivadas = registros.filter(reg => reg.arquivada).length;
 
       const elPendentes = document.getElementById('segundaChamadaPendentes');
       const elRealizadas = document.getElementById('segundaChamadaRealizadas');
       const elZero = document.getElementById('segundaChamadaZero');
+      const elArquivadas = document.getElementById('segundaChamadaArquivadas');
       if(elPendentes) elPendentes.textContent = pendentes;
       if(elRealizadas) elRealizadas.textContent = realizadas;
       if(elZero) elZero.textContent = zero;
+      if(elArquivadas) elArquivadas.textContent = arquivadas;
     }
 
     function renderTabelaSegundaChamadaPorDia(){
@@ -4184,6 +4198,8 @@
       if(!tbody) return;
 
       const registros = obterRegistrosSegundaChamada();
+      const ativos = registros.filter(reg => !reg.arquivada);
+      const arquivados = registros.filter(reg => reg.arquivada);
       tbody.innerHTML = '';
       atualizarResumoSegundaChamada();
 
@@ -4192,37 +4208,51 @@
         return;
       }
 
-      const gruposPorSerie = {};
-      registros.forEach(reg => {
-        if(!gruposPorSerie[reg.serie]) gruposPorSerie[reg.serie] = [];
-        gruposPorSerie[reg.serie].push(reg);
-      });
+      const renderGrupoRegistros = (titulo, lista, arquivada = false) => {
+        if(!lista.length) return;
 
-      Object.keys(gruposPorSerie).sort().forEach(serie => {
-        const trSerie = document.createElement('tr');
-        trSerie.innerHTML = `<td colspan="6" style="background:var(--surface);font-weight:700;color:var(--ink);">${serie}</td>`;
-        tbody.appendChild(trSerie);
+        const trSecao = document.createElement('tr');
+        trSecao.innerHTML = `<td colspan="6" style="background:var(--card2);font-weight:700;color:var(--ink);">${titulo}</td>`;
+        tbody.appendChild(trSecao);
 
-        gruposPorSerie[serie].forEach(reg => {
-          const configSituacao = segundaChamadaSituacoes[reg.situacao] || segundaChamadaSituacoes.pendente;
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td>${fmtData(reg.data)}</td>
-            <td>${reg.aluno}${reg.turma ? ` (${reg.turma})` : ''}</td>
-            <td>${reg.serie}</td>
-            <td><span class="badge ${configSituacao.badgeClass}">${configSituacao.label}</span></td>
-            <td>${reg.boletim.length ? reg.boletim.join('; ') : '—'}</td>
-            <td>
-              <div class="segunda-chamada-actions">
-                <button class="${reg.situacao === 'realizada' ? 'btn-success' : 'btn-ghost'} btn-small" onclick="atualizarBaixaSegundaChamada(${reg.id}, 'realizada')">Fez</button>
-                <button class="${reg.situacao === 'zero' ? 'btn-danger' : 'btn-ghost'} btn-small" onclick="atualizarBaixaSegundaChamada(${reg.id}, 'zero')">Zero</button>
-                <button class="${reg.situacao === 'pendente' ? 'btn-warning' : 'btn-ghost'} btn-small" onclick="atualizarBaixaSegundaChamada(${reg.id}, 'pendente')">Pendente</button>
-              </div>
-            </td>
-          `;
-          tbody.appendChild(tr);
+        const gruposPorSerie = {};
+        lista.forEach(reg => {
+          if(!gruposPorSerie[reg.serie]) gruposPorSerie[reg.serie] = [];
+          gruposPorSerie[reg.serie].push(reg);
         });
-      });
+
+        Object.keys(gruposPorSerie).sort().forEach(serie => {
+          const trSerie = document.createElement('tr');
+          trSerie.innerHTML = `<td colspan="6" style="background:var(--surface);font-weight:700;color:var(--ink);">${serie}</td>`;
+          tbody.appendChild(trSerie);
+
+          gruposPorSerie[serie].forEach(reg => {
+            const configSituacao = segundaChamadaSituacoes[reg.situacao] || segundaChamadaSituacoes.pendente;
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${fmtData(reg.data)}</td>
+              <td>${reg.aluno}${reg.turma ? ` (${reg.turma})` : ''}</td>
+              <td>${reg.serie}</td>
+              <td><span class="badge ${configSituacao.badgeClass}">${configSituacao.label}</span></td>
+              <td>${reg.boletim.length ? reg.boletim.join('; ') : '—'}</td>
+              <td>
+                <div class="segunda-chamada-actions">
+                  <button class="${reg.situacao === 'realizada' ? 'btn-success' : 'btn-ghost'} btn-small" onclick="atualizarBaixaSegundaChamada(${reg.id}, 'realizada')">Fez</button>
+                  <button class="${reg.situacao === 'zero' ? 'btn-danger' : 'btn-ghost'} btn-small" onclick="atualizarBaixaSegundaChamada(${reg.id}, 'zero')">Zero</button>
+                  <button class="${reg.situacao === 'pendente' ? 'btn-warning' : 'btn-ghost'} btn-small" onclick="atualizarBaixaSegundaChamada(${reg.id}, 'pendente')">Pendente</button>
+                  ${arquivada
+                    ? `<button class="btn-ghost btn-small" onclick="alternarArquivoSegundaChamada(${reg.id}, false)">Desarquivar</button>`
+                    : `<button class="btn-ghost btn-small" onclick="alternarArquivoSegundaChamada(${reg.id}, true)" ${reg.situacao === 'pendente' ? 'disabled title="Só é possível arquivar quem já fez ou recebeu zero"' : ''}>Arquivar</button>`}
+                </div>
+              </td>
+            `;
+            tbody.appendChild(tr);
+          });
+        });
+      };
+
+      renderGrupoRegistros('Ativas', ativos, false);
+      renderGrupoRegistros('Arquivadas', arquivados, true);
     }
 
     window.atualizarBaixaSegundaChamada = function(id, situacao){
@@ -4236,8 +4266,46 @@
       renderRelatorioSegundaChamada();
     };
 
+    window.alternarArquivoSegundaChamada = function(id, arquivar){
+      const registro = registrosFrequencia.find(reg => reg.id === id && reg.status === 'segunda-chamada');
+      if(!registro) return;
+      if(arquivar && obterSituacaoSegundaChamada(registro) === 'pendente'){
+        alert('Só é possível arquivar alunos que já fizeram a 2ª chamada ou receberam zero.');
+        return;
+      }
+
+      registro.segundaChamadaArquivada = arquivar;
+      registro.segundaChamadaArquivadaEm = arquivar ? new Date().toISOString() : '';
+      sincronizarBancoPrincipal(arquivar ? 'Arquivamento de 2ª chamada' : 'Desarquivamento de 2ª chamada');
+      renderTabelaSegundaChamadaPorDia();
+      renderRelatorioSegundaChamada();
+    };
+
+    function arquivarEncerradosSegundaChamada(){
+      let totalArquivados = 0;
+      registrosFrequencia.forEach(registro => {
+        if(registro.status !== 'segunda-chamada') return;
+        const situacao = obterSituacaoSegundaChamada(registro);
+        if((situacao === 'realizada' || situacao === 'zero') && !registro.segundaChamadaArquivada){
+          registro.segundaChamadaArquivada = true;
+          registro.segundaChamadaArquivadaEm = new Date().toISOString();
+          totalArquivados++;
+        }
+      });
+
+      if(!totalArquivados){
+        alert('Nenhum registro encerrado disponível para arquivar.');
+        return;
+      }
+
+      sincronizarBancoPrincipal('Arquivamento em lote de 2ª chamada');
+      renderTabelaSegundaChamadaPorDia();
+      renderRelatorioSegundaChamada();
+      alert(`✅ ${totalArquivados} registro(s) arquivado(s).`);
+    }
+
     function obterDadosRelatorioSegundaChamada(){
-      const registros = obterRegistrosSegundaChamada();
+      const registros = obterRegistrosSegundaChamada().filter(reg => !reg.arquivada);
       const agrupadoPorSituacao = {
         pendente: {},
         realizada: {},
@@ -4431,9 +4499,11 @@
           data: reg.data,
           status: reg.status,
           situacao: reg.situacao,
+          arquivada: reg.arquivada,
           boletim: reg.boletim,
           justificativa: reg.justificativa || '',
-          atualizadoEm: reg.segundaChamadaAtualizadaEm || ''
+          atualizadoEm: reg.segundaChamadaAtualizadaEm || '',
+          arquivadaEm: reg.segundaChamadaArquivadaEm || ''
         }));
 
         if(!registros.length){
@@ -4454,6 +4524,11 @@
           'application/json'
         );
       });
+    }
+
+    const btnArquivarEncerradosSegundaChamada = document.getElementById('btnArquivarEncerradosSegundaChamada');
+    if(btnArquivarEncerradosSegundaChamada){
+      btnArquivarEncerradosSegundaChamada.addEventListener('click', arquivarEncerradosSegundaChamada);
     }
 
     const btnGerarRelatorioSegundaChamada = document.getElementById('btnGerarRelatorioSegundaChamada');
