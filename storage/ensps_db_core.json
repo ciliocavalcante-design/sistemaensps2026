@@ -1006,7 +1006,9 @@
       "aluno": "SOPHIA MARIAH FERREIRA DO NASCIMENTO",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:48:58.057Z"
     },
     {
       "id": 1775645563827,
