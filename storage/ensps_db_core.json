@@ -693,7 +693,9 @@
       "aluno": "ANA CECILIA CAVALCANTE PONTES",
       "data": "2026-03-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:01.211Z"
     },
     {
       "id": 1775645483102,
