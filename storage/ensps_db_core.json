@@ -1976,7 +1976,9 @@
       "aluno": "RODRIGO DOS REIS GONDIM",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "zero",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:48:11.641Z"
     },
     {
       "id": 1775663155568,
