@@ -1188,7 +1188,9 @@
       "aluno": "YASMIN SOUZA BARROS",
       "data": "2026-03-10",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:37:00.446Z"
     },
     {
       "id": 1775653867339,
