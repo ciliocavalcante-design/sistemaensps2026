@@ -6,7 +6,9 @@
       "aluno": "RAFAEL HOLANDA BAIMA JUNIOR",
       "data": "2026-01-28",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:34:43.747Z"
     },
     {
       "id": 1775644838450,
@@ -94,14 +96,18 @@
       "aluno": "BERNARD BRAZ QUEIROGA SABINO",
       "data": "2026-02-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:34:48.747Z"
     },
     {
       "id": 1775644924498,
       "aluno": "YASMIN SOUZA BARROS",
       "data": "2026-02-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:34:46.797Z"
     },
     {
       "id": 1775644932775,
