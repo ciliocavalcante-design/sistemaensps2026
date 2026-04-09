@@ -2538,6 +2538,14 @@
                 <input list="alunosListFiltroSegundaChamada" id="filtroAlunoSegundaChamada" placeholder="Digite o nome do aluno...">
                 <datalist id="alunosListFiltroSegundaChamada"></datalist>
               </div>
+              <div class="filter-group">
+                <label for="filtroVisualizacaoSegundaChamada">Visualização</label>
+                <select id="filtroVisualizacaoSegundaChamada">
+                  <option value="ativas">Só ativas</option>
+                  <option value="arquivadas">Só arquivadas</option>
+                  <option value="todas">Todas</option>
+                </select>
+              </div>
             </div>
             <div class="stats-grid" id="segundaChamadaResumoGrid" style="margin:0 0 12px;">
               <div class="stat-card">
@@ -4200,6 +4208,7 @@
       const registros = obterRegistrosSegundaChamada();
       const ativos = registros.filter(reg => !reg.arquivada);
       const arquivados = registros.filter(reg => reg.arquivada);
+      const modoVisualizacao = document.getElementById('filtroVisualizacaoSegundaChamada')?.value || 'ativas';
       tbody.innerHTML = '';
       atualizarResumoSegundaChamada();
 
@@ -4251,8 +4260,21 @@
         });
       };
 
-      renderGrupoRegistros('Ativas', ativos, false);
-      renderGrupoRegistros('Arquivadas', arquivados, true);
+      if(modoVisualizacao === 'ativas' || modoVisualizacao === 'todas') {
+        renderGrupoRegistros('Ativas', ativos, false);
+      }
+      if(modoVisualizacao === 'arquivadas' || modoVisualizacao === 'todas') {
+        renderGrupoRegistros('Arquivadas', arquivados, true);
+      }
+
+      if(!tbody.innerHTML.trim()){
+        const mensagem = modoVisualizacao === 'arquivadas'
+          ? 'Nenhum registro arquivado encontrado.'
+          : modoVisualizacao === 'ativas'
+            ? 'Nenhum registro ativo encontrado.'
+            : 'Nenhum registro encontrado.';
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center" class="muted">${mensagem}</td></tr>`;
+      }
     }
 
     window.atualizarBaixaSegundaChamada = function(id, situacao){
@@ -4305,7 +4327,7 @@
     }
 
     function obterDadosRelatorioSegundaChamada(){
-      const registros = obterRegistrosSegundaChamada().filter(reg => !reg.arquivada);
+      const registros = obterRegistrosSegundaChamada().filter(reg => !reg.arquivada && reg.situacao === 'pendente');
       const agrupadoPorSituacao = {
         pendente: {},
         realizada: {},
@@ -4485,6 +4507,13 @@
       filtroAlunoSegundaChamada.addEventListener('input', function(){
         renderTabelaSegundaChamadaPorDia();
         renderRelatorioSegundaChamada();
+      });
+    }
+
+    const filtroVisualizacaoSegundaChamada = document.getElementById('filtroVisualizacaoSegundaChamada');
+    if(filtroVisualizacaoSegundaChamada){
+      filtroVisualizacaoSegundaChamada.addEventListener('change', function(){
+        renderTabelaSegundaChamadaPorDia();
       });
     }
 
