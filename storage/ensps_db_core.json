@@ -1239,7 +1239,9 @@
       "aluno": "VALENTINA LIMA FERREIRA GOMES",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaAtualizadaEm": "2026-04-09T21:53:45.528Z"
     },
     {
       "id": 1775645685791,
