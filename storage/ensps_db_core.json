@@ -1228,7 +1228,9 @@
       "aluno": "JOSE GABRIEL SOUZA CLAUDIO",
       "data": "2026-03-09",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:23.227Z"
     },
     {
       "id": 1775653744320,
