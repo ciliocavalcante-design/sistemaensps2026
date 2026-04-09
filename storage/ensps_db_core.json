@@ -395,21 +395,27 @@
       "aluno": "MARIA JULIA RODRIGUES GOMES",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:55.011Z"
     },
     {
       "id": 1775645086194,
       "aluno": "PEDRO BENICIO DE OLIVEIRA LIMA",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:53.227Z"
     },
     {
       "id": 1775645087797,
       "aluno": "PIETRA DA SILVA SOUZA SUASSUNA",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:50.744Z"
     },
     {
       "id": 1775645095994,
