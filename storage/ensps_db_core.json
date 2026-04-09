@@ -54,7 +54,9 @@
       "aluno": "LUCAS GABRIEL BRITO DE MOURA",
       "data": "2026-01-28",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:23.912Z"
     },
     {
       "id": 1775644881033,
