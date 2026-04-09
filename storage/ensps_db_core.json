@@ -1247,14 +1247,18 @@
       "aluno": "JOAO LEVI MESQUITA ROCHA",
       "data": "2026-03-10",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:43.278Z"
     },
     {
       "id": 1775653887368,
       "aluno": "LUCAS GABRIEL BRITO DE MOURA",
       "data": "2026-03-10",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:41.995Z"
     },
     {
       "id": 1775653896493,
