@@ -1453,7 +1453,9 @@
       "aluno": "LIVIA IRIS RODRIGUES DE CASTRO",
       "data": "2026-04-06",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T18:52:55.637Z"
     },
     {
       "id": 1775663014238,
