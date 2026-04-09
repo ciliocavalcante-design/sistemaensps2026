@@ -237,7 +237,9 @@
       "aluno": "DAVI DE OLIVEIRA COSTA",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:20.495Z"
     },
     {
       "id": 1775645023545,
@@ -253,7 +255,9 @@
       "aluno": "EDUARDO HERBERTE CORREIA DE ALENCAR",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:40:17.861Z"
     },
     {
       "id": 1775645032026,
