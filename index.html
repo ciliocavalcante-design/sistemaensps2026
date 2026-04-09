@@ -305,7 +305,7 @@
       border-radius: 10px;
       padding: 16px;
     }
-    .stat-card h3 { font-size: 1.8rem; font-weight: 700; margin: 0 0 4px; color: var(--brand); }
+    .stat-card h3 { font-size: 1.8rem; font-weight: 700; margin: 0 0 4px; color: #ffffff; }
     .stat-card p  { font-size: .78rem; color: var(--muted); margin: 0; }
 
     /* ── CREDENTIALS CARD ── */
@@ -2972,6 +2972,14 @@
     return decodeURIComponent(escape(window.atob(base64)));
   }
 
+  function prepararHtmlHorarioIntegrado(base64) {
+    return decodificarHtmlIntegrado(base64)
+      .replace(
+        "localStorage.setItem('interfaceTheme', currentTheme);",
+        "localStorage.setItem('interfaceTheme', currentTheme); syncHorarioDbWithParent('Atualização do tema do módulo de horários');"
+      );
+  }
+
   function serializarSeguro(valor) {
     try {
       return JSON.stringify(valor ?? null);
@@ -3019,7 +3027,7 @@
       [0, 180, 520].forEach(delay => setTimeout(() => enviarBancoHorarioParaFrame(), delay));
       return;
     }
-    frame.srcdoc = decodificarHtmlIntegrado(HORARIO_INTEGRADO_HTML_BASE64);
+    frame.srcdoc = prepararHtmlHorarioIntegrado(HORARIO_INTEGRADO_HTML_BASE64);
     horarioIntegradoInicializado = true;
   }
 
