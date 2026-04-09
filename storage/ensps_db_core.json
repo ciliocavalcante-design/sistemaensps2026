@@ -374,21 +374,27 @@
       "aluno": "CAIO AUDREY DE ALBUQUERQUE CASTRO",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:01.794Z"
     },
     {
       "id": 1775645074501,
       "aluno": "EMANUEL LOHAN SILVEIRA MARQUES",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:00.980Z"
     },
     {
       "id": 1775645077444,
       "aluno": "LUIZ FERNANDO DA SILVA DO NASCIMENTO",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:41:56.596Z"
     },
     {
       "id": 1775645080486,
