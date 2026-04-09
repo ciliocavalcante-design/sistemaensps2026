@@ -3696,17 +3696,55 @@
       };
     }
 
+    function criarCacheLocalMinimoENSPSDB() {
+      return {
+        schemaVersion: enspsDB.schemaVersion || 2,
+        frequenciaAlunos: [],
+        advertencias: [],
+        comunicadosProfessores: [],
+        horarios: {
+          currentTheme: enspsDB.horarios?.currentTheme === 'dark' ? 'dark' : 'light'
+        },
+        boletimInformativo: null,
+        professoresMateriais: { deliveries: {} },
+        professoresFolha: { frequencyRecords: [], extraAvulsaRecords: {} }
+      };
+    }
+
+    function tentarPersistirENSPSDBNoCache(payload) {
+      const bruto = JSON.stringify(payload);
+      try {
+        localStorage.setItem(ENSPS_DB_KEY, bruto);
+        return true;
+      } catch (erro) {
+        if (erro && (erro.name === 'QuotaExceededError' || erro.name === 'NS_ERROR_DOM_QUOTA_REACHED')) {
+          try {
+            localStorage.removeItem(ENSPS_DB_KEY);
+            localStorage.setItem(ENSPS_DB_KEY, bruto);
+            return true;
+          } catch (erroSecundario) {
+            return false;
+          }
+        }
+        throw erro;
+      }
+    }
+
     function persistirENSPSDB(options = {}) {
       const { markDirty = null } = options;
       try {
-        localStorage.setItem(ENSPS_DB_KEY, JSON.stringify(enspsDB));
-      } catch (erro) {
-        try {
-          localStorage.setItem(ENSPS_DB_KEY, JSON.stringify(criarCacheLocalLeveENSPSDB()));
-          console.warn('ENSPS: banco grande demais para localStorage, usando cache local reduzido.', erro);
-        } catch (erroSecundario) {
-          console.warn('ENSPS: não foi possível persistir o banco localmente.', erroSecundario);
+        if (!tentarPersistirENSPSDBNoCache(enspsDB)) {
+          if (tentarPersistirENSPSDBNoCache(criarCacheLocalLeveENSPSDB())) {
+            console.warn('ENSPS: banco grande demais para localStorage, usando cache local reduzido.');
+          } else if (tentarPersistirENSPSDBNoCache(criarCacheLocalMinimoENSPSDB())) {
+            console.warn('ENSPS: cache local reduzido ainda excedia a cota; usando cache minimo temporario.');
+          } else {
+            localStorage.removeItem(ENSPS_DB_KEY);
+            console.warn('ENSPS: localStorage sem espaco suficiente; seguindo sem cache local do banco unificado.');
+          }
         }
+      } catch (erro) {
+        console.warn('ENSPS: não foi possível persistir o banco localmente.', erro);
       }
       if (markDirty === true) remotoPossuiAlteracoesLocaisPendentes = true;
       if (markDirty === false) remotoPossuiAlteracoesLocaisPendentes = false;
