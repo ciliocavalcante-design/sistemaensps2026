@@ -459,21 +459,27 @@
       "aluno": "MARIA EUGENIA TAVARES DE ALBUQUERQUE",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:47.259Z"
     },
     {
       "id": 1775645104478,
       "aluno": "MARIA JULIA CORREIA DE ALENCAR",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:44.959Z"
     },
     {
       "id": 1775645107186,
       "aluno": "RITA LAISE MILHOME CARRA TRAJANO",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:44:42.726Z"
     },
     {
       "id": 1775645119268,
