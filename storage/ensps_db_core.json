@@ -177,7 +177,9 @@
       "aluno": "AGNES MARIA DE OLIVEIRA CARVALHO",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:36:03.146Z"
     },
     {
       "id": 1775644985917,
