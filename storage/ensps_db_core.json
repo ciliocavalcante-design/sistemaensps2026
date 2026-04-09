@@ -300,14 +300,18 @@
       "aluno": "MIGUEL DO NASCIMENTO AGUIAR",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:56.945Z"
     },
     {
       "id": 1775645057594,
       "aluno": "PEDRO IAN RIBEIRO DA PAZ PERES",
       "data": "2026-02-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:39:52.945Z"
     },
     {
       "id": 1775645059651,
