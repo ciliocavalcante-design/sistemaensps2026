@@ -985,28 +985,36 @@
       "aluno": "FRANCISCO NILSON GOMES MARTINS NETO",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:31.609Z"
     },
     {
       "id": 1775645635990,
       "aluno": "MARIA CLARA ARRAIS DO NASCIMENTO",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:30.509Z"
     },
     {
       "id": 1775645640547,
       "aluno": "MARIA FERNANDA NASCIMENTO DA SILVA",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:24.509Z"
     },
     {
       "id": 1775645642107,
       "aluno": "MARIA HYLAIZ RIBEIRO DE ANDRADE",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:46:22.659Z"
     },
     {
       "id": 1775645645042,
