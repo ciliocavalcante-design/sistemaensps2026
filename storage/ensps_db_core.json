@@ -1022,14 +1022,18 @@
       "aluno": "MARIA CLARA DOS SANTOS NASCIMENTO",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:49:03.041Z"
     },
     {
       "id": 1775645565927,
       "aluno": "MARIA CLARA GOMES ABREU",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:49:01.274Z"
     },
     {
       "id": 1775645568802,
@@ -1054,7 +1058,9 @@
       "aluno": "BIANCA VIEIRA MENDES",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-09T19:49:28.791Z"
     },
     {
       "id": 1775645589694,
