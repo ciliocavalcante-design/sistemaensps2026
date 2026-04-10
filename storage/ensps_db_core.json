@@ -1746,14 +1746,18 @@
       "aluno": "PEDRO HENRIQUE NASCIMENTO DE OLIVEIRA",
       "data": "2026-03-03",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:58:33.816Z"
     },
     {
       "id": 1775662775067,
       "aluno": "RAUAN DE AMORIM MONTE",
       "data": "2026-03-03",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:58:36.666Z"
     },
     {
       "id": 1775662784652,
@@ -1771,7 +1775,9 @@
       "aluno": "YASMIN LIMA FURTADO",
       "data": "2026-03-03",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:58:38.433Z"
     },
     {
       "id": 1775662821496,
@@ -2030,8 +2036,8 @@
       "data": "2026-04-08",
       "status": "segunda-chamada",
       "justificativa": "",
-      "segundaChamadaSituacao": "zero",
-      "segundaChamadaAtualizadaEm": "2026-04-10T10:58:24.250Z"
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:58:42.816Z"
     },
     {
       "id": 1775663150960,
