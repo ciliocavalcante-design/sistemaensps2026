@@ -1659,7 +1659,9 @@
       "aluno": "MARIA CLARA ARRAIS DO NASCIMENTO",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T12:25:27.528Z"
     },
     {
       "id": 1775653725773,
