@@ -1737,7 +1737,9 @@
       "aluno": "MARIA CLARA PINTO RODRIGUES",
       "data": "2026-03-03",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:58:32.383Z"
     },
     {
       "id": 1775662774557,
@@ -2009,7 +2011,9 @@
       "aluno": "JOAO MARCELO RIOLO DA SILVA",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:58:27.850Z"
     },
     {
       "id": 1775663137800,
@@ -2056,7 +2060,9 @@
       "aluno": "YURI PEREIRA BARROSO",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:58:26.716Z"
     },
     {
       "id": 1775760663138,
