@@ -2060,6 +2060,62 @@
       "status": "presente",
       "justificativa": "",
       "uniformeDetalhes": null
+    },
+    {
+      "id": 1775815683202,
+      "aluno": "MARIA FERNANDA DE MESQUITA MENEZES",
+      "data": "2026-04-10",
+      "status": "sem-fardamento",
+      "justificativa": "À paisana justificado pelos pais",
+      "uniformeDetalhes": {
+        "itens": [
+          "a-paisana-justificado"
+        ],
+        "calcadoInapropriado": false,
+        "calcadoTipo": ""
+      }
+    },
+    {
+      "id": 1775815708119,
+      "aluno": "LUCAS DOS SANTOS SAMPAIO",
+      "data": "2026-04-10",
+      "status": "sem-fardamento",
+      "justificativa": "À paisana justificado pelos pais",
+      "uniformeDetalhes": {
+        "itens": [
+          "a-paisana-justificado"
+        ],
+        "calcadoInapropriado": false,
+        "calcadoTipo": ""
+      }
+    },
+    {
+      "id": 1775815751418,
+      "aluno": "LIVIA IRIS RODRIGUES DE CASTRO",
+      "data": "2026-04-10",
+      "status": "sem-fardamento",
+      "justificativa": "À paisana justificado pelos pais",
+      "uniformeDetalhes": {
+        "itens": [
+          "a-paisana-justificado"
+        ],
+        "calcadoInapropriado": false,
+        "calcadoTipo": ""
+      }
+    },
+    {
+      "id": 1775815768901,
+      "aluno": "MARIA RITA ANTUNES FARIAS",
+      "data": "2026-04-10",
+      "status": "sem-fardamento",
+      "justificativa": "À paisana justificado pelos pais",
+      "uniformeDetalhes": {
+        "itens": [
+          "a-paisana-justificado"
+        ],
+        "calcadoInapropriado": false,
+        "calcadoTipo": ""
+      }
     }
   ],
   "advertencias": [
