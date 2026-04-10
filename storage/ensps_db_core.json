@@ -1371,7 +1371,9 @@
       "aluno": "JOAO LUCAS MAIA ARAGAO",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:58:47.533Z"
     },
     {
       "id": 1775653448924,
@@ -1385,14 +1387,18 @@
       "aluno": "MIGUEL ARAUJO COELHO",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:58:49.550Z"
     },
     {
       "id": 1775653464034,
       "aluno": "VALENTINA LIMA FERREIRA GOMES",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:58:51.000Z"
     },
     {
       "id": 1775653464787,
