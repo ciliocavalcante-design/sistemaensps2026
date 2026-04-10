@@ -817,7 +817,9 @@
       "aluno": "JOSE GABRIEL SOUZA CLAUDIO",
       "data": "2026-03-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:39.386Z"
     },
     {
       "id": 1775645415844,
@@ -1154,7 +1156,9 @@
       "aluno": "MARIA CLARA FARIAS AMORIM",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:35.604Z"
     },
     {
       "id": 1775645620785,
