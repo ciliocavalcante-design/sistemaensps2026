@@ -1783,14 +1783,18 @@
       "aluno": "KAUE NICOLAS FELIX NICOLAU",
       "data": "2026-03-03",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:41:36.209Z"
     },
     {
       "id": 1775662832931,
       "aluno": "LAILA RIOS BRILHANTE",
       "data": "2026-03-03",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:41:34.725Z"
     },
     {
       "id": 1775662833322,
@@ -1804,7 +1808,9 @@
       "aluno": "MARIA JULIA DE ARAUJO CAVALCANTE",
       "data": "2026-03-03",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:41:42.608Z"
     },
     {
       "id": 1775662852306,
@@ -1812,8 +1818,8 @@
       "data": "2026-03-03",
       "status": "segunda-chamada",
       "justificativa": "",
-      "segundaChamadaSituacao": "pendente",
-      "segundaChamadaAtualizadaEm": "2026-04-09T18:52:39.638Z"
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:41:41.441Z"
     },
     {
       "id": 1775662937044,
