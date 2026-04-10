@@ -1347,7 +1347,9 @@
       "aluno": "ANTONIO CAUE SILVEIRA BARBOZA",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:09.622Z"
     },
     {
       "id": 1775645713938,
@@ -1528,21 +1530,27 @@
       "aluno": "PAULO CESAR DO NASCIMENTO RODRIGUES",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:02.918Z"
     },
     {
       "id": 1775653588495,
       "aluno": "PIETRA DA SILVA SOUZA SUASSUNA",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:05.453Z"
     },
     {
       "id": 1775653594617,
       "aluno": "SOPHIA AYLA MENDES BESSA",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:07.716Z"
     },
     {
       "id": 1775653613648,
