@@ -1512,7 +1512,9 @@
       "aluno": "MARIA CLARA FARIAS AMORIM",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:37:59.988Z"
     },
     {
       "id": 1775653583168,
