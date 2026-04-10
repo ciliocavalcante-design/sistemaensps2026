@@ -596,7 +596,9 @@
       "aluno": "EMILY SOUSA BRAGA",
       "data": "2026-02-25",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:59:19.349Z"
     },
     {
       "id": 1775645142497,
@@ -746,7 +748,9 @@
       "aluno": "LAIS MONTE DAVID CERQUEIRA",
       "data": "2026-03-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:59:17.216Z"
     },
     {
       "id": 1775645315217,
@@ -1354,7 +1358,9 @@
       "aluno": "JOAO MIGUEL DE ARAUJO MARÇAL LIMA",
       "data": "2026-02-25",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:59:22.199Z"
     },
     {
       "id": 1775653431863,
@@ -1657,7 +1663,9 @@
       "aluno": "JOAO LUCAS CAETANO CISNE",
       "data": "2026-03-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:59:15.016Z"
     },
     {
       "id": 1775662650713,
