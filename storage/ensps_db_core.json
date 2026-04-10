@@ -5849,6 +5849,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1775828881499,
+      "aluno": "NICOLLY SOUZA RABAY",
+      "matricula": "2026003",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-10",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
