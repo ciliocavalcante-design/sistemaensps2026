@@ -1456,7 +1456,9 @@
       "aluno": "EMILLY OLIVEIRA GOMES",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:24.536Z"
     },
     {
       "id": 1775653491512,
