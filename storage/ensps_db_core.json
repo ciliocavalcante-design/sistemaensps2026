@@ -1363,21 +1363,27 @@
       "aluno": "CLARICE DE FREITAS MENESES NUNES",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:13.994Z"
     },
     {
       "id": 1775645717396,
       "aluno": "EMANUEL LOHAN SILVEIRA MARQUES",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:16.604Z"
     },
     {
       "id": 1775645718701,
       "aluno": "IAGO CAMOES BEZERRA DE SOUSA",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:20.181Z"
     },
     {
       "id": 1775645722042,
