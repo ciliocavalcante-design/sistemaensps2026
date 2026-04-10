@@ -1979,7 +1979,9 @@
       "aluno": "SARA GABRIELE SILVA GOMES",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:41:21.175Z"
     },
     {
       "id": 1775663115342,
