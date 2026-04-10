@@ -1661,7 +1661,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-10T12:25:27.528Z"
+      "segundaChamadaAtualizadaEm": "2026-04-10T12:25:27.528Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-10T12:58:42.170Z"
     },
     {
       "id": 1775653725773,
