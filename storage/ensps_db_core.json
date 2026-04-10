@@ -658,7 +658,9 @@
       "aluno": "ANA BEATRIZ DIAS CLEMENTE",
       "data": "2026-02-25",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:58.576Z"
     },
     {
       "id": 1775645208294,
@@ -853,7 +855,9 @@
       "aluno": "SOPHIA AYLA MENDES BESSA",
       "data": "2026-03-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:53.913Z"
     },
     {
       "id": 1775645443192,
