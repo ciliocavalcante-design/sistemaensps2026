@@ -667,14 +667,18 @@
       "aluno": "ANELIESE FERREIRA ALVES PEREIRA",
       "data": "2026-02-25",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:39:00.554Z"
     },
     {
       "id": 1775645209810,
       "aluno": "CLARICE DE FREITAS MENESES NUNES",
       "data": "2026-02-25",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:39:01.970Z"
     },
     {
       "id": 1775645212628,
@@ -698,8 +702,8 @@
       "data": "2026-02-25",
       "status": "segunda-chamada",
       "justificativa": "",
-      "segundaChamadaSituacao": "pendente",
-      "segundaChamadaAtualizadaEm": "2026-04-09T19:42:09.644Z"
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:39:10.860Z"
     },
     {
       "id": 1775645232991,
