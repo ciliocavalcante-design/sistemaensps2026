@@ -5788,8 +5788,8 @@
       "descricao": "O(A) estudante apresentou-se na na quadra com a vestimenta em desacordo com o padrão de fardamento da aula de educação física de forma recorrente.",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-04-10T13:05:09.346Z"
     },
     {
       "id": 1775747149754,
