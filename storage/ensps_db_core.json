@@ -1232,7 +1232,9 @@
       "aluno": "PAULO VICTOR CUSTODIO DE OLIVEIRA",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:58:58.566Z"
     },
     {
       "id": 1775645683397,
@@ -1240,8 +1242,8 @@
       "data": "2026-04-01",
       "status": "segunda-chamada",
       "justificativa": "",
-      "segundaChamadaSituacao": "pendente",
-      "segundaChamadaAtualizadaEm": "2026-04-09T21:53:45.528Z"
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:59:00.982Z"
     },
     {
       "id": 1775645685791,
@@ -1405,7 +1407,9 @@
       "aluno": "YASMIN SOUZA BARROS",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T10:58:52.315Z"
     },
     {
       "id": 1775653489365,
