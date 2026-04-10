@@ -618,14 +618,18 @@
       "aluno": "ALEXIA MARIA SOUSA",
       "data": "2026-02-25",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:52.436Z"
     },
     {
       "id": 1775645150333,
       "aluno": "EDUARDO HERBERTE CORREIA DE ALENCAR",
       "data": "2026-02-25",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:56.269Z"
     },
     {
       "id": 1775645156544,
