@@ -1546,7 +1546,9 @@
       "aluno": "JULIO LEVI ABREU MIRANDA DA ROCHA",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T14:08:46.698Z"
     },
     {
       "id": 1775653457730,
