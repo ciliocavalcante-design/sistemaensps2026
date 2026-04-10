@@ -536,7 +536,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-10T14:23:16.344Z"
+      "segundaChamadaAtualizadaEm": "2026-04-10T14:23:16.344Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-10T14:28:55.357Z"
     },
     {
       "id": 1775645097206,
@@ -1550,7 +1552,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-10T14:08:46.698Z"
+      "segundaChamadaAtualizadaEm": "2026-04-10T14:08:46.698Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-10T14:28:55.357Z"
     },
     {
       "id": 1775653457730,
