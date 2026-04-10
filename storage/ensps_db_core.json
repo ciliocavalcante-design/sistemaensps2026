@@ -5828,6 +5828,27 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": "2026-04-09T21:14:43.386Z"
+    },
+    {
+      "id": 1775826016936,
+      "aluno": "JOAO LUCAS CAETANO CISNE",
+      "matricula": "2021054",
+      "serie": "6º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-10",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito grave para com o professor",
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante demonstrou falta de respeito grave em relação ao(à) professor(a), desconsiderando orientações, adotando postura desrespeitosa e, em determinados momentos, prejudicando o ambiente de ensino-aprendizagem e a autoridade do docente.\nO(A) estudante descumpriu orientações dadas pelos educadores, comprometendo o andamento das atividades e a disciplina no ambiente escolar.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
