@@ -620,7 +620,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:52.436Z"
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:52.436Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-10T11:06:14.119Z"
     },
     {
       "id": 1775645150333,
@@ -629,14 +631,20 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:56.269Z"
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:56.269Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-10T11:06:14.119Z"
     },
     {
       "id": 1775645156544,
       "aluno": "JOAO LEVI MESQUITA ROCHA",
       "data": "2026-02-25",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:58.403Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-10T11:06:14.119Z"
     },
     {
       "id": 1775645160994,
@@ -773,7 +781,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:38.186Z"
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:38.186Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-10T11:06:14.119Z"
     },
     {
       "id": 1775645323243,
@@ -782,7 +792,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:39.236Z"
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:39.236Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-10T11:06:14.119Z"
     },
     {
       "id": 1775645328328,
@@ -1304,7 +1316,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:29.753Z"
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:29.753Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-10T11:06:14.119Z"
     },
     {
       "id": 1775645697715,
@@ -1313,7 +1327,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:30.769Z"
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:30.769Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-10T11:06:14.119Z"
     },
     {
       "id": 1775645701776,
@@ -1322,7 +1338,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:32.653Z"
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:32.653Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-10T11:06:14.119Z"
     },
     {
       "id": 1775645709632,
@@ -1474,14 +1492,20 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "segundaChamadaSituacao": "realizada",
-      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:24.536Z"
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:24.536Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-10T11:06:14.119Z"
     },
     {
       "id": 1775653491512,
       "aluno": "LIVIA DE LIMA NOGUEIRA",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:06:02.152Z",
+      "segundaChamadaArquivada": true,
+      "segundaChamadaArquivadaEm": "2026-04-10T11:06:14.119Z"
     },
     {
       "id": 1775653574474,
