@@ -1292,21 +1292,27 @@
       "aluno": "ANA LETICIA RIBEIRO OLIVEIRA",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:29.753Z"
     },
     {
       "id": 1775645697715,
       "aluno": "BIANCA VIEIRA MENDES",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:30.769Z"
     },
     {
       "id": 1775645701776,
       "aluno": "MARIA VITORIA DE SOUSA BASTOS",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:32.653Z"
     },
     {
       "id": 1775645709632,
