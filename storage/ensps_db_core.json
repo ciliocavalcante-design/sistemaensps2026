@@ -1390,21 +1390,27 @@
       "aluno": "LORENA DOMINGOS DE OLIVEIRA",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:23.277Z"
     },
     {
       "id": 1775645724176,
       "aluno": "MARIA JULIA RODRIGUES GOMES",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:26.432Z"
     },
     {
       "id": 1775645727260,
       "aluno": "PEDRO BENICIO DE OLIVEIRA LIMA",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-10T11:38:28.531Z"
     },
     {
       "id": 1775645734090,
