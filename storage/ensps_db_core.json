@@ -2246,7 +2246,9 @@
       "aluno": "JOSE THALYS FRAGA OLIVEIRA",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-14T11:03:27.935Z"
     },
     {
       "id": 1775663102436,
