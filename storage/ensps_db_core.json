@@ -1098,7 +1098,9 @@
       "aluno": "BIANCA RIOS OLIVEIRA",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-14T11:31:03.328Z"
     },
     {
       "id": 1775645552908,
