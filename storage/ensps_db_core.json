@@ -1383,7 +1383,9 @@
       "aluno": "ABINER SOARES BRAGA",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-14T12:48:37.988Z"
     },
     {
       "id": 1775645694958,
