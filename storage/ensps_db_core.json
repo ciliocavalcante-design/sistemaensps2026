@@ -5913,6 +5913,44 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1776262996603,
+      "aluno": "CLARICE DE FREITAS MENESES NUNES",
+      "matricula": "2026033",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-15",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1776263027616,
+      "aluno": "CLARICE DE FREITAS MENESES NUNES",
+      "matricula": "2026033",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-15",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
