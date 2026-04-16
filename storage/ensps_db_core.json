@@ -6027,6 +6027,120 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1776352028015,
+      "aluno": "CAMILA MATOS NASCIMENTO",
+      "matricula": "2012007",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-16",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido para a aula de educação física.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1776352028715,
+      "aluno": "LAILA RIOS BRILHANTE",
+      "matricula": "2012103",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-16",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido para a aula de educação física.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1776352028726,
+      "aluno": "LISLEY KATLYN MARTINS",
+      "matricula": "2018051",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-16",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido para a aula de educação física.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1776352028604,
+      "aluno": "JOAO HENRIQUE FERNANDES PEREIRA",
+      "matricula": "2026064",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-16",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido para a aula de educação física.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1776352028530,
+      "aluno": "NICOLLY SOUZA RABAY",
+      "matricula": "2026003",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-16",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido para a aula de educação física.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1776352028763,
+      "aluno": "YAGO SA DE OLIVEIRA",
+      "matricula": "2026043",
+      "serie": "2ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-16",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido para a aula de educação física.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
