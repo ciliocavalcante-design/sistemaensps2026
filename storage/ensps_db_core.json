@@ -6008,6 +6008,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1776341306521,
+      "aluno": "ANA LIVIA MATIAS PINHEIRO",
+      "matricula": "2015044",
+      "serie": "9º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-16",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido na aula de educação física.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
