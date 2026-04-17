@@ -2106,7 +2106,9 @@
       "aluno": "ANA LIVIA NASCIMENTO FEITOSA",
       "data": "2026-03-03",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "zero",
+      "segundaChamadaAtualizadaEm": "2026-04-17T17:59:55.888Z"
     },
     {
       "id": 1775662974412,
