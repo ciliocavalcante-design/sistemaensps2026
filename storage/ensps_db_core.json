@@ -1960,7 +1960,9 @@
       "aluno": "RAUAN DE AMORIM MONTE",
       "data": "2026-02-27",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "zero",
+      "segundaChamadaAtualizadaEm": "2026-04-17T18:00:03.419Z"
     },
     {
       "id": 1775662731634,
@@ -1978,7 +1980,9 @@
       "aluno": "GUILHERME DOS REIS CAVALCANTI",
       "data": "2026-03-03",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "zero",
+      "segundaChamadaAtualizadaEm": "2026-04-17T18:00:02.623Z"
     },
     {
       "id": 1775662772516,
@@ -2210,14 +2214,18 @@
       "aluno": "GUILHERME DOS REIS CAVALCANTI",
       "data": "2026-04-06",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "zero",
+      "segundaChamadaAtualizadaEm": "2026-04-17T18:00:00.712Z"
     },
     {
       "id": 1775663042479,
       "aluno": "MARCOS VENICIOS SILVA FARIAS",
       "data": "2026-04-06",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "zero",
+      "segundaChamadaAtualizadaEm": "2026-04-17T18:00:01.891Z"
     },
     {
       "id": 1775663045617,
