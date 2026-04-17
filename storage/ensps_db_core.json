@@ -850,15 +850,17 @@
       "data": "2026-03-04",
       "status": "segunda-chamada",
       "justificativa": "",
-      "segundaChamadaSituacao": "pendente",
-      "segundaChamadaAtualizadaEm": "2026-04-10T11:05:48.736Z"
+      "segundaChamadaSituacao": "zero",
+      "segundaChamadaAtualizadaEm": "2026-04-17T18:00:14.897Z"
     },
     {
       "id": 1775645329978,
       "aluno": "MIGUEL APOLLO CORREIA CAVALCANTE",
       "data": "2026-03-04",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "zero",
+      "segundaChamadaAtualizadaEm": "2026-04-17T18:00:15.316Z"
     },
     {
       "id": 1775645414458,
