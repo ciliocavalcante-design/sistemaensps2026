@@ -2157,7 +2157,9 @@
       "aluno": "LAILA RIOS BRILHANTE",
       "data": "2026-04-06",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "zero",
+      "segundaChamadaAtualizadaEm": "2026-04-17T17:59:59.004Z"
     },
     {
       "id": 1775663005387,
