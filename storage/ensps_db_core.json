@@ -1177,7 +1177,9 @@
       "aluno": "HIARLEY DUÓ DA SILVA",
       "data": "2026-03-18",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "zero",
+      "segundaChamadaAtualizadaEm": "2026-04-17T18:00:09.996Z"
     },
     {
       "id": 1775645581810,
