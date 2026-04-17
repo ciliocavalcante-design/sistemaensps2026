@@ -976,7 +976,9 @@
       "aluno": "GIDEAO DOS SANTOS SAMPAIO",
       "data": "2026-03-11",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-17T18:00:12.539Z"
     },
     {
       "id": 1775645488391,
