@@ -1444,7 +1444,9 @@
       "aluno": "BENEDITO NOAN FEITOSA MONTEIRO",
       "data": "2026-04-01",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-17T18:00:19.915Z"
     },
     {
       "id": 1775645715544,
@@ -1647,7 +1649,9 @@
       "aluno": "MIGUEL VASCONCELOS FERNANDES",
       "data": "2026-04-08",
       "status": "segunda-chamada",
-      "justificativa": ""
+      "justificativa": "",
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaAtualizadaEm": "2026-04-17T18:00:18.899Z"
     },
     {
       "id": 1775653584717,
