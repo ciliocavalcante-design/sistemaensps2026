@@ -92,8 +92,11 @@ async function buscarArquivo(config) {
 
   const payload = await resposta.json();
   let content = '{}';
+  const arquivoGrande = Number(payload.size || 0) > 400000;
 
-  if (typeof payload.content === 'string' && payload.content.trim()) {
+  if (typeof payload.download_url === 'string' && payload.download_url && arquivoGrande) {
+    content = await baixarTextoBruto(config, payload.download_url);
+  } else if (typeof payload.content === 'string' && payload.content.trim()) {
     content = decodeBase64Utf8(payload.content);
   } else if (typeof payload.download_url === 'string' && payload.download_url) {
     content = await baixarTextoBruto(config, payload.download_url);
