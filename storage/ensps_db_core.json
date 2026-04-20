@@ -6225,6 +6225,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": "2026-04-20T10:29:25.426Z"
+    },
+    {
+      "id": 1776682196555,
+      "aluno": "MARIANA BARROSO DE OLIVEIRA",
+      "matricula": "2020031",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-20",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Gestos obscenos/palavras de baixo calão"
+      ],
+      "descricao": "",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
