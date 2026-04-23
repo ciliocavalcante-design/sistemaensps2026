@@ -6282,6 +6282,82 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1776956957267,
+      "aluno": "MARIA ISABEL DO NASCIMENTO BARBOSA",
+      "matricula": "2015025",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-23",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.",
+      "responsavel": "",
+      "usaLinhasAssinatura": false,
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1776956956937,
+      "aluno": "MARCIO WELLINGTON DA COSTA FILHO",
+      "matricula": "2026020",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-23",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.",
+      "responsavel": "",
+      "usaLinhasAssinatura": false,
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1776956956945,
+      "aluno": "ISADORA REBOUÇAS MILITÃO",
+      "matricula": "2017029",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-23",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.",
+      "responsavel": "",
+      "usaLinhasAssinatura": false,
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1776956956909,
+      "aluno": "JAMILLY VITORIA RIBEIRO SILVA",
+      "matricula": "2022008",
+      "serie": "1ª EM",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-23",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Fardamento em desacordo com normas"
+      ],
+      "descricao": "O(A) estudante apresentou-se na escola portando vestimentas em desacordo com o padrão de fardamento institucional exigido.",
+      "responsavel": "",
+      "usaLinhasAssinatura": false,
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
