@@ -6434,6 +6434,90 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1777038797163,
+      "aluno": "MARIA LETICIA MARQUES VASCONCELOS",
+      "matricula": "2025072",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito grave para com o professor",
+        "Conversa demasiada em sala de aula",
+        "Gestos obscenos durante a aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).\nO(A) estudante fez uso de gestos obscenos em ambiente escolar, desrespeitando colegas e membros da equipe escolar.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1777038796299,
+      "aluno": "BIANCA VIEIRA MENDES",
+      "matricula": "2016101",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito grave para com o professor",
+        "Conversa demasiada em sala de aula",
+        "Gestos obscenos durante a aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).\nO(A) estudante fez uso de gestos obscenos em ambiente escolar, desrespeitando colegas e membros da equipe escolar.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1777038796258,
+      "aluno": "PEDRO JORGE DA SILVA QUEIROZ DE ALMEIDA",
+      "matricula": "2025030",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito grave para com o professor",
+        "Conversa demasiada em sala de aula",
+        "Gestos obscenos durante a aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).\nO(A) estudante fez uso de gestos obscenos em ambiente escolar, desrespeitando colegas e membros da equipe escolar.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1777038796191,
+      "aluno": "LAURA LISE ARAUJO FREITAS",
+      "matricula": "2019035",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-24",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito grave para com o professor",
+        "Conversa demasiada em sala de aula",
+        "Gestos obscenos durante a aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).\nO(A) estudante fez uso de gestos obscenos em ambiente escolar, desrespeitando colegas e membros da equipe escolar.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
