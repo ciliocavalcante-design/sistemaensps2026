@@ -6590,6 +6590,25 @@
       "usaLinhasAssinatura": false,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1777296386838,
+      "aluno": "MARIANA BARROSO DE OLIVEIRA",
+      "matricula": "2020031",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-27",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
