@@ -2520,6 +2520,645 @@
         "calcadoInapropriado": false,
         "calcadoTipo": ""
       }
+    },
+    {
+      "id": 1777325078934,
+      "aluno": "ALICE CORDOVIL DOS SANTOS CARVALHO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078935,
+      "aluno": "BERNARD BRAZ QUEIROGA SABINO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078936,
+      "aluno": "EMILY SOUSA BRAGA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078937,
+      "aluno": "JOAO LUCAS MAIA ARAGAO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078938,
+      "aluno": "JOAO MIGUEL OLIVERIA BEZERRA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078939,
+      "aluno": "JULIO LEVI ABREU MIRANDA DA ROCHA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078940,
+      "aluno": "MARIA CLARA DOS SANTOS NASCIMENTO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078941,
+      "aluno": "MARIA CLARA GOMES ABREU",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078942,
+      "aluno": "MARIA ELENA MENDONÇA MAGALHÃES",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078943,
+      "aluno": "MARIA HELOISA MENESES DA ROCHA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078945,
+      "aluno": "RAYZON DE AMORIM MONTE",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078946,
+      "aluno": "REBEKA BRISENO FERREIRA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078947,
+      "aluno": "ALEXIA MARIA SOUSA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078948,
+      "aluno": "ANA SOPHIA ANASTACIO DE ABREU",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078949,
+      "aluno": "JOAO ARTHUR ALVES MARTINS",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078950,
+      "aluno": "JULIA ALMEIDA CARVALHO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078951,
+      "aluno": "LIVIA DE LIMA NOGUEIRA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078952,
+      "aluno": "MARIA MEL LIMA VASCONCEOS",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078953,
+      "aluno": "MARIA VITORIA DE SOUSA BASTOS",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078954,
+      "aluno": "MELINA MARIA SANTOS DA SILVA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078955,
+      "aluno": "MIGUEL ALVES FREITAS",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078956,
+      "aluno": "MIGUEL APOLLO CORREIA CAVALCANTE",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078957,
+      "aluno": "PEDRO JORGE DA SILVA QUEIROZ DE ALMEIDA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078958,
+      "aluno": "ANA BEATRIZ DIAS CLEMENTE",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078959,
+      "aluno": "ANELIESE FERREIRA ALVES PEREIRA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078960,
+      "aluno": "ANTONIO CAUE SILVEIRA BARBOZA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078961,
+      "aluno": "EMANUEL LOHAN SILVEIRA MARQUES",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078962,
+      "aluno": "IAGO CAMOES BEZERRA DE SOUSA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078963,
+      "aluno": "ISABELLY SOUSA MARTINS",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078964,
+      "aluno": "JOSE GABRIEL SOUZA CLAUDIO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078965,
+      "aluno": "LUCAS GABRIEL CASTRO ALBUQUERQUE LIMA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078966,
+      "aluno": "MARIA CLARA FARIAS AMORIM",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078967,
+      "aluno": "MARIA JULIA RODRIGUES GOMES",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078968,
+      "aluno": "MIGUEL SILVA DO NASCIMENTO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078969,
+      "aluno": "PEDRO WILLIAM FAUSTINO ANASTACIO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078970,
+      "aluno": "PIETRA DA SILVA SOUZA SUASSUNA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078971,
+      "aluno": "SOPHIA AYLA MENDES BESSA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078972,
+      "aluno": "GIOVANA RIPARDO CORDEIRO VERÇOSA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078973,
+      "aluno": "ANDERSON DOS REIS CAVALCANTI",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078974,
+      "aluno": "ANTONIO MARQUES DOS SANTOS NETO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078975,
+      "aluno": "DEBORAH BRISENO FERREIRA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078976,
+      "aluno": "FRANCISCO NILSON GOMES MARTINS NETO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078977,
+      "aluno": "LUCAS DOS SANTOS SAMPAIO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078978,
+      "aluno": "MARIA JULIA XIMENES BARROSO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078979,
+      "aluno": "MARIA LARA BRAZ SILVA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078980,
+      "aluno": "MARIANA DUARTE FERNANDES",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078981,
+      "aluno": "PEDRO ARTHUR BRAZ MARTINS",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078982,
+      "aluno": "RUAN DE LIMA VIEIRA BARBOSA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078983,
+      "aluno": "ADRYEL LEITE RODRIGUES NUNES VIANA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078984,
+      "aluno": "ANA LIVIA NASCIMENTO FEITOSA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078985,
+      "aluno": "KAYO JHEBERSON MAGALHAES SANTIAGO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078986,
+      "aluno": "SARA GABRIELE SILVA GOMES",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078987,
+      "aluno": "ANGELO VINICIUS LEITE SILVA FILHO",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078988,
+      "aluno": "JOAO HENRIQUE FERNANDES PEREIRA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078989,
+      "aluno": "KAUE NICOLAS FELIX NICOLAU",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078990,
+      "aluno": "LAILA RIOS BRILHANTE",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078991,
+      "aluno": "MARIA CLARA CAVALCANTE FRAGA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078992,
+      "aluno": "MARIA JULIA DE ARAUJO CAVALCANTE",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078993,
+      "aluno": "NICOLLY SOUZA RABAY",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078994,
+      "aluno": "SAYONARA EMILLY PEREIRA NERI",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078995,
+      "aluno": "BRUNO VICTOR DE SOUSA CAVALCANTE",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078996,
+      "aluno": "GABRIEL MARTINS ANDRADE",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078997,
+      "aluno": "GUILHERME DOS REIS CAVALCANTI",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078998,
+      "aluno": "JOAO MARCELO RIOLO DA SILVA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325078999,
+      "aluno": "MARCOS VENICIOS SILVA FARIAS",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325079000,
+      "aluno": "MARIA CLARA PINTO RODRIGUES",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325079001,
+      "aluno": "NAYLA ARAUJO DE SOUSA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325079002,
+      "aluno": "OTAVIO MESSIAS PEREIRA GOMES",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325079003,
+      "aluno": "PEDRO HENRIQUE NASCIMENTO DE OLIVEIRA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325079004,
+      "aluno": "RODRIGO DOS REIS GONDIM",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1777325079005,
+      "aluno": "SILVIA CIBELE SILVA LIMA",
+      "data": "2026-04-27",
+      "status": "falta",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "origem": "relatorio-faltosos"
     }
   ],
   "advertencias": [
