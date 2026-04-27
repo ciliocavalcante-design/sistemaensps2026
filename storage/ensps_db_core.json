@@ -6609,6 +6609,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1777296480659,
+      "aluno": "LUCAS GONÇALVES MARTINS",
+      "matricula": "2025031",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-27",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
