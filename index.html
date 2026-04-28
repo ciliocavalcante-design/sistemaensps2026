@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Sistema Integrado ENSPS 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<link href="assets/css/index.css" rel="stylesheet"/>
+
+<link href="assets/css/visual-polido.css?v=20260428-pente-fino-v6" rel="stylesheet"/>
+</head>
+<body>
+<!-- MODAL DE LOGIN ADMINISTRATIVO -->
+<div class="admin-login-overlay" id="adminLoginOverlay" style="display:none">
+  <div class="admin-login-card">
+    <div class="admin-login-logo">🔐</div>
+    <h2>Acesso Administrativo</h2>
+    <p>Entre com a senha administrativa para acessar o Sistema ENSPS.</p>
+    <label for="adminLoginSenha">Senha</label>
+    <input id="adminLoginSenha" type="password" autocomplete="current-password" placeholder="Digite a senha"/>
+    <button class="btn" id="btnAdminEntrar" type="button">Entrar no Sistema</button>
+    <p class="admin-login-erro" id="adminLoginErro"></p>
+    <small>Senha inicial: <strong>ensps2026</strong>. Altere em Administração após entrar.</small>
+  </div>
+</div>
+
+<!-- SIDEBAR UNIFICADA -->
+<!-- ── GEMINI API CONFIG MODAL ── -->
+<div id="gemini-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;align-items:center;justify-content:center;">
+<div style="background:var(--card);border-radius:14px;padding:28px;max-width:460px;width:90%;box-shadow:0 8px 40px rgba(0,0,0,.4);">
+<h2 style="margin:0 0 6px;font-size:1.1rem;">⚡ Chave da API Groq</h2>
+<p style="font-size:.82rem;color:var(--muted);margin:0 0 16px;">Obtenha sua chave <strong>100% gratuita</strong> (sem cartão) em <a href="https://console.groq.com" style="color:var(--brand);" target="_blank">console.groq.com</a> → API Keys → Create API Key. Ela fica salva só neste dispositivo.</p>
+<input id="gemini-key-input" placeholder="Cole sua chave aqui (gsk_...)" style="width:100%;margin-bottom:12px;box-sizing:border-box;" type="password"/>
+<div style="display:flex;gap:8px;">
+<button class="btn" onclick="geminiSalvarChave()" style="flex:1;">💾 Salvar</button>
+<button class="btn-ghost" onclick="geminiFecharModal()" style="flex:1;">Cancelar</button>
+</div>
+<button id="btn-remover-chave" onclick="geminiRemoverChave()" style="display:none;width:100%;margin-top:10px;background:#2a1010;color:#ef4444;border:1px solid #ef4444;border-radius:8px;padding:8px;font-size:.82rem;font-weight:600;cursor:pointer;">🗑️ Remover chave salva</button>
+<p id="gemini-key-status" style="font-size:.78rem;margin:10px 0 0;text-align:center;"></p>
+</div>
+</div>
+<!-- Floating config button -->
+<button id="gemini-fab" onclick="geminiAbrirModal()" style="position:fixed;bottom:70px;right:16px;z-index:1000;background:linear-gradient(135deg,#f55036,#f0a500);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;" title="Configurar API Groq">
+    ✨
+  </button>
+<aside class="sidebar">
+<div class="sidebar-header">
+<img alt="Logo ENSPS" class="sidebar-logo" onerror="this.style.display='none'" src="https://raw.githubusercontent.com/ciliocavalcante-design/ensps/main/LOGO%20ENSPS%202024.5.png"/>
+<div>
+<h1>ENSPS 2026</h1>
+<p>Sistema Integrado</p>
+</div>
+</div>
+<nav>
+<div class="sidebar-section-label">Alunos</div>
+<div class="menu-item" data-section="tab-agenda">
+<span class="menu-icon">📚</span>
+<span>Agenda Escolar</span>
+</div>
+<div class="menu-item" data-section="advertencia">
+<span class="menu-icon">⚠️</span>
+<span>Advertências</span>
+</div>
+<div class="menu-item" data-section="gestor">
+<span class="menu-icon">🖨️</span>
+<span>Dados do Gestor</span>
+</div>
+<div class="menu-item active" data-section="frequencia">
+<span class="menu-icon">📋</span>
+<span>Frequência Diária</span>
+</div>
+<div class="menu-item" data-section="estatisticas">
+<span class="menu-icon">📈</span>
+<span>Estatísticas Gerais</span>
+</div>
+<div class="menu-item" data-section="historico">
+<span class="menu-icon">📊</span>
+<span>Histórico</span>
+</div>
+<div class="menu-item" data-section="relatorios-gerais">
+<span class="menu-icon">📑</span>
+<span>Relatórios Gerais</span>
+</div>
+<div class="menu-item" data-section="relatorio-pedagogico">
+<span class="menu-icon">📝</span>
+<span>Relatório Pedagógico</span>
+</div>
+<div class="sidebar-section-label">Professores</div>
+<div class="menu-item" data-section="tab-materiais">
+<span class="menu-icon">📦</span>
+<span>Entrega de Materiais</span>
+</div>
+<div class="menu-item" data-section="tab-comunicados">
+<span class="menu-icon">📣</span>
+<span>Comunicados</span>
+</div>
+<div class="menu-item" data-section="tab-boletim">
+<span class="menu-icon">🗓️</span>
+<span>Boletim Informativo</span>
+</div>
+<div class="menu-item" data-section="tab-horario">
+<span class="menu-icon">🧩</span>
+<span>Horários Escolares</span>
+</div>
+<div class="menu-item" data-section="tab-frequencia">
+<span class="menu-icon">🗓️</span>
+<span>Frequência / Folha</span>
+</div>
+<div class="menu-item" data-section="tab-planilha">
+<span class="menu-icon">🗒️</span>
+<span>Planilha de Notas</span>
+</div>
+<div class="menu-item" data-section="tab-detencao">
+<span class="menu-icon">✏️</span>
+<span>Atividade de Detenção</span>
+</div>
+<div class="sidebar-section-label">Sistema</div>
+<div class="menu-item" data-section="backup-central">
+<span class="menu-icon">💾</span>
+<span>Backup e Dados</span>
+</div>
+<div class="menu-item" data-section="admin-sistema">
+<span class="menu-icon">🔐</span>
+<span>Administração</span>
+</div>
+</nav>
+</aside>
+<!-- CONTEÚDO PRINCIPAL -->
+<div class="main-content">
+<!-- ==================== SEÇÃO: FREQUÊNCIA DIÁRIA ==================== -->
+<section class="content-section active" id="frequencia">
+<header class="top">
+<h1>Frequência Diária - ENSPS</h1>
+<h2 class="muted">Registre a presença dos alunos de forma rápida e eficiente.</h2>
+</header>
+<main class="wrap">
+<div class="card">
+<div class="filters">
+<div class="filter-group">
+<label>Data:</label>
+<input id="dataFreq" type="date">
+</input></div>
+<div class="filter-group">
+<label>Série:</label>
+<select id="filtroSerie">
+<option value="">Todas</option>
+<option value="6º EF">6º EF</option>
+<option value="7º EF">7º EF</option>
+<option value="8º EF">8º EF</option>
+<option value="9º EF">9º EF</option>
+<option value="1ª EM">1ª EM</option>
+<option value="2ª EM">2ª EM</option>
+<option value="3ª EM">3ª EM</option>
+</select>
+</div>
+<div class="filter-group">
+<label>Ensino:</label>
+<select id="filtroEnsino">
+<option value="">Todos</option>
+<option value="EF">Ensino Fundamental</option>
+<option value="EM">Ensino Médio</option>
+</select>
+</div>
+<div class="filter-group" style="min-width:260px; flex:1.4;">
+<label>Buscar aluno:</label>
+<input autocomplete="off" id="buscaAlunoFreq" placeholder="Digite o nome do aluno..." type="search"/>
+</div>
+</div>
+<div aria-label="Opções de prova para 2ª chamada" class="prova-opcoes">
+<label class="prova-check" for="checkProvaFundamental">
+<input id="checkProvaFundamental" type="checkbox"/>
+<span>Prova Fundamental<small>Faltas do EF viram 2ª chamada</small></span>
+</label>
+<label class="prova-check" for="checkProvaMedio">
+<input id="checkProvaMedio" type="checkbox"/>
+<span>Prova Médio<small>Faltas do EM viram 2ª chamada</small></span>
+</label>
+</div>
+<div class="actions">
+<button class="btn" id="btnSalvarFrequencias">💾 Salvar Frequências</button>
+<button class="btn-ghost" id="btnExportarDia">📄 Exportar Dia</button>
+<button class="btn-ghost" id="btnImportarDia">📥 Importar Dia</button>
+<input accept=".csv,text/csv" id="inputImportarDia" style="display:none" type="file"/>
+<button class="btn-ghost" id="btnImportarRelatorioFaltosos">📋 Importar Relatório/PDF Faltosos</button>
+<input accept=".pdf,.csv,.txt,application/pdf,text/csv,text/plain" id="inputImportarRelatorioFaltosos" style="display:none" type="file"/>
+<button class="btn-warning" id="btnDesfazerUltimaImportacao" title="Restaura a frequência do dia como estava antes da última importação de faltosos">↩️ Desfazer Última Importação</button>
+<button class="btn-ghost" id="btnExportarMes">📅 Exportar Mês</button>
+<button class="btn-ghost" id="btnAlunosFaltosos">⚠️ Alunos 3+ Faltas</button>
+<button class="btn-danger" id="btnApagarFrequenciaDia">🗑️ Apagar Frequência do Dia</button>
+<button class="btn-warning" onclick="navegarPara('backup-central')">💾 Backup e Dados</button>
+<button class="btn-danger" id="btnLimparFrequencias">🗑️ Apagar Frequências</button>
+</div>
+</div>
+<div class="card relatorio-importacao-faltosos-card" id="relatorioImportacaoFaltososCard" style="display:none">
+<div class="relatorio-importacao-topo">
+<div>
+<h3>Relatório da Importação de Faltosos</h3>
+<p class="muted" id="relatorioImportacaoFaltososSubtitulo">Nenhuma importação registrada nesta sessão.</p>
+</div>
+<div class="actions relatorio-importacao-actions">
+<button class="btn-ghost btn-small" id="btnBaixarRelatorioImportacaoCSV">⬇️ Baixar CSV</button>
+<button class="btn-ghost btn-small" id="btnBaixarRelatorioImportacaoTXT">⬇️ Baixar TXT</button>
+<button class="btn-ghost btn-small" id="btnFecharRelatorioImportacao">Fechar</button>
+</div>
+</div>
+<div id="relatorioImportacaoFaltososResumo" class="relatorio-importacao-grid"></div>
+<div id="relatorioImportacaoFaltososDetalhes" class="relatorio-importacao-detalhes"></div>
+</div>
+<div class="card desfazer-importacao-card" id="desfazerImportacaoCard" style="display:none">
+  <div>
+    <h3>↩️ Última importação de faltosos</h3>
+    <p class="muted" id="desfazerImportacaoResumo">Nenhuma importação disponível para desfazer.</p>
+  </div>
+  <div class="actions">
+    <button class="btn-warning" id="btnDesfazerUltimaImportacaoCard">Desfazer agora</button>
+    <button class="btn-ghost" id="btnLimparHistoricoDesfazerImportacao">Limpar histórico</button>
+  </div>
+</div>
+<div class="card">
+<h3>Lista de Alunos</h3>
+<div class="table-container">
+<table id="tabelaFrequencia">
+<thead>
+<tr>
+<th>N°</th>
+<th>Aluno(a)</th>
+<th>Série</th>
+<th>Ensino</th>
+<th style="text-align:center">Presença</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+<div class="card">
+<h3>Relatório de Faltas Acumuladas</h3>
+<p class="muted" style="margin:0 0 10px">Desde o início do ano (ou uso do sistema)</p>
+<div class="table-container">
+<table id="tabelaFaltasAcumuladas">
+<thead>
+<tr>
+<th>Aluno(a)</th>
+<th>Série</th>
+<th>Faltas</th>
+<th>2ª Chamada</th>
+<th>Faltas Justificadas</th>
+<th>Sem Fardamento</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</main>
+</section>
+<div class="modal-overlay" id="uniformeModal">
+<div class="modal-content" style="max-width:760px;">
+<div class="modal-header">
+<h2>Detalhar Sem Fardamento</h2>
+<button class="modal-close" onclick="fecharModalUniforme()" type="button">Fechar</button>
+</div>
+<p class="muted" id="uniformeModalAlunoInfo" style="margin:0 0 12px;">Selecione as ocorrências do aluno.</p>
+<div class="uniforme-opcoes-grid" id="uniformeOpcoesGrid">
+<label class="uniforme-opcao"><input type="checkbox" value="a-paisana"/><span>À paisana</span></label>
+<label class="uniforme-opcao"><input type="checkbox" value="farda-ed-fisica-dia-inapropriado"/><span>Farda de Educação Física em dia inapropriado</span></label>
+<label class="uniforme-opcao"><input type="checkbox" value="sem-farda-ed-fisica-com-farda-normal"/><span>Sem fardamento de Educação Física com farda normal</span></label>
+<label class="uniforme-opcao"><input type="checkbox" value="sem-farda-ed-fisica-a-paisana"/><span>Sem fardamento de Educação Física e à paisana</span></label>
+<label class="uniforme-opcao"><input type="checkbox" value="blusa-feira-dia-inapropriado"/><span>Blusa da feira em dia inapropriado</span></label>
+<label class="uniforme-opcao"><input type="checkbox" value="a-paisana-justificado"/><span>À paisana justificado pelos pais</span></label>
+<label class="uniforme-opcao"><input type="checkbox" value="fardamento-misturado"/><span>Fardamento misturado com roupa</span></label>
+<div class="uniforme-opcao" style="display:block;">
+<label style="display:flex;align-items:flex-start;gap:10px;">
+<input id="uniformeCalcadoInapropriado" type="checkbox"/>
+<span>Calçado inapropriado</span>
+</label>
+<div class="uniforme-subopcoes">
+<label class="uniforme-opcao"><input name="uniformeCalcadoTipo" type="radio" value="chinela"/><span>Chinela</span></label>
+<label class="uniforme-opcao"><input name="uniformeCalcadoTipo" type="radio" value="crocs"/><span>Crocs</span></label>
+<label class="uniforme-opcao"><input name="uniformeCalcadoTipo" type="radio" value="sapato-cor-inadequada"/><span>Sapato de cor inadequada</span></label>
+</div>
+</div>
+<label class="uniforme-opcao"><input type="checkbox" value="calcado-inapropriado-justificado"/><span>Calçado inapropriado justificado pelos pais</span></label>
+</div>
+<div class="uniforme-resumo-box" id="uniformeResumoPreview">Nenhuma opção selecionada ainda.</div>
+<div class="actions">
+<button class="btn" onclick="salvarDetalhesUniforme()" type="button">Salvar ocorrência</button>
+<button class="btn-ghost" onclick="fecharModalUniforme()" type="button">Cancelar</button>
+</div>
+</div>
+</div>
+<!-- ==================== SEÇÃO: ADVERTÊNCIAS ==================== -->
+<section class="content-section" id="advertencia">
+<header class="top">
+<h1>Gerador de Advertência Escolar</h1>
+<h2 class="muted">Preencha os dados, visualize e exporte em PDF, PNG ou DOCX.</h2>
+</header>
+<div class="wrap" id="advertencia-pendencias-wrap">
+<section class="card">
+<h2 style="margin-bottom:8px;color:var(--ink);">Assinaturas Pendentes</h2>
+<p class="muted" style="margin:0 0 12px;font-size:.86rem;">Toda advertência salva com linhas de assinatura entra automaticamente nesta lista. A baixa precisa ser manual.</p>
+<div class="pendencias-resumo" id="pendenciasAssinaturaResumo"></div>
+<div class="table-container" id="pendenciasAssinaturaTabela"></div>
+</section>
+</div>
+<main class="wrap grid">
+<section class="card controls">
+<h2>Dados da Escola</h2>
+<div class="row">
+<div class="col-12">
+<label>Tipo de Documento</label>
+<select id="tipoDocumento" onchange="renderPreview()">
+<optgroup label="📋 Padrão">
+<option value="Advertência Escolar">Advertência Escolar</option>
+</optgroup>
+<optgroup label="📘 Mais formais">
+<option value="Notificação Disciplinar">Notificação Disciplinar</option>
+<option value="Ocorrência Escolar">Ocorrência Escolar</option>
+<option value="Registro de Ocorrência Escolar">Registro de Ocorrência Escolar</option>
+<option value="Comunicação de Conduta Inadequada">Comunicação de Conduta Inadequada</option>
+<option value="Relatório de Comportamento">Relatório de Comportamento</option>
+<option value="Advertência Pedagógica">Advertência Pedagógica</option>
+<option value="Registro Disciplinar">Registro Disciplinar</option>
+</optgroup>
+<optgroup label="🌱 Mais educativos">
+<option value="Orientação de Conduta">Orientação de Conduta</option>
+<option value="Alerta Educativo">Alerta Educativo</option>
+<option value="Acompanhamento Comportamental">Acompanhamento Comportamental</option>
+<option value="Intervenção Pedagógica">Intervenção Pedagógica</option>
+</optgroup>
+<optgroup label="🤝 Mais leves">
+<option value="Conversa Formal Registrada">Conversa Formal Registrada</option>
+<option value="Aviso de Atenção">Aviso de Atenção</option>
+<option value="Encaminhamento Educativo">Encaminhamento Educativo</option>
+<option value="Registro de Mediação">Registro de Mediação</option>
+<option value="Feedback de Comportamento">Feedback de Comportamento</option>
+</optgroup>
+</select>
+</div>
+<div class="col-12" style="margin-top:8px;">
+<label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:500;">
+<input checked="" id="mostrarAssinaturas" onchange="renderPreview()" style="width:auto;accent-color:var(--brand);" type="checkbox"/>
+                Exibir linhas de assinatura
+              </label>
+</div>
+<div class="col-12" style="margin-top:8px;">
+<label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:500;">
+<input checked="" id="mostrarAssinaturaAdvertencia" onchange="renderPreview()" style="width:auto;accent-color:var(--brand);" type="checkbox"/>
+                Exibir assinatura da advertência
+              </label>
+</div>
+</div>
+<h2 style="margin-top:18px">Dados do Aluno</h2>
+<!-- Toggle modo múltiplos alunos -->
+<div style="margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.84rem;color:var(--ink);font-weight:500;margin:0;">
+<input id="modoMultiplos" onchange="advToggleModoMultiplos()" style="width:auto;accent-color:var(--brand);" type="checkbox"/>
+              Múltiplos alunos (mesma advertência)
+            </label>
+<span id="adv-multi-count" style="display:none;font-size:.78rem;color:var(--muted);"></span>
+</div>
+<!-- Lista de múltiplos alunos -->
+<div id="adv-multi-lista" style="display:none;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;margin-bottom:10px;">
+<div style="display:flex;gap:8px;margin-bottom:8px;">
+<input autocomplete="off" id="adv-multi-input" list="alunosListMulti" placeholder="Adicionar aluno..." style="flex:1;"/>
+<datalist id="alunosListMulti"></datalist>
+<button class="btn" onclick="advAdicionarMulti()" style="white-space:nowrap;" type="button">➕ Adicionar</button>
+</div>
+<div id="adv-multi-tags" style="display:flex;flex-wrap:wrap;gap:6px;min-height:28px;"></div>
+</div>
+<div class="row">
+<div class="col-8" id="adv-aluno-single">
+<label>Aluno(a)</label>
+<input autocomplete="off" id="aluno" list="alunosList" placeholder="Digite ou selecione..."/>
+<datalist id="alunosList"></datalist>
+<div id="adv-historico-badge" style="display:none;margin-top:6px;padding:7px 12px;border-radius:8px;background:var(--warning-dim);border:1px solid var(--warning);font-size:.82rem;color:var(--warning);font-weight:600;"></div>
+</div>
+<div class="col-4"><label>Matrícula</label><input id="matricula" readonly=""/></div>
+<div class="col-4"><label>Série</label><input id="serie" readonly=""/></div>
+<div class="col-4"><label>Turma</label><input id="turma" readonly=""/></div>
+<div class="col-4">
+<label>Turno</label>
+<select id="turno">
+<option>Manhã</option>
+<option>Tarde</option>
+<option>Noite</option>
+</select>
+</div>
+<div class="col-6"><label>Data</label><input id="data" type="date"/></div>
+<div class="col-6"><label>Hora</label><input id="hora" type="time"/></div>
+</div>
+<h2 style="margin-top:18px">Ocorrência</h2>
+<div class="row">
+<div class="col-12">
+<label>Natureza</label>
+<select id="natureza">
+<option>Comportamental</option>
+<option>Indisciplina</option>
+<option>Pedagógica</option>
+<option>Patrimonial</option>
+<option>Outra</option>
+</select>
+</div>
+<div class="col-12">
+<label>Motivos</label>
+<div id="motivosBox" style="display:flex;flex-direction:column;gap:8px;"></div>
+<div class="add-motivo-row">
+<input id="motivoNovo" maxlength="55" placeholder="Adicionar novo motivo..." type="text">
+<button class="motivo-sugerir" id="btnAddMotivo" type="button">Adicionar</button>
+</input></div>
+</div>
+<div class="col-12">
+<label>Descrição (pode usar sugestões ou editar)</label>
+<textarea id="descricao"></textarea>
+</div>
+<div class="col-12">
+<label>Responsável pelo registro</label>
+<input id="responsavel">
+</input></div>
+</div>
+<div style="margin-top:10px;">
+<label style="font-size:.82rem;color:var(--muted);font-weight:600;display:block;margin-bottom:6px;">Via de entrega</label>
+<div style="display:flex;gap:12px;flex-wrap:wrap;">
+<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.84rem;color:var(--ink);font-weight:400;margin:0;">
+<input checked="" id="viaEscola" onchange="renderPreview()" style="width:auto;accent-color:var(--brand);" type="checkbox"/>
+                Via: Escola
+              </label>
+<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.84rem;color:var(--ink);font-weight:400;margin:0;">
+<input id="viaPais" onchange="renderPreview()" style="width:auto;accent-color:var(--brand);" type="checkbox"/>
+                Via: Pais
+              </label>
+</div>
+</div>
+<div class="actions">
+<button class="btn" id="btnSalvarAdvertencia">💾 Salvar Advertência</button>
+<div style="margin-bottom:6px;">
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">💬 Instrução para a IA <span style="font-weight:400;color:var(--hint);">(opcional)</span></label>
+<input id="instrucaoAdv" placeholder="Ex: mencione que é reincidente, tom mais firme..." style="font-size:.82rem;" type="text"/>
+</div>
+<button class="btn-ghost" id="btnGeminiAdv" onclick="geminiGerarAdvertencia()">✨ Sugerir texto (IA)</button>
+<button class="btn-ghost" id="btnAtualizar">🔄 Atualizar</button>
+<button class="btn-ghost" id="btnImprimir">🖨️ Imprimir / PDF</button>
+<button class="btn-ghost" id="btnImprimirMulti" onclick="advImprimirTodos()" style="display:none;">🖨️ Imprimir Todos</button>
+<button class="btn-ghost" id="btnBaixarPDF">⬇️ Baixar PDF</button>
+<button class="btn-ghost" id="btnBaixarPDFMulti" onclick="advBaixarTodosPDF()" style="display:none;">⬇️ Baixar Todos em PDF</button>
+<button class="btn-ghost" id="btnPNG">📷 Salvar PNG</button>
+</div>
+</section>
+<section class="card preview">
+<div class="doc" id="docPreview"></div>
+</section>
+</main>
+</section>
+
+<!-- ==================== SEÇÃO: RELATÓRIOS GERAIS ==================== -->
+<section class="content-section" id="relatorios-gerais">
+<header class="top">
+<h1>Relatórios Gerais</h1>
+<h2 class="muted">Resumo consolidado de frequência, faltas, 2ª chamada e ocorrências.</h2>
+</header>
+<main class="wrap">
+<section class="card relatorios-gerais-filtros">
+<h3>Filtros do relatório</h3>
+<div class="filters relatorios-filtros-grid">
+<div class="filter-group"><label>Data inicial:</label><input id="relGeralDataInicio" type="date"/></div>
+<div class="filter-group"><label>Data final:</label><input id="relGeralDataFim" type="date"/></div>
+<div class="filter-group"><label>Série:</label><select id="relGeralSerie"><option value="">Todas</option><option value="6º EF">6º EF</option><option value="7º EF">7º EF</option><option value="8º EF">8º EF</option><option value="9º EF">9º EF</option><option value="1ª EM">1ª EM</option><option value="2ª EM">2ª EM</option><option value="3ª EM">3ª EM</option></select></div>
+<div class="filter-group"><label>Ensino:</label><select id="relGeralEnsino"><option value="">Todos</option><option value="EF">Ensino Fundamental</option><option value="EM">Ensino Médio</option></select></div>
+<div class="filter-group"><label>Status:</label><select id="relGeralStatus"><option value="">Todos</option><option value="falta">Faltas</option><option value="segunda-chamada">2ª Chamada</option><option value="justificada">Justificadas</option><option value="sem-fardamento">Sem fardamento</option><option value="presente">Presenças lançadas</option></select></div>
+<div class="filter-group relatorios-busca-aluno"><label>Buscar aluno:</label><input autocomplete="off" id="relGeralBuscaAluno" placeholder="Digite parte do nome..." type="search"/></div>
+</div>
+<div class="actions relatorios-gerais-actions">
+<button class="btn" id="btnAtualizarRelatoriosGerais">🔄 Gerar relatório</button>
+<button class="btn-ghost" id="btnRelatoriosGeraisCSV">⬇️ Baixar CSV</button>
+<button class="btn-ghost" id="btnRelatoriosGeraisTXT">⬇️ Baixar TXT</button>
+<button class="btn-ghost" id="btnImprimirRelatoriosGerais">🖨️ Imprimir / PDF</button>
+</div>
+<p class="muted" id="relGeralInfo">Use os filtros e clique em gerar relatório.</p>
+</section>
+<section class="relatorios-gerais-print" id="relatoriosGeraisArea">
+<div class="relatorios-metricas" id="relGeralMetricas"></div>
+<div class="grid relatorios-gerais-grid">
+<div class="card"><h3>Resumo por série</h3><div class="table-container"><table class="relatorios-table" id="relGeralTabelaSeries"><thead><tr><th>Série</th><th>Registros</th><th>F</th><th>2ª Ch.</th><th>Just.</th><th>Sem farda</th></tr></thead><tbody></tbody></table></div></div>
+<div class="card"><h3>Alunos com mais ocorrências no período</h3><div class="table-container"><table class="relatorios-table" id="relGeralTabelaAlunos"><thead><tr><th>Aluno</th><th>Série</th><th>F</th><th>2ª Ch.</th><th>Just.</th><th>Sem farda</th></tr></thead><tbody></tbody></table></div></div>
+</div>
+<div class="card"><h3>Resumo por dia</h3><div class="table-container"><table class="relatorios-table" id="relGeralTabelaDias"><thead><tr><th>Data</th><th>Registros</th><th>F</th><th>2ª Chamada</th><th>Justificadas</th><th>Sem fardamento</th></tr></thead><tbody></tbody></table></div></div>
+<div class="card"><h3>Registros detalhados</h3><div class="table-container"><table class="relatorios-table" id="relGeralTabelaDetalhada"><thead><tr><th>Data</th><th>Aluno</th><th>Série</th><th>Status</th><th>Observação</th></tr></thead><tbody></tbody></table></div></div>
+</section>
+</main>
+</section>
+
+<!-- ==================== SEÇÃO: RELATÓRIO PEDAGÓGICO ==================== -->
+<section class="content-section" id="relatorio-pedagogico">
+<header class="top">
+<h1>Relatório Pedagógico</h1>
+<h2 class="muted">Gere relatórios individuais ou por turma.</h2>
+</header>
+<main class="wrap grid">
+<section class="card controls">
+<h2>Identificação</h2>
+<div class="row">
+<div class="col-8">
+<label>Aluno(a)</label>
+<input autocomplete="off" id="alunoRelatorio" list="alunosListRelatorio" placeholder="Digite ou selecione..."/>
+<datalist id="alunosListRelatorio"></datalist>
+</div>
+<div class="col-4">
+<label>Ano/Série</label>
+<input id="serieRelatorio" readonly="">
+</input></div>
+<div class="col-6">
+<label>Ensino</label>
+<select id="ensinoRelatorio">
+<option value="">Selecione...</option>
+<option value="Ensino Fundamental">Ensino Fundamental</option>
+<option value="Ensino Médio">Ensino Médio</option>
+<option value="Educação Infantil">Educação Infantil</option>
+</select>
+</div>
+<div class="col-6">
+<label>Data</label>
+<input id="dataRelatorio" type="date">
+</input></div>
+</div>
+<h2 style="margin-top:18px">Tópicos Prontos (Opcional)</h2>
+<div class="card" style="background:var(--surface); border:1px solid var(--border); padding:15px">
+<p class="muted" style="margin:0 0 10px; font-size:.9rem">
+              Selecione os tópicos que deseja incluir no relatório. Escolha "Sim" ou "Não" para cada item.
+            </p>
+<div id="topicosContainer"></div>
+<button class="btn" id="btnAdicionarSelecionados" style="margin-top:10px" type="button">
+              ➕ Adicionar Selecionados ao Relatório
+            </button>
+</div>
+<h2 style="margin-top:18px">Respostas / Observações</h2>
+<div id="respostasContainer">
+<div class="resposta-item" data-index="0">
+<label>Tópico / Pergunta</label>
+<input class="resposta-titulo" placeholder="Ex: Desempenho em Matemática" type="text">
+<label>Resposta / Observação</label>
+<textarea class="resposta-texto" placeholder="Descreva aqui..."></textarea>
+<button class="btn-danger btn-small" onclick="removerResposta(0)" style="margin-top:8px" type="button">🗑️ Remover</button>
+</input></div>
+</div>
+<button class="btn-ghost" id="btnAddResposta" style="margin-top:10px" type="button">➕ Adicionar Tópico</button>
+<div class="actions">
+<button class="btn" id="btnAtualizarRelatorio">🔄 Atualizar</button>
+<label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:500;font-size:.82rem;color:var(--ink);margin:0 0 6px;">
+<input checked="" id="mostrarAssinaturaRelatorio" onchange="renderRelatorioPreview()" style="width:auto;accent-color:var(--brand);" type="checkbox"/>
+              Exibir assinatura do relatório
+            </label>
+<label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:500;font-size:.82rem;color:var(--ink);margin:0 0 6px;">
+<input id="ocultarDirecaoRelatorio" onchange="renderRelatorioPreview()" style="width:auto;accent-color:var(--brand);" type="checkbox"/>
+              Ocultar linha da direção e centralizar assinatura
+            </label>
+<div style="margin-bottom:6px;">
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">💬 Instrução para a IA <span style="font-weight:400;color:var(--hint);">(opcional)</span></label>
+<input id="instrucaoRel" placeholder="Ex: foque nas dificuldades de leitura, tom empático..." style="font-size:.82rem;" type="text"/>
+</div>
+<button class="btn-ghost" id="btnGeminiRel" onclick="geminiGerarRelatorio()">✨ Gerar com IA</button>
+<button class="btn-ghost" id="btnImprimirRelatorio">🖨️ Imprimir PDF</button>
+<button class="btn-ghost" id="btnBaixarPDFRelatorio">⬇️ Baixar PDF</button>
+<button class="btn-ghost" id="btnGerarPNGRelatorio">📷 Gerar PNG</button>
+</div>
+</section>
+<section class="card preview">
+<div class="doc" id="docRelatorioPreview"></div>
+</section>
+</main>
+</section>
+<!-- ==================== SEÇÃO: HISTÓRICO ==================== -->
+<section class="content-section" id="historico">
+<header class="top">
+<h1>Histórico de Ocorrências</h1>
+<h2 class="muted">Visualize advertências e frequência por aluno.</h2>
+</header>
+<main class="wrap">
+<div class="card">
+<label>Buscar Aluno</label>
+<input autocomplete="off" id="alunoHist" list="alunosListHist" placeholder="Digite o nome do aluno..."/>
+<datalist id="alunosListHist"></datalist>
+<button class="btn" id="btnBuscarHist" style="margin-top:10px">🔍 Buscar</button>
+</div>
+<div class="stats-grid" id="statsContainer" style="display:none">
+<div class="stat-card">
+<h3 id="statAdvertencias">0</h3>
+<p>Advertências</p>
+</div>
+<div class="stat-card" style="background:linear-gradient(135deg, var(--danger) 0%, #dc2626 100%)">
+<h3 id="statFaltas">0</h3>
+<p>Faltas</p>
+</div>
+<div class="stat-card" style="background:linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%)">
+<h3 id="statSegundaChamada">0</h3>
+<p>2ª Chamada</p>
+</div>
+<div class="stat-card" style="background:linear-gradient(135deg, var(--warning) 0%, #f59e0b 100%)">
+<h3 id="statJustificadas">0</h3>
+<p>Faltas Justificadas</p>
+</div>
+<div class="stat-card" style="background:linear-gradient(135deg, var(--purple) 0%, #7c3aed 100%)">
+<h3 id="statSemFardamento">0</h3>
+<p>Sem Fardamento</p>
+</div>
+</div>
+<div class="card" id="historicoDetalhes" style="display:none">
+<h2>Detalhes</h2>
+<div id="historicoConteudo"></div>
+</div>
+</main>
+</section>
+<!-- ==================== SEÇÃO: DADOS DO GESTOR ==================== -->
+<section class="content-section" id="gestor">
+<header class="top">
+<h1>Dados do Gestor</h1>
+<h2 class="muted">Credenciais de plataformas digitais e relatórios consolidados.</h2>
+</header>
+<main class="wrap">
+<!-- GERADOR DE CREDENCIAIS -->
+<div class="card" id="gestor-card-cred">
+<h3>🔐 Gerador de Credenciais - Plataformas Digitais</h3>
+<div class="row">
+<div class="col-8">
+<label>Selecione o Aluno</label>
+<input autocomplete="off" id="alunoGestor" list="alunosListGestor" placeholder="Digite ou selecione o aluno..."/>
+<datalist id="alunosListGestor"></datalist>
+</div>
+<div class="col-4">
+<label>Matrícula</label>
+<input id="matriculaGestor" readonly="">
+</input></div>
+</div>
+<div class="actions">
+<button class="btn" id="btnGerarCredenciais">🔑 Gerar Credenciais</button>
+<button class="btn-purple" id="btnImprimirCredenciais">🖨️ Imprimir Credenciais</button>
+<button class="btn-ghost" id="btnBaixarPDFCredenciais">⬇️ Baixar PDF</button>
+<button class="btn-ghost" id="btnCopiarCredenciais">📋 Copiar Dados</button>
+</div>
+<!-- VISUALIZAÇÃO NA TELA -->
+<div id="credenciaisContainer" style="display:none; margin-top:20px">
+<div class="credenciais-card">
+<h4>📱 Plataforma ENSPS</h4>
+<div class="info-line">
+<span class="info-label">Aplicativo:</span>
+<span class="info-value">Gestor Escolar</span>
+</div>
+<div class="info-line">
+<span class="info-label">Escola:</span>
+<span class="info-value">19</span>
+</div>
+<div class="info-line">
+<span class="info-label">Matrícula:</span>
+<span class="info-value" id="credMatricula">—</span>
+</div>
+<div class="info-line">
+<span class="info-label">Senha:</span>
+<span class="info-value" id="credSenha">—</span>
+</div>
+</div>
+<div class="credenciais-card">
+<h4>🎓 Plataforma SAS</h4>
+<div class="info-line">
+<span class="info-label">Aplicativo:</span>
+<span class="info-value">SAS Educação</span>
+</div>
+<div class="info-line">
+<span class="info-label">Site:</span>
+<span class="info-value" style="font-size:.9rem">https://app.portalsaseducacao.com.br/</span>
+</div>
+<div class="info-line">
+<span class="info-label">Usuário:</span>
+<span class="info-value" id="credUsuarioSAS">—</span>
+</div>
+<div class="info-line">
+<span class="info-label">Senha temporária:</span>
+<span class="info-value">ensps2026</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ESTATÍSTICAS GERAIS -->
+<!-- EXPORTAÇÕES -->
+<!-- TOP 10 FALTAS -->
+<div class="credenciais-impressao" id="credenciaisImpressao">
+<!-- cabeçalho -->
+<div class="cred-header">
+<img alt="Logo ENSPS" class="cred-logo" onerror="this.style.display='none'" src="https://raw.githubusercontent.com/ciliocavalcante-design/ensps/main/LOGO%20ENSPS%202024.5.png"/>
+<div class="cred-header-texto">
+<div class="cred-escola">ESCOLA NOSSA SENHORA DO PERPÉTUO SOCORRO</div>
+<div class="cred-subtitulo">Credenciais de Acesso às Plataformas Digitais</div>
+</div>
+</div>
+<div class="cred-aluno-box">
+<div class="aluno-nome" id="printAlunoNome">—</div>
+<div class="matricula-section">
+<span class="matricula-label">Matrícula: </span>
+<span class="matricula-valor" id="printMatricula">—</span>
+</div>
+</div>
+<div class="plataforma-titulo">📱 Plataforma ENSPS</div>
+<div class="info-item">Aplicativo: <strong>Gestor Escolar</strong></div>
+<div class="info-item">Escola: <strong>19</strong></div>
+<div class="info-item">Matrícula: <strong><span id="printMatriculaENSPS">—</span></strong></div>
+<div class="info-item">Senha: <strong><span id="printSenhaENSPS">—</span></strong></div>
+<div class="plataforma-titulo">🎓 Plataforma SAS</div>
+<div class="info-item">Aplicativo: <strong>SAS Educação</strong></div>
+<div class="info-item">Site: <strong>https://app.portalsaseducacao.com.br/</strong></div>
+<div class="info-item">Usuário: <strong><span id="printUsuarioSAS">—</span></strong></div>
+<div class="info-item">Senha temporária: <strong>ensps2026</strong></div>
+</div>
+</main>
+</section>
+<section class="content-section" id="backup-central">
+<header class="top">
+<h1>Backup e Dados</h1>
+<h2 class="muted">Central unificada para exportar, importar e acompanhar os dados salvos no sistema.</h2>
+</header>
+<main class="wrap">
+<div class="card">
+<h3>💾 Backup Unificado ENSPS</h3>
+<p class="muted" style="line-height:1.6;">
+            Aqui você exporta e importa tudo em um único arquivo: advertências, faltas, comunicados, entrega de materiais,
+            folha dos professores e extras avulsas.
+          </p>
+<div id="backup-remote-status" style="margin-top:14px;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface);font-size:.84rem;color:var(--muted);">
+            Conectando ao armazenamento remoto...
+          </div>
+<div class="actions">
+<button class="btn-warning" id="btnExportarBackup">⬇️ Exportar Backup Completo</button>
+<button class="btn-ghost" id="btnBaixarBancoAtual">🧾 Baixar Banco Atual JSON</button>
+<button class="btn-danger" id="btnImportarBackup">📥 Restaurar Backup</button>
+<button class="btn-ghost" id="btnSincronizarGitHub">☁️ Sincronizar com GitHub</button>
+</div>
+<input accept=".json,application/json" id="fileImportBackup" style="display:none" type="file"/>
+<div id="backup-last-action" style="margin-top:12px;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface);font-size:.84rem;color:var(--muted);">
+            Nenhum backup manual registrado neste navegador ainda.
+          </div>
+<div class="backup-grid">
+<div class="backup-kpi">
+<strong id="backup-total-frequencias">0</strong>
+<span>Registros de frequência dos alunos</span>
+</div>
+<div class="backup-kpi">
+<strong id="backup-total-advertencias">0</strong>
+<span>Advertências salvas</span>
+</div>
+<div class="backup-kpi">
+<strong id="backup-total-comunicados">0</strong>
+<span>Comunicados de professores</span>
+</div>
+<div class="backup-kpi">
+<strong id="backup-total-materiais">0</strong>
+<span>Registros de entrega de materiais</span>
+</div>
+<div class="backup-kpi">
+<strong id="backup-total-folha">0</strong>
+<span>Ocorrências da folha dos professores</span>
+</div>
+<div class="backup-kpi">
+<strong id="backup-total-extras">0</strong>
+<span>Extras avulsas cadastradas</span>
+</div>
+</div>
+</div>
+<div class="card">
+<h3>📦 O que entra no arquivo</h3>
+<div class="backup-list">
+<div>Advertências e controle de assinaturas pendentes</div>
+<div>Frequência diária dos alunos e faltas acumuladas</div>
+<div>Comunicados dos professores</div>
+<div>Entrega de materiais por professor</div>
+<div>Folha de frequência dos professores</div>
+<div>Extras avulsas por mês/categoria</div>
+<div>Horários, boletim informativo e configurações salvas</div>
+</div>
+<p class="muted" style="margin-top:14px;line-height:1.6;">
+            A restauração substitui os dados atuais pelo conteúdo do arquivo escolhido. Antes de restaurar, o sistema baixa automaticamente um backup de segurança do estado atual. O sistema continua aceitando backups antigos, faz a conversão automaticamente para o banco unificado e sincroniza esse banco com o arquivo salvo no GitHub.
+          </p>
+</div>
+</main>
+</section>
+<section class="content-section" id="admin-sistema">
+<header class="top">
+<h1>Administração do Sistema</h1>
+<h2 class="muted">Controle de acesso local, senha administrativa e segurança operacional.</h2>
+</header>
+<main class="wrap">
+<div class="card">
+<h3>🔐 Acesso Administrativo</h3>
+<p class="muted" style="line-height:1.6;">
+  Este bloqueio protege a interface do sistema neste navegador. Para segurança completa em ambiente público, mantenha também o acesso ao link e ao Cloudflare/GitHub protegidos.
+</p>
+<div class="backup-grid">
+<div class="backup-kpi">
+<strong id="admin-status-login">Ativo</strong>
+<span>Status do login</span>
+</div>
+<div class="backup-kpi">
+<strong id="admin-ultimo-login">—</strong>
+<span>Último acesso neste navegador</span>
+</div>
+<div class="backup-kpi">
+<strong id="admin-sessao">—</strong>
+<span>Sessão atual</span>
+</div>
+</div>
+<div class="actions" style="margin-top:14px;">
+<button class="btn-danger" id="btnAdminSair">🚪 Sair / Bloquear Sistema</button>
+<button class="btn-ghost" id="btnAdminBloquearAgora">🔒 Bloquear agora</button>
+</div>
+</div>
+<div class="card">
+<h3>Alterar senha administrativa</h3>
+<div class="filters">
+<div class="filter-group">
+<label>Senha atual:</label>
+<input id="adminSenhaAtual" type="password" autocomplete="current-password" placeholder="Senha atual"/>
+</div>
+<div class="filter-group">
+<label>Nova senha:</label>
+<input id="adminNovaSenha" type="password" autocomplete="new-password" placeholder="Nova senha"/>
+</div>
+<div class="filter-group">
+<label>Confirmar nova senha:</label>
+<input id="adminConfirmarSenha" type="password" autocomplete="new-password" placeholder="Repita a nova senha"/>
+</div>
+</div>
+<div class="actions">
+<button class="btn" id="btnAdminAlterarSenha">💾 Alterar Senha</button>
+<button class="btn-ghost" id="btnAdminRestaurarSenhaPadrao">Restaurar senha padrão</button>
+</div>
+<p class="muted" id="adminSenhaStatus" style="margin-top:10px;"></p>
+</div>
+</main>
+</section>
+<!-- =====================================================
+       ABA 1 – AGENDA ESCOLAR
+       ===================================================== -->
+<section class="content-section" id="tab-agenda">
+<div class="container">
+<h1>📚 Gerador de Agenda Escolar</h1>
+<p class="subtitle">ENSPS 2026</p>
+<div class="form-group">
+<label for="agenda-serie">Selecione a Série:</label>
+<select id="agenda-serie">
+<option value="">-- Escolha uma série --</option>
+<option value="6ano">6º Ano EF</option>
+<option value="7ano">7º Ano EF</option>
+<option value="8ano">8º Ano EF</option>
+<option value="9ano">9º Ano EF</option>
+<option value="1em">1º Ano EM</option>
+<option value="2em">2º Ano EM</option>
+<option value="3em">3º Ano EM</option>
+</select>
+</div>
+<div class="form-group">
+<label for="agenda-data">Selecione a Data:</label>
+<input id="agenda-data" type="date"/>
+</div>
+<div class="button-group">
+<button class="btn-generate" onclick="agendaGerar()">Gerar Agenda</button>
+<button class="btn-copy" disabled="" id="agenda-btnCopy" onclick="agendaCopiar()">Copiar Agenda</button>
+</div>
+<div class="output-container" id="agenda-outputContainer">
+<div id="agenda-preview"></div>
+</div>
+<div class="info-box">
+<strong>💡 Dica:</strong> O texto será copiado com formatação em negrito para colar diretamente no WhatsApp, Word ou outras plataformas que suportam texto formatado.
+      </div>
+<div class="success-message" id="agenda-successMsg">
+        ✓ Agenda copiada com sucesso! Cole usando Ctrl+V (ou Cmd+V no Mac)
+      </div>
+<div class="warning" id="agenda-warningMsg"></div>
+</div>
+</section>
+<!-- =====================================================
+       ABA 2 – ENTREGA DE MATERIAIS
+       ===================================================== -->
+<section class="content-section" id="tab-materiais">
+<div class="container">
+<h1>Conferência de Entrega de Materiais dos Professores</h1>
+<div class="filter-section">
+<h2>Filtros Rápidos</h2>
+<div class="filter-controls" id="mat-quick-filters">
+<button class="active" id="mat-filter-all">Mostrar Todos</button>
+<button id="mat-filter-pending-any">Pendentes (Qualquer Item)</button>
+<button id="mat-filter-complete-all">Completos (Todos os Itens)</button>
+</div>
+</div>
+<div class="filter-section">
+<h2>Filtros Detalhados</h2>
+<div class="filter-controls">
+<select id="mat-material-select">
+<option value="all-materials">Todos os Materiais</option>
+</select>
+<select id="mat-status-select">
+<option value="all-status">Todos os Status</option>
+<option value="pending">Pendentes</option>
+<option value="complete">Completos</option>
+</select>
+<select id="mat-stage-select" style="display:none;">
+<option value="all-stages">Todas as Etapas</option>
+<option value="1ª Etapa">1ª Etapa</option>
+<option value="2ª Etapa">2ª Etapa</option>
+<option value="3ª Etapa">3ª Etapa</option>
+<option value="4ª Etapa">4ª Etapa</option>
+</select>
+<button class="btn" id="mat-btn-aplicar" style="white-space:nowrap;">🔍 Aplicar Filtros</button>
+<button class="btn-ghost" id="mat-btn-limpar-filtros" style="white-space:nowrap;">✕ Limpar Filtros</button>
+</div>
+</div>
+<div id="mat-deliveries-table-container">
+<table id="mat-deliveries-table">
+<thead>
+<tr id="mat-main-headers"><th rowspan="2">Professor</th></tr>
+<tr id="mat-stage-headers"></tr>
+</thead>
+<tbody></tbody>
+<tfoot>
+<tr id="mat-total-row">
+<td class="professor-name">Total de Entregas:</td>
+</tr>
+</tfoot>
+</table>
+<p class="no-results" id="mat-no-results" style="display:none;">Nenhum professor encontrado com os critérios de filtro.</p>
+</div>
+<div class="button-group">
+<button class="clear-button" id="mat-clear-btn">Limpar Todas as Entregas</button>
+</div>
+</div>
+</section>
+<!-- =====================================================
+       ABA 3 – COMUNICADOS
+       ===================================================== -->
+<section class="content-section" id="tab-comunicados">
+<header class="top">
+<h1>Comunicados</h1>
+<h2 class="muted">Crie, melhore com IA e mantenha um registro dos comunicados dos professores.</h2>
+</header>
+<main class="wrap grid">
+<section class="card controls">
+<h2>Editor de Comunicado</h2>
+<div class="row">
+<div class="col-8">
+<label>Título</label>
+<input id="com-titulo" placeholder="Ex: Comunicado sobre reunião pedagógica"/>
+</div>
+<div class="col-4">
+<label>Categoria</label>
+<input id="com-categoria" placeholder="Ex: Reunião"/>
+</div>
+<div class="col-6">
+<label>Público</label>
+<input id="com-publico" placeholder="Ex: Professores do Fundamental"/>
+</div>
+<div class="col-6">
+<label>Data de referência</label>
+<input id="com-data" type="date"/>
+</div>
+<div class="col-12">
+<label>Comunicado</label>
+<textarea id="com-texto" placeholder="Escreva ou cole o comunicado aqui..."></textarea>
+</div>
+</div>
+<div class="card" style="background:var(--surface); border:1px solid var(--border); margin-top:14px;">
+<h2 style="margin-bottom:8px;color:var(--ink);">Melhorar Comunicados</h2>
+<p class="muted" style="margin:0 0 10px; font-size:.85rem;">Use a IA para reorganizar, clarear ou profissionalizar o texto sem perder sua intenção.</p>
+<label style="margin-top:0;">Instrução para a IA</label>
+<input id="com-instrucao-ia" placeholder="Ex: deixe mais objetivo, mais formal, mais acolhedor, com aviso de prazo..."/>
+<div class="actions">
+<button class="btn-ghost" id="btnMelhorarComunicadoIA">✨ Melhorar Comunicado</button>
+</div>
+</div>
+<div class="actions">
+<button class="btn" id="btnSalvarComunicado">💾 Salvar Comunicado</button>
+<button class="btn-ghost" id="btnNovoComunicado">➕ Novo</button>
+<button class="btn-ghost" id="btnCopiarComunicado">📋 Copiar Texto</button>
+</div>
+</section>
+<section class="card preview">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px;">
+<h2 style="margin:0;color:var(--ink);">Registro de Comunicados</h2>
+<span class="muted" id="com-total-registros" style="font-size:.82rem;">0 comunicado(s)</span>
+</div>
+<div id="comunicadosLista" style="display:flex;flex-direction:column;gap:10px;"></div>
+</section>
+</main>
+</section>
+<!-- =====================================================
+       ABA 4 – BOLETIM INFORMATIVO
+       ===================================================== -->
+<section class="content-section" id="tab-boletim">
+<header class="top">
+<h1>Boletim Informativo</h1>
+<h2 class="muted">Calendário editorial escolar integrado ao sistema para testes e futura unificação.</h2>
+</header>
+<main class="boletim-integrado-shell">
+<div class="boletim-integrado-card">
+<div class="boletim-integrado-toolbar">
+<div>
+<h3 style="margin:0;color:var(--ink);">Boletim Informativo ENSPS</h3>
+<p class="muted" style="margin:4px 0 0;">Use o módulo completo dentro do sistema, mantendo calendário, comunicados, banco em nuvem e impressão no mesmo fluxo.</p>
+</div>
+<button class="btn-ghost" id="btnRecarregarBoletim">Recarregar boletim</button>
+</div>
+<iframe class="boletim-integrado-frame" id="boletimIntegradoFrame" title="Boletim Informativo ENSPS"></iframe>
+</div>
+</main>
+</section>
+<section class="content-section" id="tab-horario">
+<header class="top">
+<h1>Horários Escolares</h1>
+<h2 class="muted">Gerencie a grade completa dentro do sistema e sincronize o horário, o currículo por turma e as disponibilidades no mesmo banco remoto.</h2>
+</header>
+<main class="boletim-integrado-shell">
+<div class="horario-integrado-card">
+<div class="horario-integrado-toolbar">
+<div>
+<h3 style="margin:0;color:var(--ink);">Gerenciador Integrado de Horários</h3>
+<p class="muted" style="margin:4px 0 0;">A importação de JSON passa a alimentar o banco unificado do sistema, com fallback local e sincronização automática no GitHub.</p>
+</div>
+<button class="btn-ghost" id="btnRecarregarHorario">Recarregar horário</button>
+</div>
+<iframe class="horario-integrado-frame" id="horarioIntegradoFrame" title="Horários Escolares ENSPS"></iframe>
+</div>
+</main>
+</section>
+<!-- =====================================================
+       ABA 4 – FREQUÊNCIA / FOLHA
+       ===================================================== -->
+<section class="content-section" id="tab-frequencia">
+<div class="container">
+<div class="print-header">
+<img alt="Logo ENSPS" src="https://raw.githubusercontent.com/ciliocavalcante-design/ensps/main/LOGO%20ENSPS%202024.5.png"/>
+<h1>Controle de Frequência de Professores</h1>
+<p id="freq-printMonthYear"></p>
+</div>
+<h1 id="mainTitleFreq">Controle de Frequência de Professores</h1>
+<div class="month-selector">
+<button id="freq-prevMonth">&lt;&lt;</button>
+<span id="freq-currentMonthYear"></span>
+<button id="freq-nextMonth">&gt;&gt;</button>
+</div>
+<div class="form-section">
+<h2>Registrar Ocorrência (Faltas e Extras Comuns)</h2>
+<form id="freq-form">
+<div class="form-group">
+<label for="freq-dia">Dia:</label>
+<input id="freq-dia" required="" type="date"/>
+</div>
+<div class="form-group">
+<label>Tipo de Ocorrência:</label>
+<div class="radio-group">
+<label><input checked="" name="freq-tipoOcorrencia" type="radio" value="falta"/> Falta</label>
+<label><input name="freq-tipoOcorrencia" type="radio" value="extra"/> Extra</label>
+</div>
+</div>
+<div class="form-group" id="freq-professorFaltaGroup">
+<label for="freq-professorFalta">Professor Faltante:</label>
+<select id="freq-professorFalta" required="">
+<option value="">Selecione o Professor</option>
+</select>
+</div>
+<div id="freq-substituicoesContainer" style="display:none;">
+<label style="font-weight:bold;color:#34495e;margin-bottom:10px;display:block;">Substituições:</label>
+<div class="substituicoes-container" id="freq-substituicoesList"></div>
+<button class="add-substituicao-btn" id="freq-addSubstBtn" type="button">+ Adicionar Substituição</button>
+</div>
+<div class="form-group" id="freq-professorExtraGroup" style="display:none;">
+<label for="freq-professorExtra">Professor que fez a Extra:</label>
+<select id="freq-professorExtra">
+<option value="">Selecione o Professor</option>
+</select>
+</div>
+<div class="form-group" id="freq-ensinoExtraGroup" style="display:none;">
+<label for="freq-fiiEmExtra">Ensino:</label>
+<select id="freq-fiiEmExtra">
+<option value="">Selecione</option>
+<option value="EF">Ensino Fundamental</option>
+<option value="EM">Ensino Médio</option>
+</select>
+</div>
+<div class="form-group">
+<label for="freq-motivo">Motivo:</label>
+<input id="freq-motivo" list="freq-motivosList" placeholder="Digite ou selecione um motivo" required="" type="text"/>
+<datalist id="freq-motivosList">
+<option value="Atestado">
+</option><option value="Atraso">
+</option><option value="—">
+</option><option value="Chuva">
+</option></datalist>
+</div>
+<div class="form-group" id="freq-qtdeGroup" style="display:none;">
+<label for="freq-qtde">Quantidade de Aulas:</label>
+<input id="freq-qtde" min="1" type="number" value="1"/>
+</div>
+<button type="submit">Registrar Ocorrência</button>
+</form>
+</div>
+<div class="table-section">
+<h2>Registros de Faltas do Mês</h2>
+<table id="freq-faltasTable">
+<thead>
+<tr>
+<th>Dia</th>
+<th>Professor Faltante</th>
+<th>Professor Substituto</th>
+<th>Ensino</th>
+<th>Motivo</th>
+<th>Qtde Aulas</th>
+<th>Ações</th>
+</tr>
+</thead>
+<tbody id="freq-faltasTableBody"></tbody>
+</table>
+<p class="empty-message" id="freq-emptyFaltas">Nenhum registro de falta para este mês.</p>
+<div class="action-buttons">
+<button class="btn-save" onclick="freqSaveCompleteRecord()">Salvar Registro Completo</button>
+<button class="btn-import" onclick="document.getElementById('freq-importFile').click()">Importar Registro</button>
+<input accept=".json" id="freq-importFile" onchange="freqImportCompleteRecord(event)" style="display:none;" type="file"/>
+<button class="btn-clear" onclick="freqClearAllFrequencyRecords()">Limpar Todos os Registros</button>
+<button class="btn-export" onclick="freqExportFrequencyToCSV()">Exportar Frequência (CSV)</button>
+</div>
+</div>
+<!-- Extras Avulsas para Impressão -->
+<div class="print-extras-avulsas" id="freq-printExtrasAvulsas">
+<h2>Extras Avulsas por Categoria</h2>
+<div id="freq-printExtrasAvulsasContent"></div>
+</div>
+<!-- Resumo para Impressão -->
+<div class="print-summary" id="freq-printSummary">
+<h2>Resumo de Faltas e Extras por Professor</h2>
+<table class="print-summary-table" id="freq-printSummaryTable">
+<thead>
+<tr>
+<th>Professor</th><th>Dias Faltados</th><th>Aulas Faltadas</th>
+<th>Extras Comuns</th><th>Extras Avulsas</th><th>Saldo</th>
+</tr>
+</thead>
+<tbody id="freq-printSummaryTableBody"></tbody>
+</table>
+</div>
+<div class="extra-avulsa-section">
+<h2>Registrar Extras Avulsas por Categoria</h2>
+<form id="freq-extraAvulsaForm">
+<div class="form-group">
+<label for="freq-extraAvulsaCategoria">Nome da Categoria:</label>
+<input id="freq-extraAvulsaCategoria" placeholder="Ex: Reunião Pedagógica, Projeto X" required="" type="text"/>
+</div>
+<button type="submit">Adicionar Nova Categoria</button>
+</form>
+<div id="freq-extraAvulsaList"></div>
+<p class="empty-message" id="freq-emptyExtraAvulsa">Nenhuma extra avulsa registrada para este mês.</p>
+<div class="action-buttons">
+<button class="btn-clear" onclick="freqClearAllExtraAvulsaRecords()">Limpar Todas as Extras Avulsas</button>
+<button class="btn-export" onclick="freqExportExtraAvulsaToCSV()">Exportar Extras Avulsas (CSV)</button>
+</div>
+</div>
+<button class="btn-view-stats" onclick="freqOpenStatsModal()">📊 Ver Estatísticas de Faltas e Extras</button>
+<button id="freq-printPdfBtn" style="background-color:#e74c3c;margin-top:30px;">Imprimir Relatório do Mês (PDF)</button>
+</div>
+<!-- Modal Estatísticas -->
+<div class="modal-overlay" id="freq-statsModal">
+<div class="modal-content">
+<div class="modal-header">
+<h2>📊 Estatísticas de Faltas e Extras</h2>
+<button class="modal-close" onclick="freqCloseStatsModal()">✕ Fechar</button>
+</div>
+<div class="stats-tabs">
+<button class="stats-tab active" onclick="freqSwitchStatsTab(event,'geral')">Visão Geral</button>
+<button class="stats-tab" onclick="freqSwitchStatsTab(event,'professores')">Por Professor</button>
+<button class="stats-tab" onclick="freqSwitchStatsTab(event,'avulsas')">Extras Avulsas</button>
+</div>
+<div class="stats-filter">
+<label for="freq-statsPeriod">Período:</label>
+<select id="freq-statsPeriod" onchange="freqUpdateStats()">
+<option value="current">Mês Atual</option>
+<option value="all">Todos os Meses</option>
+</select>
+</div>
+<div class="stats-content active" id="freq-statsGeralContent">
+<div class="stats-summary" id="freq-statsSummary"></div>
+<h3>Resumo por Professor</h3>
+<table class="professor-stats-table">
+<thead>
+<tr>
+<th>Professor</th><th>Dias Faltados</th><th>Aulas Faltadas</th>
+<th>Extras Comuns</th><th>Extras Avulsas</th><th>Saldo (Extras - Faltas)</th>
+</tr>
+</thead>
+<tbody id="freq-statsGeralTableBody"></tbody>
+</table>
+</div>
+<div class="stats-content" id="freq-statsProfessoresContent">
+<div class="stats-filter">
+<label for="freq-filterProfessor">Filtrar Professor:</label>
+<select id="freq-filterProfessor" onchange="freqUpdateStats()">
+<option value="">Todos</option>
+</select>
+</div>
+<div id="freq-professorDetailedStats"></div>
+</div>
+<div class="stats-content" id="freq-statsAvulsasContent">
+<div id="freq-avulsasDetailedStats"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- =====================================================
+       ABA 4 – PLANILHA DE NOTAS
+       ===================================================== -->
+<section class="content-section" id="tab-planilha">
+<div id="controle">
+<h1>Gerador de Planilhas de Notas</h1>
+<div class="secao">Séries (opcional se professor selecionado)</div>
+<div class="grid">
+<label class="op"><input type="checkbox" value="6ano"/> 6º Ano</label>
+<label class="op"><input type="checkbox" value="7ano"/> 7º Ano</label>
+<label class="op"><input type="checkbox" value="8ano"/> 8º Ano</label>
+<label class="op"><input type="checkbox" value="9ano"/> 9º Ano</label>
+<label class="op"><input type="checkbox" value="m1"/> 1º Médio</label>
+<label class="op"><input type="checkbox" value="m2"/> 2º Médio</label>
+<label class="op"><input type="checkbox" value="m3"/> 3º Médio</label>
+</div>
+<div class="secao">Etapa</div>
+<div class="grid">
+<label class="op"><input checked="" name="etapa" type="radio" value="1"/> 1ª</label>
+<label class="op"><input name="etapa" type="radio" value="2"/> 2ª</label>
+<label class="op"><input name="etapa" type="radio" value="3"/> 3ª</label>
+<label class="op"><input name="etapa" type="radio" value="4"/> 4ª</label>
+</div>
+<div class="secao">Modo da planilha</div>
+<div class="grid">
+<label class="op"><input checked="" name="modo" type="radio" value="capitulos"/> Com capítulos / aulas</label>
+<label class="op"><input name="modo" type="radio" value="simples"/> Sem capítulos (apenas atividades)</label>
+</div>
+<div class="secao">Professor</div>
+<select id="professorSelect"></select>
+<div class="secao">Disciplina</div>
+<select disabled="" id="disciplinaSelect">
+<option value="">Selecione um professor primeiro</option>
+</select>
+<div class="secao">Ajustes de Impressão</div>
+<div style="display:flex;flex-direction:column;gap:10px;margin-top:6px;padding:10px;background:var(--surface);border-radius:8px;border:1px solid var(--border);">
+<div style="display:flex;align-items:center;gap:10px;">
+<label style="font-size:.75rem;color:var(--muted);min-width:130px;margin:0;">Espaço entre linhas</label>
+<input id="plan-lineheight" max="26" min="10" oninput="planAjustarEstilo()" step="1" style="flex:1;" type="range" value="17"/>
+<span id="plan-lineheight-val" style="font-size:.75rem;color:var(--muted);min-width:28px;text-align:right;">17</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;">
+<label style="font-size:.75rem;color:var(--muted);min-width:130px;margin:0;">Fonte dos nomes</label>
+<input id="plan-fontsize" max="16" min="6" oninput="planAjustarEstilo()" step="1" style="flex:1;" type="range" value="10"/>
+<span id="plan-fontsize-val" style="font-size:.75rem;color:var(--muted);min-width:28px;text-align:right;">10</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
+<label style="font-size:.75rem;color:var(--muted);min-width:130px;margin:0;">Cortar nome longo</label>
+<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:400;margin:0;">
+<input id="plan-truncate" onchange="planAjustarEstilo()" style="width:auto;accent-color:var(--brand);" type="checkbox"/>
+<span style="font-size:.75rem;color:var(--muted);">Truncar em 1 linha</span>
+</label>
+</div>
+</div>
+<button onclick="planilhaGerar()">Gerar Planilhas</button>
+<button class="btn-todas" onclick="planilhaGerarTodas()">Gerar TODAS as Séries</button>
+<button onclick="planilhaGerarTodosProfessores()">Gerar TODOS os Professores (etapa selecionada)</button>
+</div>
+<div id="planilhas"></div>
+</section>
+<!-- =====================================================
+         ABA: ESTATÍSTICAS GERAIS
+         ===================================================== -->
+<section class="content-section" id="estatisticas">
+<header class="top">
+<h1>Estatísticas Gerais</h1>
+<h2 class="muted">Visão consolidada de alunos, advertências e frequência.</h2>
+</header>
+<main class="wrap">
+<div class="card" id="gestor-card-stats">
+<h3>📊 Estatísticas Gerais</h3>
+<div class="stats-grid">
+<div class="stat-card">
+<h3 id="totalAlunos">0</h3>
+<p>Total de Alunos</p>
+</div>
+<div class="stat-card" style="background:linear-gradient(135deg, var(--warning) 0%, #f59e0b 100%)">
+<h3 id="totalAdvertencias">0</h3>
+<p>Advertências Registradas</p>
+</div>
+<div class="stat-card" style="background:linear-gradient(135deg, var(--danger) 0%, #dc2626 100%)">
+<h3 id="totalFaltas">0</h3>
+<p>Faltas Totais</p>
+</div>
+<div class="stat-card" style="background:linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%)">
+<h3 id="totalSegundaChamada">0</h3>
+<p>2ª Chamada</p>
+</div>
+</div>
+</div>
+<div class="card" id="gestor-card-export">
+<h3>📤 Exportações</h3>
+<div class="actions">
+<button class="btn" id="btnRelatorioCompleto">📊 Relatório Completo</button>
+<button class="btn-ghost" id="btnExportarAdvertencias">⚠️ Todas Advertências</button>
+<button class="btn-ghost" id="btnExportarFrequenciaGeral">📋 Frequência Geral</button>
+<button class="btn-ghost" id="btnExportarSegundaChamadaJson">⬇️ Exportar 2ª Chamada (JSON)</button>
+</div>
+</div>
+<div class="card" id="gestor-card-top10-adv">
+<div class="collapsible-card-header">
+<h3 class="collapsible-card-title">🏆 Top 10 - Alunos com Mais Advertências</h3>
+<button aria-controls="top10AdvertenciasContainer" aria-expanded="true" class="btn-ghost collapse-toggle" data-target="top10AdvertenciasContainer" title="Recolher ou expandir" type="button">
+<span class="chevron">▾</span>
+<span class="collapse-toggle-label">Recolher</span>
+</button>
+</div>
+<div class="collapsible-card-body" id="top10AdvertenciasContainer">
+<div class="table-container">
+<table id="tabelaTop10Advertencias">
+<thead>
+<tr>
+<th>Posição</th>
+<th>Aluno(a)</th>
+<th>Série</th>
+<th>Advertências</th>
+<th>Faltas</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="card" id="gestor-card-top10">
+<div class="collapsible-card-header">
+<h3 class="collapsible-card-title">🏆 Top 10 - Alunos com Mais Faltas</h3>
+<button aria-controls="top10FaltasContainer" aria-expanded="true" class="btn-ghost collapse-toggle" data-target="top10FaltasContainer" title="Recolher ou expandir" type="button">
+<span class="chevron">▾</span>
+<span class="collapse-toggle-label">Recolher</span>
+</button>
+</div>
+<div class="collapsible-card-body" id="top10FaltasContainer">
+<div class="table-container">
+<table id="tabelaTop10Faltas">
+<thead>
+<tr>
+<th>Posição</th>
+<th>Aluno(a)</th>
+<th>Série</th>
+<th>Faltas</th>
+<th>Advertências</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="card" id="gestor-card-segunda-chamada">
+<div class="collapsible-card-header">
+<h3 class="collapsible-card-title">📅 Faltas e 2ª Chamada por Dia</h3>
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;">
+<button class="btn-ghost" id="btnArquivarEncerradosSegundaChamada">📦 Arquivar fez/zero</button>
+<button aria-controls="segundaChamadaContainer" aria-expanded="true" class="btn-ghost collapse-toggle" data-target="segundaChamadaContainer" title="Recolher ou expandir" type="button">
+<span class="chevron">▾</span>
+<span class="collapse-toggle-label">Recolher</span>
+</button>
+</div>
+</div>
+<div class="collapsible-card-body" id="segundaChamadaContainer">
+<div class="filters" style="margin-top:12px;">
+<div class="filter-group">
+<label for="filtroAlunoSegundaChamada">Filtrar por aluno</label>
+<input id="filtroAlunoSegundaChamada" list="alunosListFiltroSegundaChamada" placeholder="Digite o nome do aluno..."/>
+<datalist id="alunosListFiltroSegundaChamada"></datalist>
+</div>
+<div class="filter-group">
+<label for="filtroVisualizacaoSegundaChamada">Visualização</label>
+<select id="filtroVisualizacaoSegundaChamada">
+<option value="ativas">Só ativas</option>
+<option value="arquivadas">Só arquivadas</option>
+<option value="todas">Todas</option>
+</select>
+</div>
+</div>
+<div class="stats-grid" id="segundaChamadaResumoGrid" style="margin:0 0 12px;">
+<div class="stat-card">
+<h3 id="segundaChamadaPendentes">0</h3>
+<p>Pendentes por fazer</p>
+</div>
+<div class="stat-card" style="background:linear-gradient(135deg, var(--success) 0%, #16a34a 100%)">
+<h3 id="segundaChamadaRealizadas" style="color:#fff;">0</h3>
+<p style="color:rgba(255,255,255,.88);">Já realizaram</p>
+</div>
+<div class="stat-card" style="background:linear-gradient(135deg, var(--danger) 0%, #b91c1c 100%)">
+<h3 id="segundaChamadaZero" style="color:#fff;">0</h3>
+<p style="color:rgba(255,255,255,.88);">Receberão zero</p>
+</div>
+<div class="stat-card" style="background:linear-gradient(135deg, #475569 0%, #334155 100%)">
+<h3 id="segundaChamadaArquivadas" style="color:#fff;">0</h3>
+<p style="color:rgba(255,255,255,.88);">Arquivadas</p>
+</div>
+</div>
+<div class="table-container">
+<table id="tabelaSegundaChamadaPorDia">
+<thead>
+<tr>
+<th>Data</th>
+<th>Aluno(a)</th>
+<th>Série</th>
+<th>Situação</th>
+<th>Boletim</th>
+<th>Ações</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="card" id="gestor-card-relatorio-segunda-chamada">
+<div class="collapsible-card-header">
+<h3 class="collapsible-card-title">🖨️ Relatório de 2ª Chamada</h3>
+<button aria-controls="relatorioSegundaChamadaContainer" aria-expanded="true" class="btn-ghost collapse-toggle" data-target="relatorioSegundaChamadaContainer" title="Recolher ou expandir" type="button">
+<span class="chevron">▾</span>
+<span class="collapse-toggle-label">Recolher</span>
+</button>
+</div>
+<div class="collapsible-card-body" id="relatorioSegundaChamadaContainer">
+<p class="muted" style="margin:0 0 12px;">Relatório para impressão com registros organizados por série e por dia.</p>
+<div class="actions">
+<button class="btn" id="btnGerarRelatorioSegundaChamada">📄 Gerar Relatório</button>
+<button class="btn-ghost" id="btnImprimirRelatorioSegundaChamada">🖨️ Imprimir / PDF</button>
+<button class="btn-ghost" id="btnBaixarPdfRelatorioSegundaChamada">⬇️ Baixar PDF</button>
+</div>
+<div class="preview" id="relatorioSegundaChamadaPrintWrap" style="margin-top:14px;">
+<div class="doc" id="relatorioSegundaChamadaPreview"></div>
+</div>
+</div>
+</div>
+</main>
+</section>
+<!-- =====================================================
+         ABA: ATIVIDADE DE DETENÇÃO
+         ===================================================== -->
+<section class="content-section" id="tab-detencao">
+<!-- ── ABAS INTERNAS ── -->
+<div class="det-abas-internas" style="background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;display:flex;gap:4px;position:sticky;top:0;z-index:9;">
+<button class="det-aba-btn det-aba-ativa" id="det-aba-btn-atividade" onclick="detAbaAtiva('atividade')" style="padding:12px 16px;background:none;border:none;border-bottom:2px solid var(--brand);color:var(--ink);font-weight:600;font-size:.82rem;cursor:pointer;">
+          📝 Atividades
+        </button>
+<button class="det-aba-btn" id="det-aba-btn-temas" onclick="detAbaAtiva('temas')" style="padding:12px 16px;background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-weight:500;font-size:.82rem;cursor:pointer;">
+          ✨ Temas de Redação IA
+        </button>
+<button class="det-aba-btn" id="det-aba-btn-redacao" onclick="detAbaAtiva('redacao')" style="padding:12px 16px;background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-weight:500;font-size:.82rem;cursor:pointer;">
+          📄 Folha de Redação
+        </button>
+</div>
+<!-- ══════════════ ABA: ATIVIDADES ══════════════ -->
+<div id="det-aba-atividade">
+<div id="det-controle" style="background:var(--card);border:1px solid var(--border);padding:18px;max-width:700px;margin:20px auto;border-radius:10px;">
+<h1 style="margin-bottom:16px;font-size:1.1rem;color:var(--ink);">✏️ Atividade de Detenção</h1>
+<div style="display:flex;gap:8px;margin-bottom:16px;">
+<button id="det-tipo-btn-1" onclick="detSetTipo(1)" style="flex:1;padding:8px;border-radius:8px;border:2px solid var(--brand);background:var(--brand);color:#fff;font-weight:700;font-size:.82rem;cursor:pointer;">
+              📝 Atividade 1
+            </button>
+<button id="det-tipo-btn-2" onclick="detSetTipo(2)" style="flex:1;padding:8px;border-radius:8px;border:2px solid var(--border);background:transparent;color:var(--muted);font-weight:600;font-size:.82rem;cursor:pointer;">
+              ✍️ Pauta Dupla
+            </button>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+<div>
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Aluno(a)</label>
+<input autocomplete="off" id="det-aluno" list="det-alunosList" oninput="detUpdate()" placeholder="Digite ou selecione..."/>
+<datalist id="det-alunosList"></datalist>
+</div>
+<div>
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Série / Turma</label>
+<input id="det-serie" placeholder="Automático" readonly=""/>
+</div>
+<div>
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Data</label>
+<input id="det-data" oninput="detUpdate()" type="date"/>
+</div>
+<div>
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Professor(a)</label>
+<input id="det-professor" oninput="detUpdate()" placeholder="Nome do professor"/>
+</div>
+<div>
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Disciplina</label>
+<input id="det-disciplina" oninput="detUpdate()" placeholder="Ex: Matemática"/>
+</div>
+<div>
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Motivo</label>
+<input id="det-motivo" oninput="detUpdate()" placeholder="Motivo da detenção"/>
+</div>
+<div style="grid-column:1/-1;">
+<div style="margin-bottom:6px;">
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">💬 Instrução para a IA <span style="font-weight:400;color:var(--hint);">(opcional)</span></label>
+<input id="instrucaoDet" placeholder="Ex: use linguagem simples, tema sobre amizade..." style="font-size:.82rem;" type="text"/>
+</div>
+<button class="btn-ghost" onclick="geminiGerarDetencao()" style="width:100%;">✨ Gerar texto de detenção com IA</button>
+<div id="det-texto-ia" style="display:none;margin-top:10px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:.82rem;line-height:1.6;color:var(--ink);white-space:pre-wrap;"></div>
+</div>
+</div>
+<div style="border-top:1px solid var(--border);padding-top:14px;display:flex;flex-direction:column;gap:10px;">
+<div style="display:flex;align-items:center;gap:10px;">
+<label style="font-size:.78rem;color:var(--muted);min-width:140px;margin:0;">Espaço entre linhas</label>
+<input id="det-espacamento" max="80" min="20" oninput="detUpdate()" step="1" style="flex:1;" type="range" value="40"/>
+<span id="det-esp-val" style="font-size:.78rem;color:var(--muted);min-width:24px;text-align:right;">24</span>
+</div>
+<div style="display:flex;gap:16px;flex-wrap:wrap;">
+<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input id="det-segunda-pag" onchange="detUpdate()" style="width:auto;accent-color:var(--brand);" type="checkbox"/>
+                Adicionar 2ª página (+2 colunas)
+              </label>
+<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input checked="" id="det-mostrar-logo" onchange="detUpdate()" style="width:auto;accent-color:var(--brand);" type="checkbox"/>
+                Cabeçalho e logo
+              </label>
+</div>
+</div>
+<div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;">
+<button class="btn" onclick="detImprimir()">🖨️ Imprimir</button>
+<button class="btn-ghost" onclick="detBaixarPDF()">⬇️ Baixar PDF</button>
+</div>
+</div>
+<div id="det-preview-wrap" style="padding:20px;background:var(--bg);display:flex;flex-direction:column;align-items:center;">
+<div id="det-preview"></div>
+</div>
+</div>
+<!-- ══════════════ ABA: TEMAS DE REDAÇÃO IA ══════════════ -->
+<div id="det-aba-temas" style="display:none;">
+<div class="wrap" style="max-width:860px;">
+<div class="card" style="margin-bottom:18px;">
+<h3 style="margin-bottom:14px;font-size:1rem;">⚙️ Configurações do Tema</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px;">
+<div>
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Série / Faixa etária</label>
+<select id="tema-serie">
+<option value="">— Qualquer série —</option>
+<option value="1º ao 3º ano (EF I)">1º ao 3º ano (EF I)</option>
+<option value="4º ao 5º ano (EF I)">4º ao 5º ano (EF I)</option>
+<option value="6º ao 7º ano (EF II)">6º ao 7º ano (EF II)</option>
+<option value="8º ao 9º ano (EF II)">8º ao 9º ano (EF II)</option>
+<option value="1º ao 3º ano (EM)">1º ao 3º ano (EM)</option>
+</select>
+</div>
+<div>
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Tipo de texto</label>
+<select id="tema-tipo-texto">
+<option value="dissertativo-argumentativo">Dissertativo-argumentativo</option>
+<option value="narrativo">Narrativo</option>
+<option value="descritivo">Descritivo</option>
+<option value="reflexivo">Reflexivo / pessoal</option>
+<option value="qualquer">Qualquer tipo</option>
+</select>
+</div>
+<div>
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Quantidade de temas</label>
+<select id="tema-quantidade">
+<option value="3">3 temas</option>
+<option selected="" value="5">5 temas</option>
+<option value="8">8 temas</option>
+<option value="10">10 temas</option>
+</select>
+</div>
+</div>
+<div style="margin-bottom:14px;">
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:8px;display:block;font-weight:600;">📚 Categorias <span style="font-weight:400;color:var(--hint);">(marque uma ou mais)</span></label>
+<div id="tema-checkboxes" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;">
+<label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;" type="checkbox" value="Valores e ética (respeito, honestidade, responsabilidade)"/>
+<span>🤝 Valores e ética<br/><small style="color:var(--muted);">respeito, honestidade, responsabilidade</small></span>
+</label>
+<label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;" type="checkbox" value="Convivência escolar (bullying, amizade, colaboração)"/>
+<span>🏫 Convivência escolar<br/><small style="color:var(--muted);">bullying, amizade, colaboração</small></span>
+</label>
+<label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;" type="checkbox" value="Família e relacionamentos (vínculos, afeto, diálogo)"/>
+<span>👨‍👩‍👧 Família e relacionamentos<br/><small style="color:var(--muted);">vínculos, afeto, diálogo</small></span>
+</label>
+<label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;" type="checkbox" value="Meio ambiente e sustentabilidade"/>
+<span>🌱 Meio ambiente<br/><small style="color:var(--muted);">sustentabilidade, natureza, clima</small></span>
+</label>
+<label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;" type="checkbox" value="Tecnologia e redes sociais (uso consciente, cyberbullying)"/>
+<span>📱 Tecnologia e redes sociais<br/><small style="color:var(--muted);">uso consciente, cyberbullying</small></span>
+</label>
+<label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;" type="checkbox" value="Cidadania e direitos (democracia, deveres, comunidade)"/>
+<span>🏛️ Cidadania e direitos<br/><small style="color:var(--muted);">democracia, deveres, comunidade</small></span>
+</label>
+<label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;" type="checkbox" value="Saúde e bem-estar (alimentação, exercício, saúde mental)"/>
+<span>❤️ Saúde e bem-estar<br/><small style="color:var(--muted);">alimentação, saúde mental, esporte</small></span>
+</label>
+<label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;" type="checkbox" value="Sonhos e futuro (projetos de vida, carreira, metas)"/>
+<span>🚀 Sonhos e futuro<br/><small style="color:var(--muted);">projetos de vida, carreira, metas</small></span>
+</label>
+<label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;" type="checkbox" value="Diversidade e inclusão (culturas, respeito às diferenças)"/>
+<span>🌍 Diversidade e inclusão<br/><small style="color:var(--muted);">culturas, respeito às diferenças</small></span>
+</label>
+<label style="display:flex;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input style="width:auto;accent-color:var(--brand);margin-top:2px;flex-shrink:0;" type="checkbox" value="Educação e conhecimento (importância dos estudos, leitura)"/>
+<span>📖 Educação e conhecimento<br/><small style="color:var(--muted);">importância dos estudos, leitura</small></span>
+</label>
+</div>
+</div>
+<div style="margin-bottom:14px;">
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;font-weight:600;">💬 Instrução ou tema livre <span style="font-weight:400;color:var(--hint);">(opcional)</span></label>
+<textarea id="tema-instrucao-livre" placeholder="Ex: quero temas sobre a importância de ouvir os professores, adequados para alunos do 7º ano..." style="min-height:70px;font-size:.84rem;"></textarea>
+</div>
+<button id="btnGerarTemas" onclick="geminiGerarTemas()" style="width:100%;padding:12px;background:linear-gradient(135deg,#8b5cf6,#6d28d9);color:#fff;border:none;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
+              ✨ Gerar Temas com IA
+            </button>
+</div>
+<div id="temas-resultado" style="display:none;">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+<h3 style="margin:0;font-size:1rem;color:var(--ink);">📋 Temas gerados</h3>
+<div style="display:flex;gap:8px;">
+<button class="btn-ghost btn-small" onclick="temasCopiarTodos()">📋 Copiar todos</button>
+<button class="btn-ghost btn-small" onclick="temasSalvarTxt()">💾 Salvar .txt</button>
+<button class="btn-ghost btn-small" onclick="geminiGerarTemas()">🔄 Gerar novos</button>
+</div>
+</div>
+<div id="temas-lista" style="display:flex;flex-direction:column;gap:10px;"></div>
+</div>
+</div>
+</div>
+<!-- ══════════════ ABA: FOLHA DE REDAÇÃO ══════════════ -->
+<div id="det-aba-redacao" style="display:none;">
+<div class="det-redacao-controle" style="background:var(--card);border:1px solid var(--border);padding:18px;max-width:700px;margin:20px auto;border-radius:10px;">
+<h1 style="margin-bottom:16px;font-size:1.1rem;color:var(--ink);">📄 Folha de Redação</h1>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+<div>
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Aluno(a)</label>
+<input autocomplete="off" id="red-aluno" list="red-alunosList" oninput="redUpdate()" placeholder="Digite ou selecione..."/>
+<datalist id="red-alunosList"></datalist>
+</div>
+<div>
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Série / Turma</label>
+<input id="red-serie" placeholder="Automático" readonly=""/>
+</div>
+<div>
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Data</label>
+<input id="red-data" oninput="redUpdate()" type="date"/>
+</div>
+<div>
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">Professor(a)</label>
+<input id="red-professor" oninput="redUpdate()" placeholder="Nome do professor"/>
+</div>
+<div style="grid-column:1/-1;">
+<label style="font-size:.78rem;color:var(--muted);margin-bottom:4px;display:block;">✏️ Tema da Redação <span style="color:var(--hint);font-weight:400;">(cole aqui o tema gerado pela IA ou escreva livremente)</span></label>
+<textarea id="red-tema" oninput="redUpdate()" placeholder="Cole ou escreva o tema aqui..." style="min-height:80px;font-size:.88rem;"></textarea>
+</div>
+</div>
+<div style="border-top:1px solid var(--border);padding-top:14px;display:flex;flex-direction:column;gap:10px;margin-bottom:14px;">
+<div style="display:flex;align-items:center;gap:10px;">
+<label style="font-size:.78rem;color:var(--muted);min-width:120px;margin:0;">Linhas</label>
+<input id="red-linhas" max="50" min="15" oninput="redUpdate()" step="1" style="flex:1;" type="range" value="30"/>
+<span id="red-linhas-val" style="font-size:.82rem;color:var(--ink);font-weight:700;min-width:28px;text-align:right;">30</span>
+</div>
+<div style="font-size:.76rem;color:var(--muted);line-height:1.4;">
+              O espaçamento das linhas agora é ajustado automaticamente para caber em uma única página.
+            </div>
+<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input id="red-segunda-pag" onchange="redUpdate()" style="width:auto;accent-color:var(--brand);" type="checkbox"/>
+              Criar 2ª página com a mesma quantidade de linhas
+            </label>
+<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.82rem;color:var(--ink);font-weight:400;margin:0;">
+<input checked="" id="red-mostrar-logo" onchange="redUpdate()" style="width:auto;accent-color:var(--brand);" type="checkbox"/>
+              Cabeçalho e logo
+            </label>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;">
+<button class="btn" onclick="redImprimir()">🖨️ Imprimir</button>
+<button class="btn-ghost" onclick="redBaixarPDF()">⬇️ Baixar PDF</button>
+</div>
+</div>
+<!-- Preview Folha de Redação -->
+<div id="red-preview-wrap" style="padding:20px;background:var(--bg);display:flex;flex-direction:column;align-items:center;">
+<div id="red-preview"></div>
+</div>
+</div>
+</section>
+</div><!-- end main-content -->
+<nav class="bottom-nav">
+<div class="bottom-nav-inner">
+<div class="bottom-nav-item" data-section="tab-agenda">
+<span class="bnav-icon">📚</span>
+<span class="bnav-label">Agenda</span>
+</div>
+<div class="bottom-nav-item" data-section="advertencia">
+<span class="bnav-icon">⚠️</span>
+<span class="bnav-label">Advertências</span>
+</div>
+<div class="bottom-nav-item" data-section="gestor">
+<span class="bnav-icon">🖨️</span>
+<span class="bnav-label">Gestor</span>
+</div>
+<div class="bottom-nav-item active" data-section="frequencia">
+<span class="bnav-icon">📋</span>
+<span class="bnav-label">Frequência</span>
+</div>
+<div class="bottom-nav-item" data-section="estatisticas">
+<span class="bnav-icon">📈</span>
+<span class="bnav-label">Estatísticas</span>
+</div>
+<div class="bottom-nav-item" data-section="historico">
+<span class="bnav-icon">📊</span>
+<span class="bnav-label">Histórico</span>
+</div>
+<div class="bottom-nav-item" data-section="relatorios-gerais">
+<span class="bnav-icon">📑</span>
+<span class="bnav-label">Relatórios</span>
+</div>
+<div class="bottom-nav-item" data-section="relatorio-pedagogico">
+<span class="bnav-icon">📝</span>
+<span class="bnav-label">Relatório</span>
+</div>
+<div class="bottom-nav-item" data-section="tab-materiais">
+<span class="bnav-icon">📦</span>
+<span class="bnav-label">Materiais</span>
+</div>
+<div class="bottom-nav-item" data-section="tab-comunicados">
+<span class="bnav-icon">📣</span>
+<span class="bnav-label">Comunicados</span>
+</div>
+<div class="bottom-nav-item" data-section="tab-boletim">
+<span class="bnav-icon">🗓️</span>
+<span class="bnav-label">Boletim</span>
+</div>
+<div class="bottom-nav-item" data-section="tab-horario">
+<span class="bnav-icon">🧩</span>
+<span class="bnav-label">Horários</span>
+</div>
+<div class="bottom-nav-item" data-section="tab-frequencia">
+<span class="bnav-icon">🗓️</span>
+<span class="bnav-label">Folha</span>
+</div>
+<div class="bottom-nav-item" data-section="tab-planilha">
+<span class="bnav-icon">🗒️</span>
+<span class="bnav-label">Notas</span>
+</div>
+<div class="bottom-nav-item" data-section="tab-detencao">
+<span class="bnav-icon">✏️</span>
+<span class="bnav-label">Detenção</span>
+</div>
+<div class="bottom-nav-item" data-section="backup-central">
+<span class="bnav-icon">💾</span>
+<span class="bnav-label">Backup</span>
+</div>
+<div class="bottom-nav-item" data-section="admin-sistema">
+<span class="bnav-icon">🔐</span>
+<span class="bnav-label">Admin</span>
+</div>
+</div>
+</nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
+<script src="assets/js/index/01-core-navegacao-login-banco-backup.js?v=20260428"></script>
+<script src="assets/js/index/02-frequencia-importacao-faltosos.js?v=20260428"></script>
+<script src="assets/js/index/03-gestor-advertencias-relatorio-pedagogico.js?v=20260428"></script>
+<script src="assets/js/index/04-professores-agenda-materiais-folha.js?v=20260428"></script>
+<script src="assets/js/index/05-planilha-notas.js?v=20260428"></script>
+<script src="assets/js/index/06-inicializacao-detencao-ia.js?v=20260428"></script>
+<script src="assets/js/index/07-relatorios-gerais.js?v=20260428"></script>
+</body>
+</html>

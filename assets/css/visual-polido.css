@@ -1,0 +1,450 @@
+/* ============================================================
+   ENSPS 2026 — Acabamento visual profissional v5
+   Este arquivo aplica melhorias visuais sem alterar as regras do sistema.
+   ============================================================ */
+:root {
+  --brand-strong: #dbe7ff;
+  --surface-soft: rgba(255,255,255,.045);
+  --ink-soft: #b8c2d6;
+  --shadow-soft: 0 14px 42px rgba(0,0,0,.20);
+  --shadow-card: 0 18px 60px rgba(0,0,0,.26);
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --focus-ring: 0 0 0 4px rgba(96, 165, 250, .18);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background:
+    radial-gradient(circle at top left, rgba(59, 91, 219, .22), transparent 28rem),
+    radial-gradient(circle at bottom right, rgba(16, 185, 129, .10), transparent 26rem),
+    linear-gradient(180deg, #0d1020 0%, var(--bg, #0f0f1a) 52%, #0b0d16 100%);
+}
+
+/* Sidebar mais limpa */
+.sidebar {
+  background: linear-gradient(180deg, rgba(26,26,43,.98), rgba(18,18,31,.98));
+  box-shadow: 16px 0 42px rgba(0,0,0,.18);
+}
+.sidebar-header {
+  background: linear-gradient(135deg, rgba(59,91,219,.18), rgba(16,185,129,.06));
+}
+.sidebar-logo {
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.22);
+}
+.menu-item {
+  min-height: 40px;
+  border-radius: 12px;
+  transition: background .16s ease, border-color .16s ease, transform .16s ease, color .16s ease;
+}
+.menu-item:hover {
+  background: rgba(255,255,255,.055);
+  border-color: rgba(255,255,255,.08);
+  transform: translateX(2px);
+}
+.menu-item.active {
+  background: linear-gradient(135deg, rgba(59,91,219,.35), rgba(59,91,219,.14));
+  border-color: rgba(147,180,255,.36);
+  box-shadow: inset 3px 0 0 #93b4ff;
+}
+.sidebar-section-label { color: #7f8da8; }
+
+/* Cabeçalho e área principal */
+header.top {
+  background: rgba(13,16,32,.82);
+  box-shadow: 0 12px 32px rgba(0,0,0,.14);
+}
+header.top h1 {
+  font-size: clamp(1.12rem, 1.6vw, 1.55rem);
+  letter-spacing: -.02em;
+}
+header.top h2 { color: #a8b3ca; }
+.wrap { max-width: 1320px; padding: 22px clamp(16px, 2.2vw, 30px); }
+
+/* Cards */
+.card {
+  border-radius: var(--radius-lg);
+  border-color: rgba(255,255,255,.075);
+  background: linear-gradient(180deg, rgba(35,35,53,.94), rgba(27,27,43,.94));
+  box-shadow: var(--shadow-soft);
+}
+.card:hover { border-color: rgba(147,180,255,.18); }
+.card h3 { letter-spacing: -.01em; }
+.muted { color: #a8b3ca !important; }
+
+/* Formulários */
+input, select, textarea {
+  min-height: 40px;
+  border-radius: 12px;
+  border-color: rgba(255,255,255,.09);
+  background: rgba(12,15,28,.72);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
+}
+input:hover, select:hover, textarea:hover { border-color: rgba(147,180,255,.25); }
+input:focus, select:focus, textarea:focus {
+  border-color: #7aa2ff;
+  box-shadow: var(--focus-ring);
+}
+label { color: #b9c2d4; font-weight: 700; }
+.filters,
+.relatorios-filtros-grid,
+.stats-filter {
+  border: 1px solid rgba(255,255,255,.065);
+  border-radius: 16px;
+  padding: 12px;
+  background: rgba(255,255,255,.025);
+}
+
+/* Botões */
+button, .btn, .btn-ghost, .btn-success, .btn-warning, .btn-danger, .btn-purple {
+  border-radius: 12px;
+  min-height: 38px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  transition: transform .14s ease, box-shadow .14s ease, opacity .14s ease, background .14s ease;
+}
+button:hover { transform: translateY(-1px); opacity: .96; box-shadow: 0 12px 26px rgba(0,0,0,.18); }
+button:active { transform: translateY(0) scale(.985); }
+.btn { background: linear-gradient(135deg, #4f6ff2, #3050d8); }
+.btn-success { background: linear-gradient(135deg, #20c987, #0ea66f); }
+.btn-warning { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #15100a; }
+.btn-danger { background: linear-gradient(135deg, #f25b5b, #dc2626); }
+.btn-purple { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
+.btn-ghost {
+  background: rgba(255,255,255,.055);
+  color: #d7deee;
+  border-color: rgba(255,255,255,.10);
+}
+.btn-ghost:hover { background: rgba(255,255,255,.095); }
+.actions { gap: 10px; }
+
+/* Opções de prova */
+.prova-check {
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.035));
+  border-color: rgba(255,255,255,.10);
+}
+.prova-check:has(input:checked) {
+  border-color: rgba(245,158,11,.52);
+  background: rgba(245,158,11,.15);
+  box-shadow: 0 0 0 4px rgba(245,158,11,.08);
+}
+.prova-check input { transform: scale(1.08); }
+
+/* Tabelas */
+.table-container,
+.preview,
+.relatorio-importacao-tabela-wrap {
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.08);
+  overflow: auto;
+  background: rgba(255,255,255,.02);
+}
+table { border-collapse: separate !important; border-spacing: 0; }
+table th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, #252a43, #202439) !important;
+  color: #c7d2fe !important;
+  letter-spacing: .045em;
+}
+table td { border-bottom-color: rgba(255,255,255,.065) !important; }
+table tr:hover td { background: rgba(147,180,255,.055) !important; }
+
+/* Métricas e relatórios */
+.stats-grid,
+.stats-summary,
+.relatorios-metricas,
+.relatorio-importacao-grid {
+  gap: 14px;
+}
+.stat-card,
+.stats-card,
+.relatorios-metrica-card,
+.relatorio-importacao-metrica {
+  border-radius: 18px !important;
+  border-color: rgba(255,255,255,.085) !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.035)) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+.stat-card h3,
+.stats-card .number,
+.relatorios-metrica-card strong,
+.relatorio-importacao-metrica strong {
+  color: #ffffff !important;
+  letter-spacing: -.03em;
+}
+.relatorios-metrica-card span,
+.relatorio-importacao-metrica span { color: #a8b3ca !important; }
+.relatorio-importacao-bloco,
+.admin-alerta {
+  border-radius: 16px;
+  background: rgba(255,255,255,.035);
+  border-color: rgba(255,255,255,.08);
+}
+.relatorio-importacao-status { border-radius: 999px; }
+
+/* Login administrativo */
+.admin-login-overlay {
+  background:
+    radial-gradient(circle at top left, rgba(96,165,250,.30), transparent 25rem),
+    radial-gradient(circle at bottom right, rgba(16,185,129,.22), transparent 24rem),
+    linear-gradient(135deg, rgba(8,12,24,.96), rgba(14,23,42,.98));
+}
+.admin-login-card {
+  background: linear-gradient(180deg, rgba(31,41,64,.94), rgba(18,24,38,.96));
+  color: #e8eaf6;
+  border-color: rgba(255,255,255,.12);
+  box-shadow: 0 30px 90px rgba(0,0,0,.45);
+}
+.admin-login-card h2 { color: #fff; }
+.admin-login-card p,
+.admin-login-card small { color: #a8b3ca; }
+.admin-login-card label { color: #d7deee; }
+.admin-login-card input { background: rgba(8,12,24,.86); color: #fff; border-color: rgba(255,255,255,.10); }
+.admin-login-logo {
+  width: 58px; height: 58px; display: grid; place-items: center;
+  border-radius: 18px;
+  background: rgba(96,165,250,.14);
+  border: 1px solid rgba(96,165,250,.22);
+}
+
+/* Barra inferior mobile */
+.bottom-nav {
+  background: rgba(16,20,36,.88) !important;
+  backdrop-filter: blur(18px);
+  border-top-color: rgba(255,255,255,.10) !important;
+  box-shadow: 0 -18px 40px rgba(0,0,0,.22);
+}
+.bottom-nav-item { border-radius: 14px; }
+.bottom-nav-item.active {
+  background: rgba(59,91,219,.22);
+  border: 1px solid rgba(147,180,255,.22);
+}
+
+/* Páginas auxiliares que usam tema claro */
+body:not(.admin-bloqueado) .container,
+body:not(.admin-bloqueado) .hero-banner,
+body:not(.admin-bloqueado) .sidebar-card,
+body:not(.admin-bloqueado) .selected-date-info,
+body:not(.admin-bloqueado) .month,
+body:not(.admin-bloqueado) .drop {
+  border-radius: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .sidebar { width: 220px; }
+  .wrap { padding: 18px 16px 96px; }
+  .grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  body { display: block; }
+  header.top { padding: 14px 16px; }
+  .card { padding: 15px; border-radius: 16px; }
+  .actions { display: grid; grid-template-columns: 1fr; }
+  .actions button { width: 100%; justify-content: center; }
+  .filters,
+  .stats-filter { display: grid !important; grid-template-columns: 1fr; }
+  .filter-group,
+  .relatorios-busca-aluno { min-width: 0 !important; width: 100%; }
+  .prova-opcoes { display: grid; grid-template-columns: 1fr; }
+  table { font-size: .78rem; }
+  table th, table td { padding: 8px 10px !important; }
+}
+
+/* Impressão preservada */
+@media print {
+  body { background: #fff !important; }
+  .card, .stat-card, .stats-card, .relatorios-metrica-card { box-shadow: none !important; }
+}
+
+/* ============================================================
+   ENSPS 2026 — Pente fino visual v6
+   Ajustes finos de controles, espaçamentos e consistência geral.
+   ============================================================ */
+
+/* Corrige o efeito de "bolinhas/caixinhas gigantes" causado pelo
+   estilo global de inputs. Inputs de seleção não devem herdar min-height. */
+:where(input[type="checkbox"], input[type="radio"]) {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  padding: 0 !important;
+  margin: 0 7px 0 0 !important;
+  border-radius: 4px;
+  box-shadow: none !important;
+  accent-color: var(--brand, #3b5bdb);
+  flex: 0 0 16px;
+  vertical-align: middle;
+}
+:where(input[type="radio"]) { border-radius: 999px; }
+:where(input[type="checkbox"], input[type="radio"]):focus {
+  box-shadow: 0 0 0 3px rgba(96,165,250,.22) !important;
+  outline: none;
+}
+
+/* Labels com checkbox/radio ficam alinhadas e sem estourar cards. */
+label:has(> input[type="checkbox"]),
+label:has(> input[type="radio"]) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.25;
+}
+label:has(> input[type="checkbox"]) input,
+label:has(> input[type="radio"]) input {
+  margin-right: 0 !important;
+}
+
+/* Opções em cartões — Planilhas, Etapas, Modo, Pedagógico etc. */
+.op,
+#tab-planilha .op,
+.relatorio-opcao,
+.pedagogico-opcao,
+.topic-option,
+.uniforme-opcao,
+.prova-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  line-height: 1.25;
+}
+#tab-planilha .op {
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+#tab-planilha .op:has(input:checked),
+.uniforme-opcao:has(input:checked),
+.prova-check:has(input:checked) {
+  border-color: rgba(147,180,255,.45) !important;
+  background: rgba(59,91,219,.16) !important;
+}
+
+/* Relatório pedagógico: opções mais compactas e legíveis. */
+#tab-relatorio-pedagogico .card,
+#relatorio-pedagogico .card {
+  overflow: visible;
+}
+#tab-relatorio-pedagogico label,
+#relatorio-pedagogico label {
+  font-size: .94rem;
+}
+#tab-relatorio-pedagogico input[type="checkbox"],
+#tab-relatorio-pedagogico input[type="radio"],
+#relatorio-pedagogico input[type="checkbox"],
+#relatorio-pedagogico input[type="radio"] {
+  width: 15px !important;
+  height: 15px !important;
+  min-width: 15px !important;
+  min-height: 15px !important;
+  max-width: 15px !important;
+  max-height: 15px !important;
+  flex-basis: 15px;
+}
+
+/* Grupos de alternativas: evita que o radio ocupe a altura do card. */
+.radio-group,
+.checkbox-group,
+.prova-opcoes,
+.opcoes,
+.options,
+.options-grid {
+  align-items: center;
+}
+.radio-group label,
+.checkbox-group label {
+  min-height: 28px;
+}
+
+/* Cards e containers com respiro mais uniforme. */
+.card {
+  overflow: hidden;
+}
+.card > h3:first-child,
+.card > .card-title:first-child {
+  margin-top: 0;
+}
+.grid .card,
+.relatorios-gerais-grid .card {
+  min-width: 0;
+}
+
+/* Tabelas: melhora leitura em telas grandes e pequenas. */
+.table-container table,
+.preview table,
+.relatorio-importacao-tabela-wrap table {
+  width: 100%;
+}
+table th,
+table td {
+  white-space: nowrap;
+}
+table td:nth-child(2),
+table th:nth-child(2) {
+  white-space: normal;
+}
+
+/* Ações: impede botões colados e mantém alinhamento visual. */
+.actions,
+.relatorios-gerais-actions,
+.relatorio-importacao-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.actions button,
+.relatorios-gerais-actions button,
+.relatorio-importacao-actions button {
+  white-space: nowrap;
+}
+
+/* Inputs normais continuam confortáveis; selection inputs não herdam esse bloco. */
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  width: 100%;
+}
+
+/* Sidebar: melhora densidade quando houver muitos menus. */
+.sidebar nav,
+.sidebar-menu,
+.menu {
+  scrollbar-width: thin;
+}
+.menu-item {
+  gap: 10px;
+}
+.menu-item .icon,
+.menu-icon {
+  flex: 0 0 auto;
+}
+
+/* Botão flutuante: menos invasivo em telas amplas. */
+.floating-action,
+.fab,
+#btnTema,
+.theme-toggle-floating {
+  box-shadow: 0 14px 34px rgba(0,0,0,.28) !important;
+}
+
+@media (max-width: 768px) {
+  :where(input[type="checkbox"], input[type="radio"]) {
+    width: 17px !important;
+    height: 17px !important;
+    min-width: 17px !important;
+    min-height: 17px !important;
+    max-width: 17px !important;
+    max-height: 17px !important;
+    flex-basis: 17px;
+  }
+  table th,
+  table td {
+    white-space: normal;
+  }
+}

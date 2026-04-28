@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Conversor RAC01 - Faltosos para CSV</title>
+<link href="assets/css/conversor_faltosos_rac01.css" rel="stylesheet"/>
+<link href="assets/css/visual-polido.css?v=20260428-pente-fino-v6" rel="stylesheet"/>
+</head>
+<body>
+<main class="wrap">
+<section class="hero">
+<h1>Conversor RAC01 → CSV de Faltosos</h1>
+<p>Converte o relatório “RAC01 - Relação de Ausentes” em um CSV compatível com o botão <strong>Importar Faltosos</strong> do sistema.</p>
+</section>
+<section class="grid">
+<div class="card">
+<h2>1. Envie o PDF ou cole o texto</h2>
+<div class="drop">
+<label for="arquivo">📄 Selecionar PDF ou TXT</label>
+<input accept=".pdf,.txt,text/plain,application/pdf" id="arquivo" type="file"/>
+<small>PDF funciona usando PDF.js pela internet. Se estiver offline, use TXT ou copie/cole o texto do PDF. Esta versão usa leitura reforçada para não perder linhas quebradas.</small>
+</div>
+<h3>Texto extraído ou colado</h3>
+<textarea id="texto" placeholder="Cole aqui o texto do relatório, caso prefira..."></textarea>
+<div class="actions">
+<button class="btn" id="converter">Converter para CSV</button>
+<button class="btn2" id="limpar">Limpar</button>
+</div>
+</div>
+<div class="card">
+<h2>2. Resultado</h2>
+<div class="status" id="status">Aguardando arquivo ou texto do relatório.</div>
+<div class="actions">
+<button class="btnOk" disabled="" id="baixar">⬇️ Baixar CSV compatível</button>
+<button class="btnWarn" disabled="" id="copiar">Copiar CSV</button>
+</div>
+<h3>Formato gerado</h3>
+<p class="muted">O CSV sai com as colunas: <code>Matricula</code>, <code>Aluno</code>, <code>Data</code>, <code>Status</code>, <code>Codigo</code>.</p>
+<p><span class="pill">Status sempre: falta</span></p>
+</div>
+</section>
+<section class="card" style="margin-top:16px">
+<h2>Prévia dos alunos encontrados</h2>
+<div class="preview">
+<table>
+<thead><tr><th>#</th><th>Matrícula</th><th>Aluno</th><th>Data</th><th>Código</th></tr></thead>
+<tbody id="tbody"><tr><td class="muted" colspan="5">Nenhum aluno convertido ainda.</td></tr></tbody>
+</table>
+</div>
+</section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="assets/js/conversor_faltosos_rac01.js"></script>
+</body>
+</html>

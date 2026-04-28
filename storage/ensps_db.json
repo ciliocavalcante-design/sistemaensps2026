@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 3,
+  "storageMode": "split",
+  "files": {
+    "core": "storage/ensps_db_core.json",
+    "horarios": "storage/ensps_db_horarios.json",
+    "boletim": "storage/ensps_db_boletim.json"
+  },
+  "note": "Banco remoto modular. A API junta/divide os arquivos automaticamente."
+}

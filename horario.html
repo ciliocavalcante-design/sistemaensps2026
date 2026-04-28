@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gerenciador de Horários Escolares</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link href="assets/css/horario.css" rel="stylesheet"/>
+<link href="assets/css/visual-polido.css?v=20260428-pente-fino-v6" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<div class="header-copy">
+<h1>Gerenciador de Horários Escolares</h1>
+<p>Organize, revise, gere e exporte a grade com uma interface mais clara e focada.</p>
+</div>
+<div class="header-actions">
+<button class="btn-history" id="themeToggleButton" onclick="toggleTheme()" type="button">Modo Escuro</button>
+</div>
+</div>
+<div class="controls">
+<div class="control-section">
+<span class="control-section-title">Filtros</span>
+<div class="control-section-row">
+<div class="control-group">
+<label for="classSelect">Turma</label>
+<button class="nav-arrow" onclick="navigateClass(-1)" title="Turma anterior" type="button">◀</button>
+<select id="classSelect" onchange="renderSchedule()"></select>
+<button class="nav-arrow" onclick="navigateClass(1)" title="Próxima turma" type="button">▶</button>
+</div>
+<div class="control-group">
+<label for="teacherSelect">Professor</label>
+<select id="teacherSelect" onchange="renderSchedule()"></select>
+</div>
+<div class="control-group">
+<label for="subjectSelect">Disciplina</label>
+<select id="subjectSelect" onchange="renderSchedule()"></select>
+</div>
+<button onclick="clearFilters()">Limpar Filtros</button>
+</div>
+</div>
+<div class="control-section">
+<span class="control-section-title">Visual</span>
+<div class="control-section-row">
+<div class="control-group">
+<label for="lineColorInput">Linhas</label>
+<div class="line-color-control">
+<input id="lineColorInput" onchange="updateGridLineColor(this.value)" type="color" value="#000000"/>
+</div>
+</div>
+<button class="toggle-frame-btn" id="toggleGridFrameButton" onclick="toggleGridFrame()" type="button">Moldura da Grade: Off</button>
+<div class="control-group">
+<label for="intervalColorInput">Intervalo</label>
+<div class="interval-control">
+<input id="intervalColorInput" onchange="updateIntervalStyle()" type="color" value="#ffc107"/>
+<input id="intervalFontColorInput" onchange="updateIntervalStyle()" type="color" value="#000000"/>
+<input class="interval-text-input" id="intervalTextInput" oninput="updateIntervalStyle(false)" placeholder="Texto do intervalo" type="text"/>
+</div>
+</div>
+<div class="control-group">
+<label for="headerBarColorInput">Cabeçalho</label>
+<div class="interval-control">
+<input id="headerBarColorInput" onchange="updateHeaderBarStyle()" type="color" value="#667eea"/>
+<input id="headerBarFontColorInput" onchange="updateHeaderBarStyle()" type="color" value="#ffffff"/>
+</div>
+</div>
+</div>
+</div>
+<div class="control-section">
+<span class="control-section-title">Dados</span>
+<div class="control-section-row">
+<button class="btn-history" disabled="" id="undoButton" onclick="undoLastChange()">Desfazer</button>
+<button class="btn-history" disabled="" id="redoButton" onclick="redoLastChange()">Refazer</button>
+<button class="btn-import" onclick="importSchedule()">Importar Horários</button>
+<button class="btn-export" onclick="exportSchedule()">Exportar Horários</button>
+<button class="btn-clear" onclick="clearAllData()">Limpar Tudo</button>
+</div>
+</div>
+<div class="control-section">
+<span class="control-section-title">Relatórios e Planejamento</span>
+<div class="control-section-row">
+<button class="btn-print" onclick="openCurriculumModal()">Ver Currículo</button>
+<button class="btn-manage-availability-fundamental" onclick="deriveAvailabilityFromSchedule()">Gerar Dispon. do Horário</button>
+<button class="btn-manage-availability-fundamental" onclick="manageTeachersAvailability('fundamental')">Dispon. Fundamental</button>
+<button class="btn-manage-availability-medio" onclick="manageTeachersAvailability('medio')">Dispon. Médio</button>
+<button class="btn-import-availability" onclick="exportTeachersAvailability()">Exportar Dispon.</button>
+<button class="btn-import-availability" onclick="openConflictReportModal()">Relatório de Choques</button>
+<button class="btn-import-availability" onclick="openGapReportModal()">Relatório de Janelas</button>
+</div>
+</div>
+<div class="control-section">
+<span class="control-section-title">Saída e Geração</span>
+<div class="control-section-row">
+<button class="btn-print" onclick="printAllSchedules()">Imprimir Todos</button>
+<button class="btn-export" onclick="saveScheduleAsset()">Salvar PNG</button>
+<button class="btn-generate-schedule" onclick="openAutoGenerateModal()">✨ Gerar Horário Automático</button>
+</div>
+</div>
+<input accept=".json" id="fileInput" style="display: none;" type="file"/>
+</div>
+<div class="content">
+<div class="schedule-wrapper">
+<div class="schedule-table-shell" id="scheduleTableShell">
+<table id="scheduleTable">
+<thead>
+<tr id="scheduleHeader">
+<th>Horário</th>
+<th>Segunda-feira</th>
+<th>Terça-feira</th>
+<th>Quarta-feira</th>
+<th>Quinta-feira</th>
+<th>Sexta-feira</th>
+</tr>
+</thead>
+<tbody id="scheduleBody">
+<!-- Horários serão gerados aqui pelo JavaScript -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal de Edição de Aula -->
+<div class="modal" id="editModal">
+<div class="modal-content">
+<h2 id="modalTitle">Editar Aula</h2>
+<div id="conflictWarning">
+                ⚠️ Conflito detectado!
+                <div id="conflictDetails"></div>
+</div>
+<div class="form-group">
+<label for="editSubject">Disciplina:</label>
+<input id="editSubject" list="subjectList" type="text"/>
+<datalist id="subjectList"></datalist>
+</div>
+<div class="form-group">
+<label for="editTeacher">Professor:</label>
+<input id="editTeacher" list="teacherList" type="text"/>
+<datalist id="teacherList"></datalist>
+</div>
+<div class="form-group">
+<label>Cor da Aula:</label>
+<div class="color-picker" id="colorPicker">
+<!-- Opções de cor serão geradas aqui -->
+</div>
+<div class="custom-color-row">
+<input class="custom-color-input" id="customColorInput" onchange="selectCustomColor(this.value)" type="color" value="#add8e6"/>
+<span class="color-name">Escolher qualquer cor</span>
+</div>
+<div class="form-group">
+<label>Cores Recentes:</label>
+<div class="recent-colors" id="recentColors"></div>
+</div>
+</div>
+<div class="font-controls">
+<div class="form-group">
+<label>Cor da Fonte:</label>
+<div class="font-color-presets">
+<button class="font-color-btn selected" id="fontColorBlackBtn" onclick="selectFontColor('#000000')" type="button">Preto</button>
+<button class="font-color-btn" id="fontColorWhiteBtn" onclick="selectFontColor('#ffffff')" type="button">Branco</button>
+</div>
+<div class="font-color-custom">
+<input class="custom-color-input" id="fontColorInput" onchange="selectFontColor(this.value)" type="color" value="#000000"/>
+<span class="color-name">Outra cor da fonte</span>
+</div>
+</div>
+<div class="form-group">
+<label for="fontSizeSelect">Tamanho da Fonte:</label>
+<select id="fontSizeSelect">
+<option value="11">Pequena</option>
+<option selected="" value="13">Média</option>
+<option value="15">Grande</option>
+<option value="17">Extra Grande</option>
+</select>
+<div class="text-options">
+<label class="text-option">
+<input id="allCapsToggle" type="checkbox"/>
+<span>Texto em CAPS LOCK</span>
+</label>
+<label class="text-option">
+<input id="applyTextStyleToAll" type="checkbox"/>
+<span>Aplicar formatação de texto para todas as aulas</span>
+</label>
+</div>
+</div>
+</div>
+<div class="modal-buttons">
+<button onclick="saveClass()">Salvar</button>
+<button class="btn-import-availability" id="saveWithConflictButton" onclick="saveClass(true)" style="display: none;">Permitir Conflito e Salvar</button>
+<button class="btn-clear" onclick="deleteClass()">Excluir</button>
+<button onclick="closeModal()">Cancelar</button>
+</div>
+</div>
+</div>
+<!-- Modal de Gerenciamento de Disponibilidade de Professores -->
+<div class="modal" id="availabilityModal">
+<div class="modal-content">
+<h2 id="availabilityModalTitle">Gerenciar Disponibilidade de Professores</h2>
+<div class="form-group">
+<label for="availabilityTeacherSelect">Professor:</label>
+<select id="availabilityTeacherSelect" onchange="renderAvailabilityTable(this.value, currentAvailabilityLevel)"></select>
+</div>
+<p>Nível de Ensino: <span id="availabilityLevelDisplay"></span></p>
+<div class="schedule-wrapper">
+<table id="availabilityTable">
+<thead>
+<tr>
+<th>Horário</th>
+<th>Segunda-feira</th>
+<th>Terça-feira</th>
+<th>Quarta-feira</th>
+<th>Quinta-feira</th>
+<th>Sexta-feira</th>
+</tr>
+</thead>
+<tbody id="availabilityTableBody">
+<!-- Tabela de disponibilidade será gerada aqui -->
+</tbody>
+</table>
+</div>
+<div class="modal-buttons">
+<button onclick="closeAvailabilityModal()">Fechar</button>
+</div>
+</div>
+</div>
+<!-- NOVO: Modal de Geração Automática de Horários -->
+<div class="modal" id="autoGenerateModal">
+<div class="modal-content">
+<h2>Gerar Horário Automaticamente</h2>
+<p>Selecione a turma para a qual deseja gerar ou completar o horário:</p>
+<div class="form-group">
+<label for="autoGenerateClassSelect">Turma:</label>
+<select id="autoGenerateClassSelect"></select>
+</div>
+<div class="modal-buttons">
+<button onclick="generateScheduleAutomatically()">Gerar Horário</button>
+<button onclick="closeAutoGenerateModal()">Cancelar</button>
+</div>
+</div>
+</div>
+<div class="modal" id="curriculumModal">
+<div class="modal-content">
+<h2>Currículo por Turma</h2>
+<div class="form-group">
+<label for="curriculumClassSelect">Turma:</label>
+<select id="curriculumClassSelect" onchange="renderCurriculumTable(this.value)"></select>
+</div>
+<div id="curriculumContent"></div>
+<div class="modal-buttons">
+<button onclick="closeCurriculumModal()">Fechar</button>
+</div>
+</div>
+</div>
+<div class="modal" id="conflictReportModal">
+<div class="modal-content">
+<h2>Relatório de Choques de Professores</h2>
+<div class="conflict-report-summary" id="conflictReportSummary"></div>
+<div id="conflictReportContent"></div>
+<div class="modal-buttons">
+<button onclick="closeConflictReportModal()">Fechar</button>
+</div>
+</div>
+</div>
+<div class="modal" id="gapReportModal">
+<div class="modal-content">
+<h2>Relatório de Janelas de Professores</h2>
+<div class="gap-report-summary" id="gapReportSummary"></div>
+<div id="gapReportContent"></div>
+<div class="modal-buttons">
+<button onclick="closeGapReportModal()">Fechar</button>
+</div>
+</div>
+</div>
+<div id="printContainer" style="display: none;"></div>
+<script src="assets/js/horario.js"></script>
+</body>
+</html>

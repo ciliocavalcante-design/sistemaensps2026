@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Boletim Informativo ENSPS - Calendário 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/boletim.css" rel="stylesheet"/>
+<link href="assets/css/visual-polido.css?v=20260428-pente-fino-v6" rel="stylesheet"/>
+</head>
+<body>
+<div class="content-wrapper">
+<aside class="sidebar">
+<div class="sidebar-intro">
+<h3>Gerenciar Eventos</h3>
+</div>
+<div class="sidebar-card">
+<div class="selected-date-info" id="selectedDateInfo">
+<p>Selecione uma data no calendário para ver e gerenciar os tópicos.</p>
+</div>
+</div>
+<div class="sidebar-card">
+<h4>Tópicos para o dia</h4>
+<ul class="topic-list">
+<li class="topic-item">
+<input id="topic9" type="checkbox" value="Reunião de Pais"/>
+<label for="topic9">Reunião de Pais</label>
+</li>
+<li class="topic-item">
+<input id="topic10" type="checkbox" value="Feriado"/>
+<label for="topic10">Feriado</label>
+</li>
+<li class="topic-item">
+<input id="topic11" type="checkbox" value="Início 1ª Etapa"/>
+<label for="topic11">Início 1ª Etapa</label>
+</li>
+<li class="topic-item">
+<input id="topic12" type="checkbox" value="Final 4ª Etapa"/>
+<label for="topic12">Final 4ª Etapa</label>
+</li>
+<li class="topic-item">
+<input id="nonSchoolDayCheckbox" type="checkbox" value="Dia Não Letivo"/>
+<label for="nonSchoolDayCheckbox">Marcar como Dia Não Letivo</label>
+</li>
+<li class="custom-topic-item">
+<input id="customTopicCheckbox" type="checkbox"/>
+<label for="customTopicCheckbox">Personalizar:</label>
+<input disabled="" id="customTopicInput" placeholder="Digite seu evento aqui" type="text"/>
+</li>
+</ul>
+</div>
+<div class="sidebar-card">
+<div class="event-details">
+<h4>Eventos Marcados para esta Data</h4>
+<ul id="eventList">
+<li>Nenhum evento marcado.</li>
+</ul>
+</div>
+</div>
+<div class="sidebar-card">
+<h4>Comunicados</h4>
+<div class="comunicados-summary">
+<div class="comunicados-summary-line">
+<span>Do dia selecionado</span>
+<strong id="selectedDateComunicadosCount">0</strong>
+</div>
+<ul class="comunicados-day-list" id="selectedDateComunicadosList">
+<li class="comunicados-empty">Selecione uma data para visualizar os comunicados vinculados.</li>
+</ul>
+<div class="comunicados-actions">
+<button class="primary" id="newComunicadoForDayBtn" type="button">Novo comunicado do dia</button>
+<button id="viewDayComunicadosBtn" type="button">Ver comunicados do dia</button>
+<button id="viewAllComunicadosBtn" type="button">Ver todos os comunicados</button>
+</div>
+</div>
+</div>
+<div class="sidebar-card">
+<div class="color-selector">
+<h4>Cor do Evento</h4>
+<div class="color-options">
+<label>
+<input checked="" id="colorGreen" name="eventColor" type="radio" value="green"/>
+<span class="color-box green"></span> Verde
+                        </label>
+<label>
+<input id="colorPink" name="eventColor" type="radio" value="pink"/>
+<span class="color-box pink"></span> Rosa
+                        </label>
+<label>
+<input id="colorYellow" name="eventColor" type="radio" value="yellow"/>
+<span class="color-box yellow"></span> Amarelo
+                        </label>
+<label>
+<input id="colorBlue" name="eventColor" type="radio" value="blue"/>
+<span class="color-box blue"></span> Azul
+                        </label>
+<label>
+<input id="colorPurple" name="eventColor" type="radio" value="purple"/>
+<span class="color-box purple"></span> Roxo
+                        </label>
+<label>
+<input id="colorOrange" name="eventColor" type="radio" value="orange"/>
+<span class="color-box orange"></span> Laranja
+                        </label>
+<label>
+<input id="colorCustom" name="eventColor" type="radio" value="custom"/>
+<span class="color-box" id="customColorSwatch" style="background-color:#1f8eed"></span> Personalizada
+                        </label>
+</div>
+<div class="print-intensity-control" style="margin-top:10px;">
+<div class="print-intensity-header">
+<span>Cor personalizada</span>
+<strong class="print-intensity-value" id="customColorValue">#1F8EED</strong>
+</div>
+<input id="customColorPicker" style="width:100%;height:44px;border:none;background:transparent;padding:0;cursor:pointer;" type="color" value="#1f8eed"/>
+</div>
+<div class="print-intensity-control">
+<div class="print-intensity-header">
+<span>Intensidade das cores na impressão</span>
+<strong class="print-intensity-value" id="printIntensityValue">Fraco</strong>
+</div>
+<input id="printIntensitySlider" max="40" min="0" step="1" type="range" value="12"/>
+<label class="topic-item" style="margin-top:4px;">
+<input id="printBorderOnlyToggle" type="checkbox"/>
+<span>Desativar cor interna e manter apenas a borda na impressão</span>
+</label>
+<label class="topic-item">
+<input id="boldEventTextToggle" type="checkbox"/>
+<span>Texto interno dos quadrados em negrito</span>
+</label>
+<p class="print-intensity-help">Ajuste a força do preenchimento colorido dos quadrados no PDF/impressão.</p>
+</div>
+</div>
+</div>
+<div class="sidebar-card">
+<div class="sidebar-buttons">
+<button class="delete-day-btn" disabled="" id="deleteDayBtn">Apagar Eventos do Dia</button>
+<button id="exportDataBtn">Exportar Todos os Dados</button>
+<input accept=".json" id="importDataInput" type="file"/>
+<label class="file-upload-label" for="importDataInput">Importar Dados</label>
+<button class="clear-storage-btn" id="clearStorageBtn">Limpar TODOS os registros locais</button>
+<div id="totalAnnualSchoolDaysCounter">Total de Dias Letivos (Ano): --</div>
+</div>
+</div>
+</aside>
+<main class="main-content">
+<div class="hero-banner">
+<div class="hero-editor-panel">
+<div class="hero-controls">
+<p class="active-calendar-title" id="activeCalendarTitle">Calendário ENSPS 2026 • Boletim informativo</p>
+<div class="calendar-switcher">
+<div class="calendar-switcher-main">
+<span class="calendar-switcher-label">Calendário ativo</span>
+<select aria-label="Selecionar calendário" id="calendarSelect"></select>
+</div>
+<div class="toolbar-utilities">
+<button class="toolbar-action primary" id="printPdfBtn">Gerar PDF</button>
+<button class="theme-toggle" id="themeToggleBtn">Tema escuro</button>
+</div>
+</div>
+<div class="calendar-management">
+<button class="toolbar-action" id="newCalendarBtn">Novo calendário</button>
+<button class="toolbar-action" id="duplicateCalendarBtn">Duplicar calendário</button>
+<button class="toolbar-action" id="copyMonthBtn">Copiar mês</button>
+<button class="toolbar-action" id="renameCalendarBtn">Renomear</button>
+<button class="toolbar-action danger" id="deleteCalendarBtn">Excluir</button>
+</div>
+</div>
+</div>
+<div class="hero-stats">
+<div class="hero-stat">
+<strong id="heroCurrentPeriod">--</strong>
+<span>Mês e ano em exibição</span>
+</div>
+<div class="hero-stat">
+<strong id="heroMonthEvents">0</strong>
+<span>Eventos registrados neste mês</span>
+</div>
+<div class="hero-stat">
+<strong id="heroSelectedDate">Nenhuma</strong>
+<span>Data selecionada no momento</span>
+</div>
+<div class="hero-stat">
+<strong id="heroAnnualDays">--</strong>
+<span>Dias letivos acumulados no ano</span>
+</div>
+</div>
+</div>
+<div class="calendar-navigation">
+<button id="prevMonthBtn">&lt; Mês Anterior</button>
+<h2 id="currentMonthYear"></h2>
+<span class="school-days-counter" id="schoolDaysCounter"></span> <!-- Contador de dias letivos do MÊS aqui -->
+<button id="nextMonthBtn">Próximo Mês &gt;</button>
+</div>
+<div id="calendar-wrapper">
+<!-- Calendário e informações do mês serão renderizados aqui pelo JavaScript -->
+</div>
+</main>
+</div>
+<div aria-hidden="true" class="comunicados-modal" id="comunicadosModal">
+<div aria-labelledby="comunicadosModalTitle" aria-modal="true" class="comunicados-modal-dialog" role="dialog">
+<div class="comunicados-modal-sidebar">
+<div class="comunicados-modal-header">
+<div>
+<h3 id="comunicadosModalTitle">Comunicados</h3>
+<p id="comunicadosModalSubtitle">Gerencie os comunicados do calendário ativo.</p>
+</div>
+<button class="comunicados-modal-close" id="closeComunicadosModalBtn" type="button">Fechar</button>
+</div>
+<div class="comunicados-filter-bar">
+<button class="active" id="filterAllComunicadosBtn" type="button">Todos</button>
+<button id="filterDayComunicadosBtn" type="button">Do dia</button>
+<button id="createComunicadoBtn" type="button">Novo</button>
+</div>
+<div class="comunicados-list" id="comunicadosList"></div>
+</div>
+<div class="comunicados-modal-main">
+<div class="comunicados-modal-topbar">
+<div>
+<h3>Editor de comunicado</h3>
+<p>Crie textos, vincule datas e organize lembretes para o boletim.</p>
+</div>
+</div>
+<div class="comunicado-form" id="comunicadoForm">
+<div class="comunicado-field">
+<label for="comunicadoTitleInput">Título</label>
+<input id="comunicadoTitleInput" placeholder="Ex.: Reunião pedagógica extraordinária" type="text"/>
+</div>
+<div class="comunicado-form-grid">
+<div class="comunicado-field">
+<label for="comunicadoAudienceInput">Público</label>
+<input id="comunicadoAudienceInput" placeholder="Ex.: Professores, pais, coordenação" type="text"/>
+</div>
+<div class="comunicado-field">
+<label for="comunicadoReminderDateInput">Data do lembrete</label>
+<input id="comunicadoReminderDateInput" type="date"/>
+</div>
+</div>
+<div class="comunicado-field">
+<label for="comunicadoBodyInput">Texto do comunicado</label>
+<textarea id="comunicadoBodyInput" placeholder="Digite aqui o comunicado completo..."></textarea>
+</div>
+<div class="comunicado-form-grid">
+<div class="comunicado-field">
+<label for="comunicadoDatesInput">Datas vinculadas</label>
+<textarea id="comunicadoDatesInput" placeholder="Use AAAA-MM-DD, separando por vírgula ou quebra de linha."></textarea>
+</div>
+<div class="comunicado-field">
+<label for="comunicadoReminderTextInput">Lembrete</label>
+<textarea id="comunicadoReminderTextInput" placeholder="Ex.: Avisar a equipe dois dias antes."></textarea>
+</div>
+</div>
+</div>
+<div class="comunicado-actions">
+<button class="danger" id="deleteComunicadoBtn" type="button">Excluir</button>
+<button class="primary" id="saveComunicadoBtn" type="button">Salvar comunicado</button>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<p id="footerText">ENSPS - Calendário 2026</p>
+<img alt="Logo do Rodapé" id="footerLogo" src="" style="display: always;"/>
+<input accept="image/*" id="logoUpload" type="file"/>
+</footer>
+<script src="assets/js/boletim.js"></script>
+</body>
+</html>
