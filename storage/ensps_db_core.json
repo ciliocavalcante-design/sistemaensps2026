@@ -3371,154 +3371,188 @@
       "id": 1777384284177,
       "aluno": "ANA LIVIA NASCIMENTO FEITOSA",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284178,
       "aluno": "ARIEL MELO PATRICIO",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284179,
       "aluno": "JOSE THALYS FRAGA OLIVEIRA",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284180,
       "aluno": "ROBERT DOUGLAS SAAD RODRIGUES FILHO",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284181,
       "aluno": "SARA GABRIELE SILVA GOMES",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284182,
       "aluno": "CAMILA MATOS NASCIMENTO",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284183,
       "aluno": "JOAO HENRIQUE FERNANDES PEREIRA",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284184,
       "aluno": "KAUE NICOLAS FELIX NICOLAU",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284187,
       "aluno": "MARIA JULIA DE ARAUJO CAVALCANTE",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284190,
       "aluno": "SAYONARA EMILLY PEREIRA NERI",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284191,
       "aluno": "JOAO MARCELO RIOLO DA SILVA",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284192,
       "aluno": "MARCOS VENICIOS SILVA FARIAS",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284193,
       "aluno": "MARIA CLARA PINTO RODRIGUES",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284194,
       "aluno": "NAYLA ARAUJO DE SOUSA",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284195,
       "aluno": "PEDRO HENRIQUE NASCIMENTO DE OLIVEIRA",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284196,
       "aluno": "RODRIGO DOS REIS GONDIM",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384284197,
       "aluno": "SILVIA CIBELE SILVA LIMA",
       "data": "2026-04-28",
-      "status": "falta",
+      "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
+      "origem": "relatorio-faltosos",
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     },
     {
       "id": 1777384320043,
