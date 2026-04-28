@@ -2595,7 +2595,7 @@
   "currentClassCellPaddingX": 12,
   "currentClassSubjectFontSize": 12,
   "currentClassTeacherFontSize": 10,
-  "currentScheduleStackGap": 24,
+  "currentScheduleStackGap": 6,
   "currentTimeCellFontSize": 14,
   "currentScheduleHeaderFontSize": 11,
   "currentIntervalFontSize": 11
