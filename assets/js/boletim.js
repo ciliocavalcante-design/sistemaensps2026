@@ -67,6 +67,7 @@
         const customColorSwatch = document.getElementById('customColorSwatch');
         const customColorValue = document.getElementById('customColorValue');
         const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const saveBoletimBtn = document.getElementById('saveBoletimBtn');
 
         let currentSelectedDay = null; // Armazena o elemento do dia selecionado
         let events = {}; // Armazena os eventos do calendário ativo
@@ -1039,7 +1040,12 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
             printColorIntensity = Number.isFinite(Number(activeCalendar.settings.printColorIntensity)) ? Math.max(0, Math.min(40, Number(activeCalendar.settings.printColorIntensity))) : DEFAULT_PRINT_INTENSITY;
             printBorderOnly = Boolean(activeCalendar.settings.printBorderOnly);
             boldEventText = Boolean(activeCalendar.settings.boldEventText);
-            currentTheme = activeCalendar.settings.currentTheme === 'dark' ? 'dark' : 'light';
+            const storedTheme = localStorage.getItem('calendarTheme');
+            const uiTheme = calendarDb?.ui?.currentTheme;
+            const calendarTheme = activeCalendar.settings.currentTheme === 'dark' ? 'dark' : activeCalendar.settings.currentTheme === 'light' ? 'light' : null;
+            currentTheme = storedTheme === 'dark' || storedTheme === 'light'
+                ? storedTheme
+                : (uiTheme === 'dark' || uiTheme === 'light' ? uiTheme : (calendarTheme || 'light'));
             allMonths = buildMonthsCollection(activeCalendar.period);
             currentMonth = Number.isInteger(activeCalendar.settings.currentMonth) ? activeCalendar.settings.currentMonth : getDefaultMonthIndexForList(allMonths);
             if (!allMonths.length) {
@@ -1078,6 +1084,7 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
             if (footerLogoValue) {
                 calendarDb.ui.footerLogo = footerLogoValue;
             }
+            calendarDb.ui.currentTheme = currentTheme;
         }
 
         function mirrorLegacyStorageFromState() {
@@ -1248,6 +1255,10 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
             });
         }
 
+        if (saveBoletimBtn) {
+            saveBoletimBtn.addEventListener('click', saveBoletimNow);
+        }
+
         if (calendarSelect) {
             calendarSelect.addEventListener('change', (event) => {
                 switchActiveCalendar(event.target.value);
@@ -1379,11 +1390,29 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
         }
 
         function saveThemeToStorage() {
+            localStorage.setItem('calendarTheme', currentTheme);
+            if (calendarDb) {
+                if (!calendarDb.ui) calendarDb.ui = {};
+                calendarDb.ui.currentTheme = currentTheme;
+            }
             saveCalendarDbToStorage();
         }
 
         function loadThemeFromStorage() {
             applyTheme(currentTheme);
+        }
+
+        function saveBoletimNow() {
+            if (!calendarDb) calendarDb = createDefaultCalendarDb();
+            saveCalendarDbToStorage();
+            if (!saveBoletimBtn) return;
+            const originalText = saveBoletimBtn.textContent;
+            saveBoletimBtn.disabled = true;
+            saveBoletimBtn.textContent = 'Salvando...';
+            setTimeout(() => {
+                saveBoletimBtn.disabled = false;
+                saveBoletimBtn.textContent = originalText;
+            }, 1400);
         }
 
         function isPreservedCalendarEvent(eventObj) {

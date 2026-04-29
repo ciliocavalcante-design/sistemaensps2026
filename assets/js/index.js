@@ -54,7 +54,7 @@
       return;
     }
     frame.removeAttribute('srcdoc');
-    frame.src = `boletim.html?v=20260429-boletim-sync-v17${force ? `&reload=${Date.now()}` : ''}`;
+    frame.src = `boletim.html?v=20260429-boletim-sync-v18${force ? `&reload=${Date.now()}` : ''}`;
     boletimIntegradoInicializado = true;
   }
 

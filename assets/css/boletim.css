@@ -768,6 +768,11 @@
             color: #fff;
             border-color: transparent;
         }
+        .toolbar-action.success {
+            background: linear-gradient(135deg, #17824f, #0f6b41);
+            color: #fff;
+            border-color: transparent;
+        }
         .theme-toggle:hover,
         .toolbar-action:hover {
             transform: translateY(-1px);
@@ -861,6 +866,10 @@
         }
         body[data-theme="dark"] .toolbar-action.primary {
             background: linear-gradient(135deg, #2b83cf, #124b76);
+            border-color: transparent;
+        }
+        body[data-theme="dark"] .toolbar-action.success {
+            background: linear-gradient(135deg, #1c9a60, #0f6b41);
             border-color: transparent;
         }
         body[data-theme="dark"] .brand-copy-text .product-badge,
@@ -2672,10 +2681,10 @@
   body.page-boletim .day,
   body.page-boletim .empty-day {
     aspect-ratio: 1 / 1 !important;
-    min-height: 42px !important;
-    max-height: 52px !important;
+    min-height: 36px !important;
+    max-height: 46px !important;
     height: auto !important;
-    padding: 3px !important;
+    padding: 2px !important;
     overflow: hidden !important;
     display: flex !important;
     align-items: center !important;
@@ -2712,5 +2721,6 @@
     z-index: 2 !important;
     margin: 0 !important;
     line-height: 1 !important;
+    font-size: clamp(.78rem, 3.1vw, .92rem) !important;
   }
 }
