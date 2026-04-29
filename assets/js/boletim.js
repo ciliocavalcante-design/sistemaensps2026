@@ -354,6 +354,7 @@
         let parentComunicadosCache = [];
         let isApplyingRemoteBoletimDb = false;
         let isApplyingParentComunicados = false;
+        let boletimParentDbReceived = false;
         if (isEmbeddedInsideENSPS) {
             document.body.classList.add('is-embedded-ensps');
         }
@@ -529,6 +530,7 @@
         function aplicarBancoBoletimDoPai(rawDb) {
             if (!rawDb || typeof rawDb !== 'object') return;
             isApplyingRemoteBoletimDb = true;
+            boletimParentDbReceived = true;
             calendarDb = normalizeCalendarDb(rawDb);
             safeSetCalendarStorage(calendarDb);
             syncStateFromActiveCalendar();
@@ -1115,7 +1117,9 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
                 }
             }
             mirrorLegacyStorageFromState();
-            sincronizarBancoBoletimComPai();
+            if (!isEmbeddedInsideENSPS || boletimParentDbReceived) {
+                sincronizarBancoBoletimComPai();
+            }
             agendarSalvarBancoBoletimDireto('Atualização do boletim informativo');
         }
 
