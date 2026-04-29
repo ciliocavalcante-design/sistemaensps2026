@@ -82,6 +82,11 @@
         const CALENDAR_DB_VERSION = 2;
         const DEFAULT_CALENDAR_ID = 'ensps-2026';
         const DEFAULT_CALENDAR_PERIOD = Object.freeze({ startYear: 2026, startMonth: 0, endYear: 2027, endMonth: 0 });
+        const REMOTE_BOLETIM_ENDPOINT = '/api/db?scope=boletim';
+        let boletimRemoteSha = '';
+        let boletimRemoteReady = false;
+        let boletimRemoteSaving = false;
+        let boletimRemoteSaveTimer = null;
         let printColorIntensity = DEFAULT_PRINT_INTENSITY;
         let printBorderOnly = false;
         let boldEventText = false;
@@ -438,6 +443,75 @@
                 reason,
                 db: calendarDb
             }, '*');
+        }
+
+        function boletimDbTemConteudo(db) {
+            if (!db || typeof db !== 'object') return false;
+            const calendars = Array.isArray(db.calendars) ? db.calendars : [];
+            return calendars.some(calendar => {
+                const eventsMap = calendar && typeof calendar.events === 'object' ? calendar.events : {};
+                const notesMap = calendar && typeof calendar.monthNotes === 'object' ? calendar.monthNotes : {};
+                const comunicadosList = Array.isArray(calendar?.comunicados) ? calendar.comunicados : [];
+                return Object.keys(eventsMap).some(key => Array.isArray(eventsMap[key]) && eventsMap[key].length)
+                    || Object.keys(notesMap).some(key => String(notesMap[key] || '').trim())
+                    || comunicadosList.length;
+            });
+        }
+
+        function agendarSalvarBancoBoletimDireto(reason = 'Atualização do boletim informativo') {
+            if (isEmbeddedInsideENSPS || isApplyingRemoteBoletimDb || !calendarDb || !boletimRemoteReady) return;
+            clearTimeout(boletimRemoteSaveTimer);
+            boletimRemoteSaveTimer = setTimeout(() => salvarBancoBoletimDireto(reason), 700);
+        }
+
+        async function carregarBancoBoletimDireto() {
+            if (isEmbeddedInsideENSPS) return;
+            try {
+                const resposta = await fetch(REMOTE_BOLETIM_ENDPOINT, { headers: { 'Accept': 'application/json' } });
+                if (resposta.status === 404) {
+                    boletimRemoteReady = true;
+                    return;
+                }
+                const payload = await resposta.json().catch(() => ({}));
+                if (!resposta.ok || !payload.ok) {
+                    throw new Error(payload.error || `Falha ao carregar boletim remoto (${resposta.status})`);
+                }
+                boletimRemoteSha = payload.sha || '';
+                if (payload.data && typeof payload.data === 'object' && boletimDbTemConteudo(payload.data)) {
+                    aplicarBancoBoletimDoPai(payload.data);
+                }
+                boletimRemoteReady = true;
+            } catch (error) {
+                boletimRemoteReady = true;
+                console.warn('ENSPS Boletim: não foi possível carregar banco remoto direto. Usando cache local.', error);
+            }
+        }
+
+        async function salvarBancoBoletimDireto(reason = 'Atualização do boletim informativo') {
+            if (isEmbeddedInsideENSPS || isApplyingRemoteBoletimDb || !calendarDb || boletimRemoteSaving) return false;
+            boletimRemoteSaving = true;
+            try {
+                const resposta = await fetch(REMOTE_BOLETIM_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        db: calendarDb,
+                        sha: boletimRemoteSha || undefined,
+                        reason
+                    })
+                });
+                const payload = await resposta.json().catch(() => ({}));
+                if (!resposta.ok || !payload.ok) {
+                    throw new Error(payload.error || `Falha ao salvar boletim remoto (${resposta.status})`);
+                }
+                boletimRemoteSha = payload.sha || '';
+                return true;
+            } catch (error) {
+                console.warn('ENSPS Boletim: não foi possível sincronizar com GitHub direto.', error);
+                return false;
+            } finally {
+                boletimRemoteSaving = false;
+            }
         }
 
         function safeSetCalendarStorage(value) {
@@ -1042,6 +1116,7 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
             }
             mirrorLegacyStorageFromState();
             sincronizarBancoBoletimComPai();
+            agendarSalvarBancoBoletimDireto('Atualização do boletim informativo');
         }
 
         function loadCalendarDbFromStorage() {
@@ -3189,6 +3264,7 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
             aplicarBootstrapComunicadosDoPai();
             solicitarComunicadosDoPai();
             solicitarBancoBoletimDoPai();
+            carregarBancoBoletimDireto();
         }
         document.addEventListener('DOMContentLoaded', initCalendar);
 
