@@ -697,6 +697,7 @@
       min-width: 64px;
       border-bottom: 2px solid transparent;
       transition: all .15s;
+      position: relative;
     }
     .bottom-nav-item.active {
       border-bottom-color: var(--brand);
@@ -704,6 +705,23 @@
     .bottom-nav-item.active .bnav-label { color: #93b4ff; }
     .bottom-nav-item .bnav-icon { font-size: 1.2rem; line-height: 1; }
     .bottom-nav-item .bnav-label { font-size: .6rem; color: #fff; font-weight: 500; white-space: nowrap; }
+    .bottom-nav-badge {
+      position: absolute;
+      top: 4px;
+      right: 9px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      border-radius: 999px;
+      background: #b91c1c;
+      color: #fff;
+      font-size: .62rem;
+      line-height: 18px;
+      font-weight: 800;
+      text-align: center;
+      box-shadow: 0 0 0 2px var(--surface);
+      pointer-events: none;
+    }
 
     /* ── MÓDULOS INTEGRADOS ── */
     #tab-boletim, #tab-horario { background: var(--bg); min-height: calc(100vh - 56px); }

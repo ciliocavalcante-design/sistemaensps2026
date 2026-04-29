@@ -3766,17 +3766,30 @@ Senha temporária: ensps2026`;
     function atualizarBadgePendenciasAssinatura(){
       const pendentes = getAdvertenciasPendentesAssinatura();
       const total = pendentes.length;
-      [
-        document.querySelector('.menu-item[data-section="advertencia"] span:last-child'),
-        document.querySelector('.bottom-nav-item[data-section="advertencia"] .bnav-label')
-      ].forEach(target => {
-        if(!target) return;
-        const baseText = target.dataset.baseLabel || target.textContent.replace(/\s*\d+ pend\.?$/i, '').trim();
-        target.dataset.baseLabel = baseText;
-        target.innerHTML = total > 0
+      const desktopLabel = document.querySelector('.menu-item[data-section="advertencia"] span:last-child');
+      if (desktopLabel) {
+        const baseText = desktopLabel.dataset.baseLabel || desktopLabel.textContent.replace(/\s*\d+ pend\.?$/i, '').trim();
+        desktopLabel.dataset.baseLabel = baseText;
+        desktopLabel.innerHTML = total > 0
           ? `${baseText}<span class="menu-badge">${total}</span>`
           : baseText;
-      });
+      }
+
+      const mobileItem = document.querySelector('.bottom-nav-item[data-section="advertencia"]');
+      const mobileLabel = mobileItem?.querySelector('.bnav-label');
+      if (mobileLabel) {
+        mobileLabel.textContent = mobileLabel.dataset.baseLabel || mobileLabel.textContent.replace(/\s*\d+ pend\.?$/i, '').trim();
+        mobileLabel.dataset.baseLabel = mobileLabel.textContent;
+      }
+      if (mobileItem) {
+        mobileItem.querySelector('.bottom-nav-badge')?.remove();
+        if (total > 0) {
+          const badge = document.createElement('span');
+          badge.className = 'bottom-nav-badge';
+          badge.textContent = String(total);
+          mobileItem.appendChild(badge);
+        }
+      }
     }
 
     function renderPendenciasAssinatura(){
