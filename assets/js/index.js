@@ -53,7 +53,8 @@
       });
       return;
     }
-    frame.srcdoc = decodificarHtmlIntegrado(BOLETIM_INFORMATIVO_HTML_BASE64);
+    frame.removeAttribute('srcdoc');
+    frame.src = `boletim.html?v=20260429-boletim-sync-v17${force ? `&reload=${Date.now()}` : ''}`;
     boletimIntegradoInicializado = true;
   }
 
@@ -1240,7 +1241,13 @@
       const { force = false, reason = 'Atualização do sistema', silent = true } = options;
       if (!scope) return salvarBancoRemoto({ force, reason, silent });
       if (!remotoInicializado && !force) return false;
-      if (remotoSincronizando) return false;
+      if (remotoSincronizando) {
+        const retryCount = Number(options.retryCount || 0);
+        if (retryCount < 5) {
+          setTimeout(() => salvarEscopoRemoto(scope, dbEscopo, { ...options, retryCount: retryCount + 1 }), 1400);
+        }
+        return false;
+      }
       remotoSincronizando = true;
       atualizarStatusBancoRemoto(`Sincronizando ${scope} com o GitHub...`, 'aviso');
 
@@ -7415,4 +7422,3 @@ Separe cada tema com uma linha em branco. Sem markdown, sem bullets extras.`;
   setInterval(() => {
     sincronizarBancoRemotoEmSegundoPlano('Verificação periódica entre dispositivos');
   }, 30000);
-

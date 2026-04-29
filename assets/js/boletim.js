@@ -359,7 +359,7 @@
         }
 
         function isDateWithinCalendarPeriod(dateKey, period) {
-            if (!dateKey || !/^d{4}-d{2}-d{2}$/.test(dateKey)) return false;
+            if (!dateKey || !/^\d{4}-\d{2}-\d{2}$/.test(dateKey)) return false;
             const date = parseDate(dateKey);
             const start = new Date(period.startYear, period.startMonth, 1);
             const end = new Date(period.endYear, period.endMonth + 1, 0, 23, 59, 59, 999);
@@ -3287,4 +3287,3 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
                 }
             }, 250);
         });
-
