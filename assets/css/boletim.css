@@ -2678,18 +2678,47 @@
    No celular, o quadrinho nunca exibe texto interno.
    ============================================================ */
 @media (max-width: 768px) {
+  body.page-boletim .days-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+  }
+
   body.page-boletim .day,
   body.page-boletim .empty-day {
-    aspect-ratio: 1 / 1 !important;
-    min-height: 36px !important;
-    max-height: 46px !important;
-    height: auto !important;
+    aspect-ratio: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: 38px !important;
+    max-height: 38px !important;
     padding: 2px !important;
+    border-width: 1px !important;
+    border-radius: 10px !important;
     overflow: hidden !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    box-sizing: border-box !important;
     contain: layout paint !important;
+  }
+
+  body.page-boletim .day.has-event,
+  body.page-boletim .day.holiday,
+  body.page-boletim .day.non-school-day {
+    border-width: 1px !important;
+  }
+
+  body.page-boletim .day.event-color-green { box-shadow: inset 0 0 0 2px #28a745 !important; }
+  body.page-boletim .day.event-color-pink { box-shadow: inset 0 0 0 2px #e83e8c !important; }
+  body.page-boletim .day.event-color-yellow { box-shadow: inset 0 0 0 2px #ffc107 !important; }
+  body.page-boletim .day.event-color-blue { box-shadow: inset 0 0 0 2px #007bff !important; }
+  body.page-boletim .day.event-color-purple { box-shadow: inset 0 0 0 2px #6f42c1 !important; }
+  body.page-boletim .day.event-color-orange { box-shadow: inset 0 0 0 2px #fd7e14 !important; }
+
+  body.page-boletim .day.selected {
+    transform: none !important;
+    outline: 2px solid rgba(147, 180, 255, .55) !important;
+    outline-offset: -2px !important;
   }
 
   body.page-boletim .day .event-text,
@@ -2722,5 +2751,29 @@
     margin: 0 !important;
     line-height: 1 !important;
     font-size: clamp(.78rem, 3.1vw, .92rem) !important;
+  }
+
+  body.page-boletim .event-indicator {
+    width: 7px !important;
+    height: 7px !important;
+    top: 4px !important;
+    right: 4px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  body.page-boletim .days-grid {
+    gap: 3px !important;
+  }
+
+  body.page-boletim .day,
+  body.page-boletim .empty-day {
+    height: 34px !important;
+    max-height: 34px !important;
+    border-radius: 9px !important;
+  }
+
+  body.page-boletim .day-number {
+    font-size: .78rem !important;
   }
 }
