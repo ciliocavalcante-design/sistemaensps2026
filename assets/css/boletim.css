@@ -2255,3 +2255,462 @@
     }
 }
 
+
+/* ============================================================
+   OTIMIZAÇÃO MOBILE v12 — Boletim Informativo
+   Calendário compacto, sem texto vertical nos quadrinhos.
+   ============================================================ */
+@media (max-width: 768px) {
+  html,
+  body.page-boletim {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden !important;
+  }
+
+  body.page-boletim {
+    display: block;
+    padding-bottom: 88px;
+  }
+
+  body.page-boletim .content-wrapper {
+    display: block !important;
+    width: 100%;
+    min-width: 0;
+  }
+
+  body.page-boletim .main-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 10px 96px !important;
+    box-sizing: border-box;
+    align-items: stretch !important;
+  }
+
+  body.page-boletim .sidebar {
+    width: 100% !important;
+    max-height: none !important;
+    padding: 10px !important;
+    gap: 10px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    box-sizing: border-box;
+  }
+
+  body.page-boletim .sidebar-intro,
+  body.page-boletim .sidebar-card {
+    border-radius: 16px !important;
+    padding: 12px !important;
+    margin: 0 !important;
+  }
+
+  body.page-boletim .hero-banner {
+    display: none !important;
+  }
+
+  body.page-boletim .calendar-navigation {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    width: 100%;
+    max-width: 100%;
+    display: grid !important;
+    grid-template-columns: 44px 1fr 44px;
+    gap: 8px;
+    align-items: center;
+    padding: 10px !important;
+    margin: 0 0 10px !important;
+    border-radius: 16px !important;
+    backdrop-filter: blur(14px);
+  }
+
+  body.page-boletim .calendar-navigation button {
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 14px !important;
+    font-size: 0 !important;
+    line-height: 1;
+  }
+
+  body.page-boletim #prevMonthBtn::before { content: '‹'; font-size: 1.8rem; font-weight: 900; }
+  body.page-boletim #nextMonthBtn::before { content: '›'; font-size: 1.8rem; font-weight: 900; }
+
+  body.page-boletim .calendar-navigation h2 {
+    min-width: 0 !important;
+    margin: 0 !important;
+    font-size: 1.02rem !important;
+    line-height: 1.15;
+    text-align: center;
+    white-space: normal;
+  }
+
+  body.page-boletim .school-days-counter {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0 !important;
+    padding: 7px 10px !important;
+    border-radius: 999px !important;
+    font-size: .78rem !important;
+    box-sizing: border-box;
+  }
+
+  body.page-boletim #calendar-wrapper,
+  body.page-boletim .month,
+  body.page-boletim .month-info {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  body.page-boletim .month {
+    padding: 10px !important;
+    border-radius: 18px !important;
+    margin: 0 0 12px !important;
+    overflow: visible !important;
+  }
+
+  body.page-boletim .days-grid {
+    display: grid !important;
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  body.page-boletim .day-name {
+    font-size: 0 !important;
+    letter-spacing: 0 !important;
+    padding: 0 0 6px !important;
+    margin: 0 !important;
+    border-bottom: 0 !important;
+  }
+  body.page-boletim .day-name:nth-child(1)::after { content: 'D'; }
+  body.page-boletim .day-name:nth-child(2)::after { content: 'S'; }
+  body.page-boletim .day-name:nth-child(3)::after { content: 'T'; }
+  body.page-boletim .day-name:nth-child(4)::after { content: 'Q'; }
+  body.page-boletim .day-name:nth-child(5)::after { content: 'Q'; }
+  body.page-boletim .day-name:nth-child(6)::after { content: 'S'; }
+  body.page-boletim .day-name:nth-child(7)::after { content: 'S'; }
+  body.page-boletim .day-name::after {
+    display: block;
+    font-size: .66rem;
+    font-weight: 900;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  body.page-boletim .day,
+  body.page-boletim .empty-day {
+    min-height: 48px !important;
+    height: 48px !important;
+    padding: 4px !important;
+    border-radius: 13px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+
+  body.page-boletim .empty-day {
+    opacity: .34;
+  }
+
+  body.page-boletim .day-number {
+    font-size: .98rem !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    font-weight: 900 !important;
+  }
+
+  /* No mobile, o texto completo do evento deixa de ficar dentro do quadrinho.
+     Isso evita que palavras fiquem quebradas verticalmente. O detalhe continua
+     disponível ao tocar no dia e na lista de eventos do mês. */
+  body.page-boletim .event-text {
+    display: none !important;
+  }
+
+  body.page-boletim .event-indicator {
+    width: 8px !important;
+    height: 8px !important;
+    top: 5px !important;
+    right: 5px !important;
+    border: 1px solid rgba(255,255,255,.75);
+    box-shadow: 0 0 0 1px rgba(0,0,0,.12);
+  }
+
+  body.page-boletim .day.has-event,
+  body.page-boletim .day.holiday,
+  body.page-boletim .day.non-school-day {
+    border-width: 2px !important;
+  }
+
+  body.page-boletim .day.selected {
+    transform: none !important;
+    box-shadow: 0 0 0 2px rgba(147,180,255,.35) !important;
+  }
+
+  body.page-boletim .month-info {
+    margin-top: 12px !important;
+    padding: 14px !important;
+    border-radius: 18px !important;
+    min-height: 0 !important;
+  }
+
+  body.page-boletim .month-info h4 {
+    font-size: 1rem !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 8px !important;
+  }
+
+  body.page-boletim .month-info ul {
+    display: grid;
+    gap: 8px;
+  }
+
+  body.page-boletim .month-event-item {
+    display: grid !important;
+    grid-template-columns: 64px minmax(0, 1fr) !important;
+    gap: 8px !important;
+    align-items: start !important;
+    padding: 10px !important;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+
+  body.page-boletim .month-event-item .event-date-display {
+    min-width: 0 !important;
+    font-size: .78rem;
+    color: var(--ink-soft);
+  }
+
+  body.page-boletim .month-event-item input[type="text"] {
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: .84rem !important;
+    min-height: 38px !important;
+  }
+
+  body.page-boletim .month-event-item .edit-event-btn,
+  body.page-boletim .month-event-item .remove-event-btn {
+    grid-column: span 1;
+    width: 100%;
+    min-height: 36px !important;
+    padding: 7px 8px !important;
+    font-size: .78rem !important;
+  }
+
+  body.page-boletim .additional-notes textarea {
+    min-height: 92px !important;
+  }
+
+  body.page-boletim .comunicados-modal-dialog {
+    width: min(96vw, 560px) !important;
+    height: min(92dvh, 760px) !important;
+    grid-template-columns: 1fr !important;
+    border-radius: 18px !important;
+  }
+
+  body.page-boletim .comunicados-modal-main,
+  body.page-boletim .comunicados-modal-sidebar {
+    min-width: 0 !important;
+    padding: 14px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  body.page-boletim .main-content {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  body.page-boletim .month {
+    padding: 8px !important;
+  }
+
+  body.page-boletim .days-grid {
+    gap: 5px !important;
+  }
+
+  body.page-boletim .day,
+  body.page-boletim .empty-day {
+    min-height: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+  }
+
+  body.page-boletim .day-number {
+    font-size: .9rem !important;
+  }
+}
+
+/* ============================================================
+   CORREÇÃO MOBILE v13 — Boletim Informativo aberto direto
+   ============================================================ */
+@media (max-width: 768px) {
+  body.page-boletim .sidebar,
+  body.page-boletim .hero-banner,
+  body.page-boletim .calendar-switcher,
+  body.page-boletim .calendar-management,
+  body.page-boletim .footer { display:none!important; }
+  body.page-boletim .main-content { display:block!important; width:100%!important; max-width:100%!important; min-width:0!important; padding:8px 8px 104px!important; overflow-x:hidden!important; }
+  body.page-boletim .calendar-navigation { display:grid!important; grid-template-columns:42px 1fr 42px!important; gap:7px!important; padding:8px!important; margin:0 0 8px!important; border-radius:16px!important; }
+  body.page-boletim .calendar-navigation button { width:42px!important; min-width:42px!important; height:42px!important; min-height:42px!important; padding:0!important; font-size:0!important; overflow:hidden!important; }
+  body.page-boletim #prevMonthBtn::before { content:'‹'; font-size:1.85rem; font-weight:900; }
+  body.page-boletim #nextMonthBtn::before { content:'›'; font-size:1.85rem; font-weight:900; }
+  body.page-boletim .calendar-navigation h2 { font-size:1rem!important; line-height:1.15!important; text-align:center!important; margin:0!important; min-width:0!important; }
+  body.page-boletim .school-days-counter { grid-column:1/-1!important; width:100%!important; min-width:0!important; padding:6px 10px!important; border-radius:999px!important; font-size:.76rem!important; }
+  body.page-boletim #calendar-wrapper, body.page-boletim .month, body.page-boletim .month-info { width:100%!important; max-width:100%!important; min-width:0!important; box-sizing:border-box!important; overflow:visible!important; }
+  body.page-boletim .month { padding:8px!important; border-radius:18px!important; margin:0 0 10px!important; }
+  body.page-boletim .days-grid { display:grid!important; grid-template-columns:repeat(7,minmax(0,1fr))!important; gap:5px!important; width:100%!important; min-width:0!important; }
+  body.page-boletim .day-name { font-size:0!important; padding:0 0 5px!important; margin:0!important; min-width:0!important; border:0!important; }
+  body.page-boletim .day-name:nth-child(1)::after { content:'D'; }
+  body.page-boletim .day-name:nth-child(2)::after { content:'S'; }
+  body.page-boletim .day-name:nth-child(3)::after { content:'T'; }
+  body.page-boletim .day-name:nth-child(4)::after { content:'Q'; }
+  body.page-boletim .day-name:nth-child(5)::after { content:'Q'; }
+  body.page-boletim .day-name:nth-child(6)::after { content:'S'; }
+  body.page-boletim .day-name:nth-child(7)::after { content:'S'; }
+  body.page-boletim .day-name::after { display:block!important; font-size:.66rem!important; font-weight:900!important; text-align:center!important; }
+  body.page-boletim .day, body.page-boletim .empty-day { min-width:0!important; width:auto!important; min-height:44px!important; height:44px!important; padding:3px!important; border-radius:12px!important; display:flex!important; flex-direction:column!important; align-items:center!important; justify-content:center!important; overflow:hidden!important; box-shadow:none!important; }
+  body.page-boletim .day-number { font-size:.95rem!important; line-height:1!important; margin:0!important; font-weight:900!important; }
+  body.page-boletim .event-text { display:none!important; visibility:hidden!important; width:0!important; height:0!important; overflow:hidden!important; font-size:0!important; line-height:0!important; }
+  body.page-boletim .event-indicator { display:block!important; position:absolute!important; width:8px!important; height:8px!important; top:5px!important; right:5px!important; border-radius:50%!important; border:1px solid rgba(255,255,255,.8)!important; }
+}
+
+/* ============================================================
+   MOBILE v14 — Boletim Informativo compacto
+   Mantém cada dia como quadradinho; textos aparecem apenas na lista
+   "Informações e Eventos do Mês".
+   ============================================================ */
+@media (max-width: 768px) {
+  body.page-boletim #calendar-wrapper,
+  body.page-boletim .month,
+  body.page-boletim .days-grid {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  body.page-boletim .days-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+  }
+
+  body.page-boletim .day,
+  body.page-boletim .empty-day {
+    position: relative !important;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    min-height: 42px !important;
+    max-height: 54px !important;
+    padding: 3px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    touch-action: manipulation !important;
+  }
+
+  body.page-boletim .day-number {
+    position: relative !important;
+    z-index: 2 !important;
+    font-size: clamp(.82rem, 3.5vw, 1rem) !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+
+  body.page-boletim .day .event-text,
+  body.page-boletim .day.has-event .event-text,
+  body.page-boletim .day.holiday .event-text,
+  body.page-boletim .day.non-school-day .event-text,
+  body.page-boletim .day.selected .event-text {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    max-width: 0 !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    white-space: nowrap !important;
+    pointer-events: none !important;
+  }
+
+  body.page-boletim .event-indicator {
+    display: block !important;
+    position: absolute !important;
+    right: 5px !important;
+    top: 5px !important;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 999px !important;
+    z-index: 3 !important;
+  }
+
+  body.page-boletim .month-event-item.is-mobile-focus {
+    outline: 2px solid #60a5fa !important;
+    box-shadow: 0 0 0 4px rgba(96, 165, 250, .18) !important;
+    transform: translateY(-1px) !important;
+  }
+}
+
+/* ============================================================
+   MOBILE v15 — correção definitiva dos quadrinhos do boletim
+   No celular, o quadrinho nunca exibe texto interno.
+   ============================================================ */
+@media (max-width: 768px) {
+  body.page-boletim .day,
+  body.page-boletim .empty-day {
+    aspect-ratio: 1 / 1 !important;
+    min-height: 42px !important;
+    max-height: 52px !important;
+    height: auto !important;
+    padding: 3px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    contain: layout paint !important;
+  }
+
+  body.page-boletim .day .event-text,
+  body.page-boletim .day.has-event .event-text,
+  body.page-boletim .day.holiday .event-text,
+  body.page-boletim .day.non-school-day .event-text,
+  body.page-boletim .day.selected .event-text {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    white-space: nowrap !important;
+    pointer-events: none !important;
+  }
+
+  body.page-boletim .day-number {
+    display: block !important;
+    position: relative !important;
+    z-index: 2 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+}

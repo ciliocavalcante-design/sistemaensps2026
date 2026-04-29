@@ -448,3 +448,1006 @@ textarea {
     white-space: normal;
   }
 }
+
+/* ============================================================
+   PENTE FINO VISUAL v7 — harmonização, folha e impressão
+   ============================================================ */
+body.page-boletim,
+body.page-horario { background: var(--app-bg, var(--bg)) !important; }
+body.page-boletim[data-theme="dark"],
+body.page-horario[data-theme="dark"] {
+  --bg:#0f0f1a; --surface:#1a1a2b; --surface-soft:#202036; --surface-strong:#252538;
+  --ink:#e8eaf6; --ink-soft:#a8b3ca; --border:#2a2a3e; --brand:#7aa2ff; --brand-strong:#dbe7ff; --accent:#93b4ff;
+  --app-bg:radial-gradient(circle at top left,rgba(59,91,219,.22),transparent 28rem),radial-gradient(circle at bottom right,rgba(16,185,129,.10),transparent 26rem),linear-gradient(180deg,#0d1020 0%,#0f0f1a 52%,#0b0d16 100%);
+  --text-primary:#e8eaf6; --text-secondary:#a8b3ca; --border-soft:#2a2a3e; --surface-muted:#202036;
+  --header-gradient:linear-gradient(135deg,rgba(59,91,219,.35),rgba(59,91,219,.14));
+  color:var(--ink)!important; background:var(--app-bg)!important;
+}
+body.page-boletim[data-theme="dark"] .sidebar,
+body.page-horario[data-theme="dark"] .container,
+body.page-horario[data-theme="dark"] .controls,
+body.page-horario[data-theme="dark"] .schedule-container,
+body.page-horario[data-theme="dark"] .data-manager,
+body.page-horario[data-theme="dark"] .teachers-panel,
+body.page-horario[data-theme="dark"] .modal-content {
+  background:linear-gradient(180deg,rgba(35,35,53,.94),rgba(27,27,43,.94))!important;
+  border-color:rgba(255,255,255,.075)!important; box-shadow:var(--shadow-soft,0 14px 42px rgba(0,0,0,.20))!important;
+}
+body.page-boletim[data-theme="dark"] .sidebar-card,
+body.page-boletim[data-theme="dark"] .month,
+body.page-boletim[data-theme="dark"] .calendar-navigation,
+body.page-boletim[data-theme="dark"] .selected-date-info,
+body.page-boletim[data-theme="dark"] .topic-item,
+body.page-boletim[data-theme="dark"] .custom-topic-item,
+body.page-boletim[data-theme="dark"] .color-selector,
+body.page-boletim[data-theme="dark"] .comunicado-card,
+body.page-horario[data-theme="dark"] .control-section,
+body.page-horario[data-theme="dark"] .stat-card,
+body.page-horario[data-theme="dark"] .period-row {
+  background:rgba(255,255,255,.045)!important; border-color:rgba(255,255,255,.085)!important;
+}
+body.page-boletim[data-theme="dark"] input,
+body.page-boletim[data-theme="dark"] select,
+body.page-boletim[data-theme="dark"] textarea,
+body.page-horario[data-theme="dark"] input,
+body.page-horario[data-theme="dark"] select,
+body.page-horario[data-theme="dark"] textarea {
+  background:rgba(12,15,28,.72)!important; color:#e8eaf6!important; border-color:rgba(255,255,255,.10)!important;
+}
+
+#tab-frequencia { padding:22px clamp(16px,2.2vw,30px)!important; background:transparent!important; }
+#tab-frequencia .container { max-width:1320px!important; width:100%!important; margin:0 auto!important; background:transparent!important; border:0!important; padding:0!important; border-radius:0!important; }
+#tab-frequencia #mainTitleFreq { text-align:left!important; margin:0 0 14px!important; font-size:clamp(1.25rem,1.9vw,1.7rem)!important; letter-spacing:-.02em; }
+#tab-frequencia .month-selector,
+#tab-frequencia .form-section,
+#tab-frequencia .table-section,
+#tab-frequencia .extra-avulsa-section,
+#tab-frequencia .modal-content {
+  border-radius:var(--radius-lg,18px)!important; border:1px solid rgba(255,255,255,.075)!important;
+  background:linear-gradient(180deg,rgba(35,35,53,.94),rgba(27,27,43,.94))!important; box-shadow:var(--shadow-soft,0 14px 42px rgba(0,0,0,.20))!important;
+}
+#tab-frequencia .month-selector { justify-content:space-between!important; padding:14px!important; margin-bottom:18px!important; }
+#tab-frequencia .month-selector span { color:var(--ink)!important; font-size:1.05rem!important; font-weight:800!important; }
+#tab-frequencia .form-section,
+#tab-frequencia .table-section,
+#tab-frequencia .extra-avulsa-section { padding:18px!important; margin-bottom:18px!important; }
+#tab-frequencia .form-section h2,
+#tab-frequencia .table-section h2,
+#tab-frequencia .extra-avulsa-section h2 { text-align:left!important; color:var(--ink)!important; font-size:1rem!important; margin:0 0 14px!important; }
+#tab-frequencia #freq-form,
+#tab-frequencia #freq-extraAvulsaForm { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; align-items:end; }
+#tab-frequencia .form-group { margin-bottom:0!important; }
+#tab-frequencia .form-group label,
+#tab-frequencia #freq-substituicoesContainer > label { color:#b9c2d4!important; font-size:.8rem!important; letter-spacing:.01em; }
+#tab-frequencia .form-group input,
+#tab-frequencia .form-group select { border-radius:12px!important; min-height:40px; background:rgba(12,15,28,.72)!important; color:var(--ink)!important; border-color:rgba(255,255,255,.09)!important; }
+#tab-frequencia .radio-group { gap:10px!important; flex-wrap:wrap; }
+#tab-frequencia .radio-group label { padding:9px 11px; border:1px solid rgba(255,255,255,.075); border-radius:12px; background:rgba(255,255,255,.035); color:#c6cede!important; }
+#tab-frequencia .radio-group input[type="radio"] { width:16px!important; height:16px!important; min-height:16px!important; margin:0 7px 0 0!important; transform:none!important; }
+#tab-frequencia button,
+#tab-frequencia .btn-view-stats,
+#tab-frequencia #freq-printPdfBtn { width:auto!important; display:inline-flex!important; align-items:center; justify-content:center; gap:8px; min-height:40px; margin-top:0!important; padding:10px 15px!important; border-radius:12px!important; }
+#tab-frequencia #freq-form > button[type="submit"],
+#tab-frequencia #freq-extraAvulsaForm > button[type="submit"] { align-self:end; min-width:190px; }
+#tab-frequencia table { border-radius:14px!important; overflow:hidden; border-color:rgba(255,255,255,.075)!important; background:rgba(255,255,255,.025)!important; }
+#tab-frequencia th { background:rgba(255,255,255,.055)!important; color:#a8b3ca!important; }
+#tab-frequencia tr:nth-child(even) { background:rgba(255,255,255,.025)!important; }
+#tab-frequencia tr:hover { background:rgba(147,180,255,.08)!important; }
+#tab-frequencia .substituicoes-container,
+#tab-frequencia .substituicao-item,
+#tab-frequencia .extra-avulsa-item { border-radius:14px!important; border-color:rgba(255,255,255,.075)!important; background:rgba(255,255,255,.035)!important; }
+#tab-frequencia .action-buttons { justify-content:flex-start!important; gap:10px!important; }
+#tab-frequencia .btn-view-stats,
+#tab-frequencia #freq-printPdfBtn { margin-right:10px; margin-top:12px!important; }
+
+input[type="checkbox"], input[type="radio"] { width:16px!important; height:16px!important; min-width:16px!important; min-height:16px!important; padding:0!important; border-radius:4px; box-shadow:none!important; flex:0 0 auto; }
+input[type="radio"] { border-radius:50%; }
+
+@media print {
+  body.page-index.print-active-freq,
+  body.page-index.print-active-relatorios-gerais { background:#fff!important; }
+  body.page-index.print-active-freq .sidebar,
+  body.page-index.print-active-freq .bottom-nav,
+  body.page-index.print-active-freq .admin-login-overlay,
+  body.page-index.print-active-relatorios-gerais .sidebar,
+  body.page-index.print-active-relatorios-gerais .bottom-nav,
+  body.page-index.print-active-relatorios-gerais .admin-login-overlay { display:none!important; }
+  body.page-index.print-active-freq .main-content,
+  body.page-index.print-active-relatorios-gerais .main-content { margin:0!important; width:100%!important; }
+  #tab-frequencia .month-selector,
+  #tab-frequencia .form-section,
+  #tab-frequencia .table-section,
+  #tab-frequencia .extra-avulsa-section,
+  #tab-frequencia .modal-content { background:#fff!important; border-color:#ccc!important; box-shadow:none!important; }
+}
+@media (max-width:760px) {
+  #tab-frequencia #freq-form,
+  #tab-frequencia #freq-extraAvulsaForm { grid-template-columns:1fr; }
+  #tab-frequencia button,
+  #tab-frequencia .action-buttons button,
+  #tab-frequencia .btn-view-stats,
+  #tab-frequencia #freq-printPdfBtn { width:100%!important; }
+}
+
+/* =====================================================
+   PENTE FINO MOBILE v8 — folha dos professores e responsividade geral
+   ===================================================== */
+
+:root{
+  --mobile-card-pad: clamp(14px, 3vw, 20px);
+}
+
+/* Frequência / Folha dos Professores: formulário mais compacto e sem vazios */
+#tab-frequencia .form-section{
+  overflow:hidden!important;
+}
+
+#tab-frequencia #freq-form{
+  display:grid!important;
+  grid-template-columns: repeat(4, minmax(160px, 1fr))!important;
+  gap:14px!important;
+  align-items:end!important;
+}
+
+#tab-frequencia #freq-dia,
+#tab-frequencia #freq-motivo,
+#tab-frequencia #freq-qtde,
+#tab-frequencia #freq-professorFalta,
+#tab-frequencia #freq-professorExtra,
+#tab-frequencia #freq-fiiEmExtra{
+  min-height:44px!important;
+}
+
+#tab-frequencia #freq-substituicoesContainer{
+  grid-column:1 / -1!important;
+  margin-top:2px!important;
+  padding:14px!important;
+  border:1px solid rgba(255,255,255,.075)!important;
+  border-radius:16px!important;
+  background:rgba(255,255,255,.025)!important;
+}
+
+#tab-frequencia #freq-substituicoesContainer > label{
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  margin:0 0 10px!important;
+  color:#dbe3f5!important;
+  font-size:.86rem!important;
+  font-weight:800!important;
+}
+#tab-frequencia #freq-substituicoesContainer > label::before{
+  content:'↳';
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;
+  height:22px;
+  border-radius:8px;
+  background:rgba(45,212,191,.14);
+  color:#67e8f9;
+}
+
+#tab-frequencia .substituicoes-container{
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  display:grid!important;
+  gap:10px!important;
+}
+
+#tab-frequencia .substituicao-item{
+  display:grid!important;
+  grid-template-columns:minmax(220px,1.7fr) minmax(130px,.8fr) minmax(78px,.45fr) auto!important;
+  gap:10px!important;
+  align-items:end!important;
+  padding:12px!important;
+  margin:0!important;
+}
+
+#tab-frequencia .substituicao-item .form-group label{
+  font-size:.74rem!important;
+  margin-bottom:5px!important;
+}
+
+#tab-frequencia .substituicao-item select,
+#tab-frequencia .substituicao-item input{
+  min-height:40px!important;
+  padding:8px 10px!important;
+}
+
+#tab-frequencia .substituicao-item .remove-substituicao-btn{
+  width:42px!important;
+  min-width:42px!important;
+  height:40px!important;
+  padding:0!important;
+  border-radius:12px!important;
+  font-weight:900!important;
+  background:#ef4444!important;
+}
+
+#tab-frequencia .add-substituicao-btn{
+  margin-top:10px!important;
+  width:auto!important;
+  min-height:40px!important;
+  background:linear-gradient(135deg,#0891b2,#0f766e)!important;
+}
+
+#tab-frequencia #freq-form > button[type="submit"]{
+  grid-column:span 2!important;
+  min-height:44px!important;
+  background:linear-gradient(135deg,#10b981,#16a34a)!important;
+  font-weight:800!important;
+}
+
+#tab-frequencia #freq-professorFaltaGroup,
+#tab-frequencia #freq-professorExtraGroup{
+  grid-column:span 2!important;
+}
+
+#tab-frequencia #freq-motivo{
+  width:100%!important;
+}
+
+#tab-frequencia .table-section,
+#tab-frequencia .extra-avulsa-section{
+  overflow:hidden!important;
+}
+
+#tab-frequencia .table-section table,
+#tab-frequencia .professor-stats-table,
+#tab-frequencia .print-summary-table{
+  min-width:760px;
+}
+
+#tab-frequencia .table-section,
+#tab-frequencia .stats-content,
+#tab-frequencia .print-summary{
+  overflow-x:auto!important;
+  -webkit-overflow-scrolling:touch;
+}
+
+#tab-frequencia .action-buttons{
+  display:grid!important;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr))!important;
+}
+#tab-frequencia .action-buttons button{
+  width:100%!important;
+}
+
+#tab-frequencia .extra-avulsa-section{
+  background:linear-gradient(180deg,rgba(26,49,44,.78),rgba(24,36,41,.74))!important;
+}
+#tab-frequencia .extra-avulsa-section h2{
+  color:#d7ffe9!important;
+}
+#tab-frequencia #freq-extraAvulsaForm{
+  grid-template-columns:minmax(240px,1fr) auto!important;
+}
+
+/* Responsividade geral dos módulos principais */
+@media (max-width: 1180px){
+  #tab-frequencia #freq-form{
+    grid-template-columns:repeat(2,minmax(180px,1fr))!important;
+  }
+  #tab-frequencia #freq-professorFaltaGroup,
+  #tab-frequencia #freq-professorExtraGroup,
+  #tab-frequencia #freq-form > button[type="submit"]{
+    grid-column:span 1!important;
+  }
+}
+
+@media (max-width: 860px){
+  body.page-index .main-content{
+    padding-bottom:88px!important;
+  }
+
+  .content-section,
+  #tab-frequencia,
+  #tab-planilha,
+  #tab-materiais,
+  #tab-relatorios-gerais,
+  #tab-relatorio-pedagogico{
+    padding:14px!important;
+  }
+
+  #tab-frequencia #mainTitleFreq{
+    font-size:1.32rem!important;
+    line-height:1.15!important;
+  }
+
+  #tab-frequencia .month-selector{
+    gap:10px!important;
+    padding:12px!important;
+  }
+  #tab-frequencia .month-selector button{
+    min-width:48px!important;
+    height:42px!important;
+    padding:0 12px!important;
+  }
+  #tab-frequencia .month-selector span{
+    font-size:.98rem!important;
+    text-align:center!important;
+  }
+
+  #tab-frequencia .form-section,
+  #tab-frequencia .table-section,
+  #tab-frequencia .extra-avulsa-section,
+  #tab-frequencia .modal-content{
+    border-radius:16px!important;
+    padding:var(--mobile-card-pad)!important;
+  }
+
+  #tab-frequencia #freq-form,
+  #tab-frequencia #freq-extraAvulsaForm{
+    grid-template-columns:1fr!important;
+  }
+  #tab-frequencia #freq-professorFaltaGroup,
+  #tab-frequencia #freq-professorExtraGroup,
+  #tab-frequencia #freq-form > button[type="submit"],
+  #tab-frequencia #freq-substituicoesContainer{
+    grid-column:1 / -1!important;
+  }
+  #tab-frequencia .radio-group{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+  }
+  #tab-frequencia .radio-group label{
+    justify-content:center!important;
+  }
+  #tab-frequencia .substituicao-item{
+    grid-template-columns:1fr 1fr!important;
+  }
+  #tab-frequencia .substituicao-item .form-group:first-child{
+    grid-column:1 / -1!important;
+  }
+  #tab-frequencia .substituicao-item .remove-substituicao-btn{
+    width:100%!important;
+    min-width:0!important;
+  }
+  #tab-frequencia .add-substituicao-btn,
+  #tab-frequencia #freq-form > button[type="submit"],
+  #tab-frequencia #freq-printPdfBtn,
+  #tab-frequencia .btn-view-stats{
+    width:100%!important;
+  }
+
+  /* Cards e formulários de outras abas no mobile */
+  .card,
+  .panel,
+  .form-card,
+  .relatorios-gerais-card,
+  .dashboard-card,
+  .boletim-integrado-card,
+  .horario-integrado-card,
+  #tab-planilha #controle{
+    border-radius:16px!important;
+    padding:14px!important;
+  }
+
+  input,
+  select,
+  textarea,
+  button,
+  .btn,
+  .btn-ghost{
+    min-height:42px;
+  }
+
+  table{
+    font-size:.82rem;
+  }
+
+  .table-wrapper,
+  .table-container,
+  [class*="table-container"],
+  [class*="-table-container"]{
+    overflow-x:auto!important;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  #tab-planilha .grid{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  #tab-planilha .op{
+    min-height:42px!important;
+    display:flex!important;
+    align-items:center!important;
+    gap:8px!important;
+    justify-content:flex-start!important;
+  }
+
+  #tab-relatorio-pedagogico .topicos-grid,
+  #tab-relatorio-pedagogico .form-grid,
+  #tab-relatorios-gerais .relatorios-filtros,
+  #tab-materiais .filter-controls{
+    grid-template-columns:1fr!important;
+    flex-direction:column!important;
+  }
+}
+
+@media (max-width: 520px){
+  .content-section,
+  #tab-frequencia,
+  #tab-planilha,
+  #tab-materiais,
+  #tab-relatorios-gerais,
+  #tab-relatorio-pedagogico{
+    padding:10px!important;
+  }
+
+  #tab-frequencia .month-selector{
+    grid-template-columns:44px 1fr 44px!important;
+    display:grid!important;
+  }
+  #tab-frequencia .month-selector button{
+    width:44px!important;
+    min-width:44px!important;
+  }
+
+  #tab-frequencia .radio-group,
+  #tab-frequencia .substituicao-item{
+    grid-template-columns:1fr!important;
+  }
+
+  #tab-frequencia .substituicao-item .remove-substituicao-btn{
+    height:42px!important;
+  }
+
+  #tab-planilha .grid{
+    grid-template-columns:1fr!important;
+  }
+
+  h1{font-size:1.25rem!important;}
+  h2{font-size:1rem!important;}
+}
+
+/* Impressão: preservar clareza e evitar que CSS mobile interfira no papel */
+@media print{
+  #tab-frequencia .table-section,
+  #tab-frequencia .stats-content,
+  #tab-frequencia .print-summary{
+    overflow:visible!important;
+  }
+  #tab-frequencia .table-section table,
+  #tab-frequencia .professor-stats-table,
+  #tab-frequencia .print-summary-table{
+    min-width:0!important;
+    width:100%!important;
+  }
+}
+
+/* =====================================================
+   MOBILE v9 — Frequência diária em cards e navegação inferior
+   ===================================================== */
+
+@media (max-width: 760px){
+  body.page-index .main-content{
+    width:100%!important;
+    overflow-x:hidden!important;
+    padding-bottom:96px!important;
+  }
+
+  #frequencia{
+    padding:10px!important;
+  }
+
+  #frequencia .wrap{
+    width:100%!important;
+    max-width:100%!important;
+    padding:0!important;
+    margin:0!important;
+  }
+
+  #frequencia header.top{
+    padding:4px 2px 10px!important;
+  }
+
+  #frequencia header.top h1{
+    font-size:1.28rem!important;
+    line-height:1.12!important;
+  }
+
+  #frequencia header.top h2{
+    font-size:.82rem!important;
+    line-height:1.25!important;
+  }
+
+  #frequencia .card{
+    border-radius:18px!important;
+    padding:14px!important;
+    margin-bottom:14px!important;
+    max-width:100%!important;
+    overflow:hidden!important;
+  }
+
+  #frequencia .filters{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+  }
+
+  #frequencia .filter-group,
+  #frequencia .filter-group[style]{
+    min-width:0!important;
+    width:100%!important;
+    flex:unset!important;
+  }
+
+  #frequencia .actions{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:8px!important;
+    align-items:stretch!important;
+  }
+
+  #frequencia .actions button{
+    width:100%!important;
+    min-width:0!important;
+    min-height:42px!important;
+    padding:9px 10px!important;
+    font-size:.78rem!important;
+    line-height:1.15!important;
+    white-space:normal!important;
+  }
+
+  #frequencia .prova-opcoes{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+  }
+
+  #frequencia .prova-check{
+    padding:10px!important;
+    border-radius:14px!important;
+  }
+
+  #frequencia .table-container{
+    overflow:visible!important;
+    border:0!important;
+    border-radius:0!important;
+  }
+
+  #tabelaFrequencia{
+    width:100%!important;
+    min-width:0!important;
+    border:0!important;
+    background:transparent!important;
+  }
+
+  #tabelaFrequencia thead{
+    display:none!important;
+  }
+
+  #tabelaFrequencia tbody{
+    display:grid!important;
+    gap:10px!important;
+  }
+
+  #tabelaFrequencia tr{
+    display:grid!important;
+    grid-template-columns:42px 1fr auto!important;
+    grid-template-areas:
+      "numero nome serie"
+      "numero ensino serie"
+      "acoes acoes acoes"!important;
+    gap:5px 10px!important;
+    align-items:center!important;
+    padding:12px!important;
+    min-height:0!important;
+    background:rgba(255,255,255,.035)!important;
+    border:1px solid rgba(255,255,255,.08)!important;
+    border-radius:16px!important;
+    box-shadow:0 10px 24px rgba(0,0,0,.12)!important;
+  }
+
+  #tabelaFrequencia td{
+    display:block!important;
+    border:0!important;
+    padding:0!important;
+    background:transparent!important;
+    min-width:0!important;
+  }
+
+  #tabelaFrequencia td:nth-child(1){
+    grid-area:numero;
+    width:34px!important;
+    height:34px!important;
+    border-radius:12px!important;
+    display:grid!important;
+    place-items:center!important;
+    background:rgba(147,180,255,.12)!important;
+    color:#dbeafe!important;
+    font-size:.82rem!important;
+    font-weight:800!important;
+  }
+
+  #tabelaFrequencia td:nth-child(2){
+    grid-area:nome;
+    font-size:.93rem!important;
+    line-height:1.18!important;
+    font-weight:800!important;
+    color:#f3f6ff!important;
+    word-break:normal!important;
+    overflow-wrap:anywhere!important;
+  }
+
+  #tabelaFrequencia td:nth-child(3){
+    grid-area:serie;
+    justify-self:end!important;
+    align-self:start!important;
+    padding:6px 9px!important;
+    border-radius:999px!important;
+    background:rgba(96,165,250,.13)!important;
+    border:1px solid rgba(96,165,250,.22)!important;
+    color:#bfdbfe!important;
+    font-weight:800!important;
+    font-size:.78rem!important;
+    white-space:nowrap!important;
+  }
+
+  #tabelaFrequencia td:nth-child(4){
+    grid-area:ensino;
+    color:#aeb8cc!important;
+    font-size:.78rem!important;
+    font-weight:700!important;
+  }
+
+  #tabelaFrequencia td:nth-child(4)::before{
+    content:'Ensino: ';
+    color:#79849a;
+    font-weight:700;
+  }
+
+  #tabelaFrequencia td:nth-child(5){
+    grid-area:acoes;
+    margin-top:8px!important;
+    padding-top:10px!important;
+    border-top:1px solid rgba(255,255,255,.07)!important;
+  }
+
+  #tabelaFrequencia .presenca-btns{
+    display:grid!important;
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    gap:6px!important;
+    justify-content:stretch!important;
+    width:100%!important;
+  }
+
+  #tabelaFrequencia .presenca-btn{
+    width:100%!important;
+    min-width:0!important;
+    min-height:36px!important;
+    padding:7px 4px!important;
+    border-radius:12px!important;
+    font-size:.72rem!important;
+    line-height:1!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+
+  #tabelaFrequencia .presenca-btn.segunda-chamada{
+    font-size:.66rem!important;
+    letter-spacing:-.02em!important;
+  }
+
+  #tabelaFaltasAcumuladas{
+    min-width:760px!important;
+  }
+
+  .bottom-nav{
+    padding-bottom:calc(env(safe-area-inset-bottom, 0px) + 4px)!important;
+    overflow-x:auto!important;
+    scrollbar-width:none!important;
+  }
+  .bottom-nav::-webkit-scrollbar{ display:none!important; }
+
+  .bottom-nav-inner{
+    display:flex!important;
+    gap:4px!important;
+    padding:6px 8px!important;
+    min-width:max-content!important;
+  }
+
+  .bottom-nav-item{
+    min-width:72px!important;
+    padding:7px 8px!important;
+    border-radius:16px!important;
+  }
+
+  .bottom-nav-item .bnav-icon{
+    font-size:1.12rem!important;
+  }
+
+  .bottom-nav-item .bnav-label{
+    max-width:68px!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    font-size:.59rem!important;
+  }
+
+  .floating-ai,
+  .magic-button,
+  [class*="floating"]{
+    bottom:calc(86px + env(safe-area-inset-bottom, 0px))!important;
+    right:14px!important;
+    width:54px!important;
+    height:54px!important;
+  }
+}
+
+@media (max-width: 420px){
+  #frequencia{
+    padding:8px!important;
+  }
+
+  #frequencia .card{
+    padding:12px!important;
+    border-radius:16px!important;
+  }
+
+  #frequencia .actions{
+    grid-template-columns:1fr!important;
+  }
+
+  #tabelaFrequencia tr{
+    grid-template-columns:36px 1fr!important;
+    grid-template-areas:
+      "numero serie"
+      "nome nome"
+      "ensino ensino"
+      "acoes acoes"!important;
+    padding:11px!important;
+  }
+
+  #tabelaFrequencia td:nth-child(2){
+    margin-top:3px!important;
+  }
+
+  #tabelaFrequencia td:nth-child(3){
+    justify-self:end!important;
+  }
+
+  #tabelaFrequencia .presenca-btns{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+
+  #tabelaFrequencia .presenca-btn{
+    min-height:38px!important;
+    font-size:.72rem!important;
+  }
+}
+
+
+/* =====================================================
+   MOBILE v10 — Correção de rolagem na Frequência Diária
+   ===================================================== */
+@media (max-width: 768px){
+  html,
+  body{
+    height:auto!important;
+    min-height:100%!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    -webkit-overflow-scrolling:touch!important;
+    overscroll-behavior-y:auto!important;
+  }
+
+  body{
+    display:block!important;
+    padding-bottom:calc(96px + env(safe-area-inset-bottom, 0px))!important;
+  }
+
+  .main-content{
+    height:auto!important;
+    min-height:calc(100dvh - 88px)!important;
+    overflow:visible!important;
+    padding-bottom:calc(110px + env(safe-area-inset-bottom, 0px))!important;
+  }
+
+  .content-section,
+  .content-section.active,
+  #frequencia,
+  #frequencia .wrap{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+
+  #frequencia .wrap{
+    padding-bottom:calc(120px + env(safe-area-inset-bottom, 0px))!important;
+  }
+
+  #frequencia .card{
+    overflow:visible!important;
+    max-height:none!important;
+  }
+
+  /* Lista de alunos: no celular ela vira uma lista de cards e precisa crescer com a página. */
+  #frequencia .frequencia-alunos-scroll{
+    overflow:visible!important;
+    max-height:none!important;
+    height:auto!important;
+    border:0!important;
+    border-radius:0!important;
+  }
+
+  #tabelaFrequencia,
+  #tabelaFrequencia tbody{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+
+  #tabelaFrequencia tr{
+    display:grid!important;
+    width:100%!important;
+    margin-bottom:10px!important;
+  }
+
+  /* Faltas acumuladas: continua em tabela, mas com rolagem horizontal própria. */
+  #frequencia .faltas-acumuladas-scroll{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:auto!important;
+    overflow-y:visible!important;
+    -webkit-overflow-scrolling:touch!important;
+    border-radius:14px!important;
+  }
+
+  #tabelaFaltasAcumuladas{
+    display:table!important;
+    width:max-content!important;
+    min-width:760px!important;
+    max-width:none!important;
+  }
+
+  #tabelaFaltasAcumuladas thead{ display:table-header-group!important; }
+  #tabelaFaltasAcumuladas tbody{ display:table-row-group!important; }
+  #tabelaFaltasAcumuladas tr{ display:table-row!important; }
+  #tabelaFaltasAcumuladas th,
+  #tabelaFaltasAcumuladas td{
+    display:table-cell!important;
+    white-space:nowrap!important;
+  }
+
+  #tabelaFaltasAcumuladas th:first-child,
+  #tabelaFaltasAcumuladas td:first-child{
+    min-width:220px!important;
+    white-space:normal!important;
+  }
+
+  .bottom-nav{
+    position:fixed!important;
+    left:0!important;
+    right:0!important;
+    bottom:0!important;
+    z-index:500!important;
+  }
+}
+
+/* =====================================================
+   MOBILE v11 — Recolhedor da lista + faltas acumuladas em cards
+   ===================================================== */
+.card-title-row.frequencia-mobile-title-row{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+}
+.frequencia-mobile-title-row h3{ margin:0; }
+.frequencia-mobile-hint{ margin:4px 0 0!important; font-size:.82rem; }
+.mobile-collapse-toggle{ display:none!important; white-space:nowrap!important; }
+
+@media (max-width: 768px){
+  .card-title-row.frequencia-mobile-title-row{ align-items:center!important; gap:10px!important; }
+  .frequencia-mobile-hint{ display:none!important; }
+  .mobile-collapse-toggle{
+    display:inline-flex!important;
+    min-height:36px!important;
+    padding:8px 11px!important;
+    border-radius:12px!important;
+    font-size:.78rem!important;
+  }
+  #frequenciaListaCard.is-collapsed .frequencia-alunos-scroll{ display:none!important; }
+  #frequenciaListaCard.is-collapsed{ padding-bottom:12px!important; }
+  #frequenciaListaCard.is-collapsed .frequencia-mobile-title-row{ margin-bottom:0!important; }
+
+  #frequencia .faltas-acumuladas-card .faltas-acumuladas-scroll{
+    overflow:visible!important;
+    border:0!important;
+    border-radius:0!important;
+  }
+  #tabelaFaltasAcumuladas{
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    background:transparent!important;
+    border:0!important;
+  }
+  #tabelaFaltasAcumuladas thead{ display:none!important; }
+  #tabelaFaltasAcumuladas tbody{
+    display:grid!important;
+    gap:10px!important;
+    width:100%!important;
+  }
+  #tabelaFaltasAcumuladas tr{
+    display:grid!important;
+    grid-template-columns:1fr 1fr;
+    gap:8px!important;
+    padding:12px!important;
+    border-radius:16px!important;
+    border:1px solid rgba(255,255,255,.08)!important;
+    background:rgba(255,255,255,.035)!important;
+    box-shadow:0 10px 24px rgba(0,0,0,.12)!important;
+  }
+  #tabelaFaltasAcumuladas th,
+  #tabelaFaltasAcumuladas td{
+    display:block!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    white-space:normal!important;
+  }
+  #tabelaFaltasAcumuladas td:first-child{
+    grid-column:1 / -1;
+    font-size:.94rem!important;
+    line-height:1.18!important;
+    font-weight:850!important;
+    color:#f3f6ff!important;
+    overflow-wrap:anywhere!important;
+    padding-bottom:6px!important;
+    border-bottom:1px solid rgba(255,255,255,.07)!important;
+  }
+  #tabelaFaltasAcumuladas td:nth-child(2){
+    grid-column:1 / -1;
+    justify-self:start!important;
+    margin-top:-2px!important;
+    padding:5px 9px!important;
+    border-radius:999px!important;
+    border:1px solid rgba(96,165,250,.20)!important;
+    background:rgba(96,165,250,.11)!important;
+    color:#bfdbfe!important;
+    font-size:.76rem!important;
+    font-weight:800!important;
+  }
+  #tabelaFaltasAcumuladas td:nth-child(n+3){
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:8px!important;
+    padding:8px 10px!important;
+    border-radius:12px!important;
+    background:rgba(0,0,0,.14)!important;
+    border:1px solid rgba(255,255,255,.06)!important;
+    color:#cbd5e1!important;
+    font-size:.76rem!important;
+    font-weight:800!important;
+  }
+  #tabelaFaltasAcumuladas td:nth-child(3)::before{ content:'Faltas'; }
+  #tabelaFaltasAcumuladas td:nth-child(4)::before{ content:'2ª chamada'; }
+  #tabelaFaltasAcumuladas td:nth-child(5)::before{ content:'Justificadas'; }
+  #tabelaFaltasAcumuladas td:nth-child(6)::before{ content:'Sem farda'; }
+  #tabelaFaltasAcumuladas td:nth-child(n+3)::before{ color:#94a3b8!important; font-weight:800!important; }
+  #tabelaFaltasAcumuladas .badge{
+    min-width:30px!important;
+    justify-content:center!important;
+    padding:4px 8px!important;
+    font-size:.75rem!important;
+  }
+}
+
+@media (max-width: 420px){
+  #tabelaFaltasAcumuladas tr{ grid-template-columns:1fr!important; }
+}

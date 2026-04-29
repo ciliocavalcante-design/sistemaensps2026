@@ -1478,3 +1478,19 @@ body.print-active-relatorios-gerais .main-content{margin:0!important;padding:0!i
 body.print-active-relatorios-gerais .relatorios-gerais-print .card,
 body.print-active-relatorios-gerais .relatorios-metrica-card{box-shadow:none!important;}
 @media print{body.print-active-relatorios-gerais{background:#fff!important;}body.print-active-relatorios-gerais .relatorios-gerais-print{padding:0!important;}}
+
+/* ============================================================
+   OTIMIZAÇÃO MOBILE v12 — Boletim integrado
+   ============================================================ */
+@media (max-width: 768px) {
+  #tab-boletim .top { padding: 12px 14px 6px !important; }
+  #tab-boletim .top h1 { font-size: 1.2rem !important; line-height: 1.18 !important; }
+  #tab-boletim .top .muted { display: none !important; }
+  #tab-boletim .boletim-integrado-shell { padding: 8px !important; }
+  #tab-boletim .boletim-integrado-card { padding: 8px !important; border-radius: 16px !important; overflow: hidden !important; }
+  #tab-boletim .boletim-integrado-toolbar { display: grid !important; grid-template-columns: 1fr !important; gap: 8px !important; margin-bottom: 8px !important; }
+  #tab-boletim .boletim-integrado-toolbar h3,
+  #tab-boletim .boletim-integrado-toolbar .muted { display: none !important; }
+  #tab-boletim #btnRecarregarBoletim { width: 100% !important; min-height: 40px !important; border-radius: 14px !important; }
+  #tab-boletim .boletim-integrado-frame { height: calc(100dvh - 176px) !important; min-height: 560px !important; border-radius: 14px !important; }
+}

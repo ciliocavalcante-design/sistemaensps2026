@@ -8,11 +8,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<link href="assets/css/index.css" rel="stylesheet"/>
+<link href="assets/css/index.css?v=20260429-boletim-mobile-v15" rel="stylesheet"/>
 
-<link href="assets/css/visual-polido.css?v=20260428-pente-fino-v6" rel="stylesheet"/>
+<link href="assets/css/visual-polido.css?v=20260429-boletim-mobile-v15" rel="stylesheet"/>
 </head>
-<body>
+<body class="page-index">
 <!-- MODAL DE LOGIN ADMINISTRATIVO -->
 <div class="admin-login-overlay" id="adminLoginOverlay" style="display:none">
   <div class="admin-login-card">
@@ -219,9 +219,15 @@
     <button class="btn-ghost" id="btnLimparHistoricoDesfazerImportacao">Limpar histórico</button>
   </div>
 </div>
-<div class="card">
-<h3>Lista de Alunos</h3>
-<div class="table-container">
+<div class="card frequencia-lista-card" id="frequenciaListaCard">
+<div class="card-title-row frequencia-mobile-title-row">
+  <div>
+    <h3>Lista de Alunos</h3>
+    <p class="muted frequencia-mobile-hint">Use o botão para recolher a lista no celular.</p>
+  </div>
+  <button class="btn-ghost btn-small mobile-collapse-toggle" id="btnToggleListaAlunos" type="button" aria-expanded="true">Recolher lista</button>
+</div>
+<div class="table-container frequencia-alunos-scroll">
 <table id="tabelaFrequencia">
 <thead>
 <tr>
@@ -236,10 +242,10 @@
 </table>
 </div>
 </div>
-<div class="card">
+<div class="card faltas-acumuladas-card">
 <h3>Relatório de Faltas Acumuladas</h3>
 <p class="muted" style="margin:0 0 10px">Desde o início do ano (ou uso do sistema)</p>
-<div class="table-container">
+<div class="table-container faltas-acumuladas-scroll">
 <table id="tabelaFaltasAcumuladas">
 <thead>
 <tr>
@@ -1764,12 +1770,13 @@
 </div>
 </nav>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
-<script src="assets/js/index/01-core-navegacao-login-banco-backup.js?v=20260428"></script>
-<script src="assets/js/index/02-frequencia-importacao-faltosos.js?v=20260428"></script>
-<script src="assets/js/index/03-gestor-advertencias-relatorio-pedagogico.js?v=20260428"></script>
-<script src="assets/js/index/04-professores-agenda-materiais-folha.js?v=20260428"></script>
-<script src="assets/js/index/05-planilha-notas.js?v=20260428"></script>
-<script src="assets/js/index/06-inicializacao-detencao-ia.js?v=20260428"></script>
-<script src="assets/js/index/07-relatorios-gerais.js?v=20260428"></script>
+<script src="assets/js/index/01-core-navegacao-login-banco-backup.js?v=20260429-boletim-mobile-v15"></script>
+<script src="assets/js/index/02-frequencia-importacao-faltosos.js?v=20260429-boletim-mobile-v15"></script>
+<script src="assets/js/index/03-gestor-advertencias-relatorio-pedagogico.js?v=20260429-boletim-mobile-v15"></script>
+<script src="assets/js/index/04-professores-agenda-materiais-folha.js?v=20260429-boletim-mobile-v15"></script>
+<script src="assets/js/index/05-planilha-notas.js?v=20260429-boletim-mobile-v15"></script>
+<script src="assets/js/index/06-inicializacao-detencao-ia.js?v=20260429-boletim-mobile-v15"></script>
+<script src="assets/js/index/07-relatorios-gerais.js?v=20260429-boletim-mobile-v15"></script>
+<script src="assets/js/index/08-boletim-mobile-fix.js?v=20260429-boletim-mobile-v15"></script>
 </body>
 </html>

@@ -2133,5 +2133,26 @@ document.getElementById('btnExportarMes').addEventListener('click', function(){
       if(event.target.id === 'uniformeModal') fecharModalUniforme();
     });
 
+    function configurarRecolhedorListaAlunosMobile(){
+      const card = document.getElementById("frequenciaListaCard");
+      const botao = document.getElementById("btnToggleListaAlunos");
+      if(!card || !botao) return;
+
+      const atualizarTexto = () => {
+        const recolhida = card.classList.contains("is-collapsed");
+        botao.textContent = recolhida ? "Mostrar lista" : "Recolher lista";
+        botao.setAttribute("aria-expanded", recolhida ? "false" : "true");
+      };
+
+      botao.addEventListener("click", () => {
+        card.classList.toggle("is-collapsed");
+        atualizarTexto();
+      });
+
+      atualizarTexto();
+    }
+
+    configurarRecolhedorListaAlunosMobile();
+
     renderTabelaFrequencia();
     atualizarFaltasAcumuladas();

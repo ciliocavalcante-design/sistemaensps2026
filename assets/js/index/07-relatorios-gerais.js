@@ -172,8 +172,10 @@
   function imprimirRelatoriosGerais(){
     atualizarRelatoriosGerais();
     document.body.classList.add('print-active-relatorios-gerais');
+    const cleanupPrintRelatorios = () => document.body.classList.remove('print-active-relatorios-gerais');
+    window.addEventListener('afterprint', cleanupPrintRelatorios, { once: true });
     window.print();
-    setTimeout(() => document.body.classList.remove('print-active-relatorios-gerais'), 1000);
+    setTimeout(cleanupPrintRelatorios, 1500);
   }
   function inicializarRelatoriosGerais(){
     const hoje = new Date().toISOString().slice(0,10);

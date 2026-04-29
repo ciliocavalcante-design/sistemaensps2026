@@ -1161,7 +1161,9 @@
 
   document.getElementById('freq-printPdfBtn').addEventListener('click', () => {
     document.body.classList.add('print-active-freq');
+    const cleanupPrintFreq = () => document.body.classList.remove('print-active-freq');
+    window.addEventListener('afterprint', cleanupPrintFreq, { once: true });
     window.print();
-    setTimeout(() => document.body.classList.remove('print-active-freq'), 1000);
+    setTimeout(cleanupPrintFreq, 1500);
   });
 

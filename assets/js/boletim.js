@@ -1501,6 +1501,71 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
         }
 
         // ---------- Renderização do Calendário ----------
+        function isBoletimMobileView() {
+            return window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        }
+
+        function scrollMonthInfoToDate(dateKey) {
+            if (!dateKey) return;
+            if (!monthInfoElement) {
+                renderMonthInfoSection(allMonths[currentMonth].year, allMonths[currentMonth].monthIndex);
+            }
+            const targetItems = Array.from(document.querySelectorAll(`.month-event-item[data-date-key="${dateKey}"]`));
+            const target = targetItems[0] || monthInfoElement;
+            document.querySelectorAll('.month-event-item.is-mobile-focus').forEach(item => {
+                item.classList.remove('is-mobile-focus');
+            });
+            if (targetItems.length) {
+                targetItems.forEach(item => item.classList.add('is-mobile-focus'));
+            }
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function openMobileDayDetails(dayDiv, dateKey) {
+            if (!dayDiv || !dateKey) return;
+            selectDay(dayDiv, dateKey);
+            scrollMonthInfoToDate(dateKey);
+        }
+
+        function setupMobileDayInteractions(dayDiv, dateKey) {
+            let longPressTimer = null;
+            let longPressTriggered = false;
+            let lastTapTime = 0;
+
+            const clearLongPress = () => {
+                if (longPressTimer) {
+                    clearTimeout(longPressTimer);
+                    longPressTimer = null;
+                }
+            };
+
+            dayDiv.addEventListener('touchstart', () => {
+                if (!isBoletimMobileView()) return;
+                longPressTriggered = false;
+                clearLongPress();
+                longPressTimer = setTimeout(() => {
+                    longPressTriggered = true;
+                    openMobileDayDetails(dayDiv, dateKey);
+                }, 520);
+            }, { passive: true });
+
+            dayDiv.addEventListener('touchmove', clearLongPress, { passive: true });
+            dayDiv.addEventListener('touchend', () => {
+                if (!isBoletimMobileView()) return;
+                clearLongPress();
+                if (longPressTriggered) return;
+
+                const now = Date.now();
+                if (now - lastTapTime < 320) {
+                    openMobileDayDetails(dayDiv, dateKey);
+                    lastTapTime = 0;
+                } else {
+                    lastTapTime = now;
+                }
+            }, { passive: true });
+            dayDiv.addEventListener('touchcancel', clearLongPress, { passive: true });
+        }
+
         function renderCurrentMonth() {
             if (!allMonths.length) {
                 const activeCalendar = getActiveCalendar();
@@ -1558,11 +1623,19 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
 
                 updateEventDetailsForDayDiv(dayDiv, dateKey); // Aplica eventos e estilos ao dia
 
+                setupMobileDayInteractions(dayDiv, dateKey);
+
                 dayDiv.addEventListener('click', () => {
                     if (dayDiv.classList.contains('editing-inline')) return;
                     selectDay(dayDiv, dateKey);
                 });
-                dayDiv.addEventListener('dblclick', () => startInlineDayEdit(dayDiv, dateKey));
+                dayDiv.addEventListener('dblclick', () => {
+                    if (isBoletimMobileView()) {
+                        openMobileDayDetails(dayDiv, dateKey);
+                        return;
+                    }
+                    startInlineDayEdit(dayDiv, dateKey);
+                });
                 dayDiv.addEventListener('dragstart', event => handleDayDragStart(event, dateKey));
                 dayDiv.addEventListener('dragover', event => handleDayDragOver(event, dateKey));
                 dayDiv.addEventListener('dragleave', handleDayDragLeave);
@@ -1647,16 +1720,25 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
             }
 
             if (displaySegments.length > 0) {
-                const eventTextSpan = document.createElement('span');
-                eventTextSpan.classList.add('event-text');
-                eventTextSpan.textContent = displaySegments.join(', ');
-                eventTextSpan.style.fontWeight = boldEventText ? '700' : '500';
-                eventTextSpan.title = 'Clique para editar o texto deste quadrinho';
-                eventTextSpan.addEventListener('click', event => {
-                    event.stopPropagation();
-                    startInlineDayEdit(dayDiv, dateKey);
-                });
-                dayDiv.appendChild(eventTextSpan);
+                const dayText = displaySegments.join(', ');
+                dayDiv.dataset.eventText = dayText;
+
+                // MOBILE: não coloca texto dentro do quadrinho.
+                // Isso impede que o conteúdo force expansão vertical ou vire texto em coluna.
+                // No celular, o detalhe aparece ao selecionar, com toque duplo ou toque longo
+                // na lista “Informações e Eventos do Mês”.
+                if (!isBoletimMobileView()) {
+                    const eventTextSpan = document.createElement('span');
+                    eventTextSpan.classList.add('event-text');
+                    eventTextSpan.textContent = dayText;
+                    eventTextSpan.style.fontWeight = boldEventText ? '700' : '500';
+                    eventTextSpan.title = 'Clique para editar o texto deste quadrinho';
+                    eventTextSpan.addEventListener('click', event => {
+                        event.stopPropagation();
+                        startInlineDayEdit(dayDiv, dateKey);
+                    });
+                    dayDiv.appendChild(eventTextSpan);
+                }
 
                 const eventIndicator = document.createElement('div');
                 eventIndicator.classList.add('event-indicator');
@@ -2217,6 +2299,8 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
                     filteredEvents.forEach(eventObj => {
                         const li = document.createElement('li');
                         li.classList.add('month-event-item');
+                        li.dataset.dateKey = dateKey;
+                        li.dataset.dayNumber = String(dayNum);
 
                         const dateDisplay = document.createElement('span');
                         dateDisplay.classList.add('event-date-display');
@@ -3107,4 +3191,24 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
             solicitarBancoBoletimDoPai();
         }
         document.addEventListener('DOMContentLoaded', initCalendar);
+
+        // MOBILE: quando muda entre desktop/celular, re-renderiza para inserir/remover
+        // o texto interno dos quadrinhos corretamente.
+        let boletimMobileMode = isBoletimMobileView();
+        window.addEventListener('resize', () => {
+            const nextMode = isBoletimMobileView();
+            if (nextMode !== boletimMobileMode) {
+                boletimMobileMode = nextMode;
+                renderCurrentMonth();
+            }
+        });
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                const nextMode = isBoletimMobileView();
+                if (nextMode !== boletimMobileMode) {
+                    boletimMobileMode = nextMode;
+                    renderCurrentMonth();
+                }
+            }, 250);
+        });
 
