@@ -7,8 +7,7 @@
 <title>Gerenciador de Horários Escolares</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<link href="assets/css/horario.css?v=20260430-visual-v9" rel="stylesheet"/>
-<link href="assets/css/visual-polido.css?v=20260428-mobile-v8" rel="stylesheet"/>
+<link href="assets/css/horario.css?v=20260430-visual-v10" rel="stylesheet"/>
 </head>
 <body class="page-horario">
 <div class="container">
@@ -69,29 +68,37 @@
 </div>
 </div>
 <div class="visual-size-controls" aria-label="Tamanhos do visual do horário">
-<label class="visual-number-control" for="classHeightInput">Altura das aulas
-<span><input id="classHeightInput" max="140" min="36" oninput="updateVisualSetting('classHeight', this.value)" type="number" value="60"/>px</span>
+<label class="visual-range-control" for="classHeightInput">Altura das aulas
+<input id="classHeightInput" max="140" min="36" oninput="updateVisualSetting('classHeight', this.value)" type="range" value="60"/>
+<span id="classHeightValue">60px</span>
 </label>
-<label class="visual-number-control" for="horizontalMarginInput">Margem horizontal
-<span><input id="horizontalMarginInput" max="40" min="0" oninput="updateVisualSetting('horizontalMargin', this.value)" type="number" value="12"/>px</span>
+<label class="visual-range-control" for="horizontalMarginInput">Margem horizontal
+<input id="horizontalMarginInput" max="40" min="0" oninput="updateVisualSetting('horizontalMargin', this.value)" type="range" value="12"/>
+<span id="horizontalMarginValue">12px</span>
 </label>
-<label class="visual-number-control" for="classFontSizeInput">Fonte aula
-<span><input id="classFontSizeInput" max="24" min="8" oninput="updateVisualSetting('classFontSize', this.value)" type="number" value="13"/>px</span>
+<label class="visual-range-control" for="classFontSizeInput">Fonte aula
+<input id="classFontSizeInput" max="24" min="8" oninput="updateVisualSetting('classFontSize', this.value)" type="range" value="13"/>
+<span id="classFontSizeValue">13px</span>
 </label>
-<label class="visual-number-control" for="teacherFontSizeInput">Fonte prof.
-<span><input id="teacherFontSizeInput" max="22" min="8" oninput="updateVisualSetting('teacherFontSize', this.value)" type="number" value="11"/>px</span>
+<label class="visual-range-control" for="teacherFontSizeInput">Fonte prof.
+<input id="teacherFontSizeInput" max="22" min="8" oninput="updateVisualSetting('teacherFontSize', this.value)" type="range" value="11"/>
+<span id="teacherFontSizeValue">11px</span>
 </label>
-<label class="visual-number-control" for="seriesGapInput">Distância entre séries
-<span><input id="seriesGapInput" max="80" min="0" oninput="updateVisualSetting('seriesGap', this.value)" type="number" value="24"/>px</span>
+<label class="visual-range-control" for="seriesGapInput">Distância entre séries
+<input id="seriesGapInput" max="80" min="0" oninput="updateVisualSetting('seriesGap', this.value)" type="range" value="24"/>
+<span id="seriesGapValue">24px</span>
 </label>
-<label class="visual-number-control" for="timeFontSizeInput">Fonte horas
-<span><input id="timeFontSizeInput" max="24" min="8" oninput="updateVisualSetting('timeFontSize', this.value)" type="number" value="14"/>px</span>
+<label class="visual-range-control" for="timeFontSizeInput">Fonte horas
+<input id="timeFontSizeInput" max="24" min="8" oninput="updateVisualSetting('timeFontSize', this.value)" type="range" value="14"/>
+<span id="timeFontSizeValue">14px</span>
 </label>
-<label class="visual-number-control" for="headerFontSizeInput">Fonte cabeçalho
-<span><input id="headerFontSizeInput" max="24" min="8" oninput="updateVisualSetting('headerFontSize', this.value)" type="number" value="14"/>px</span>
+<label class="visual-range-control" for="headerFontSizeInput">Fonte cabeçalho
+<input id="headerFontSizeInput" max="24" min="8" oninput="updateVisualSetting('headerFontSize', this.value)" type="range" value="14"/>
+<span id="headerFontSizeValue">14px</span>
 </label>
-<label class="visual-number-control" for="intervalFontSizeInput">Fonte intervalo
-<span><input id="intervalFontSizeInput" max="24" min="8" oninput="updateVisualSetting('intervalFontSize', this.value)" type="number" value="14"/>px</span>
+<label class="visual-range-control" for="intervalFontSizeInput">Fonte intervalo
+<input id="intervalFontSizeInput" max="24" min="8" oninput="updateVisualSetting('intervalFontSize', this.value)" type="range" value="14"/>
+<span id="intervalFontSizeValue">14px</span>
 </label>
 </div>
 </div>
@@ -301,6 +308,6 @@
 </div>
 </div>
 <div id="printContainer" style="display: none;"></div>
-<script src="assets/js/horario.js?v=20260430-visual-v9"></script>
+<script src="assets/js/horario.js?v=20260430-visual-v10"></script>
 </body>
 </html>

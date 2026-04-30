@@ -163,13 +163,27 @@
             border-radius: 10px;
             padding: 6px 10px;
         }
-        .line-color-control input[type="color"] {
+        body.page-horario input[type="color"],
+        .line-color-control input[type="color"],
+        .interval-control input[type="color"],
+        .custom-color-input {
             width: 44px;
             height: 36px;
+            min-width: 44px;
+            max-width: 44px;
             padding: 2px;
             border: none;
             background: transparent;
             cursor: pointer;
+            appearance: auto;
+            -webkit-appearance: auto;
+        }
+        body.page-horario input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 2px;
+        }
+        body.page-horario input[type="color"]::-webkit-color-swatch {
+            border: 1px solid var(--border-soft);
+            border-radius: 8px;
         }
         .interval-control {
             display: flex;
@@ -187,35 +201,35 @@
         }
         .visual-size-controls {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            margin-top: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 14px;
         }
-        .visual-number-control {
-            display: flex;
-            justify-content: space-between;
+        .visual-range-control {
+            display: grid;
+            grid-template-columns: 118px minmax(100px, 1fr) 48px;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             background: var(--surface-soft);
             border: 1px solid var(--border-soft);
             border-radius: 12px;
-            padding: 9px 10px;
+            padding: 10px 12px;
             color: var(--text-secondary);
-            font-size: 0.86rem;
+            font-size: 0.88rem;
             font-weight: 700;
         }
-        .visual-number-control span {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            color: var(--text-primary);
+        .visual-range-control input[type="range"] {
+            width: 100%;
+            min-width: 90px;
+            padding: 0;
+            accent-color: var(--accent);
+            cursor: pointer;
         }
-        .visual-number-control input {
-            width: 62px;
-            padding: 6px 8px;
-            border-radius: 9px;
-            text-align: right;
+        .visual-range-control span {
+            color: var(--text-primary);
+            font-size: 0.82rem;
             font-weight: 800;
+            text-align: right;
         }
         select, input, button {
             padding: 10px 15px;
@@ -389,7 +403,7 @@
             background: var(--header-bar-bg);
             color: var(--header-bar-color);
             font-weight: 600;
-            font-size: var(--schedule-header-font-size);
+            font-size: 12px;
             position: sticky;
             top: 0;
             z-index: 10;
@@ -397,7 +411,7 @@
         .time-cell {
             background: var(--surface-soft);
             font-weight: 600;
-            font-size: var(--schedule-time-font-size);
+            font-size: 12px;
             color: var(--text-primary);
         }
         .class-cell {
@@ -945,14 +959,13 @@
         .printable-schedule .intervalo {
             background: #ffecb3 !important;
             color: #333;
-            font-size: var(--schedule-interval-font-size);
         }
         .printable-schedule .subject {
-            font-size: var(--schedule-class-font-size);
+            font-size: 9px;
             margin-bottom: 2px;
         }
         .printable-schedule .teacher {
-            font-size: var(--schedule-teacher-font-size);
+            font-size: 8px;
             opacity: 1;
         }
 

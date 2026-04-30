@@ -1462,6 +1462,8 @@
                 rootStyle.setProperty(cssVariable, `${visualSettings[key]}px`);
                 const input = document.getElementById(`${key}Input`);
                 if (input) input.value = visualSettings[key];
+                const valueLabel = document.getElementById(`${key}Value`);
+                if (valueLabel) valueLabel.textContent = `${visualSettings[key]}px`;
             });
 
             if (persist) {
