@@ -153,7 +153,7 @@
             requestHorarioDbFromParent();
         }
 
-        function saveData() {
+        function saveData(reason = 'Atualização do módulo de horários') {
             safeLocalStorageSet('scheduleData', JSON.stringify(scheduleData));
             safeLocalStorageSet('teachersAvailabilityData', JSON.stringify(teachersAvailability));
             safeLocalStorageSet('subjectColors', JSON.stringify(subjectColors));
@@ -168,7 +168,7 @@
             safeLocalStorageSet('headerBarFontColor', currentHeaderBarFontColor);
             safeLocalStorageSet('interfaceTheme', currentTheme);
             safeLocalStorageSet('horarioVisualSettings', JSON.stringify(visualSettings));
-            syncHorarioDbWithParent();
+            syncHorarioDbWithParent(reason);
         }
 
         function safeLocalStorageSet(key, value) {
@@ -355,7 +355,7 @@
             updateThemeToggleButton();
             if (persist) {
                 localStorage.setItem('interfaceTheme', currentTheme);
-                saveData();
+                saveData('Atualização do tema do módulo de horários');
                 recordHistoryState();
             }
         }
@@ -2046,7 +2046,7 @@
                 classTeachingDatabase = buildClassTeachingDatabase({});
                 syncClassCurriculumFromTeachingDatabase();
                 assignDefaultSubjectColors();
-                saveData();
+                saveData('Limpeza explícita do módulo de horários');
                 populateClassSelect();
                 populateTeacherSelect();
                 populateSubjectSelect();

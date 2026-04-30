@@ -35,6 +35,27 @@
     }
   }
 
+  function contarItensObjeto(valor) {
+    return valor && typeof valor === 'object' ? Object.keys(valor).length : 0;
+  }
+
+  function protegerHorarioContraSobrescritaVazia(currentDb, incomingDb, reason = '') {
+    const limpezaExplicita = /limpeza explícita|limpar todos|limpar tudo/i.test(reason);
+    const currentScheduleCount = contarItensObjeto(currentDb?.scheduleData);
+    const incomingScheduleCount = contarItensObjeto(incomingDb?.scheduleData);
+    if (limpezaExplicita || currentScheduleCount === 0 || incomingScheduleCount > 0) {
+      return incomingDb;
+    }
+
+    return {
+      ...incomingDb,
+      scheduleData: currentDb.scheduleData || {},
+      teachersAvailability: contarItensObjeto(incomingDb?.teachersAvailability) > 0 ? incomingDb.teachersAvailability : (currentDb.teachersAvailability || {}),
+      subjectColors: contarItensObjeto(incomingDb?.subjectColors) > 0 ? incomingDb.subjectColors : (currentDb.subjectColors || {}),
+      classTeachingDatabase: contarItensObjeto(incomingDb?.classTeachingDatabase) > 0 ? incomingDb.classTeachingDatabase : (currentDb.classTeachingDatabase || {})
+    };
+  }
+
   function inicializarBoletimIntegrado(force = false) {
     const frame = document.getElementById('boletimIntegradoFrame');
     if (!frame) return;
@@ -319,12 +340,15 @@
     }
 
     if (data.type === 'horario:syncDb') {
+      const currentDb = obterBancoHorario();
+      const incomingDb = data.db && typeof data.db === 'object' ? data.db : {};
+      const safeIncomingDb = protegerHorarioContraSobrescritaVazia(currentDb, incomingDb, data.reason || '');
       const nextDb = {
-        ...obterBancoHorario(),
-        ...(data.db && typeof data.db === 'object' ? data.db : {})
+        ...currentDb,
+        ...safeIncomingDb
       };
       const nextHash = serializarSeguro(nextDb);
-      const currentHash = serializarSeguro(obterBancoHorario());
+      const currentHash = serializarSeguro(currentDb);
       if (!nextHash || nextHash === currentHash || nextHash === ultimoHashHorarioRecebido) return;
       ultimoHashHorarioRecebido = nextHash;
       enspsDB.horarios = nextDb;
