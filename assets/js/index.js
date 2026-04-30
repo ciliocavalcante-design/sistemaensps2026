@@ -73,7 +73,7 @@
       return;
     }
     frame.removeAttribute('srcdoc');
-    frame.src = `horario.html?v=20260430-visual-v10${force ? `&t=${Date.now()}` : ''}`;
+    frame.src = `horario.html?v=20260430-visual-v11${force ? `&t=${Date.now()}` : ''}`;
     horarioIntegradoInicializado = true;
   }
 

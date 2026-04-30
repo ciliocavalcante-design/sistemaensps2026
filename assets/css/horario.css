@@ -930,10 +930,9 @@
         .printable-schedule th,
         .printable-schedule td {
             border: 1px solid var(--grid-line-color);
-            padding: 4px 6px;
+            padding: 12px var(--schedule-horizontal-margin);
             text-align: center;
             min-width: 70px;
-            font-size: 9px;
             background: #ffffff;
             color: #1f2937;
         }
@@ -942,7 +941,6 @@
             color: #22304d;
             font-weight: 800;
             font-size: var(--schedule-header-font-size);
-            padding: 6px 6px;
             text-transform: uppercase;
         }
         .printable-schedule .class-cell.empty {
@@ -959,13 +957,17 @@
         .printable-schedule .intervalo {
             background: #ffecb3 !important;
             color: #333;
+            font-size: var(--schedule-interval-font-size);
+        }
+        .printable-schedule .class-cell {
+            min-height: var(--schedule-class-height);
         }
         .printable-schedule .subject {
-            font-size: 9px;
+            font-size: var(--schedule-class-font-size);
             margin-bottom: 2px;
         }
         .printable-schedule .teacher {
-            font-size: 8px;
+            font-size: var(--schedule-teacher-font-size);
             opacity: 1;
         }
 

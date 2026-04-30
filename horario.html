@@ -7,7 +7,7 @@
 <title>Gerenciador de Horários Escolares</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<link href="assets/css/horario.css?v=20260430-visual-v10" rel="stylesheet"/>
+<link href="assets/css/horario.css?v=20260430-visual-v11" rel="stylesheet"/>
 </head>
 <body class="page-horario">
 <div class="container">
@@ -39,6 +39,36 @@
 <select id="subjectSelect" onchange="renderSchedule()"></select>
 </div>
 <button onclick="clearFilters()">Limpar Filtros</button>
+</div>
+</div>
+<div class="control-section">
+<span class="control-section-title">Dados</span>
+<div class="control-section-row">
+<button class="btn-history" disabled="" id="undoButton" onclick="undoLastChange()">Desfazer</button>
+<button class="btn-history" disabled="" id="redoButton" onclick="redoLastChange()">Refazer</button>
+<button class="btn-import" onclick="importSchedule()">Importar Horários</button>
+<button class="btn-export" onclick="exportSchedule()">Exportar Horários</button>
+<button class="btn-clear" onclick="clearAllData()">Limpar Tudo</button>
+</div>
+</div>
+<div class="control-section">
+<span class="control-section-title">Relatórios e Planejamento</span>
+<div class="control-section-row">
+<button class="btn-print" onclick="openCurriculumModal()">Ver Currículo</button>
+<button class="btn-manage-availability-fundamental" onclick="deriveAvailabilityFromSchedule()">Gerar Dispon. do Horário</button>
+<button class="btn-manage-availability-fundamental" onclick="manageTeachersAvailability('fundamental')">Dispon. Fundamental</button>
+<button class="btn-manage-availability-medio" onclick="manageTeachersAvailability('medio')">Dispon. Médio</button>
+<button class="btn-import-availability" onclick="exportTeachersAvailability()">Exportar Dispon.</button>
+<button class="btn-import-availability" onclick="openConflictReportModal()">Relatório de Choques</button>
+<button class="btn-import-availability" onclick="openGapReportModal()">Relatório de Janelas</button>
+</div>
+</div>
+<div class="control-section">
+<span class="control-section-title">Saída e Geração</span>
+<div class="control-section-row">
+<button class="btn-print" onclick="printAllSchedules()">Imprimir Todos</button>
+<button class="btn-export" onclick="saveScheduleAsset()">Salvar PNG</button>
+<button class="btn-generate-schedule" onclick="openAutoGenerateModal()">✨ Gerar Horário Automático</button>
 </div>
 </div>
 <div class="control-section">
@@ -100,36 +130,6 @@
 <input id="intervalFontSizeInput" max="24" min="8" oninput="updateVisualSetting('intervalFontSize', this.value)" type="range" value="14"/>
 <span id="intervalFontSizeValue">14px</span>
 </label>
-</div>
-</div>
-<div class="control-section">
-<span class="control-section-title">Dados</span>
-<div class="control-section-row">
-<button class="btn-history" disabled="" id="undoButton" onclick="undoLastChange()">Desfazer</button>
-<button class="btn-history" disabled="" id="redoButton" onclick="redoLastChange()">Refazer</button>
-<button class="btn-import" onclick="importSchedule()">Importar Horários</button>
-<button class="btn-export" onclick="exportSchedule()">Exportar Horários</button>
-<button class="btn-clear" onclick="clearAllData()">Limpar Tudo</button>
-</div>
-</div>
-<div class="control-section">
-<span class="control-section-title">Relatórios e Planejamento</span>
-<div class="control-section-row">
-<button class="btn-print" onclick="openCurriculumModal()">Ver Currículo</button>
-<button class="btn-manage-availability-fundamental" onclick="deriveAvailabilityFromSchedule()">Gerar Dispon. do Horário</button>
-<button class="btn-manage-availability-fundamental" onclick="manageTeachersAvailability('fundamental')">Dispon. Fundamental</button>
-<button class="btn-manage-availability-medio" onclick="manageTeachersAvailability('medio')">Dispon. Médio</button>
-<button class="btn-import-availability" onclick="exportTeachersAvailability()">Exportar Dispon.</button>
-<button class="btn-import-availability" onclick="openConflictReportModal()">Relatório de Choques</button>
-<button class="btn-import-availability" onclick="openGapReportModal()">Relatório de Janelas</button>
-</div>
-</div>
-<div class="control-section">
-<span class="control-section-title">Saída e Geração</span>
-<div class="control-section-row">
-<button class="btn-print" onclick="printAllSchedules()">Imprimir Todos</button>
-<button class="btn-export" onclick="saveScheduleAsset()">Salvar PNG</button>
-<button class="btn-generate-schedule" onclick="openAutoGenerateModal()">✨ Gerar Horário Automático</button>
 </div>
 </div>
 <input accept=".json" id="fileInput" style="display: none;" type="file"/>
@@ -308,6 +308,6 @@
 </div>
 </div>
 <div id="printContainer" style="display: none;"></div>
-<script src="assets/js/horario.js?v=20260430-visual-v10"></script>
+<script src="assets/js/horario.js?v=20260430-visual-v11"></script>
 </body>
 </html>
