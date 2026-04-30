@@ -7078,6 +7078,26 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": "2026-04-29T18:27:02.095Z"
+    },
+    {
+      "id": 1777547622506,
+      "aluno": "JOAO LUCAS MAIA ARAGAO",
+      "matricula": "2018106",
+      "serie": "6º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-04-30",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "De acordo com relatos de mais de um professor, o aluno tem conversado excessivamente durante as explicações e atividades, prejudicando o andamento da aula, sua própria aprendizagem e a concentração dos colegas. Além disso, quando é solicitado a fazer silêncio ou a colaborar com a organização da turma, tem respondido de forma grosseira e desrespeitosa.\n\nRessaltamos que essa situação já foi observada de maneira recorrente, mesmo após orientações feitas pelos professores. Dessa forma, solicitamos a parceria da família para conversar com o aluno sobre a importância do respeito aos professores, às regras da escola e ao ambiente de aprendizagem.\n\nPedimos que os pais ou responsáveis assinem esta advertência, tomando ciência do ocorrido.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
