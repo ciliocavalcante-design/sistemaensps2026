@@ -2590,9 +2590,9 @@
   "currentIntervalText": "",
   "currentHeaderBarColor": "#667eea",
   "currentHeaderBarFontColor": "#ffffff",
-  "currentTheme": "light",
+  "currentTheme": "dark",
   "visualSettings": {
-    "classHeight": 53,
+    "classHeight": 51,
     "horizontalMargin": 12,
     "classFontSize": 13,
     "teacherFontSize": 11,
