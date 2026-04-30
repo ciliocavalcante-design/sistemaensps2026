@@ -6692,8 +6692,8 @@
       "descricao": "",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-04-30T13:41:19.549Z"
     },
     {
       "id": 1776704255779,
