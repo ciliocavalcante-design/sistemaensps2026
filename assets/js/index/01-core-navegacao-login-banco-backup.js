@@ -74,7 +74,8 @@
       [0, 180, 520].forEach(delay => setTimeout(() => enviarBancoHorarioParaFrame(), delay));
       return;
     }
-    frame.srcdoc = prepararHtmlHorarioIntegrado(HORARIO_INTEGRADO_HTML_BASE64);
+    frame.removeAttribute('srcdoc');
+    frame.src = `horario.html?v=20260430-visual-v9${force ? `&t=${Date.now()}` : ''}`;
     horarioIntegradoInicializado = true;
   }
 
@@ -659,13 +660,14 @@
               recentCustomColors: Array.isArray(origem.horarios.recentCustomColors) ? origem.horarios.recentCustomColors : [],
               classTeachingDatabase: origem.horarios.classTeachingDatabase && typeof origem.horarios.classTeachingDatabase === 'object' ? origem.horarios.classTeachingDatabase : {},
               currentGridLineColor: origem.horarios.currentGridLineColor || '#000000',
-              currentGridFrameEnabled: Boolean(origem.horarios.currentGridFrameEnabled),
+              currentGridFrameEnabled: typeof origem.horarios.currentGridFrameEnabled === 'boolean' ? origem.horarios.currentGridFrameEnabled : true,
               currentIntervalColor: origem.horarios.currentIntervalColor || '#ffc107',
               currentIntervalFontColor: origem.horarios.currentIntervalFontColor || '#000000',
               currentIntervalText: typeof origem.horarios.currentIntervalText === 'string' ? origem.horarios.currentIntervalText : '',
               currentHeaderBarColor: origem.horarios.currentHeaderBarColor || '#667eea',
               currentHeaderBarFontColor: origem.horarios.currentHeaderBarFontColor || '#ffffff',
-              currentTheme: origem.horarios.currentTheme === 'dark' ? 'dark' : 'light'
+              currentTheme: origem.horarios.currentTheme === 'dark' ? 'dark' : 'light',
+              visualSettings: origem.horarios.visualSettings && typeof origem.horarios.visualSettings === 'object' ? origem.horarios.visualSettings : {}
             }
           : {},
         boletimInformativo: origem.boletimInformativo && typeof origem.boletimInformativo === 'object'
@@ -786,13 +788,14 @@
           recentCustomColors: enspsDB.horarios && Array.isArray(enspsDB.horarios.recentCustomColors) ? enspsDB.horarios.recentCustomColors : [],
           classTeachingDatabase: enspsDB.horarios && typeof enspsDB.horarios.classTeachingDatabase === 'object' ? enspsDB.horarios.classTeachingDatabase : {},
           currentGridLineColor: enspsDB.horarios?.currentGridLineColor || '#000000',
-          currentGridFrameEnabled: Boolean(enspsDB.horarios?.currentGridFrameEnabled),
+          currentGridFrameEnabled: typeof enspsDB.horarios?.currentGridFrameEnabled === 'boolean' ? enspsDB.horarios.currentGridFrameEnabled : true,
           currentIntervalColor: enspsDB.horarios?.currentIntervalColor || '#ffc107',
           currentIntervalFontColor: enspsDB.horarios?.currentIntervalFontColor || '#000000',
           currentIntervalText: typeof enspsDB.horarios?.currentIntervalText === 'string' ? enspsDB.horarios.currentIntervalText : '',
           currentHeaderBarColor: enspsDB.horarios?.currentHeaderBarColor || '#667eea',
           currentHeaderBarFontColor: enspsDB.horarios?.currentHeaderBarFontColor || '#ffffff',
-          currentTheme: enspsDB.horarios?.currentTheme === 'dark' ? 'dark' : 'light'
+          currentTheme: enspsDB.horarios?.currentTheme === 'dark' ? 'dark' : 'light',
+          visualSettings: enspsDB.horarios && typeof enspsDB.horarios.visualSettings === 'object' ? enspsDB.horarios.visualSettings : {}
         },
         boletimInformativo: null,
         professoresMateriais: enspsDB.professoresMateriais && typeof enspsDB.professoresMateriais === 'object' ? enspsDB.professoresMateriais : { deliveries: {} },
@@ -885,13 +888,14 @@
       if (!Array.isArray(enspsDB.horarios.recentCustomColors)) enspsDB.horarios.recentCustomColors = [];
       if (!enspsDB.horarios.classTeachingDatabase || typeof enspsDB.horarios.classTeachingDatabase !== 'object') enspsDB.horarios.classTeachingDatabase = {};
       if (!enspsDB.horarios.currentGridLineColor) enspsDB.horarios.currentGridLineColor = '#000000';
-      if (typeof enspsDB.horarios.currentGridFrameEnabled !== 'boolean') enspsDB.horarios.currentGridFrameEnabled = false;
+      if (typeof enspsDB.horarios.currentGridFrameEnabled !== 'boolean') enspsDB.horarios.currentGridFrameEnabled = true;
       if (!enspsDB.horarios.currentIntervalColor) enspsDB.horarios.currentIntervalColor = '#ffc107';
       if (!enspsDB.horarios.currentIntervalFontColor) enspsDB.horarios.currentIntervalFontColor = '#000000';
       if (typeof enspsDB.horarios.currentIntervalText !== 'string') enspsDB.horarios.currentIntervalText = '';
       if (!enspsDB.horarios.currentHeaderBarColor) enspsDB.horarios.currentHeaderBarColor = '#667eea';
       if (!enspsDB.horarios.currentHeaderBarFontColor) enspsDB.horarios.currentHeaderBarFontColor = '#ffffff';
       if (enspsDB.horarios.currentTheme !== 'dark' && enspsDB.horarios.currentTheme !== 'light') enspsDB.horarios.currentTheme = 'light';
+      if (!enspsDB.horarios.visualSettings || typeof enspsDB.horarios.visualSettings !== 'object') enspsDB.horarios.visualSettings = {};
       return enspsDB.horarios;
     }
 
@@ -1324,4 +1328,3 @@
       atualizarStatusBancoRemoto(`Banco remoto atualizado no dispositivo. ${reason}`, 'ok');
       return true;
     }
-

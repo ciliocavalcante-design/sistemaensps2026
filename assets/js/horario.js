@@ -6,7 +6,7 @@
         let currentSelectedColor = '#ADD8E6'; // Cor atualmente selecionada no modal
         let currentFontColor = '#000000'; // Cor da fonte atualmente selecionada
         let currentGridLineColor = '#000000'; // Cor global das linhas da grade
-        let currentGridFrameEnabled = false; // Moldura colorida opcional ao redor da grade
+        let currentGridFrameEnabled = true; // Moldura colorida opcional ao redor da grade
         let currentIntervalColor = '#ffc107'; // Cor global da barra de intervalo
         let currentIntervalFontColor = '#000000'; // Cor da fonte da barra de intervalo
         let currentIntervalText = ''; // Texto global da barra de intervalo
@@ -23,6 +23,17 @@
         let draggedScheduleKey = null; // Aula arrastada no modo drag and drop
         let currentEditCell = null; // Célula atualmente em edição
         let currentAvailabilityLevel = ''; // Nível de ensino atual no modal de disponibilidade (fundamental/medio)
+        const DEFAULT_VISUAL_SETTINGS = Object.freeze({
+            classHeight: 60,
+            horizontalMargin: 12,
+            classFontSize: 13,
+            teacherFontSize: 11,
+            seriesGap: 24,
+            timeFontSize: 14,
+            headerFontSize: 14,
+            intervalFontSize: 14
+        });
+        let visualSettings = { ...DEFAULT_VISUAL_SETTINGS };
 
         // Dados de exemplo para professores e suas disciplinas
         const teachersDatabase = {
@@ -156,6 +167,7 @@
             safeLocalStorageSet('headerBarColor', currentHeaderBarColor);
             safeLocalStorageSet('headerBarFontColor', currentHeaderBarFontColor);
             safeLocalStorageSet('interfaceTheme', currentTheme);
+            safeLocalStorageSet('horarioVisualSettings', JSON.stringify(visualSettings));
             syncHorarioDbWithParent();
         }
 
@@ -185,7 +197,8 @@
                 currentIntervalText,
                 currentHeaderBarColor,
                 currentHeaderBarFontColor,
-                currentTheme
+                currentTheme,
+                visualSettings: cloneSerializableState(visualSettings)
             };
         }
 
@@ -216,13 +229,14 @@
                 recentCustomColors: Array.isArray(db.recentCustomColors) ? db.recentCustomColors : [],
                 classTeachingDatabase: db.classTeachingDatabase || {},
                 currentGridLineColor: db.currentGridLineColor || '#000000',
-                currentGridFrameEnabled: Boolean(db.currentGridFrameEnabled),
+                currentGridFrameEnabled: typeof db.currentGridFrameEnabled === 'boolean' ? db.currentGridFrameEnabled : true,
                 currentIntervalColor: db.currentIntervalColor || '#ffc107',
                 currentIntervalFontColor: db.currentIntervalFontColor || '#000000',
                 currentIntervalText: typeof db.currentIntervalText === 'string' ? db.currentIntervalText : '',
                 currentHeaderBarColor: db.currentHeaderBarColor || '#667eea',
                 currentHeaderBarFontColor: db.currentHeaderBarFontColor || '#ffffff',
-                currentTheme: db.currentTheme === 'dark' ? 'dark' : 'light'
+                currentTheme: db.currentTheme === 'dark' ? 'dark' : 'light',
+                visualSettings: normalizeVisualSettings(db.visualSettings)
             });
             initializeHistory();
             isApplyingRemoteHorarioState = false;
@@ -246,7 +260,8 @@
                 currentIntervalText,
                 currentHeaderBarColor,
                 currentHeaderBarFontColor,
-                currentTheme
+                currentTheme,
+                visualSettings: cloneSerializableState(visualSettings)
             };
         }
 
@@ -289,13 +304,14 @@
             recentCustomColors = cloneSerializableState(snapshot.recentCustomColors || []);
             classTeachingDatabase = cloneSerializableState(snapshot.classTeachingDatabase || {});
             currentGridLineColor = snapshot.currentGridLineColor || '#000000';
-            currentGridFrameEnabled = Boolean(snapshot.currentGridFrameEnabled);
+            currentGridFrameEnabled = typeof snapshot.currentGridFrameEnabled === 'boolean' ? snapshot.currentGridFrameEnabled : true;
             currentIntervalColor = snapshot.currentIntervalColor || '#ffc107';
             currentIntervalFontColor = snapshot.currentIntervalFontColor || '#000000';
             currentIntervalText = typeof snapshot.currentIntervalText === 'string' ? snapshot.currentIntervalText : '';
             currentHeaderBarColor = snapshot.currentHeaderBarColor || '#667eea';
             currentHeaderBarFontColor = snapshot.currentHeaderBarFontColor || '#ffffff';
             currentTheme = snapshot.currentTheme || 'light';
+            visualSettings = normalizeVisualSettings(snapshot.visualSettings);
 
             syncClassCurriculumFromTeachingDatabase();
             saveData();
@@ -307,6 +323,7 @@
             updateGridLineColor(currentGridLineColor, false);
             updateIntervalStyle(false);
             updateHeaderBarStyle(false);
+            applyVisualSettingsToDocument(false);
             renderSchedule();
         }
 
@@ -338,6 +355,7 @@
             updateThemeToggleButton();
             if (persist) {
                 localStorage.setItem('interfaceTheme', currentTheme);
+                saveData();
                 recordHistoryState();
             }
         }
@@ -387,12 +405,22 @@
             const storedHeaderBarColor = localStorage.getItem('headerBarColor');
             const storedHeaderBarFontColor = localStorage.getItem('headerBarFontColor');
             const storedTheme = localStorage.getItem('interfaceTheme');
+            const storedVisualSettings = localStorage.getItem('horarioVisualSettings');
             if (storedIntervalColor) currentIntervalColor = storedIntervalColor;
             if (storedIntervalFontColor) currentIntervalFontColor = storedIntervalFontColor;
             if (typeof storedIntervalText === 'string') currentIntervalText = storedIntervalText;
             if (storedHeaderBarColor) currentHeaderBarColor = storedHeaderBarColor;
             if (storedHeaderBarFontColor) currentHeaderBarFontColor = storedHeaderBarFontColor;
             if (storedTheme === 'dark' || storedTheme === 'light') currentTheme = storedTheme;
+            if (storedVisualSettings) {
+                try {
+                    visualSettings = normalizeVisualSettings(JSON.parse(storedVisualSettings));
+                } catch (error) {
+                    visualSettings = normalizeVisualSettings();
+                }
+            } else {
+                visualSettings = normalizeVisualSettings();
+            }
             classTeachingDatabase = buildClassTeachingDatabase(classTeachingDatabase);
             syncClassCurriculumFromTeachingDatabase();
             safeLocalStorageSet('classTeachingDatabase', JSON.stringify(classTeachingDatabase));
@@ -400,6 +428,7 @@
             updateGridFrameButton();
             updateIntervalStyle(false);
             updateHeaderBarStyle(false);
+            applyVisualSettingsToDocument(false);
         }
 
         function assignDefaultSubjectColors() {
@@ -1388,10 +1417,67 @@
             const lineColorInput = document.getElementById('lineColorInput');
             if (lineColorInput) lineColorInput.value = hex;
             if (persist) {
-                localStorage.setItem('gridLineColor', hex);
+                saveData();
             }
             renderSchedule();
             if (persist) recordHistoryState();
+        }
+
+        function normalizeVisualSettings(settings = {}) {
+            const limits = {
+                classHeight: [36, 140],
+                horizontalMargin: [0, 40],
+                classFontSize: [8, 24],
+                teacherFontSize: [8, 22],
+                seriesGap: [0, 80],
+                timeFontSize: [8, 24],
+                headerFontSize: [8, 24],
+                intervalFontSize: [8, 24]
+            };
+
+            return Object.entries(DEFAULT_VISUAL_SETTINGS).reduce((normalized, [key, defaultValue]) => {
+                const [min, max] = limits[key];
+                const numberValue = Number(settings?.[key]);
+                const safeValue = Number.isFinite(numberValue) ? numberValue : defaultValue;
+                normalized[key] = Math.min(max, Math.max(min, Math.round(safeValue)));
+                return normalized;
+            }, {});
+        }
+
+        function applyVisualSettingsToDocument(persist = true) {
+            visualSettings = normalizeVisualSettings(visualSettings);
+            const rootStyle = document.documentElement.style;
+            const cssVariables = {
+                classHeight: '--schedule-class-height',
+                horizontalMargin: '--schedule-horizontal-margin',
+                classFontSize: '--schedule-class-font-size',
+                teacherFontSize: '--schedule-teacher-font-size',
+                seriesGap: '--schedule-series-gap',
+                timeFontSize: '--schedule-time-font-size',
+                headerFontSize: '--schedule-header-font-size',
+                intervalFontSize: '--schedule-interval-font-size'
+            };
+
+            Object.entries(cssVariables).forEach(([key, cssVariable]) => {
+                rootStyle.setProperty(cssVariable, `${visualSettings[key]}px`);
+                const input = document.getElementById(`${key}Input`);
+                if (input) input.value = visualSettings[key];
+            });
+
+            if (persist) {
+                saveData();
+                recordHistoryState();
+            }
+        }
+
+        function updateVisualSetting(key, value) {
+            if (!Object.prototype.hasOwnProperty.call(DEFAULT_VISUAL_SETTINGS, key)) return;
+            visualSettings = normalizeVisualSettings({
+                ...visualSettings,
+                [key]: value
+            });
+            applyVisualSettingsToDocument(true);
+            renderSchedule();
         }
 
         function updateGridFrameButton() {
@@ -1426,9 +1512,7 @@
                 intervalTextInput.value = currentIntervalText;
             }
             if (persist) {
-                localStorage.setItem('intervalColor', currentIntervalColor);
-                localStorage.setItem('intervalFontColor', currentIntervalFontColor);
-                localStorage.setItem('intervalText', currentIntervalText);
+                saveData();
             }
             renderSchedule();
             if (persist) recordHistoryState();
@@ -1448,8 +1532,7 @@
             document.documentElement.style.setProperty('--header-bar-bg', currentHeaderBarColor);
             document.documentElement.style.setProperty('--header-bar-color', currentHeaderBarFontColor);
             if (persist) {
-                localStorage.setItem('headerBarColor', currentHeaderBarColor);
-                localStorage.setItem('headerBarFontColor', currentHeaderBarFontColor);
+                saveData();
             }
             renderSchedule();
             if (persist) recordHistoryState();
@@ -1490,7 +1573,7 @@
         }
 
         function generateScheduleHeaderHTML(classId) {
-            const headerCellStyle = `background: ${currentHeaderBarColor}; color: ${currentHeaderBarFontColor};`;
+            const headerCellStyle = `background: ${currentHeaderBarColor}; color: ${currentHeaderBarFontColor}; font-size: ${visualSettings.headerFontSize}px;`;
             return `
                 <thead>
                     <tr>
@@ -1767,7 +1850,7 @@
             currentTimeSlots.forEach((time, timeIndex) => {
                 tableHTML += '<tr>';
                 if (time.startsWith('INTERVALO')) {
-                    tableHTML += `<td class="time-cell intervalo" colspan="6" style="background: ${currentIntervalColor} !important; color: ${currentIntervalFontColor} !important;">${getIntervalDisplayText(time)}</td>`;
+                    tableHTML += `<td class="time-cell intervalo" colspan="6" style="background: ${currentIntervalColor} !important; color: ${currentIntervalFontColor} !important; font-size: ${visualSettings.intervalFontSize}px;">${getIntervalDisplayText(time)}</td>`;
                 } else {
                     tableHTML += `<td class="time-cell">${time}</td>`;
                     for (let day = 0; day < dayNames.length; day++) {
@@ -1795,10 +1878,10 @@
 
                             if (matchesTeacher && matchesSubject) {
                                 const fontColor = classInfo.fontColor || '#000000';
-                                const fontSize = classInfo.fontSize || 13;
+                                const fontSize = classInfo.fontSize || visualSettings.classFontSize;
                                 const textTransform = classInfo.allCaps ? 'uppercase' : 'none';
                                 const teacherHtml = classInfo.teacher
-                                    ? `<div class="teacher" style="color: ${fontColor}; font-size: ${Math.max(fontSize - 2, 9)}px; text-transform: ${textTransform};">${classInfo.teacher}</div>`
+                                    ? `<div class="teacher" style="color: ${fontColor}; font-size: ${visualSettings.teacherFontSize}px; text-transform: ${textTransform};">${classInfo.teacher}</div>`
                                     : '';
                                 cellContent = `<div class="subject" style="color: ${fontColor}; font-size: ${fontSize}px; text-transform: ${textTransform};">${classInfo.subject}</div>${teacherHtml}`;
                                 cellStyle = `background-color: ${classInfo.color || subjectColors[classInfo.subject] || colors[0].hex}; color: ${fontColor};`;
@@ -2697,4 +2780,3 @@
 
         // Inicializar
         initSchedule();
-

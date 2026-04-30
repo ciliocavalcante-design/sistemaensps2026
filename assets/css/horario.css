@@ -1,6 +1,14 @@
 /* ===== horario.html | bloco de estilo 1 ===== */
 :root {
             --grid-line-color: #000000;
+            --schedule-class-height: 60px;
+            --schedule-horizontal-margin: 12px;
+            --schedule-class-font-size: 13px;
+            --schedule-teacher-font-size: 11px;
+            --schedule-series-gap: 24px;
+            --schedule-time-font-size: 14px;
+            --schedule-header-font-size: 14px;
+            --schedule-interval-font-size: 14px;
             --header-bar-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --header-bar-color: #ffffff;
             --app-bg: linear-gradient(135deg, #eef4ff 0%, #dfe9ff 45%, #f8fbff 100%);
@@ -177,6 +185,38 @@
             border: 1px solid var(--border-soft);
             padding: 8px 10px;
         }
+        .visual-size-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .visual-number-control {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            background: var(--surface-soft);
+            border: 1px solid var(--border-soft);
+            border-radius: 12px;
+            padding: 9px 10px;
+            color: var(--text-secondary);
+            font-size: 0.86rem;
+            font-weight: 700;
+        }
+        .visual-number-control span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-primary);
+        }
+        .visual-number-control input {
+            width: 62px;
+            padding: 6px 8px;
+            border-radius: 9px;
+            text-align: right;
+            font-weight: 800;
+        }
         select, input, button {
             padding: 10px 15px;
             border: 1px solid var(--border-soft);
@@ -281,7 +321,7 @@
         .all-schedules-stack {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: var(--schedule-series-gap);
         }
         .stacked-schedule {
             background: var(--surface);
@@ -341,7 +381,7 @@
         }
         th, td {
             border: 2px solid var(--grid-line-color);
-            padding: 12px;
+            padding: 12px var(--schedule-horizontal-margin);
             text-align: center;
             min-width: 120px;
         }
@@ -349,6 +389,7 @@
             background: var(--header-bar-bg);
             color: var(--header-bar-color);
             font-weight: 600;
+            font-size: var(--schedule-header-font-size);
             position: sticky;
             top: 0;
             z-index: 10;
@@ -356,13 +397,14 @@
         .time-cell {
             background: var(--surface-soft);
             font-weight: 600;
+            font-size: var(--schedule-time-font-size);
             color: var(--text-primary);
         }
         .class-cell {
             cursor: pointer;
             transition: all 0.3s;
             position: relative;
-            min-height: 60px;
+            min-height: var(--schedule-class-height);
         }
         .class-cell.dragging {
             opacity: 0.45;
@@ -382,10 +424,10 @@
         .subject {
             font-weight: 600;
             margin-bottom: 3px;
-            font-size: 13px;
+            font-size: var(--schedule-class-font-size);
         }
         .teacher {
-            font-size: 11px;
+            font-size: var(--schedule-teacher-font-size);
             opacity: 0.9;
         }
         .font-controls {
@@ -440,6 +482,7 @@
         .intervalo {
             background: #ffc107 !important;
             font-weight: 600;
+            font-size: var(--schedule-interval-font-size);
             color: #000;
         }
         .modal {
@@ -884,7 +927,7 @@
             background: #eceff5;
             color: #22304d;
             font-weight: 800;
-            font-size: 12px;
+            font-size: var(--schedule-header-font-size);
             padding: 6px 6px;
             text-transform: uppercase;
         }
@@ -897,18 +940,19 @@
             background: #f3f4f6;
             font-weight: 900;
             color: #3b4350;
-            font-size: 12px;
+            font-size: var(--schedule-time-font-size);
         }
         .printable-schedule .intervalo {
             background: #ffecb3 !important;
             color: #333;
+            font-size: var(--schedule-interval-font-size);
         }
         .printable-schedule .subject {
-            font-size: 9px;
+            font-size: var(--schedule-class-font-size);
             margin-bottom: 2px;
         }
         .printable-schedule .teacher {
-            font-size: 8px;
+            font-size: var(--schedule-teacher-font-size);
             opacity: 1;
         }
 
@@ -960,4 +1004,3 @@
                 color: #333;
             }
         }
-
