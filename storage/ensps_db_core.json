@@ -7738,6 +7738,33 @@
         "fiiEm": "EM",
         "motivo": "Extra",
         "qtde": 4
+      },
+      {
+        "tipo": "falta",
+        "dia": "09/04/2026",
+        "falta": "Ravena",
+        "substExtra": "",
+        "fiiEm": "6EM",
+        "motivo": "Atestado",
+        "qtde": 6
+      },
+      {
+        "tipo": "falta",
+        "dia": "09/04/2026",
+        "falta": "",
+        "substExtra": "Silânia",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 4
+      },
+      {
+        "tipo": "falta",
+        "dia": "09/04/2026",
+        "falta": "",
+        "substExtra": "Helly",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 2
       }
     ],
     "extraAvulsaRecords": {
