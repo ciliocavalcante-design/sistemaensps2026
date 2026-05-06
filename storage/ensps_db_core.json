@@ -8216,7 +8216,14 @@
         ]
       },
       "2026-3": {
-        "fiscalizacao": []
+        "fiscalizacao": [
+          {
+            "professor": "Elayne",
+            "qtdeEF": 10,
+            "qtdeEM": 0,
+            "originalCategoryName": "fiscalizacao"
+          }
+        ]
       }
     }
   }
