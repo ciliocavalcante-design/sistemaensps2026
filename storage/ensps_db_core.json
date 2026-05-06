@@ -8254,7 +8254,14 @@
             "originalCategoryName": "fiscalizacao"
           }
         ],
-        "novo_ensino_medio": []
+        "novo_ensino_medio": [
+          {
+            "professor": "Diogo",
+            "qtdeEF": 3,
+            "qtdeEM": 0,
+            "originalCategoryName": "novo ensino medio"
+          }
+        ]
       }
     }
   }
