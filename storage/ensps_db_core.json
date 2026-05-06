@@ -7801,6 +7801,15 @@
         "fiiEm": "EM",
         "motivo": "Extra",
         "qtde": 6
+      },
+      {
+        "tipo": "falta",
+        "dia": "14/04/2026",
+        "falta": "Michael",
+        "substExtra": "",
+        "fiiEm": "1EF",
+        "motivo": "Atraso",
+        "qtde": 1
       }
     ],
     "extraAvulsaRecords": {
