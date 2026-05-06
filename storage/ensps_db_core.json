@@ -7198,6 +7198,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1778067231932,
+      "aluno": "CARLOS EDUARDO ALENCAR COSTA",
+      "matricula": "2016020",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-05-06",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito grave para com o professor"
+      ],
+      "descricao": "O(A) estudante demonstrou falta de respeito grave em relação ao(à) professor(a), desconsiderando orientações, adotando postura desrespeitosa e, em determinados momentos, prejudicando o ambiente de ensino-aprendizagem e a autoridade do docente.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
