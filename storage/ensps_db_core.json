@@ -7217,6 +7217,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1778072266498,
+      "aluno": "MARIA HELOISA MENESES DA ROCHA",
+      "matricula": "2023071",
+      "serie": "6º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-05-06",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Não realizou atividades/tarefas"
+      ],
+      "descricao": "Foi registrada uma ocorrência envolvendo uma aluna que pegou o material de uma colega sem autorização e apresentou à professora como se fosse sua própria tarefa.\n\nA atitude é considerada inadequada, pois demonstra falta de respeito com os pertences da colega e falta de honestidade na realização das atividades escolares. A aluna foi orientada sobre a importância de agir com responsabilidade, realizar suas próprias tarefas e respeitar os materiais dos demais colegas.\n\nFica registrada esta ocorrência como medida educativa, com o objetivo de conscientizar a aluna para que situações como essa não voltem a acontecer.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
