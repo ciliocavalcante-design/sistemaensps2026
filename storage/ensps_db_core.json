@@ -7783,6 +7783,24 @@
         "fiiEm": "EM",
         "motivo": "Extra",
         "qtde": 6
+      },
+      {
+        "tipo": "falta",
+        "dia": "14/04/2026",
+        "falta": "Amanda",
+        "substExtra": "",
+        "fiiEm": "7EM",
+        "motivo": "—",
+        "qtde": 7
+      },
+      {
+        "tipo": "falta",
+        "dia": "14/04/2026",
+        "falta": "",
+        "substExtra": "Ravena",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 6
       }
     ],
     "extraAvulsaRecords": {
