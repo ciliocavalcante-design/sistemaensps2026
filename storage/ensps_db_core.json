@@ -7657,6 +7657,33 @@
         "fiiEm": "EM",
         "motivo": "Extra",
         "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "06/04/2026",
+        "falta": "Thayna",
+        "substExtra": "",
+        "fiiEm": "4EF/1EM",
+        "motivo": "Atestado",
+        "qtde": 5
+      },
+      {
+        "tipo": "falta",
+        "dia": "06/04/2026",
+        "falta": "",
+        "substExtra": "Fabíola",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 4
+      },
+      {
+        "tipo": "falta",
+        "dia": "06/04/2026",
+        "falta": "",
+        "substExtra": "Fabíola",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 1
       }
     ],
     "extraAvulsaRecords": {
