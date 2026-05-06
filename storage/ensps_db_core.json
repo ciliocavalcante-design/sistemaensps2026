@@ -7900,6 +7900,24 @@
         "fiiEm": "EF",
         "motivo": "Extra",
         "qtde": 3
+      },
+      {
+        "tipo": "falta",
+        "dia": "27/04/2026",
+        "falta": "Ravena",
+        "substExtra": "",
+        "fiiEm": "3EM",
+        "motivo": "Atestado",
+        "qtde": 3
+      },
+      {
+        "tipo": "falta",
+        "dia": "27/04/2026",
+        "falta": "",
+        "substExtra": "Jordan",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 3
       }
     ],
     "extraAvulsaRecords": {
