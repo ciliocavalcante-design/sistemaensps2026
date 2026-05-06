@@ -8228,6 +8228,12 @@
             "qtdeEF": 1,
             "qtdeEM": 0,
             "originalCategoryName": "fiscalizacao"
+          },
+          {
+            "professor": "Márcia",
+            "qtdeEF": 10,
+            "qtdeEM": 0,
+            "originalCategoryName": "fiscalizacao"
           }
         ]
       }
