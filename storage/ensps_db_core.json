@@ -7630,6 +7630,33 @@
         "fiiEm": "1EF",
         "motivo": "—",
         "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "01/04/2026",
+        "falta": "Diogo",
+        "substExtra": "",
+        "fiiEm": "2EM",
+        "motivo": "Saiu mais cedo",
+        "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "01/04/2026",
+        "falta": "",
+        "substExtra": "Alexandre",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "01/04/2026",
+        "falta": "",
+        "substExtra": "Michael",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 1
       }
     ],
     "extraAvulsaRecords": {
