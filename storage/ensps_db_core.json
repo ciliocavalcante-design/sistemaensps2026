@@ -7810,6 +7810,15 @@
         "fiiEm": "1EF",
         "motivo": "Atraso",
         "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "15/04/2026",
+        "falta": "Bruno",
+        "substExtra": "",
+        "fiiEm": "1EF",
+        "motivo": "—",
+        "qtde": 1
       }
     ],
     "extraAvulsaRecords": {
