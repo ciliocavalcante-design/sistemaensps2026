@@ -7693,6 +7693,24 @@
         "fiiEm": "1EF",
         "motivo": "Atraso",
         "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "07/04/2026",
+        "falta": "Jordan",
+        "substExtra": "",
+        "fiiEm": "4EM",
+        "motivo": "Atestado",
+        "qtde": 4
+      },
+      {
+        "tipo": "falta",
+        "dia": "07/04/2026",
+        "falta": "",
+        "substExtra": "Alexandre",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 4
       }
     ],
     "extraAvulsaRecords": {
