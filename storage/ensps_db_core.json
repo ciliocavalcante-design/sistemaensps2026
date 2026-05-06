@@ -7855,6 +7855,24 @@
         "fiiEm": "EF",
         "motivo": "Extra",
         "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "22/04/2026",
+        "falta": "Diogo",
+        "substExtra": "",
+        "fiiEm": "1EM",
+        "motivo": "Atraso",
+        "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "22/04/2026",
+        "falta": "",
+        "substExtra": "Amanda",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 1
       }
     ],
     "extraAvulsaRecords": {
