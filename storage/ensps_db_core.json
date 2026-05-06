@@ -7981,6 +7981,33 @@
         "fiiEm": "EF",
         "motivo": "Extra",
         "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "30/04/2026",
+        "falta": "Helly",
+        "substExtra": "",
+        "fiiEm": "3EF/1EM",
+        "motivo": "Atestado",
+        "qtde": 4
+      },
+      {
+        "tipo": "falta",
+        "dia": "30/04/2026",
+        "falta": "",
+        "substExtra": "Jordan",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 3
+      },
+      {
+        "tipo": "falta",
+        "dia": "30/04/2026",
+        "falta": "",
+        "substExtra": "Fabíola",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 1
       }
     ],
     "extraAvulsaRecords": {
