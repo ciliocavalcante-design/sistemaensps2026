@@ -8260,6 +8260,12 @@
             "qtdeEF": 3,
             "qtdeEM": 0,
             "originalCategoryName": "novo ensino medio"
+          },
+          {
+            "professor": "Michael",
+            "qtdeEF": 10,
+            "qtdeEM": 0,
+            "originalCategoryName": "novo ensino medio"
           }
         ]
       }
