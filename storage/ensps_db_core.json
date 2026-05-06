@@ -7765,6 +7765,24 @@
         "fiiEm": "EM",
         "motivo": "Extra",
         "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "10/04/2026",
+        "falta": "Diogo",
+        "substExtra": "",
+        "fiiEm": "6EM",
+        "motivo": "Atestado",
+        "qtde": 6
+      },
+      {
+        "tipo": "falta",
+        "dia": "10/04/2026",
+        "falta": "",
+        "substExtra": "Thayna",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 6
       }
     ],
     "extraAvulsaRecords": {
