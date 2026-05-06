@@ -7963,6 +7963,24 @@
         "fiiEm": "EM",
         "motivo": "Extra",
         "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "29/04/2026",
+        "falta": "Elayne",
+        "substExtra": "",
+        "fiiEm": "2EF",
+        "motivo": "Atestado",
+        "qtde": 2
+      },
+      {
+        "tipo": "falta",
+        "dia": "29/04/2026",
+        "falta": "",
+        "substExtra": "Thayna",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 2
       }
     ],
     "extraAvulsaRecords": {
