@@ -7312,6 +7312,26 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1778682794140,
+      "aluno": "MARIA LUIZA DE FREITAS HOLANDA",
+      "matricula": "2024002",
+      "serie": "6º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-05-13",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito grave para com o professor",
+        "Gestos obscenos/palavras de baixo calão"
+      ],
+      "descricao": "O(A) estudante fez uso de gestos obscenos e/ou palavras de baixo calão em ambiente escolar, desrespeitando colegas e membros da equipe escolar.\nO(A) estudante demonstrou falta de respeito grave em relação ao(à) professor(a), desconsiderando orientações, adotando postura desrespeitosa e, em determinados momentos, prejudicando o ambiente de ensino-aprendizagem e a autoridade do docente.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
