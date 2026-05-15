@@ -7330,8 +7330,8 @@
       "descricao": "O(A) estudante fez uso de gestos obscenos e/ou palavras de baixo calão em ambiente escolar, desrespeitando colegas e membros da equipe escolar.\nO(A) estudante demonstrou falta de respeito grave em relação ao(à) professor(a), desconsiderando orientações, adotando postura desrespeitosa e, em determinados momentos, prejudicando o ambiente de ensino-aprendizagem e a autoridade do docente.",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-05-15T10:03:38.908Z"
     }
   ],
   "comunicadosProfessores": [
