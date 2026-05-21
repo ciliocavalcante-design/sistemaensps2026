@@ -387,7 +387,7 @@
     "8ano_0_0": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#ffebeb",
+      "color": "#E6E6FA",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -427,7 +427,7 @@
     "8ano_1_0": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#ffebeb",
+      "color": "#E6E6FA",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -651,7 +651,7 @@
     "9ano_3_0": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#ffebeb",
+      "color": "#E6E6FA",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -691,7 +691,7 @@
     "9ano_4_0": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#ffebeb",
+      "color": "#E6E6FA",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -979,7 +979,7 @@
     "1em_6_0": {
       "subject": "Literatura",
       "teacher": "Thayna",
-      "color": "#ffebeb",
+      "color": "#E6E6FA",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -1629,6 +1629,14 @@
       "teacher": "Bruno",
       "color": "#ba2129",
       "fontColor": "#ffffff",
+      "fontSize": 13,
+      "allCaps": true
+    },
+    "7ano2_3_2": {
+      "subject": "LPT",
+      "teacher": "Thayna",
+      "color": "#E6E6FA",
+      "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
     }
