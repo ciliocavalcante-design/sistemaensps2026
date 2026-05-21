@@ -387,7 +387,7 @@
     "8ano_0_0": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#c1c1fb",
+      "color": "#e2e2f8",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -427,7 +427,7 @@
     "8ano_1_0": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#c1c1fb",
+      "color": "#e2e2f8",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -603,7 +603,7 @@
     "9ano_0_4": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#c1c1fb",
+      "color": "#e2e2f8",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -651,7 +651,7 @@
     "9ano_3_0": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#c1c1fb",
+      "color": "#e2e2f8",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -979,7 +979,7 @@
     "1em_6_0": {
       "subject": "Literatura",
       "teacher": "Thayna",
-      "color": "#c1c1fb",
+      "color": "#e2e2f8",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -1635,7 +1635,7 @@
     "7ano2_3_2": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#c1c1fb",
+      "color": "#e2e2f8",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -1643,7 +1643,7 @@
     "7ano2_4_2": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#c1c1fb",
+      "color": "#e2e2f8",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -1715,7 +1715,7 @@
     "7ano2_1_4": {
       "subject": "Paradidat.",
       "teacher": "Thayna",
-      "color": "#c1c1fb",
+      "color": "#e2e2f8",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -1723,7 +1723,7 @@
     "7ano2_3_4": {
       "subject": "Gramática",
       "teacher": "Thayna",
-      "color": "#c1c1fb",
+      "color": "#e2e2f8",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": false
@@ -1731,7 +1731,7 @@
     "7ano2_4_4": {
       "subject": "Gramática",
       "teacher": "Thayna",
-      "color": "#c1c1fb",
+      "color": "#e2e2f8",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -1783,7 +1783,7 @@
     "Matemática 4": "#98FB98",
     "Matemática 5": "#FFFACD",
     "LPT": "#c1c1fb",
-    "Paradidat.": "#c1c1fb",
+    "Paradidat.": "#e2e2f8",
     "História 1": "#FFDAB9",
     "História 2": "#E0FFFF",
     "Redação": "#FA8072",
