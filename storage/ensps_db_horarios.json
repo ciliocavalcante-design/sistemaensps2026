@@ -1678,7 +1678,7 @@
       "color": "#a8ffd2",
       "fontColor": "#000000",
       "fontSize": 13,
-      "allCaps": false
+      "allCaps": true
     },
     "7ano2_1_3": {
       "subject": "Geografia",
