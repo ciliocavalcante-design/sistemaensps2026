@@ -99,6 +99,7 @@
         const classTimeSlotsMap = {
             '6ano': { slots: timeSlotsFundamental, level: 'fundamental' },
             '7ano': { slots: timeSlotsFundamental, level: 'fundamental' },
+            '7ano2': { slots: timeSlotsFundamental, level: 'fundamental' },
             '8ano': { slots: timeSlotsFundamental, level: 'fundamental' },
             '9ano': { slots: timeSlotsFundamental9Ano, level: 'fundamental' },
             '1em': { slots: timeSlotsMedio, level: 'medio' },
@@ -116,6 +117,10 @@
                 'Ciências': 3, 'Inglês': 2, 'Ed. Física': 2, 'Artes': 2, 'Religião': 1
             },
             '7ano': {
+                'Português': 5, 'Matemática': 4, 'História': 3, 'Geografia': 3,
+                'Ciências': 3, 'Inglês': 2, 'Ed. Física': 2, 'Artes': 2, 'Religião': 1
+            },
+            '7ano2': {
                 'Português': 5, 'Matemática': 4, 'História': 3, 'Geografia': 3,
                 'Ciências': 3, 'Inglês': 2, 'Ed. Física': 2, 'Artes': 2, 'Religião': 1
             },
@@ -313,6 +318,7 @@
             currentTheme = snapshot.currentTheme || 'light';
             visualSettings = normalizeVisualSettings(snapshot.visualSettings);
 
+            classTeachingDatabase = buildClassTeachingDatabase(classTeachingDatabase);
             syncClassCurriculumFromTeachingDatabase();
             saveData();
             populateClassSelect();
@@ -536,7 +542,7 @@
 
             Object.entries(scheduleSnapshot).forEach(([key, classInfo]) => {
                 if (!classInfo || typeof classInfo !== 'object') return;
-                if (!/^(6ano|7ano|8ano|9ano|1em|2em|3em)_\d+_\d+$/.test(key)) return;
+                if (!/^(6ano|7ano|7ano2|8ano|9ano|1em|2em|3em)_\d+_\d+$/.test(key)) return;
 
                 const [classId] = key.split('_');
                 const subject = typeof classInfo.subject === 'string' ? classInfo.subject.trim() : '';
@@ -1196,7 +1202,7 @@
             const normalizedSchedule = {};
 
             Object.entries(rawSchedule).forEach(([key, value]) => {
-                if (!/^(6ano|7ano|8ano|9ano|1em|2em|3em)_\d+_\d+$/.test(key)) return;
+                if (!/^(6ano|7ano|7ano2|8ano|9ano|1em|2em|3em)_\d+_\d+$/.test(key)) return;
                 if (!value || typeof value !== 'object' || Array.isArray(value)) return;
 
                 const subject = typeof value.subject === 'string' ? value.subject.trim() : '';
@@ -1548,7 +1554,8 @@
         function getClassShortName(classId) {
             const names = {
                 '6ano': '6º ANO EF',
-                '7ano': '7º ANO EF',
+                '7ano': '7º ANO I EF',
+                '7ano2': '7º ANO II EF',
                 '8ano': '8º ANO EF',
                 '9ano': '9º ANO EF',
                 '1em': '1º ANO EM',
@@ -1920,13 +1927,17 @@
         }
 
         function getClassName(classId) {
-            // Retorna um nome mais legível para a turma
-            if (classId.endsWith('ano')) {
-                return `${classId.replace('ano', 'º Ano Fundamental')}`;
-            } else if (classId.endsWith('em')) {
-                return `${classId.replace('em', 'º Ano Ensino Médio')}`;
-            }
-            return classId;
+            const names = {
+                '6ano': '6º Ano Fundamental',
+                '7ano': '7º Ano I Fundamental',
+                '7ano2': '7º Ano II Fundamental',
+                '8ano': '8º Ano Fundamental',
+                '9ano': '9º Ano Fundamental',
+                '1em': '1º Ano Ensino Médio',
+                '2em': '2º Ano Ensino Médio',
+                '3em': '3º Ano Ensino Médio'
+            };
+            return names[classId] || classId;
         }
 
         function clearFilters() {

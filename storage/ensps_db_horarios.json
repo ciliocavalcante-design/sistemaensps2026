@@ -2581,6 +2581,119 @@
           "Helly"
         ]
       }
+    },
+    "7ano2": {
+      "Português": {
+        "teacher": "",
+        "weeklyLessons": 5,
+        "candidateTeachers": []
+      },
+      "Matemática": {
+        "teacher": "Eduardo",
+        "weeklyLessons": 5,
+        "candidateTeachers": [
+          "Diogo",
+          "Eduardo",
+          "Helly"
+        ]
+      },
+      "História": {
+        "teacher": "Alexandre",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Alexandre"
+        ]
+      },
+      "Geografia": {
+        "teacher": "Silânia",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Rafaely",
+          "Silânia"
+        ]
+      },
+      "Ciências": {
+        "teacher": "Elayne",
+        "weeklyLessons": 3,
+        "candidateTeachers": [
+          "Elayne"
+        ]
+      },
+      "Inglês": {
+        "teacher": "Michael",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Michael"
+        ]
+      },
+      "Ed. Física": {
+        "teacher": "Bruno",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Bruno"
+        ]
+      },
+      "Artes": {
+        "teacher": "",
+        "weeklyLessons": 2,
+        "candidateTeachers": []
+      },
+      "Religião": {
+        "teacher": "",
+        "weeklyLessons": 1,
+        "candidateTeachers": []
+      },
+      "Paradidat.": {
+        "teacher": "Márcia",
+        "weeklyLessons": 1,
+        "candidateTeachers": [
+          "Márcia",
+          "Thayna"
+        ]
+      },
+      "Avaliação": {
+        "teacher": "",
+        "weeklyLessons": 2,
+        "candidateTeachers": []
+      },
+      "Filosofia": {
+        "teacher": "Fabíola",
+        "weeklyLessons": 1,
+        "candidateTeachers": [
+          "Fabíola",
+          "Michael"
+        ]
+      },
+      "Gramática": {
+        "teacher": "Márcia",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Jordan",
+          "Márcia"
+        ]
+      },
+      "LPT": {
+        "teacher": "Márcia",
+        "weeklyLessons": 2,
+        "candidateTeachers": [
+          "Márcia",
+          "Thayna"
+        ]
+      },
+      "Ed. Física M.": {
+        "teacher": "Bruno",
+        "weeklyLessons": 1,
+        "candidateTeachers": [
+          "Bruno"
+        ]
+      },
+      "Ed. Física F.": {
+        "teacher": "Bruno",
+        "weeklyLessons": 1,
+        "candidateTeachers": [
+          "Bruno"
+        ]
+      }
     }
   },
   "currentGridLineColor": "#000000",
