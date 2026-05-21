@@ -2374,7 +2374,7 @@
   "currentTheme": "dark",
   "visualSettings": {
     "classHeight": 36,
-    "horizontalMargin": 14,
+    "horizontalMargin": 6,
     "classFontSize": 15,
     "teacherFontSize": 13,
     "seriesGap": 0,
