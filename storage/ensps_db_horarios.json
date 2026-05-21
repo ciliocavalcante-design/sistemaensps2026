@@ -2375,8 +2375,8 @@
   "visualSettings": {
     "classHeight": 42,
     "horizontalMargin": 12,
-    "classFontSize": 14,
-    "teacherFontSize": 11,
+    "classFontSize": 15,
+    "teacherFontSize": 12,
     "seriesGap": 14,
     "timeFontSize": 14,
     "headerFontSize": 14,
