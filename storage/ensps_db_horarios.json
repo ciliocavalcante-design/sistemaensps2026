@@ -99,7 +99,7 @@
     "6ano_3_2": {
       "subject": "Geografia",
       "teacher": "Silânia",
-      "color": "#7afdff",
+      "color": "#00bfff",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -115,7 +115,7 @@
     "6ano_3_4": {
       "subject": "Geografia",
       "teacher": "Silânia",
-      "color": "#7afdff",
+      "color": "#00bfff",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -227,7 +227,7 @@
     "7ano_0_4": {
       "subject": "Geografia",
       "teacher": "Silânia",
-      "color": "#7afdff",
+      "color": "#00bfff",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -267,7 +267,7 @@
     "7ano_1_4": {
       "subject": "Geografia",
       "teacher": "Silânia",
-      "color": "#7afdff",
+      "color": "#00bfff",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -531,7 +531,7 @@
     "8ano_4_3": {
       "subject": "Geografia",
       "teacher": "Silânia",
-      "color": "#7afdff",
+      "color": "#00bfff",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -563,7 +563,7 @@
     "8ano_5_2": {
       "subject": "Geografia",
       "teacher": "Silânia",
-      "color": "#7afdff",
+      "color": "#00bfff",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -707,7 +707,7 @@
     "9ano_4_2": {
       "subject": "Biologia",
       "teacher": "Silânia",
-      "color": "#7afdff",
+      "color": "#00bfff",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -723,7 +723,7 @@
     "9ano_4_4": {
       "subject": "Geografia",
       "teacher": "Silânia",
-      "color": "#7afdff",
+      "color": "#00bfff",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -731,7 +731,7 @@
     "9ano_5_0": {
       "subject": "Biologia",
       "teacher": "Silânia",
-      "color": "#7afdff",
+      "color": "#00bfff",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -763,7 +763,7 @@
     "9ano_5_4": {
       "subject": "Geografia",
       "teacher": "Silânia",
-      "color": "#7afdff",
+      "color": "#00bfff",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -1387,7 +1387,7 @@
     "3em_3_0": {
       "subject": "Trilha Geo",
       "teacher": "Silânia",
-      "color": "#7afdff",
+      "color": "#00bfff",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -1559,6 +1559,22 @@
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": false
+    },
+    "7ano2_1_0": {
+      "subject": "Geografia",
+      "teacher": "Silânia",
+      "color": "#00bfff",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": false
+    },
+    "7ano2_4_0": {
+      "subject": "Matemática",
+      "teacher": "Eduardo",
+      "color": "#f5a10f",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": false
     }
   },
   "teachersAvailability": {},
@@ -1566,7 +1582,7 @@
     "Português": "#ADD8E6",
     "Matemática": "#f5a10f",
     "História": "#FFFACD",
-    "Geografia": "#f5a10f",
+    "Geografia": "#00bfff",
     "Ciências": "#E6E6FA",
     "Inglês": "#FFDAB9",
     "Ed. Física": "#E0FFFF",
