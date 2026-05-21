@@ -601,9 +601,9 @@
       "allCaps": true
     },
     "9ano_0_4": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#a8ffd2",
+      "subject": "LPT",
+      "teacher": "Thayna",
+      "color": "#c1c1fb",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -689,9 +689,9 @@
       "allCaps": true
     },
     "9ano_4_0": {
-      "subject": "LPT",
-      "teacher": "Thayna",
-      "color": "#c1c1fb",
+      "subject": "História",
+      "teacher": "Alexandre",
+      "color": "#a8ffd2",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
