@@ -83,8 +83,8 @@
     "6ano_3_0": {
       "subject": "Inglês",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
@@ -123,16 +123,16 @@
     "6ano_4_0": {
       "subject": "Inglês",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
     "6ano_4_1": {
       "subject": "Filosofia",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
@@ -203,8 +203,8 @@
     "7ano_0_1": {
       "subject": "Inglês",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
@@ -219,8 +219,8 @@
     "7ano_0_3": {
       "subject": "Inglês",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
@@ -451,8 +451,8 @@
     "8ano_1_3": {
       "subject": "Inglês",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
@@ -491,8 +491,8 @@
     "8ano_3_3": {
       "subject": "Inglês",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
@@ -619,8 +619,8 @@
     "9ano_1_1": {
       "subject": "Inglês",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
@@ -715,8 +715,8 @@
     "9ano_4_3": {
       "subject": "Inglês",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
@@ -955,8 +955,8 @@
     "1em_5_2": {
       "subject": "Inglês",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
@@ -1035,8 +1035,8 @@
     "2em_0_2": {
       "subject": "Trilha L.C.",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
@@ -1075,8 +1075,8 @@
     "2em_1_2": {
       "subject": "Trilha L.C.",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
@@ -1155,8 +1155,8 @@
     "2em_3_2": {
       "subject": "Inglês",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
@@ -1363,8 +1363,8 @@
     "3em_2_2": {
       "subject": "Inglês",
       "teacher": "Michael",
-      "color": "#db57ff",
-      "fontColor": "#ffffff",
+      "color": "#d969e8",
+      "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
     },
@@ -1591,6 +1591,22 @@
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": false
+    },
+    "7ano2_3_1": {
+      "subject": "Inglês",
+      "teacher": "Michael",
+      "color": "#d969e8",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": false
+    },
+    "7ano2_4_1": {
+      "subject": "Ciências",
+      "teacher": "Elayne",
+      "color": "#98FB98",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": false
     }
   },
   "teachersAvailability": {},
@@ -1600,7 +1616,7 @@
     "História": "#FFFACD",
     "Geografia": "#00bfff",
     "Ciências": "#98FB98",
-    "Inglês": "#FFDAB9",
+    "Inglês": "#d969e8",
     "Ed. Física": "#E0FFFF",
     "Artes": "#FA8072",
     "Religião": "#B0E0E6",
