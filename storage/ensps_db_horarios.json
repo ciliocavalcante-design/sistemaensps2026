@@ -1726,7 +1726,7 @@
       "color": "#e2e2f8",
       "fontColor": "#000000",
       "fontSize": 13,
-      "allCaps": false
+      "allCaps": true
     },
     "7ano2_4_4": {
       "subject": "Gramática",
@@ -1757,7 +1757,7 @@
     "Física 2": "#FFDAB9",
     "Física 3": "#E0FFFF",
     "Trilha Física": "#FA8072",
-    "Gramática": "#c1c1fb",
+    "Gramática": "#e2e2f8",
     "Literatura": "#F5F5DC",
     "Geografia 1": "#ADD8E6",
     "Geografia 2": "#98FB98",
