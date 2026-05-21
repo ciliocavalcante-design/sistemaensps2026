@@ -2374,11 +2374,11 @@
   "currentTheme": "dark",
   "visualSettings": {
     "classHeight": 36,
-    "horizontalMargin": 1,
+    "horizontalMargin": 2,
     "classFontSize": 15,
     "teacherFontSize": 13,
     "seriesGap": 0,
-    "timeFontSize": 14,
+    "timeFontSize": 13,
     "headerFontSize": 14,
     "intervalFontSize": 14
   }
