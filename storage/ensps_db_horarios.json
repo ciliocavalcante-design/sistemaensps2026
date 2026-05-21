@@ -1695,6 +1695,14 @@
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
+    },
+    "7ano2_4_3": {
+      "subject": "Matemática",
+      "teacher": "Eduardo",
+      "color": "#f5a10f",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": true
     }
   },
   "teachersAvailability": {},
