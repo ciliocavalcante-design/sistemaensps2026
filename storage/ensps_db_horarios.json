@@ -1651,7 +1651,15 @@
     "7ano2_0_2": {
       "subject": "AVALIAÇÃO",
       "teacher": "",
-      "color": "#adadad",
+      "color": "#dedede",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": false
+    },
+    "7ano2_1_2": {
+      "subject": "AVALIAÇÃO",
+      "teacher": "",
+      "color": "#dedede",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": false
@@ -1709,7 +1717,7 @@
     "Redação": "#FA8072",
     "Prat Prod Txt": "#B0E0E6",
     "Interpret": "#F5F5DC",
-    "AVALIAÇÃO": "#adadad"
+    "AVALIAÇÃO": "#dedede"
   },
   "recentCustomColors": [
     "#dedede",
