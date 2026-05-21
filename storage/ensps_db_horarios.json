@@ -3,7 +3,7 @@
     "6ano_0_0": {
       "subject": "Ciências",
       "teacher": "Elayne",
-      "color": "#68f872",
+      "color": "#98FB98",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -43,7 +43,7 @@
     "6ano_1_0": {
       "subject": "Ciências",
       "teacher": "Elayne",
-      "color": "#68f872",
+      "color": "#98FB98",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -155,7 +155,7 @@
     "6ano_4_4": {
       "subject": "Ciências",
       "teacher": "Elayne",
-      "color": "#68f872",
+      "color": "#98FB98",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -275,7 +275,7 @@
     "7ano_3_0": {
       "subject": "Ciências",
       "teacher": "Elayne",
-      "color": "#68f872",
+      "color": "#98FB98",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -315,7 +315,7 @@
     "7ano_4_0": {
       "subject": "Ciências",
       "teacher": "Elayne",
-      "color": "#68f872",
+      "color": "#98FB98",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -331,7 +331,7 @@
     "7ano_4_2": {
       "subject": "Ciências",
       "teacher": "Elayne",
-      "color": "#68f872",
+      "color": "#98FB98",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -419,7 +419,7 @@
     "8ano_0_4": {
       "subject": "Ciências",
       "teacher": "Elayne",
-      "color": "#68f872",
+      "color": "#98FB98",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -459,7 +459,7 @@
     "8ano_1_4": {
       "subject": "Ciências",
       "teacher": "Elayne",
-      "color": "#68f872",
+      "color": "#98FB98",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -483,7 +483,7 @@
     "8ano_3_2": {
       "subject": "Ciências",
       "teacher": "Elayne",
-      "color": "#68f872",
+      "color": "#98FB98",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -579,7 +579,7 @@
     "9ano_0_1": {
       "subject": "Química",
       "teacher": "Elayne",
-      "color": "#68f872",
+      "color": "#98FB98",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -683,7 +683,7 @@
     "9ano_3_4": {
       "subject": "Química",
       "teacher": "Elayne",
-      "color": "#68f872",
+      "color": "#98FB98",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -1583,6 +1583,14 @@
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": false
+    },
+    "7ano2_1_1": {
+      "subject": "Ciências",
+      "teacher": "Elayne",
+      "color": "#98FB98",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": false
     }
   },
   "teachersAvailability": {},
@@ -1639,6 +1647,7 @@
     "Interpret": "#F5F5DC"
   },
   "recentCustomColors": [
+    "#d969e8",
     "#00bfff",
     "#f5a10f"
   ],
