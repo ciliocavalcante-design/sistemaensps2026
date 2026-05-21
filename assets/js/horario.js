@@ -1431,7 +1431,7 @@
 
         function normalizeVisualSettings(settings = {}) {
             const limits = {
-                classHeight: [36, 140],
+                classHeight: [24, 140],
                 horizontalMargin: [0, 40],
                 classFontSize: [8, 24],
                 teacherFontSize: [8, 22],
@@ -1887,12 +1887,11 @@
 
                             if (matchesTeacher && matchesSubject) {
                                 const fontColor = classInfo.fontColor || '#000000';
-                                const fontSize = classInfo.fontSize || visualSettings.classFontSize;
                                 const textTransform = classInfo.allCaps ? 'uppercase' : 'none';
                                 const teacherHtml = classInfo.teacher
-                                    ? `<div class="teacher" style="color: ${fontColor}; font-size: ${visualSettings.teacherFontSize}px; text-transform: ${textTransform};">${classInfo.teacher}</div>`
+                                    ? `<div class="teacher" style="color: ${fontColor}; text-transform: ${textTransform};">${classInfo.teacher}</div>`
                                     : '';
-                                cellContent = `<div class="subject" style="color: ${fontColor}; font-size: ${fontSize}px; text-transform: ${textTransform};">${classInfo.subject}</div>${teacherHtml}`;
+                                cellContent = `<div class="subject" style="color: ${fontColor}; text-transform: ${textTransform};">${classInfo.subject}</div>${teacherHtml}`;
                                 cellStyle = `background-color: ${classInfo.color || subjectColors[classInfo.subject] || colors[0].hex}; color: ${fontColor};`;
 
                                 // Verifica conflitos de professor

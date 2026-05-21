@@ -9,6 +9,7 @@
             --schedule-time-font-size: 14px;
             --schedule-header-font-size: 14px;
             --schedule-interval-font-size: 14px;
+            --schedule-cell-vertical-padding: clamp(3px, calc(var(--schedule-class-height) * 0.14), 12px);
             --header-bar-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --header-bar-color: #ffffff;
             --app-bg: linear-gradient(135deg, #eef4ff 0%, #dfe9ff 45%, #f8fbff 100%);
@@ -201,15 +202,16 @@
         }
         .visual-size-controls {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 12px;
             margin-top: 14px;
         }
         .visual-range-control {
             display: grid;
-            grid-template-columns: 118px minmax(100px, 1fr) 48px;
+            grid-template-columns: minmax(118px, 0.85fr) minmax(120px, 1.2fr) minmax(52px, max-content);
             align-items: center;
             gap: 10px;
+            min-width: 0;
             background: var(--surface-soft);
             border: 1px solid var(--border-soft);
             border-radius: 12px;
@@ -220,7 +222,7 @@
         }
         .visual-range-control input[type="range"] {
             width: 100%;
-            min-width: 90px;
+            min-width: 0;
             padding: 0;
             accent-color: var(--accent);
             cursor: pointer;
@@ -230,6 +232,7 @@
             font-size: 0.82rem;
             font-weight: 800;
             text-align: right;
+            white-space: nowrap;
         }
         select, input, button {
             padding: 10px 15px;
@@ -341,7 +344,7 @@
             background: var(--surface);
             border: 1px solid var(--grid-line-color);
             border-radius: 14px;
-            padding: 18px;
+            padding: clamp(6px, calc(var(--schedule-series-gap) * 0.5 + 6px), 18px);
             box-shadow: 0 4px 10px rgba(0,0,0,0.06);
         }
         .stacked-schedule h3 {
@@ -395,7 +398,7 @@
         }
         th, td {
             border: 2px solid var(--grid-line-color);
-            padding: 12px var(--schedule-horizontal-margin);
+            padding: var(--schedule-cell-vertical-padding) var(--schedule-horizontal-margin);
             text-align: center;
             min-width: 120px;
         }
@@ -403,7 +406,7 @@
             background: var(--header-bar-bg);
             color: var(--header-bar-color);
             font-weight: 600;
-            font-size: 12px;
+            font-size: var(--schedule-header-font-size);
             position: sticky;
             top: 0;
             z-index: 10;
@@ -411,7 +414,7 @@
         .time-cell {
             background: var(--surface-soft);
             font-weight: 600;
-            font-size: 12px;
+            font-size: var(--schedule-time-font-size);
             color: var(--text-primary);
         }
         .time-cell:not(.intervalo) {
@@ -877,7 +880,7 @@
         }
         .printable-schedule {
             margin-bottom: 0;
-            padding: 8px 10px;
+            padding: clamp(0px, calc(var(--schedule-series-gap) * 0.33), 8px) 10px;
             page-break-inside: avoid;
             break-inside: avoid;
         }
@@ -936,7 +939,7 @@
         .printable-schedule th,
         .printable-schedule td {
             border: 1px solid var(--grid-line-color);
-            padding: 12px var(--schedule-horizontal-margin);
+            padding: var(--schedule-cell-vertical-padding) var(--schedule-horizontal-margin);
             text-align: center;
             min-width: 70px;
             background: #ffffff;
@@ -1021,7 +1024,7 @@
                 font-size: 1.1em;
             }
             .printable-schedule .time-cell {
-                font-size: 12px;
+                font-size: var(--schedule-time-font-size);
             }
             .printable-schedule .intervalo {
                 background: #ffecb3 !important; /* Cor mais suave para intervalo na impressão */
