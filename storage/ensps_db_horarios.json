@@ -163,7 +163,7 @@
     "6ano_5_0": {
       "subject": "Ed. Física M.",
       "teacher": "Bruno",
-      "color": "#ae2929",
+      "color": "#ba2129",
       "fontColor": "#ffffff",
       "fontSize": 15,
       "allCaps": true
@@ -179,7 +179,7 @@
     "6ano_5_2": {
       "subject": "Ed. Física F.",
       "teacher": "Bruno",
-      "color": "#ae2929",
+      "color": "#ba2129",
       "fontColor": "#ffffff",
       "fontSize": 15,
       "allCaps": true
@@ -355,7 +355,7 @@
     "7ano_5_0": {
       "subject": "Ed. Física M.",
       "teacher": "Bruno",
-      "color": "#ae2929",
+      "color": "#ba2129",
       "fontColor": "#ffffff",
       "fontSize": 15,
       "allCaps": true
@@ -363,7 +363,7 @@
     "7ano_5_2": {
       "subject": "Ed. Física F.",
       "teacher": "Bruno",
-      "color": "#ae2929",
+      "color": "#ba2129",
       "fontColor": "#ffffff",
       "fontSize": 15,
       "allCaps": true
@@ -555,7 +555,7 @@
     "8ano_5_1": {
       "subject": "Ed. Física",
       "teacher": "Bruno",
-      "color": "#ae2929",
+      "color": "#ba2129",
       "fontColor": "#ffffff",
       "fontSize": 15,
       "allCaps": true
@@ -755,7 +755,7 @@
     "9ano_5_3": {
       "subject": "Ed. Física",
       "teacher": "Bruno",
-      "color": "#ae2929",
+      "color": "#ba2129",
       "fontColor": "#ffffff",
       "fontSize": 15,
       "allCaps": true
@@ -1259,7 +1259,7 @@
     "2em_7_3": {
       "subject": "Ed. Física",
       "teacher": "Bruno",
-      "color": "#ae2929",
+      "color": "#ba2129",
       "fontColor": "#ffffff",
       "fontSize": 15,
       "allCaps": true
@@ -1523,7 +1523,7 @@
     "1em_7_3": {
       "subject": "Ed. Física",
       "teacher": "Bruno",
-      "color": "#ae2929",
+      "color": "#ba2129",
       "fontColor": "#ffffff",
       "fontSize": 15,
       "allCaps": true
@@ -1615,6 +1615,14 @@
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": false
+    },
+    "7ano2_5_0": {
+      "subject": "Ed. Física M.",
+      "teacher": "Bruno",
+      "color": "#ba2129",
+      "fontColor": "#ffffff",
+      "fontSize": 13,
+      "allCaps": true
     }
   },
   "teachersAvailability": {},
@@ -1650,7 +1658,7 @@
     "Biologia 2": "#B0E0E6",
     "Biologia 3": "#F5F5DC",
     "Trilha Biol.": "#ADD8E6",
-    "Ed. Física M.": "#98FB98",
+    "Ed. Física M.": "#ba2129",
     "Ed. Física F.": "#FFFACD",
     "Proj. de Vida": "#FFB6C1",
     "Matemática Fundamental": "#E6E6FA",
