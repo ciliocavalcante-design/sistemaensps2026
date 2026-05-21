@@ -35,7 +35,7 @@
     "6ano_0_4": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -75,7 +75,7 @@
     "6ano_1_4": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -91,7 +91,7 @@
     "6ano_3_1": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -139,7 +139,7 @@
     "6ano_4_2": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -171,7 +171,7 @@
     "6ano_5_1": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -259,7 +259,7 @@
     "7ano_1_3": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -291,7 +291,7 @@
     "7ano_3_2": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -347,7 +347,7 @@
     "7ano_4_4": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -371,7 +371,7 @@
     "7ano_5_3": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -379,7 +379,7 @@
     "7ano_5_4": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -395,7 +395,7 @@
     "8ano_0_1": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -411,7 +411,7 @@
     "8ano_0_3": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -435,7 +435,7 @@
     "8ano_1_1": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -499,7 +499,7 @@
     "8ano_3_4": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -515,7 +515,7 @@
     "8ano_4_1": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -1547,15 +1547,15 @@
     "7ano2_0_0": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": false
     },
-    "7ano2_1_0": {
+    "7ano2_4_0": {
       "subject": "Matemática",
       "teacher": "Eduardo",
-      "color": "#ADD8E6",
+      "color": "#f5a10f",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": false
