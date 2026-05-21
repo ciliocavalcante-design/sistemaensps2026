@@ -1607,6 +1607,14 @@
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": false
+    },
+    "7ano2_5_1": {
+      "subject": "Ciências",
+      "teacher": "Elayne",
+      "color": "#98FB98",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": false
     }
   },
   "teachersAvailability": {},
