@@ -1711,6 +1711,14 @@
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
+    },
+    "7ano2_1_4": {
+      "subject": "Paradidat.",
+      "teacher": "Thayna",
+      "color": "#c1c1fb",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": true
     }
   },
   "teachersAvailability": {},
