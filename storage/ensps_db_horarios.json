@@ -1679,6 +1679,14 @@
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": false
+    },
+    "7ano2_1_3": {
+      "subject": "Geografia",
+      "teacher": "Silânia",
+      "color": "#00bfff",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": true
     }
   },
   "teachersAvailability": {},
