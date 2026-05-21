@@ -2364,7 +2364,7 @@
       }
     }
   },
-  "currentGridLineColor": "#fafafa",
+  "currentGridLineColor": "#000000",
   "currentGridFrameEnabled": true,
   "currentIntervalColor": "#13346c",
   "currentIntervalFontColor": "#ffffff",
