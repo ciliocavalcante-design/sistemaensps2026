@@ -1623,6 +1623,14 @@
       "fontColor": "#ffffff",
       "fontSize": 13,
       "allCaps": true
+    },
+    "7ano2_5_2": {
+      "subject": "Ed. Física F.",
+      "teacher": "Bruno",
+      "color": "#ba2129",
+      "fontColor": "#ffffff",
+      "fontSize": 13,
+      "allCaps": true
     }
   },
   "teachersAvailability": {},
