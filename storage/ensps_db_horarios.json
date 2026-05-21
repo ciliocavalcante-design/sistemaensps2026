@@ -2364,7 +2364,7 @@
       }
     }
   },
-  "currentGridLineColor": "#000000",
+  "currentGridLineColor": "#fafafa",
   "currentGridFrameEnabled": true,
   "currentIntervalColor": "#13346c",
   "currentIntervalFontColor": "#ffffff",
@@ -2377,7 +2377,7 @@
     "horizontalMargin": 2,
     "classFontSize": 15,
     "teacherFontSize": 13,
-    "seriesGap": 3,
+    "seriesGap": 6,
     "timeFontSize": 13,
     "headerFontSize": 14,
     "intervalFontSize": 14
