@@ -387,7 +387,7 @@
     "8ano_0_0": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#E6E6FA",
+      "color": "#ADD8E6",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -427,7 +427,7 @@
     "8ano_1_0": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#E6E6FA",
+      "color": "#ADD8E6",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -651,7 +651,7 @@
     "9ano_3_0": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#E6E6FA",
+      "color": "#ADD8E6",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -691,7 +691,7 @@
     "9ano_4_0": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#E6E6FA",
+      "color": "#ADD8E6",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -979,7 +979,7 @@
     "1em_6_0": {
       "subject": "Literatura",
       "teacher": "Thayna",
-      "color": "#E6E6FA",
+      "color": "#ADD8E6",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -1635,7 +1635,15 @@
     "7ano2_3_2": {
       "subject": "LPT",
       "teacher": "Thayna",
-      "color": "#E6E6FA",
+      "color": "#ADD8E6",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": true
+    },
+    "7ano2_4_2": {
+      "subject": "LPT",
+      "teacher": "Thayna",
+      "color": "#ADD8E6",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -1686,7 +1694,7 @@
     "Matemática 3": "#ADD8E6",
     "Matemática 4": "#98FB98",
     "Matemática 5": "#FFFACD",
-    "LPT": "#E6E6FA",
+    "LPT": "#ADD8E6",
     "Paradidat.": "#E6E6FA",
     "História 1": "#FFDAB9",
     "História 2": "#E0FFFF",
