@@ -1575,6 +1575,14 @@
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": false
+    },
+    "7ano2_0_1": {
+      "subject": "Filosofia",
+      "teacher": "Fabíola",
+      "color": "#FFB6C1",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": false
     }
   },
   "teachersAvailability": {},
