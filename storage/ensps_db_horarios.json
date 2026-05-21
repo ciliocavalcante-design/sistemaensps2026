@@ -2373,11 +2373,11 @@
   "currentHeaderBarFontColor": "#ffffff",
   "currentTheme": "dark",
   "visualSettings": {
-    "classHeight": 49,
+    "classHeight": 36,
     "horizontalMargin": 12,
     "classFontSize": 15,
     "teacherFontSize": 13,
-    "seriesGap": 14,
+    "seriesGap": 8,
     "timeFontSize": 14,
     "headerFontSize": 14,
     "intervalFontSize": 14
