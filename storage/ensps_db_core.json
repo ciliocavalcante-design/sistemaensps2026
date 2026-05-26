@@ -7176,8 +7176,8 @@
       "descricao": "O(A) estudante manifestou comportamento inadequado de falta de respeito com colegas e/ou equipe escolar, contrariando os princípios de convivência harmônica e respeito mútuo incentivados pela escola.\nO(A) estudante fez uso de gestos obscenos e/ou palavras de baixo calão em ambiente escolar, desrespeitando colegas e membros da equipe escolar.",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-05-26T13:01:42.552Z"
     },
     {
       "id": 1778066028589,
@@ -7291,8 +7291,8 @@
       "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-05-26T13:01:42.801Z"
     },
     {
       "id": 1778680069822,
@@ -7368,8 +7368,8 @@
       "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-05-26T13:01:42.978Z"
     }
   ],
   "comunicadosProfessores": [
