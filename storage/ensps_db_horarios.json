@@ -1558,7 +1558,7 @@
       "color": "#ffbc47",
       "fontColor": "#000000",
       "fontSize": 13,
-      "allCaps": false
+      "allCaps": true
     },
     "7ano2_1_0": {
       "subject": "Geografia",
@@ -2377,7 +2377,7 @@
     "horizontalMargin": 2,
     "classFontSize": 14,
     "teacherFontSize": 11,
-    "seriesGap": 2,
+    "seriesGap": 1,
     "timeFontSize": 13,
     "headerFontSize": 14,
     "intervalFontSize": 14
