@@ -7406,8 +7406,8 @@
       "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-05-29T14:46:49.886Z"
     },
     {
       "id": 1779973398107,
@@ -7425,8 +7425,8 @@
       "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-05-29T14:46:59.338Z"
     },
     {
       "id": 1779973398627,
