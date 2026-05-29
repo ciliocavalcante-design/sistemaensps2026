@@ -2377,7 +2377,7 @@
     "horizontalMargin": 2,
     "classFontSize": 14,
     "teacherFontSize": 11,
-    "seriesGap": 3,
+    "seriesGap": 2,
     "timeFontSize": 13,
     "headerFontSize": 14,
     "intervalFontSize": 14
