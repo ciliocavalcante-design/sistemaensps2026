@@ -8637,7 +8637,14 @@
         ]
       },
       "2026-4": {
-        "fiscalizacao": []
+        "fiscalizacao": [
+          {
+            "professor": "Diogo",
+            "qtdeEF": 0,
+            "qtdeEM": 4,
+            "originalCategoryName": "fiscalizacao"
+          }
+        ]
       }
     }
   }
