@@ -8643,6 +8643,12 @@
             "qtdeEF": 0,
             "qtdeEM": 4,
             "originalCategoryName": "novo ensino medio"
+          },
+          {
+            "professor": "Michael",
+            "qtdeEF": 0,
+            "qtdeEM": 8,
+            "originalCategoryName": "novo ensino medio"
           }
         ],
         "fiscalizacao": []
