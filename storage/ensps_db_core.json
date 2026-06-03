@@ -8378,66 +8378,12 @@
       },
       {
         "tipo": "falta",
-        "dia": "05/05/2026",
-        "falta": "Fabíola",
-        "substExtra": "",
-        "fiiEm": "1EF/2EM",
-        "motivo": "Atestado",
-        "qtde": 3
-      },
-      {
-        "tipo": "falta",
-        "dia": "05/05/2026",
-        "falta": "",
-        "substExtra": "Helly",
-        "fiiEm": "EF",
-        "motivo": "Extra",
-        "qtde": 1
-      },
-      {
-        "tipo": "falta",
-        "dia": "05/05/2026",
-        "falta": "",
-        "substExtra": "Alexandre",
-        "fiiEm": "EM",
-        "motivo": "Extra",
-        "qtde": 2
-      },
-      {
-        "tipo": "falta",
-        "dia": "06/05/2026",
+        "dia": "08/05/2026",
         "falta": "Diogo",
         "substExtra": "",
-        "fiiEm": "5EM",
-        "motivo": "Acompanhamento Pai",
-        "qtde": 5
-      },
-      {
-        "tipo": "falta",
-        "dia": "06/05/2026",
-        "falta": "",
-        "substExtra": "Amanda",
-        "fiiEm": "EM",
-        "motivo": "Extra",
-        "qtde": 3
-      },
-      {
-        "tipo": "falta",
-        "dia": "06/05/2026",
-        "falta": "",
-        "substExtra": "Alexandre",
-        "fiiEm": "EM",
-        "motivo": "Extra",
-        "qtde": 1
-      },
-      {
-        "tipo": "falta",
-        "dia": "06/05/2026",
-        "falta": "",
-        "substExtra": "Michael",
-        "fiiEm": "EM",
-        "motivo": "Extra",
-        "qtde": 1
+        "fiiEm": "2EM",
+        "motivo": "Atraso",
+        "qtde": 2
       }
     ],
     "extraAvulsaRecords": {
