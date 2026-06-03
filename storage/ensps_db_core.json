@@ -8375,6 +8375,33 @@
         "fiiEm": "EM",
         "motivo": "Extra",
         "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "05/05/2026",
+        "falta": "Fabíola",
+        "substExtra": "",
+        "fiiEm": "1EF/2EM",
+        "motivo": "Atestado",
+        "qtde": 3
+      },
+      {
+        "tipo": "falta",
+        "dia": "05/05/2026",
+        "falta": "",
+        "substExtra": "Helly",
+        "fiiEm": "EF",
+        "motivo": "Extra",
+        "qtde": 1
+      },
+      {
+        "tipo": "falta",
+        "dia": "05/05/2026",
+        "falta": "",
+        "substExtra": "Alexandre",
+        "fiiEm": "EM",
+        "motivo": "Extra",
+        "qtde": 2
       }
     ],
     "extraAvulsaRecords": {
