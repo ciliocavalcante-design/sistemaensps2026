@@ -1561,20 +1561,20 @@
       "allCaps": false
     },
     "7ano2_1_0": {
-      "subject": "Geografia",
-      "teacher": "Silânia",
-      "color": "#00bfff",
-      "fontColor": "#000000",
-      "fontSize": 13,
-      "allCaps": true
-    },
-    "7ano2_4_0": {
       "subject": "Matemática",
       "teacher": "Eduardo",
       "color": "#ffbc47",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": false
+    },
+    "7ano2_4_0": {
+      "subject": "Geografia",
+      "teacher": "Silânia",
+      "color": "#00bfff",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": true
     },
     "7ano2_0_1": {
       "subject": "Filosofia",
