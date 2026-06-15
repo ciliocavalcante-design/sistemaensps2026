@@ -1025,9 +1025,9 @@
       "allCaps": true
     },
     "2em_0_0": {
-      "subject": "Redação",
-      "teacher": "Ravena",
-      "color": "#ffe9d6",
+      "subject": "Trilha L.C.",
+      "teacher": "Michael",
+      "color": "#d969e8",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -1073,9 +1073,9 @@
       "allCaps": true
     },
     "2em_1_2": {
-      "subject": "Trilha L.C.",
-      "teacher": "Michael",
-      "color": "#d969e8",
+      "subject": "Redação",
+      "teacher": "Ravena",
+      "color": "#ffe9d6",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
