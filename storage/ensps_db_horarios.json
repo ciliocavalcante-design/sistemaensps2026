@@ -817,9 +817,9 @@
       "allCaps": true
     },
     "1em_1_0": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#a8ffd2",
+      "subject": "Inglês",
+      "teacher": "Michael",
+      "color": "#d969e8",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -857,9 +857,9 @@
       "allCaps": true
     },
     "1em_2_0": {
-      "subject": "Inglês",
-      "teacher": "Michael",
-      "color": "#d969e8",
+      "subject": "História",
+      "teacher": "Alexandre",
+      "color": "#a8ffd2",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
