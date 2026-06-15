@@ -2893,11 +2893,11 @@
   "currentIntervalColor": "#172235",
   "currentIntervalFontColor": "#ffffff",
   "currentIntervalText": "",
-  "currentHeaderBarColor": "#667eea",
+  "currentHeaderBarColor": "#172235",
   "currentHeaderBarFontColor": "#ffffff",
   "currentTheme": "dark",
   "visualSettings": {
-    "classHeight": 34,
+    "classHeight": 25,
     "horizontalMargin": 12,
     "classFontSize": 13,
     "teacherFontSize": 11,
