@@ -121,9 +121,9 @@
       "allCaps": true
     },
     "6ano_4_0": {
-      "subject": "Filosofia",
-      "teacher": "Michael",
-      "color": "#d969e8",
+      "subject": "Matemática",
+      "teacher": "Eduardo",
+      "color": "#ffbc47",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -137,9 +137,9 @@
       "allCaps": true
     },
     "6ano_4_2": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffbc47",
+      "subject": "Filosofia",
+      "teacher": "Michael",
+      "color": "#d969e8",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
