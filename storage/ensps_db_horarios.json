@@ -1154,7 +1154,7 @@
     },
     "2em_3_2": {
       "subject": "Prat Prod Txt",
-      "teacher": "Ravena",
+      "teacher": "Juliane",
       "color": "#ffe9d6",
       "fontColor": "#000000",
       "fontSize": 13,
@@ -1787,7 +1787,7 @@
     "História 1": "#FFDAB9",
     "História 2": "#E0FFFF",
     "Redação": "#FA8072",
-    "Prat Prod Txt": "#B0E0E6",
+    "Prat Prod Txt": "#ffe9d6",
     "Interpret": "#F5F5DC"
   },
   "recentCustomColors": [],
