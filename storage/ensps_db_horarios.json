@@ -2901,9 +2901,9 @@
     "horizontalMargin": 12,
     "classFontSize": 13,
     "teacherFontSize": 11,
-    "seriesGap": 17,
+    "seriesGap": 0,
     "timeFontSize": 14,
-    "headerFontSize": 14,
+    "headerFontSize": 13,
     "intervalFontSize": 14
   }
 }
