@@ -817,9 +817,9 @@
       "allCaps": true
     },
     "1em_1_0": {
-      "subject": "Redação",
-      "teacher": "Ravena",
-      "color": "#ffe9d6",
+      "subject": "História",
+      "teacher": "Alexandre",
+      "color": "#a8ffd2",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
@@ -833,9 +833,9 @@
       "allCaps": true
     },
     "1em_1_2": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#a8ffd2",
+      "subject": "Redação",
+      "teacher": "Ravena",
+      "color": "#ffe9d6",
       "fontColor": "#000000",
       "fontSize": 15,
       "allCaps": true
