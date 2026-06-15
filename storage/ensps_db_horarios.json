@@ -794,7 +794,7 @@
     },
     "1em_0_2": {
       "subject": "Redação",
-      "teacher": "Ravena",
+      "teacher": "JULIANE",
       "color": "#ffe9d6",
       "fontColor": "#000000",
       "fontSize": 13,
@@ -1074,7 +1074,7 @@
     },
     "2em_1_2": {
       "subject": "Redação",
-      "teacher": "Ravena",
+      "teacher": "JULIANE",
       "color": "#ffe9d6",
       "fontColor": "#000000",
       "fontSize": 13,
@@ -1786,7 +1786,7 @@
     "Paradidat.": "#E6E6FA",
     "História 1": "#FFDAB9",
     "História 2": "#E0FFFF",
-    "Redação": "#FA8072",
+    "Redação": "#ffe9d6",
     "Prat Prod Txt": "#ffe9d6",
     "Interpret": "#F5F5DC"
   },
