@@ -376,6 +376,14 @@
       "fontSize": 13,
       "allCaps": true
     },
+    "7ano_5_4": {
+      "subject": "Matemática",
+      "teacher": "Eduardo",
+      "color": "#ffbc47",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": true
+    },
     "8ano_0_0": {
       "subject": "LPT",
       "teacher": "Thayna",
@@ -1377,9 +1385,9 @@
       "allCaps": true
     },
     "3em_3_0": {
-      "subject": "Trilha Geo",
-      "teacher": "Silânia",
-      "color": "#00bfff",
+      "subject": "História 1",
+      "teacher": "Alexandre",
+      "color": "#a8ffd2",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -1497,9 +1505,9 @@
       "allCaps": true
     },
     "3em_7_0": {
-      "subject": "História 1",
-      "teacher": "Alexandre",
-      "color": "#a8ffd2",
+      "subject": "Trilha Geo",
+      "teacher": "Silânia",
+      "color": "#00bfff",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -1544,6 +1552,14 @@
       "fontSize": 13,
       "allCaps": true
     },
+    "7ano2_3_0": {
+      "subject": "Geografia",
+      "teacher": "Silânia",
+      "color": "#00bfff",
+      "fontColor": "#000000",
+      "fontSize": 13,
+      "allCaps": true
+    },
     "7ano2_1_0": {
       "subject": "Matemática",
       "teacher": "Eduardo",
@@ -1553,9 +1569,9 @@
       "allCaps": true
     },
     "7ano2_4_0": {
-      "subject": "Geografia",
-      "teacher": "Silânia",
-      "color": "#00bfff",
+      "subject": "LPT",
+      "teacher": "Thayna",
+      "color": "#c1c1fb",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -1625,9 +1641,9 @@
       "allCaps": true
     },
     "7ano2_4_2": {
-      "subject": "LPT",
-      "teacher": "Thayna",
-      "color": "#c1c1fb",
+      "subject": "Matemática",
+      "teacher": "Eduardo",
+      "color": "#ffbc47",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -1716,22 +1732,6 @@
       "subject": "Gramática",
       "teacher": "Thayna",
       "color": "#c1c1fb",
-      "fontColor": "#000000",
-      "fontSize": 13,
-      "allCaps": true
-    },
-    "7ano_5_1": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffbc47",
-      "fontColor": "#000000",
-      "fontSize": 13,
-      "allCaps": true
-    },
-    "7ano2_5_4": {
-      "subject": "Matemática",
-      "teacher": "Eduardo",
-      "color": "#ffbc47",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
