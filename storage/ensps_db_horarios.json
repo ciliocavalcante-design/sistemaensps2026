@@ -793,9 +793,9 @@
       "allCaps": true
     },
     "1em_0_2": {
-      "subject": "Redação",
-      "teacher": "JULIANE",
-      "color": "#ffe9d6",
+      "subject": "Geografia",
+      "teacher": "Rafaely",
+      "color": "#E0FFFF",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -833,9 +833,9 @@
       "allCaps": true
     },
     "1em_1_2": {
-      "subject": "Geografia",
-      "teacher": "Rafaely",
-      "color": "#E0FFFF",
+      "subject": "Redação",
+      "teacher": "JULIANE",
+      "color": "#ffe9d6",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
