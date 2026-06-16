@@ -1033,9 +1033,9 @@
       "allCaps": true
     },
     "2em_0_2": {
-      "subject": "História",
-      "teacher": "Alexandre",
-      "color": "#a8ffd2",
+      "subject": "Redação",
+      "teacher": "JULIANE",
+      "color": "#ffe9d6",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -1073,9 +1073,9 @@
       "allCaps": true
     },
     "2em_1_2": {
-      "subject": "Redação",
-      "teacher": "JULIANE",
-      "color": "#ffe9d6",
+      "subject": "História",
+      "teacher": "Alexandre",
+      "color": "#a8ffd2",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
