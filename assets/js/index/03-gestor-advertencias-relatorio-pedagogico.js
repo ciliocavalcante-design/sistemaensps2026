@@ -68,16 +68,43 @@
       await pdfBaixarPaginas([document.getElementById('credenciaisImpressao')], 'credenciais_plataformas_digitais.pdf');
     });
 
-    document.getElementById('btnCopiarCredenciais').addEventListener('click', function(){
+    function copiarTextoCredenciais(texto, mensagemSucesso){
+      navigator.clipboard.writeText(texto).then(() => {
+        alert(mensagemSucesso);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = texto;
+        ta.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try {
+          document.execCommand('copy');
+          alert(mensagemSucesso);
+        } catch(e) {
+          alert('Copie manualmente:\n\n' + texto);
+        }
+        document.body.removeChild(ta);
+      });
+    }
+
+    function obterCredenciaisGestorAtuais(){
       const matricula = document.getElementById('credMatricula').textContent;
       const usuarioSAS = document.getElementById('credUsuarioSAS').textContent;
       const nomeAluno = document.getElementById('alunoGestor').value.trim();
 
       if(matricula === '—'){
         alert('⚠️ Gere as credenciais primeiro!');
-        return;
+        return null;
       }
 
+      return { matricula, usuarioSAS, nomeAluno };
+    }
+
+    document.getElementById('btnCopiarCredenciais').addEventListener('click', function(){
+      const dados = obterCredenciaisGestorAtuais();
+      if(!dados) return;
+      const { matricula, usuarioSAS, nomeAluno } = dados;
       const texto = `Aluno
 ${nomeAluno}
 Matrícula
@@ -97,23 +124,41 @@ Site: https://app.portalsaseducacao.com.br/
 Usuário: ${usuarioSAS}
 Senha temporária: ensps2026`;
 
-      navigator.clipboard.writeText(texto).then(() => {
-        alert('✅ Credenciais copiadas para a área de transferência!');
-      }).catch(() => {
-        const ta = document.createElement('textarea');
-        ta.value = texto;
-        ta.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;';
-        document.body.appendChild(ta);
-        ta.focus();
-        ta.select();
-        try {
-          document.execCommand('copy');
-          alert('✅ Credenciais copiadas para a área de transferência!');
-        } catch(e) {
-          alert('Copie manualmente:\n\n' + texto);
-        }
-        document.body.removeChild(ta);
-      });
+      copiarTextoCredenciais(texto, '✅ Credenciais copiadas para a área de transferência!');
+    });
+
+    document.getElementById('btnCopiarCredenciaisENSPS').addEventListener('click', function(){
+      const dados = obterCredenciaisGestorAtuais();
+      if(!dados) return;
+      const { matricula, nomeAluno } = dados;
+      const texto = `Aluno
+${nomeAluno}
+Matrícula
+${matricula}
+
+📱 Plataforma ENSPS
+Aplicativo: Gestor Escolar
+Escola: 19
+Matrícula: ${matricula}
+Senha: ${matricula}`;
+      copiarTextoCredenciais(texto, '✅ Dados da Plataforma ENSPS copiados!');
+    });
+
+    document.getElementById('btnCopiarCredenciaisSAS').addEventListener('click', function(){
+      const dados = obterCredenciaisGestorAtuais();
+      if(!dados) return;
+      const { matricula, usuarioSAS, nomeAluno } = dados;
+      const texto = `Aluno
+${nomeAluno}
+Matrícula
+${matricula}
+
+🎓 Plataforma SAS
+Aplicativo: SAS Educação
+Site: https://app.portalsaseducacao.com.br/
+Usuário: ${usuarioSAS}
+Senha temporária: ensps2026`;
+      copiarTextoCredenciais(texto, '✅ Dados da Plataforma SAS copiados!');
     });
 
     // =========================
