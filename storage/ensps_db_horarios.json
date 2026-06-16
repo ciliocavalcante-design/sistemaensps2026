@@ -2361,13 +2361,13 @@
   "currentHeaderBarFontColor": "#ffffff",
   "currentTheme": "dark",
   "visualSettings": {
-    "classHeight": 31,
+    "classHeight": 25,
     "horizontalMargin": 12,
     "classFontSize": 13,
     "teacherFontSize": 11,
     "seriesGap": 10,
     "timeFontSize": 14,
-    "headerFontSize": 14,
+    "headerFontSize": 13,
     "intervalFontSize": 14
   }
 }
