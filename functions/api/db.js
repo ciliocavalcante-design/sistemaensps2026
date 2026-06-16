@@ -6,6 +6,7 @@ const DEFAULT_DB_PATHS = {
 };
 const REMOTE_SCOPES = ['core', 'horarios', 'boletim'];
 const GITHUB_API_BASE = 'https://api.github.com';
+const INLINE_IMAGE_PREFIX = /^data:image\//i;
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -179,6 +180,24 @@ function dividirBancoUnificado(db = {}) {
   };
 }
 
+function removerLogoInlinePesadaDoBoletim(db) {
+  if (!db || typeof db !== 'object') return db;
+  const normalized = Array.isArray(db) ? [...db] : { ...db };
+  const ui = normalized.ui && typeof normalized.ui === 'object' ? { ...normalized.ui } : {};
+
+  if (typeof ui.footerLogo === 'string' && INLINE_IMAGE_PREFIX.test(ui.footerLogo)) {
+    delete ui.footerLogo;
+  }
+
+  normalized.ui = ui;
+  return normalized;
+}
+
+function sanitizarEscopoParaSalvar(scope, db) {
+  if (scope === 'boletim') return removerLogoInlinePesadaDoBoletim(db);
+  return db;
+}
+
 function manifestoSplit() {
   return {
     schemaVersion: 3,
@@ -242,7 +261,7 @@ async function buscarBancoModular(config, env) {
 async function salvarArquivo(config, db, sha, reason) {
   const url = `${GITHUB_API_BASE}/repos/${config.owner}/${config.repo}/contents/${config.path}`;
   const mensagem = reason || 'Atualiza banco ENSPS pelo Cloudflare';
-  const conteudo = JSON.stringify(db, null, 2);
+  const conteudo = JSON.stringify(sanitizarEscopoParaSalvar(config.scope, db), null, 2);
   const corpo = {
     message: mensagem,
     content: encodeBase64Utf8(conteudo),

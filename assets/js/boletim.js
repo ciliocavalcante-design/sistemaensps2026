@@ -84,6 +84,7 @@
         const DEFAULT_CALENDAR_ID = 'ensps-2026';
         const DEFAULT_CALENDAR_PERIOD = Object.freeze({ startYear: 2026, startMonth: 0, endYear: 2027, endMonth: 0 });
         const REMOTE_BOLETIM_ENDPOINT = '/api/db?scope=boletim';
+        const INLINE_IMAGE_PREFIX = /^data:image\//i;
         let boletimRemoteSha = '';
         let boletimRemoteReady = false;
         let boletimRemoteSaving = false;
@@ -94,7 +95,26 @@
         let currentTheme = 'light';
         let currentInlineEditDate = null;
         let currentDragSourceDate = null;
+        let sessionFooterLogo = null;
         const defaultLogoUrl = 'https://i.imgur.com/2s3Fj7j.png'; // URL da logo padrão
+
+        function isInlineLogoDataUrl(value) {
+            return typeof value === 'string' && INLINE_IMAGE_PREFIX.test(value);
+        }
+
+        function getPersistentFooterLogoValue(value) {
+            return isInlineLogoDataUrl(value) ? null : (value || null);
+        }
+
+        function sanitizeCalendarDbForPersistence(db) {
+            if (!db || typeof db !== 'object') return db;
+            const sanitized = JSON.parse(JSON.stringify(db));
+            if (!sanitized.ui || typeof sanitized.ui !== 'object') sanitized.ui = {};
+            if (isInlineLogoDataUrl(sanitized.ui.footerLogo)) {
+                delete sanitized.ui.footerLogo;
+            }
+            return sanitized;
+        }
 
         // Variáveis para a contagem de dias letivos
         let startDateContagem = null;
@@ -443,7 +463,7 @@
             window.parent.postMessage({
                 type: 'boletim:syncDb',
                 reason,
-                db: calendarDb
+                db: sanitizeCalendarDbForPersistence(calendarDb)
             }, '*');
         }
 
@@ -497,7 +517,7 @@
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        db: calendarDb,
+                        db: sanitizeCalendarDbForPersistence(calendarDb),
                         sha: boletimRemoteSha || undefined,
                         reason
                     })
@@ -518,7 +538,7 @@
 
         function safeSetCalendarStorage(value) {
             try {
-                localStorage.setItem(CALENDAR_DB_KEY, JSON.stringify(value));
+                localStorage.setItem(CALENDAR_DB_KEY, JSON.stringify(sanitizeCalendarDbForPersistence(value)));
                 return true;
             } catch (error) {
                 const isQuotaError = error && (error.name === 'QuotaExceededError' || error.name === 'NS_ERROR_DOM_QUOTA_REACHED');
@@ -532,7 +552,7 @@
             if (!rawDb || typeof rawDb !== 'object') return;
             isApplyingRemoteBoletimDb = true;
             boletimParentDbReceived = true;
-            calendarDb = normalizeCalendarDb(rawDb);
+            calendarDb = sanitizeCalendarDbForPersistence(normalizeCalendarDb(rawDb));
             safeSetCalendarStorage(calendarDb);
             syncStateFromActiveCalendar();
             refreshCalendarMeta();
@@ -1080,9 +1100,11 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
             };
             calendarDb.activeCalendarId = activeCalendar.id;
             if (!calendarDb.ui) calendarDb.ui = {};
-            const footerLogoValue = localStorage.getItem('footerLogo');
+            const footerLogoValue = getPersistentFooterLogoValue(localStorage.getItem('footerLogo'));
             if (footerLogoValue) {
                 calendarDb.ui.footerLogo = footerLogoValue;
+            } else if (isInlineLogoDataUrl(calendarDb.ui.footerLogo)) {
+                delete calendarDb.ui.footerLogo;
             }
             calendarDb.ui.currentTheme = currentTheme;
         }
@@ -1097,8 +1119,11 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
             localStorage.setItem('printBorderOnly', printBorderOnly ? '1' : '0');
             localStorage.setItem('boldEventText', boldEventText ? '1' : '0');
             localStorage.setItem('calendarTheme', currentTheme);
-            if (calendarDb?.ui?.footerLogo) {
-                localStorage.setItem('footerLogo', calendarDb.ui.footerLogo);
+            const persistentLogo = getPersistentFooterLogoValue(calendarDb?.ui?.footerLogo);
+            if (persistentLogo) {
+                localStorage.setItem('footerLogo', persistentLogo);
+            } else {
+                localStorage.removeItem('footerLogo');
             }
         }
 
@@ -1107,7 +1132,7 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
                 calendarDb = createDefaultCalendarDb();
             }
             syncActiveCalendarFromState();
-            const footerLogoValue = calendarDb?.ui?.footerLogo || localStorage.getItem('footerLogo') || null;
+            const footerLogoValue = getPersistentFooterLogoValue(calendarDb?.ui?.footerLogo) || getPersistentFooterLogoValue(localStorage.getItem('footerLogo'));
             try {
                 safeSetCalendarStorage(calendarDb);
             } catch (error) {
@@ -1136,13 +1161,17 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
                 if (savedDb) {
                     if (savedDb.length > 900000) {
                         console.warn('ENSPS Boletim: cache local pesado demais; ignorando leitura local e aguardando nuvem.');
+                        const legacyLogo = localStorage.getItem('footerLogo');
+                        if (isInlineLogoDataUrl(legacyLogo)) {
+                            localStorage.removeItem('footerLogo');
+                        }
                         calendarDb = createDefaultCalendarDb();
                         return;
                     }
-                    calendarDb = normalizeCalendarDb(JSON.parse(savedDb));
+                    calendarDb = sanitizeCalendarDbForPersistence(normalizeCalendarDb(JSON.parse(savedDb)));
                 } else {
                     const legacySnapshot = getLegacyStorageSnapshot();
-                    calendarDb = legacySnapshot ? normalizeCalendarDb(legacySnapshot) : createDefaultCalendarDb();
+                    calendarDb = legacySnapshot ? sanitizeCalendarDbForPersistence(normalizeCalendarDb(legacySnapshot)) : createDefaultCalendarDb();
                     safeSetCalendarStorage(calendarDb);
                 }
             } catch (error) {
@@ -1152,7 +1181,7 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
 
             if (!calendarDb.ui) calendarDb.ui = {};
             if (!calendarDb.ui.footerLogo) {
-                calendarDb.ui.footerLogo = localStorage.getItem('footerLogo') || null;
+                calendarDb.ui.footerLogo = getPersistentFooterLogoValue(localStorage.getItem('footerLogo')) || null;
             }
             activeCalendarId = calendarDb.activeCalendarId;
             syncStateFromActiveCalendar();
@@ -2820,7 +2849,7 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
                 const footerImg = document.createElement('img');
                 footerImg.id = 'printFooterLogo';
                 footerImg.alt = 'Logo do Rodapé';
-                const savedLogo = calendarDb?.ui?.footerLogo || localStorage.getItem('footerLogo');
+                const savedLogo = sessionFooterLogo || getPersistentFooterLogoValue(calendarDb?.ui?.footerLogo) || getPersistentFooterLogoValue(localStorage.getItem('footerLogo'));
                 if (savedLogo) {
                     footerImg.src = savedLogo;
                     footerImg.style.display = 'inline-block';
@@ -3054,13 +3083,16 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
             if (file) {
                 const reader = new FileReader();
                 reader.onload = (e) => {
+                    sessionFooterLogo = e.target.result;
                     footerLogo.src = e.target.result;
                     footerLogo.style.display = 'inline-block';
                     footerText.style.display = 'none';
-                    localStorage.setItem('footerLogo', e.target.result);
+                    localStorage.removeItem('footerLogo');
                     if (calendarDb) {
                         if (!calendarDb.ui) calendarDb.ui = {};
-                        calendarDb.ui.footerLogo = e.target.result;
+                        if (isInlineLogoDataUrl(calendarDb.ui.footerLogo)) {
+                            delete calendarDb.ui.footerLogo;
+                        }
                         saveCalendarDbToStorage();
                     }
                 };
@@ -3069,7 +3101,12 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
         });
 
         function loadSavedLogo() {
-            const savedLogo = calendarDb?.ui?.footerLogo || localStorage.getItem('footerLogo');
+            const savedInlineLogo = calendarDb?.ui?.footerLogo || localStorage.getItem('footerLogo');
+            if (isInlineLogoDataUrl(savedInlineLogo)) {
+                if (calendarDb?.ui) delete calendarDb.ui.footerLogo;
+                localStorage.removeItem('footerLogo');
+            }
+            const savedLogo = sessionFooterLogo || getPersistentFooterLogoValue(calendarDb?.ui?.footerLogo) || getPersistentFooterLogoValue(localStorage.getItem('footerLogo'));
             if (savedLogo) {
                 footerLogo.src = savedLogo;
                 footerLogo.style.display = 'inline-block';
@@ -3191,10 +3228,11 @@ Os eventos não-feriado do mês de destino serão substituídos.`)) {
                     const importedData = JSON.parse(e.target.result);
                     if (confirm('Importar dados substituirá todos os registros atuais. Deseja continuar?')) {
                         localStorage.clear();
-                        calendarDb = normalizeCalendarDb(importedData);
+                        calendarDb = sanitizeCalendarDbForPersistence(normalizeCalendarDb(importedData));
                         activeCalendarId = calendarDb.activeCalendarId;
-                        if (calendarDb.ui?.footerLogo) {
-                            localStorage.setItem('footerLogo', calendarDb.ui.footerLogo);
+                        const importedLogo = getPersistentFooterLogoValue(calendarDb.ui?.footerLogo);
+                        if (importedLogo) {
+                            localStorage.setItem('footerLogo', importedLogo);
                         }
                         syncStateFromActiveCalendar();
                         saveCalendarDbToStorage();
