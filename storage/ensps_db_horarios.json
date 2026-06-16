@@ -1740,7 +1740,7 @@
   "teachersAvailability": {},
   "subjectColors": {
     "Português": "#ADD8E6",
-    "Matemática": "#ffbc47",
+    "Matemática": "#98FB98",
     "História": "#FFFACD",
     "Geografia": "#FFB6C1",
     "Ciências": "#E6E6FA",
@@ -1786,8 +1786,8 @@
     "Paradidat.": "#E6E6FA",
     "História 1": "#FFDAB9",
     "História 2": "#E0FFFF",
-    "Redação": "#ffe9d6",
-    "Prat Prod Txt": "#ffe9d6",
+    "Redação": "#FA8072",
+    "Prat Prod Txt": "#B0E0E6",
     "Interpret": "#F5F5DC"
   },
   "recentCustomColors": [],
@@ -2890,20 +2890,20 @@
   },
   "currentGridLineColor": "#000000",
   "currentGridFrameEnabled": true,
-  "currentIntervalColor": "#172235",
-  "currentIntervalFontColor": "#ffffff",
+  "currentIntervalColor": "#ffc107",
+  "currentIntervalFontColor": "#000000",
   "currentIntervalText": "",
-  "currentHeaderBarColor": "#172235",
+  "currentHeaderBarColor": "#667eea",
   "currentHeaderBarFontColor": "#ffffff",
-  "currentTheme": "dark",
+  "currentTheme": "light",
   "visualSettings": {
-    "classHeight": 25,
+    "classHeight": 60,
     "horizontalMargin": 12,
     "classFontSize": 13,
     "teacherFontSize": 11,
-    "seriesGap": 7,
+    "seriesGap": 24,
     "timeFontSize": 14,
-    "headerFontSize": 11,
+    "headerFontSize": 14,
     "intervalFontSize": 14
   }
 }
