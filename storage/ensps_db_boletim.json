@@ -1443,12 +1443,12 @@
         "boldEventText": false,
         "startDateContagem": null,
         "endDateContagem": null,
-        "currentTheme": "light"
+        "currentTheme": "dark"
       }
     }
   ],
   "ui": {
     "footerLogo": null,
-    "currentTheme": "light"
+    "currentTheme": "dark"
   }
 }
