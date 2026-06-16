@@ -57,11 +57,49 @@
   };
 
   const agendaDiasSemana = ['domingo','segunda','terca','quarta','quinta','sexta','sabado'];
+  const agendaDiaIndiceMap = {
+    segunda: 0,
+    terca: 1,
+    quarta: 2,
+    quinta: 3,
+    sexta: 4
+  };
 
   const agendaNomesSeries = {
-    '6ano':'6º ANO','7ano':'7º ANO','8ano':'8º ANO','9ano':'9º ANO',
+    '6ano':'6º ANO','7ano':'7º ANO I','7ano2':'7º ANO II','8ano':'8º ANO','9ano':'9º ANO',
     '1em':'1º ANO','2em':'2º ANO','3em':'3º ANO'
   };
+
+  function agendaObterAulasDoHorarioIntegrado(serie, diaSemana) {
+    if (typeof obterBancoHorario !== 'function') return null;
+    const horarioDb = obterBancoHorario();
+    const scheduleData = horarioDb?.scheduleData;
+    const diaIndex = agendaDiaIndiceMap[diaSemana];
+
+    if (!scheduleData || typeof scheduleData !== 'object' || typeof diaIndex !== 'number') {
+      return null;
+    }
+
+    const aulas = Object.entries(scheduleData)
+      .filter(([key, value]) => {
+        if (!value || typeof value !== 'object' || !value.subject) return false;
+        const match = key.match(/^([a-z0-9]+)_(\d+)_(\d+)$/i);
+        if (!match) return false;
+        const [, classId, timeIndex, dayIndex] = match;
+        return classId === serie && Number(dayIndex) === diaIndex && Number.isInteger(Number(timeIndex));
+      })
+      .sort((a, b) => {
+        const timeA = Number(a[0].split('_')[1]);
+        const timeB = Number(b[0].split('_')[1]);
+        return timeA - timeB;
+      })
+      .map(([, value]) => ({
+        materia: value.subject,
+        professor: value.teacher || ''
+      }));
+
+    return aulas;
+  }
 
 
   function agendaGerar() {
@@ -79,7 +117,9 @@
       return;
     }
 
-    const aulasDoDia = agendaHorarios[serie][diaSemana];
+    const aulasDoDia = agendaObterAulasDoHorarioIntegrado(serie, diaSemana)
+      || agendaHorarios[serie]?.[diaSemana]
+      || [];
     if (!aulasDoDia || aulasDoDia.length === 0) {
       agendaMostrarAviso('Não há aulas cadastradas para este dia.');
       return;
@@ -1166,4 +1206,3 @@
     window.print();
     setTimeout(cleanupPrintFreq, 1500);
   });
-
