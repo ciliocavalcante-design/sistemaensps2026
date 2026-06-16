@@ -14,6 +14,8 @@
   let ultimoHashComunicadosEnviado = '';
   let ultimoHashBoletimRecebido = '';
   let ultimoHashHorarioRecebido = '';
+  let secaoAtualAtiva = 'frequencia';
+  let secaoAnteriorIntegrada = 'frequencia';
 
   function decodificarHtmlIntegrado(base64) {
     return decodeURIComponent(escape(window.atob(base64)));
@@ -127,13 +129,54 @@
     frame.contentWindow.postMessage(payload, '*');
   }
 
-  function navegarPara(sectionId) {
+  function isSecaoIntegrada(sectionId) {
+    return sectionId === 'tab-boletim' || sectionId === 'tab-horario';
+  }
+
+  function atualizarEstadoModoFoco(sectionId, options = {}) {
+    const shouldFocus = isSecaoIntegrada(sectionId) && options.focusMode !== false;
+    document.body.classList.toggle('integrated-focus-mode', shouldFocus);
+    document.querySelectorAll('.integrated-menu-btn').forEach((btn) => {
+      btn.textContent = shouldFocus ? 'Mostrar menu' : 'Ocultar menu';
+    });
+  }
+
+  function alternarMenuIntegrado() {
+    const sectionId = secaoAtualAtiva;
+    if (!isSecaoIntegrada(sectionId)) return;
+    const focusAtivo = document.body.classList.contains('integrated-focus-mode');
+    atualizarEstadoModoFoco(sectionId, { focusMode: focusAtivo });
+    if (focusAtivo) {
+      document.body.classList.remove('integrated-focus-mode');
+      document.querySelectorAll('.integrated-menu-btn').forEach((btn) => {
+        btn.textContent = 'Ocultar menu';
+      });
+      return;
+    }
+    atualizarEstadoModoFoco(sectionId, { focusMode: true });
+  }
+
+  function voltarDaSecaoIntegrada(sectionId) {
+    if (!isSecaoIntegrada(sectionId)) return;
+    const destino = secaoAnteriorIntegrada && secaoAnteriorIntegrada !== sectionId
+      ? secaoAnteriorIntegrada
+      : 'frequencia';
+    navegarPara(destino, { focusMode: false, preservePreviousIntegrated: true });
+  }
+
+  function navegarPara(sectionId, options = {}) {
+    const secaoAnterior = secaoAtualAtiva;
+    if (!options.preservePreviousIntegrated && !isSecaoIntegrada(secaoAnterior) && secaoAnterior !== sectionId) {
+      secaoAnteriorIntegrada = secaoAnterior;
+    }
     document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
     document.querySelectorAll('.bottom-nav-item').forEach(i => i.classList.remove('active'));
     document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('[data-section="' + sectionId + '"]').forEach(i => i.classList.add('active'));
     const section = document.getElementById(sectionId);
     if(section) section.classList.add('active');
+    secaoAtualAtiva = sectionId;
+    atualizarEstadoModoFoco(sectionId, options);
     if(sectionId === 'gestor' || sectionId === 'estatisticas') atualizarDashboardGestor();
     if(sectionId === 'backup-central') atualizarResumoBackupCentral();
     if(sectionId === 'admin-sistema') adminAtualizarPainel();
@@ -154,6 +197,14 @@
     item.addEventListener('click', function(){
       navegarPara(this.getAttribute('data-section'));
     });
+  });
+
+  document.querySelectorAll('[data-integrated-menu]').forEach((item) => {
+    item.addEventListener('click', () => alternarMenuIntegrado());
+  });
+
+  document.querySelectorAll('[data-integrated-back]').forEach((item) => {
+    item.addEventListener('click', () => voltarDaSecaoIntegrada(item.getAttribute('data-integrated-back')));
   });
 
   // ============================================================

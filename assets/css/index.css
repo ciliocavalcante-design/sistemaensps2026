@@ -767,6 +767,63 @@
       flex: 1;
       min-width: 240px;
     }
+    .integrated-focus-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      flex: 0 0 auto;
+      min-width: 0 !important;
+    }
+    .integrated-back-btn,
+    .integrated-menu-btn {
+      display: none;
+    }
+    body.integrated-focus-mode {
+      overflow: hidden;
+    }
+    body.integrated-focus-mode .sidebar,
+    body.integrated-focus-mode .bottom-nav {
+      display: none !important;
+    }
+    body.integrated-focus-mode .main-content {
+      width: 100vw;
+      height: 100dvh;
+      overflow: hidden;
+    }
+    body.integrated-focus-mode #tab-boletim,
+    body.integrated-focus-mode #tab-horario {
+      min-height: 100dvh;
+    }
+    body.integrated-focus-mode #tab-boletim .top,
+    body.integrated-focus-mode #tab-horario .top {
+      display: none;
+    }
+    body.integrated-focus-mode .boletim-integrado-shell {
+      padding: 8px;
+      height: 100dvh;
+    }
+    body.integrated-focus-mode .boletim-integrado-card,
+    body.integrated-focus-mode .horario-integrado-card {
+      max-width: none;
+      height: calc(100dvh - 16px);
+      border-radius: 14px;
+      padding: 10px;
+    }
+    body.integrated-focus-mode .boletim-integrado-toolbar,
+    body.integrated-focus-mode .horario-integrado-toolbar {
+      margin-bottom: 8px;
+    }
+    body.integrated-focus-mode .integrated-back-btn,
+    body.integrated-focus-mode .integrated-menu-btn {
+      display: inline-flex;
+    }
+    body.integrated-focus-mode .boletim-integrado-frame,
+    body.integrated-focus-mode .horario-integrado-frame {
+      height: calc(100dvh - 86px);
+      min-height: 0;
+      border-radius: 10px;
+    }
 
     /* ── PRINT ── */
     @media print {
@@ -1295,11 +1352,40 @@
         width: 100%;
         justify-content: center;
       }
+      .integrated-focus-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 8px;
+      }
       .boletim-integrado-frame,
       .horario-integrado-frame {
         height: calc(100dvh - 235px);
         min-height: 620px;
         border-radius: 10px;
+      }
+      body.integrated-focus-mode {
+        padding-bottom: 0;
+      }
+      body.integrated-focus-mode .boletim-integrado-shell {
+        padding: 6px !important;
+      }
+      body.integrated-focus-mode .boletim-integrado-card,
+      body.integrated-focus-mode .horario-integrado-card {
+        height: calc(100dvh - 12px);
+        padding: 8px !important;
+        border-radius: 14px !important;
+      }
+      body.integrated-focus-mode .boletim-integrado-toolbar,
+      body.integrated-focus-mode .horario-integrado-toolbar {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+      }
+      body.integrated-focus-mode .boletim-integrado-frame,
+      body.integrated-focus-mode .horario-integrado-frame {
+        height: calc(100dvh - 154px) !important;
+        min-height: 0 !important;
       }
     }
 
@@ -1511,4 +1597,5 @@ body.print-active-relatorios-gerais .relatorios-metrica-card{box-shadow:none!imp
   #tab-boletim .boletim-integrado-toolbar .muted { display: none !important; }
   #tab-boletim #btnRecarregarBoletim { width: 100% !important; min-height: 40px !important; border-radius: 14px !important; }
   #tab-boletim .boletim-integrado-frame { height: calc(100dvh - 176px) !important; min-height: 560px !important; border-radius: 14px !important; }
+  body.integrated-focus-mode #tab-boletim .boletim-integrado-frame { height: calc(100dvh - 154px) !important; min-height: 0 !important; }
 }

@@ -8,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<link href="assets/css/index.css?v=20260429-menu-badge-v20" rel="stylesheet"/>
+<link href="assets/css/index.css?v=20260616-integrated-focus-v1" rel="stylesheet"/>
 
 <link href="assets/css/visual-polido.css?v=20260429-boletim-mobile-v15" rel="stylesheet"/>
 </head>
@@ -1010,7 +1010,11 @@
 <h3 style="margin:0;color:var(--ink);">Boletim Informativo ENSPS</h3>
 <p class="muted" style="margin:4px 0 0;">Use o módulo completo dentro do sistema, mantendo calendário, comunicados, banco em nuvem e impressão no mesmo fluxo.</p>
 </div>
+<div class="integrated-focus-actions">
+<button class="btn-ghost integrated-back-btn" data-integrated-back="tab-boletim" type="button">← Voltar</button>
+<button class="btn-ghost integrated-menu-btn" data-integrated-menu="tab-boletim" type="button">Mostrar menu</button>
 <button class="btn-ghost" id="btnRecarregarBoletim">Recarregar boletim</button>
+</div>
 </div>
 <iframe class="boletim-integrado-frame" id="boletimIntegradoFrame" title="Boletim Informativo ENSPS"></iframe>
 </div>
@@ -1028,7 +1032,11 @@
 <h3 style="margin:0;color:var(--ink);">Gerenciador Integrado de Horários</h3>
 <p class="muted" style="margin:4px 0 0;">A importação de JSON passa a alimentar o banco unificado do sistema, com fallback local e sincronização automática no GitHub.</p>
 </div>
+<div class="integrated-focus-actions">
+<button class="btn-ghost integrated-back-btn" data-integrated-back="tab-horario" type="button">← Voltar</button>
+<button class="btn-ghost integrated-menu-btn" data-integrated-menu="tab-horario" type="button">Mostrar menu</button>
 <button class="btn-ghost" id="btnRecarregarHorario">Recarregar horário</button>
+</div>
 </div>
 <iframe class="horario-integrado-frame" id="horarioIntegradoFrame" title="Horários Escolares ENSPS"></iframe>
 </div>
@@ -1770,7 +1778,7 @@
 </div>
 </nav>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
-<script src="assets/js/index/01-core-navegacao-login-banco-backup.js?v=20260430-horario-visual-v11"></script>
+<script src="assets/js/index/01-core-navegacao-login-banco-backup.js?v=20260616-integrated-focus-v1"></script>
 <script src="assets/js/index/02-frequencia-importacao-faltosos.js?v=20260429-boletim-mobile-v15"></script>
 <script src="assets/js/index/03-gestor-advertencias-relatorio-pedagogico.js?v=20260429-menu-badge-v20"></script>
 <script src="assets/js/index/04-professores-agenda-materiais-folha.js?v=20260429-boletim-mobile-v15"></script>
