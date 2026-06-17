@@ -1435,14 +1435,14 @@
       },
       "comunicados": [],
       "settings": {
-        "currentMonth": 4,
+        "currentMonth": 3,
         "currentSelectedEventColor": "green",
         "customSelectedEventColor": "#24d2f5",
         "printColorIntensity": 8,
         "printBorderOnly": false,
         "boldEventText": false,
-        "startDateContagem": null,
-        "endDateContagem": null,
+        "startDateContagem": "2026-01-20",
+        "endDateContagem": "2026-11-26",
         "currentTheme": "dark"
       }
     }
