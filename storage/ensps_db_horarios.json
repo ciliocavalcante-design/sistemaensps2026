@@ -1585,9 +1585,9 @@
       "allCaps": true
     },
     "7ano2_1_1": {
-      "subject": "Ciências",
-      "teacher": "Elayne",
-      "color": "#98FB98",
+      "subject": "AVALIAÇÃO",
+      "teacher": "",
+      "color": "#dedede",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -1657,9 +1657,9 @@
       "allCaps": true
     },
     "7ano2_1_2": {
-      "subject": "AVALIAÇÃO",
-      "teacher": "",
-      "color": "#dedede",
+      "subject": "Ciências",
+      "teacher": "Elayne",
+      "color": "#98FB98",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
