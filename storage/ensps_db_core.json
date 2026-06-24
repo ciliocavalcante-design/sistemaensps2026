@@ -3354,6 +3354,76 @@
       "uniformeDetalhes": null,
       "segundaChamadaSituacao": "pendente",
       "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299660548,
+      "aluno": "ANA BEATRIZ DIAS CLEMENTE",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299675621,
+      "aluno": "ANELIESE FERREIRA ALVES PEREIRA",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299678454,
+      "aluno": "CLARICE DE FREITAS MENESES NUNES",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299681391,
+      "aluno": "EMANUEL LOHAN SILVEIRA MARQUES",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299684787,
+      "aluno": "MARIA CLARA FARIAS AMORIM",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299688387,
+      "aluno": "MARIA EDUARDA TABOSA BRAGA",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299695271,
+      "aluno": "YANNARA GONÇALVES BESERRA",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
