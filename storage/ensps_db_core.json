@@ -3160,6 +3160,46 @@
       "uniformeDetalhes": null,
       "segundaChamadaSituacao": "pendente",
       "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299212316,
+      "aluno": "CLARICE DE FREITAS MENESES NUNES",
+      "data": "2026-04-22",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299225720,
+      "aluno": "LUIZ FERNANDO DA SILVA DO NASCIMENTO",
+      "data": "2026-04-22",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299229226,
+      "aluno": "MARIA EDUARDA TABOSA BRAGA",
+      "data": "2026-04-22",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299233061,
+      "aluno": "SOPHIA AYLA MENDES BESSA",
+      "data": "2026-04-22",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
