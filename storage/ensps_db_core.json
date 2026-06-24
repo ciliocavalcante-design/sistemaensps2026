@@ -2531,33 +2531,6 @@
       "origem": "relatorio-faltosos"
     },
     {
-      "id": 1777488850817,
-      "aluno": "BERNARD BRAZ QUEIROGA SABINO",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850818,
-      "aluno": "JOAO LUCAS CAETANO CISNE",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850819,
-      "aluno": "LIZ MARIA BEZERRA GOMES",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
       "id": 1777488850820,
       "aluno": "MARIA CLARA DOS SANTOS NASCIMENTO",
       "data": "2026-04-29",
@@ -3225,6 +3198,36 @@
       "id": 1782299314942,
       "aluno": "MARIA RITA ANTUNES FARIAS",
       "data": "2026-04-22",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299403721,
+      "aluno": "BERNARD BRAZ QUEIROGA SABINO",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299407137,
+      "aluno": "JOAO LUCAS CAETANO CISNE",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299417591,
+      "aluno": "LIZ MARIA BEZERRA GOMES",
+      "data": "2026-04-29",
       "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
