@@ -2522,51 +2522,6 @@
       }
     },
     {
-      "id": 1777488850816,
-      "aluno": "AGNES MARIA DE OLIVEIRA CARVALHO",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850820,
-      "aluno": "MARIA CLARA DOS SANTOS NASCIMENTO",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850821,
-      "aluno": "MARIA ELENA MENDONÇA MAGALHÃES",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850822,
-      "aluno": "MARIA HELOISA MENESES DA ROCHA",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850823,
-      "aluno": "RAYZON DE AMORIM MONTE",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
       "id": 1777488850840,
       "aluno": "ANDERSON DOS REIS CAVALCANTI",
       "data": "2026-04-29",
@@ -3243,6 +3198,56 @@
     {
       "id": 1782299504679,
       "aluno": "LUCAS GABRIEL BRITO DE MOURA",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299514248,
+      "aluno": "AGNES MARIA DE OLIVEIRA CARVALHO",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299521526,
+      "aluno": "MARIA CLARA DOS SANTOS NASCIMENTO",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299522590,
+      "aluno": "MARIA ELENA MENDONÇA MAGALHÃES",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299522964,
+      "aluno": "MARIA HELOISA MENESES DA ROCHA",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299525143,
+      "aluno": "RAYZON DE AMORIM MONTE",
       "data": "2026-04-29",
       "status": "segunda-chamada",
       "justificativa": "",
