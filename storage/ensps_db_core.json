@@ -2970,6 +2970,56 @@
       "justificativa": "",
       "uniformeDetalhes": null,
       "origem": "relatorio-faltosos"
+    },
+    {
+      "id": 1782298120105,
+      "aluno": "BERNARD BRAZ QUEIROGA SABINO",
+      "data": "2026-04-15",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782298126902,
+      "aluno": "MARIA CLARA GOMES ABREU",
+      "data": "2026-04-15",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782298132427,
+      "aluno": "JULIO LEVI ABREU MIRANDA DA ROCHA",
+      "data": "2026-04-15",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782298158792,
+      "aluno": "PAULO VICTOR CUSTODIO DE OLIVEIRA",
+      "data": "2026-04-15",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782298161371,
+      "aluno": "RAYZON DE AMORIM MONTE",
+      "data": "2026-04-15",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
