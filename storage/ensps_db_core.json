@@ -3784,6 +3784,56 @@
       "uniformeDetalhes": null,
       "segundaChamadaSituacao": "pendente",
       "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782300083120,
+      "aluno": "AGNES MARIA DE OLIVEIRA CARVALHO",
+      "data": "2026-06-22",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782300088606,
+      "aluno": "JULIO LEVI ABREU MIRANDA DA ROCHA",
+      "data": "2026-06-22",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782300092664,
+      "aluno": "MARIA CLARA GOMES ABREU",
+      "data": "2026-06-22",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782300102625,
+      "aluno": "MARIA MEL LIMA VASCONCEOS",
+      "data": "2026-06-22",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782300107122,
+      "aluno": "MIGUEL ALVES FREITAS",
+      "data": "2026-06-22",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
