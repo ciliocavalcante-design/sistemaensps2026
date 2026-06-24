@@ -2576,24 +2576,6 @@
       "origem": "relatorio-faltosos"
     },
     {
-      "id": 1777488850825,
-      "aluno": "EDUARDO HERBERTE CORREIA DE ALENCAR",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850826,
-      "aluno": "JOAO LEVI MESQUITA ROCHA",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
       "id": 1777488850827,
       "aluno": "LIVIA DE LIMA NOGUEIRA",
       "data": "2026-04-29",
@@ -2605,15 +2587,6 @@
     {
       "id": 1777488850828,
       "aluno": "LUCAS GABRIEL BRITO DE MOURA",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850829,
-      "aluno": "MARIA LETICIA MARQUES VASCONCELOS",
       "data": "2026-04-29",
       "status": "falta",
       "justificativa": "",
@@ -3227,6 +3200,36 @@
     {
       "id": 1782299417591,
       "aluno": "LIZ MARIA BEZERRA GOMES",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299442807,
+      "aluno": "EDUARDO HERBERTE CORREIA DE ALENCAR",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299446843,
+      "aluno": "JOAO LEVI MESQUITA ROCHA",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299451064,
+      "aluno": "MARIA LETICIA MARQUES VASCONCELOS",
       "data": "2026-04-29",
       "status": "segunda-chamada",
       "justificativa": "",
