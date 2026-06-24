@@ -3504,6 +3504,56 @@
       "uniformeDetalhes": null,
       "segundaChamadaSituacao": "pendente",
       "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299781483,
+      "aluno": "BERNARD BRAZ QUEIROGA SABINO",
+      "data": "2026-05-13",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299789920,
+      "aluno": "MARIANA DE SOUZA FELIX",
+      "data": "2026-05-13",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299794338,
+      "aluno": "RAFAEL HOLANDA BAIMA JUNIOR",
+      "data": "2026-05-13",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299797139,
+      "aluno": "RAYZON DE AMORIM MONTE",
+      "data": "2026-05-13",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299805337,
+      "aluno": "SOPHIA MARIAH FERREIRA DO NASCIMENTO",
+      "data": "2026-05-13",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
