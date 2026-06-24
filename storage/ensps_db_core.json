@@ -3834,6 +3834,36 @@
       "uniformeDetalhes": null,
       "segundaChamadaSituacao": "pendente",
       "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782300149114,
+      "aluno": "CLARICE DE FREITAS MENESES NUNES",
+      "data": "2026-06-22",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782300153222,
+      "aluno": "LORENA DOMINGOS DE OLIVEIRA",
+      "data": "2026-06-22",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782300156657,
+      "aluno": "MARIA LUIZA DUARTE ANDRADE DOS SANTOS",
+      "data": "2026-06-22",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
