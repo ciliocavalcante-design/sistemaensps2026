@@ -2594,96 +2594,6 @@
       "origem": "relatorio-faltosos"
     },
     {
-      "id": 1777488850830,
-      "aluno": "ANA CAROLINA LEAO FERREIRA PIRES",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850831,
-      "aluno": "ANELIESE FERREIRA ALVES PEREIRA",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850832,
-      "aluno": "CLARICE DE FREITAS MENESES NUNES",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850833,
-      "aluno": "EMANUEL LOHAN SILVEIRA MARQUES",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850834,
-      "aluno": "ISABELLY SOUSA MARTINS",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850835,
-      "aluno": "JOSE GABRIEL SOUZA CLAUDIO",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850836,
-      "aluno": "LORENA DOMINGOS DE OLIVEIRA",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850837,
-      "aluno": "MARIA JULIA RODRIGUES GOMES",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850838,
-      "aluno": "MARIA LARA MESQUITA BELARMINO",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
-      "id": 1777488850839,
-      "aluno": "MIGUEL VASCONCELOS FERNANDES",
-      "data": "2026-04-29",
-      "status": "falta",
-      "justificativa": "",
-      "uniformeDetalhes": null,
-      "origem": "relatorio-faltosos"
-    },
-    {
       "id": 1777488850840,
       "aluno": "ANDERSON DOS REIS CAVALCANTI",
       "data": "2026-04-29",
@@ -3230,6 +3140,106 @@
     {
       "id": 1782299451064,
       "aluno": "MARIA LETICIA MARQUES VASCONCELOS",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299471564,
+      "aluno": "ANA CAROLINA LEAO FERREIRA PIRES",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299474739,
+      "aluno": "ANELIESE FERREIRA ALVES PEREIRA",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299476414,
+      "aluno": "CLARICE DE FREITAS MENESES NUNES",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299478225,
+      "aluno": "EMANUEL LOHAN SILVEIRA MARQUES",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299479357,
+      "aluno": "ISABELLY SOUSA MARTINS",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299481310,
+      "aluno": "JOSE GABRIEL SOUZA CLAUDIO",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299483395,
+      "aluno": "LORENA DOMINGOS DE OLIVEIRA",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299485973,
+      "aluno": "MARIA JULIA RODRIGUES GOMES",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299486612,
+      "aluno": "MARIA LARA MESQUITA BELARMINO",
+      "data": "2026-04-29",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299488458,
+      "aluno": "MIGUEL VASCONCELOS FERNANDES",
       "data": "2026-04-29",
       "status": "segunda-chamada",
       "justificativa": "",
