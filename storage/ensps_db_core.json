@@ -3424,6 +3424,86 @@
       "uniformeDetalhes": null,
       "segundaChamadaSituacao": "pendente",
       "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299712738,
+      "aluno": "ANDERSON DOS REIS CAVALCANTI",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299716037,
+      "aluno": "ANTONIO MARQUES DOS SANTOS NETO",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299720828,
+      "aluno": "IAN DA SILVA OLIVEIRA",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299735422,
+      "aluno": "MARIA CLARA ARRAIS DO NASCIMENTO",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299738520,
+      "aluno": "MARIA EUGENIA TAVARES DE ALBUQUERQUE",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299743239,
+      "aluno": "MARIA JULIA CORREIA DE ALENCAR",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299743878,
+      "aluno": "MARIA JULIA XIMENES BARROSO",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782299747655,
+      "aluno": "RUAN DE LIMA VIEIRA BARBOSA",
+      "data": "2026-05-06",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
