@@ -4084,6 +4084,36 @@
       "uniformeDetalhes": null,
       "segundaChamadaSituacao": "pendente",
       "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782385597497,
+      "aluno": "MARIA EDUARDA MOREIRA KLEN",
+      "data": "2026-06-24",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782385604612,
+      "aluno": "MARIA EUGENIA TAVARES DE ALBUQUERQUE",
+      "data": "2026-06-24",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1782385609998,
+      "aluno": "VICTOR GABRIEL CUSTODIO DE OLIVEIRA",
+      "data": "2026-06-24",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
