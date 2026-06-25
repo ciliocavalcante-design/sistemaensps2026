@@ -3023,8 +3023,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "segundaChamadaSituacao": "pendente",
-      "segundaChamadaOrigem": "prova"
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaOrigem": "prova",
+      "segundaChamadaAtualizadaEm": "2026-06-25T11:35:18.908Z"
     },
     {
       "id": 1782299479357,
