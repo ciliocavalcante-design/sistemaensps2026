@@ -2913,8 +2913,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "segundaChamadaSituacao": "pendente",
-      "segundaChamadaOrigem": "prova"
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaOrigem": "prova",
+      "segundaChamadaAtualizadaEm": "2026-06-25T11:35:50.775Z"
     },
     {
       "id": 1782299314942,
@@ -3224,8 +3225,9 @@
       "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
-      "segundaChamadaSituacao": "pendente",
-      "segundaChamadaOrigem": "prova"
+      "segundaChamadaSituacao": "realizada",
+      "segundaChamadaOrigem": "prova",
+      "segundaChamadaAtualizadaEm": "2026-06-25T11:35:51.835Z"
     },
     {
       "id": 1782299555933,
