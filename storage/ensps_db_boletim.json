@@ -1410,18 +1410,18 @@
             "customColor": null
           }
         ],
-        "2026-08-11": [
-          {
-            "id": "evt_mr0ojzpz_11",
-            "text": "Av. Parcial EF - Redação (3ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2026-08-10": [
           {
             "id": "evt_mr0ol8zk_14",
             "text": "Av. Parcial EF - Gram/Filo (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-08-05": [
+          {
+            "id": "evt_mr0ola3w_15",
+            "text": "Av. Parcial EF - Redação (3ª Etapa)",
             "color": "green",
             "customColor": null
           }
