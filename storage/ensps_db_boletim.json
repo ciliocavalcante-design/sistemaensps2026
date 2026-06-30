@@ -716,14 +716,6 @@
             "customColor": null
           }
         ],
-        "2026-08-12": [
-          {
-            "id": "evt_legacy_94",
-            "text": "Av. Parcial EF - Mat/Hist (3ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2026-08-08": [
           {
             "id": "evt_legacy_95",
@@ -1422,6 +1414,14 @@
           {
             "id": "evt_mr0v540u_1a",
             "text": "Av. Parcial EF - Geo/Ing (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-08-19": [
+          {
+            "id": "evt_mr0v571o_1b",
+            "text": "Av. Parcial EF - Mat/Hist (3ª Etapa)",
             "color": "green",
             "customColor": null
           }
