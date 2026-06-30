@@ -1443,12 +1443,12 @@
         "boldEventText": false,
         "startDateContagem": "2026-01-20",
         "endDateContagem": "2026-11-26",
-        "currentTheme": "light"
+        "currentTheme": "dark"
       }
     }
   ],
   "ui": {
     "footerLogo": null,
-    "currentTheme": "light"
+    "currentTheme": "dark"
   }
 }
