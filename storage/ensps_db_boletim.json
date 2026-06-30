@@ -1417,6 +1417,14 @@
             "color": "green",
             "customColor": null
           }
+        ],
+        "2026-08-11": [
+          {
+            "id": "evt_mr0ojpni_x",
+            "text": "Evento Personalizado",
+            "color": "green",
+            "customColor": null
+          }
         ]
       },
       "monthNotes": {
