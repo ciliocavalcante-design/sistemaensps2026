@@ -764,14 +764,6 @@
             "customColor": null
           }
         ],
-        "2026-08-26": [
-          {
-            "id": "evt_mr0uzsju_18",
-            "text": "Av. Parcial EF Cie/Parad | EM - 2ºDia (3ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2026-09-01": [
           {
             "id": "evt_legacy_101",
@@ -1425,6 +1417,14 @@
             "color": "green",
             "customColor": null
           }
+        ],
+        "2026-08-28": [
+          {
+            "id": "evt_mr0v52ir_19",
+            "text": "Av. Parcial EF Cie/Parad | EM - 2ºDia (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
         ]
       },
       "monthNotes": {
@@ -1436,7 +1436,7 @@
       "comunicados": [],
       "settings": {
         "currentMonth": 7,
-        "currentSelectedEventColor": "yellow",
+        "currentSelectedEventColor": "green",
         "customSelectedEventColor": "#24d2f5",
         "printColorIntensity": 8,
         "printBorderOnly": false,
