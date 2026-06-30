@@ -716,20 +716,6 @@
             "customColor": null
           }
         ],
-        "2026-08-05": [
-          {
-            "id": "evt_legacy_93",
-            "text": "Av. Parcial EF - Gram/Filo (3ª Etapa)",
-            "color": "green",
-            "customColor": null
-          },
-          {
-            "id": "evt_mr0oizob_r",
-            "text": "Av. Parcial EF - Redação (3ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2026-08-12": [
           {
             "id": "evt_legacy_94",
@@ -1420,6 +1406,20 @@
           {
             "id": "evt_mod0skl4_16",
             "text": "Formação SAS - Professores",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-08-04": [
+          {
+            "id": "evt_mr0ojalc_s",
+            "text": "Av. Parcial EF - Gram/Filo (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          },
+          {
+            "id": "evt_mr0ojalc_t",
+            "text": "Av. Parcial EF - Redação (3ª Etapa)",
             "color": "green",
             "customColor": null
           }
