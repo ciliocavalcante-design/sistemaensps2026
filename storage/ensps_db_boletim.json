@@ -740,14 +740,6 @@
             "customColor": null
           }
         ],
-        "2026-08-19": [
-          {
-            "id": "evt_legacy_97",
-            "text": "Av. Parcial EF - Geo/Ing (3ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2026-08-21": [
           {
             "id": "evt_legacy_98",
@@ -1422,6 +1414,14 @@
           {
             "id": "evt_mr0v52ir_19",
             "text": "Av. Parcial EF Cie/Parad | EM - 2ºDia (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-08-26": [
+          {
+            "id": "evt_mr0v540u_1a",
+            "text": "Av. Parcial EF - Geo/Ing (3ª Etapa)",
             "color": "green",
             "customColor": null
           }
