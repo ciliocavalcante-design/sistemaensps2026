@@ -1435,7 +1435,7 @@
       },
       "comunicados": [],
       "settings": {
-        "currentMonth": 7,
+        "currentMonth": 8,
         "currentSelectedEventColor": "green",
         "customSelectedEventColor": "#24d2f5",
         "printColorIntensity": 8,
@@ -1443,12 +1443,12 @@
         "boldEventText": false,
         "startDateContagem": "2026-01-20",
         "endDateContagem": "2026-11-26",
-        "currentTheme": "dark"
+        "currentTheme": "light"
       }
     }
   ],
   "ui": {
     "footerLogo": null,
-    "currentTheme": "dark"
+    "currentTheme": "light"
   }
 }
