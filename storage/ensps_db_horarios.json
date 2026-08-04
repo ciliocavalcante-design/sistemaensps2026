@@ -977,9 +977,9 @@
       "allCaps": true
     },
     "1em_6_0": {
-      "subject": "Química",
-      "teacher": "Amanda",
-      "color": "#FA8072",
+      "subject": "Literatura",
+      "teacher": "Thayna",
+      "color": "#c1c1fb",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -993,9 +993,9 @@
       "allCaps": true
     },
     "1em_6_2": {
-      "subject": "Literatura",
-      "teacher": "Thayna",
-      "color": "#c1c1fb",
+      "subject": "Química",
+      "teacher": "Amanda",
+      "color": "#FA8072",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -1385,9 +1385,9 @@
       "allCaps": true
     },
     "3em_3_0": {
-      "subject": "Química 3",
-      "teacher": "Amanda",
-      "color": "#FA8072",
+      "subject": "História 1",
+      "teacher": "Alexandre",
+      "color": "#a8ffd2",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
@@ -1441,9 +1441,9 @@
       "allCaps": true
     },
     "3em_5_2": {
-      "subject": "História 1",
-      "teacher": "Alexandre",
-      "color": "#a8ffd2",
+      "subject": "Química 3",
+      "teacher": "Amanda",
+      "color": "#FA8072",
       "fontColor": "#000000",
       "fontSize": 13,
       "allCaps": true
