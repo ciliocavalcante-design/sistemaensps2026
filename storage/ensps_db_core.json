@@ -8636,6 +8636,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": "2026-06-24T10:48:13.575Z"
+    },
+    {
+      "id": 1786542628693,
+      "aluno": "MARIA LUIZA DUARTE ANDRADE DOS SANTOS",
+      "matricula": "2017036",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-08-12",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações"
+      ],
+      "descricao": "Comunicamos que a aluna saiu da sala de aula durante o horário de aula sem a devida autorização do professor, descumprindo as normas de organização e disciplina da instituição.\n\nA aluna foi orientada quanto à necessidade de permanecer em sala durante as aulas e de solicitar autorização ao professor sempre que houver necessidade de se ausentar.\n\nSolicitamos a ciência dos responsáveis e reforçamos a importância da parceria entre família e escola para que situações como esta não voltem a ocorrer.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
