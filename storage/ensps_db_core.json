@@ -8675,6 +8675,26 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1787147856970,
+      "aluno": "SAMUEL GOMES FREIRE",
+      "matricula": "2016053",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-08-19",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito",
+        "Desobediência às orientações"
+      ],
+      "descricao": "Comunicamos que o aluno recebeu notificação disciplinar em razão de uma conduta inadequada ocorrida durante uma brincadeira em sala de aula.\n\nNa ocasião, o aluno retirou da parede o mapa de sala, documento utilizado para a organização dos lugares dos estudantes. Após a retirada, o referido material não foi mais localizado.\n\nRessaltamos que materiais, documentos e objetos pertencentes à organização da sala e da escola não devem ser retirados, alterados ou manuseados sem autorização. Mesmo quando realizada em tom de brincadeira, tal atitude pode ocasionar prejuízos à organização do ambiente escolar.\n\nO aluno foi orientado quanto à necessidade de agir com responsabilidade e respeito às normas da instituição, evitando a repetição de condutas semelhantes.\n\nSolicitamos a ciência dos responsáveis e contamos com a colaboração da família para reforçar essas orientações.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
