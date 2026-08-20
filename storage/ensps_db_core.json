@@ -8695,6 +8695,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1787233321280,
+      "aluno": "rafa",
+      "matricula": "",
+      "serie": "",
+      "turma": "",
+      "turno": "Manhã",
+      "data": "2026-08-20",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
