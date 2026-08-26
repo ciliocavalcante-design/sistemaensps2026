@@ -8787,6 +8787,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1787754503084,
+      "aluno": "BIANCA RIOS OLIVEIRA",
+      "matricula": "2020084",
+      "serie": "6º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-08-26",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso do celular durante o horário escolar"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
