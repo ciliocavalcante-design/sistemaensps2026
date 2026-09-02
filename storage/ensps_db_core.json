@@ -8806,6 +8806,46 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1788354348855,
+      "aluno": "MARIA ALICE MENEZES DA ROCHA",
+      "matricula": "2023072",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-09-02",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula",
+        "Atrapalhando aula de revisão com brincadeiras"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1788354349249,
+      "aluno": "MARIANA BARROSO DE OLIVEIRA",
+      "matricula": "2020031",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-09-02",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula",
+        "Atrapalhando aula de revisão com brincadeiras"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
