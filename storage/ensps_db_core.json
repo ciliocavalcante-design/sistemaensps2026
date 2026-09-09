@@ -8998,6 +8998,63 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1788963770912,
+      "aluno": "CLARICE DE FREITAS MENESES NUNES",
+      "matricula": "2026033",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-09-09",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "Durante a aula de Geografia, no momento destinado à revisão dos conteúdos para a prova, as alunas permaneceram conversando paralelamente, mesmo após serem orientadas a manter a atenção e acompanhar as explicações do professor.\n\nA atitude prejudicou o aproveitamento da revisão e interferiu na concentração e no andamento da aula. As alunas foram orientadas quanto à importância de respeitar os momentos de explicação e utilizar adequadamente o período de revisão para esclarecer dúvidas e se preparar para a avaliação.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1788963770517,
+      "aluno": "GIOVANA RIPARDO CORDEIRO VERÇOSA",
+      "matricula": "2026075",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-09-09",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "Durante a aula de Geografia, no momento destinado à revisão dos conteúdos para a prova, as alunas permaneceram conversando paralelamente, mesmo após serem orientadas a manter a atenção e acompanhar as explicações do professor.\n\nA atitude prejudicou o aproveitamento da revisão e interferiu na concentração e no andamento da aula. As alunas foram orientadas quanto à importância de respeitar os momentos de explicação e utilizar adequadamente o período de revisão para esclarecer dúvidas e se preparar para a avaliação.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1788963770985,
+      "aluno": "MARIA LYVIA OLIVEIRA SOUZA",
+      "matricula": "2019101",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-09-09",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "Durante a aula de Geografia, no momento destinado à revisão dos conteúdos para a prova, as alunas permaneceram conversando paralelamente, mesmo após serem orientadas a manter a atenção e acompanhar as explicações do professor.\n\nA atitude prejudicou o aproveitamento da revisão e interferiu na concentração e no andamento da aula. As alunas foram orientadas quanto à importância de respeitar os momentos de explicação e utilizar adequadamente o período de revisão para esclarecer dúvidas e se preparar para a avaliação.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
