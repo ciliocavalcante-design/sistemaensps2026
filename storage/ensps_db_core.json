@@ -9089,8 +9089,8 @@
       "descricao": "",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-09-17T11:40:55.827Z"
     }
   ],
   "comunicadosProfessores": [
