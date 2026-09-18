@@ -9091,6 +9091,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": "2026-09-17T11:40:55.827Z"
+    },
+    {
+      "id": 1789743924603,
+      "aluno": "PEDRO JORGE DA SILVA QUEIROZ DE ALMEIDA",
+      "matricula": "2025030",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-09-18",
+      "hora": "",
+      "natureza": "Indisciplina",
+      "motivos": [
+        "Saída de Sala sem Autorização e Agressão Física"
+      ],
+      "descricao": "Em 18 de setembro de 2026, o aluno foi identificado fora da sala de aula durante o horário regular de aula, permanecendo no pátio sem autorização.\n\nNa ocasião, envolveu-se em uma situação de tumulto ao empurrar um colega de uma série inferior, provocando a queda de ambos. Em decorrência do ocorrido, o outro estudante sofreu forte impacto na região da cabeça, apresentando breve perda de consciência. A escola prestou os primeiros atendimentos e entrou imediatamente em contato com os responsáveis pelo aluno envolvido.\n\nA conduta caracteriza infração grave às normas de convivência, segurança e disciplina da instituição, especialmente por envolver saída da sala sem autorização e atitude física que colocou a integridade de outro estudante em risco.\n\nDiante da gravidade do ocorrido, fica determinada a suspensão do aluno por 2 (dois) dias letivos, nos dias 22 e 23 de setembro de 2026, devendo retornar normalmente às atividades escolares no dia 24 de setembro de 2026.\n\nReforçamos que o aluno deverá manter postura respeitosa e responsável no ambiente escolar, permanecer nos espaços determinados durante o horário de aula e evitar qualquer comportamento que possa colocar em risco sua integridade física ou a de outros membros da comunidade escolar.\n\nOs responsáveis deverão comparecer à escola para conversar com a Direção até a data de retorno do aluno às atividades escolares.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
