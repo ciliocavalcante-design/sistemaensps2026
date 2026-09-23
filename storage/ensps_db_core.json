@@ -9129,6 +9129,26 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1790164633433,
+      "aluno": "MARIA LUIZA DUARTE ANDRADE DOS SANTOS",
+      "matricula": "2017036",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-09-23",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Desobediência às orientações",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
