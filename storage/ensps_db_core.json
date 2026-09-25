@@ -9240,6 +9240,25 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": true,
       "assinaturaRecebidaEm": ""
+    },
+    {
+      "id": 1790335819355,
+      "aluno": "HIARLEY DUÓ DA SILVA",
+      "matricula": "2023042",
+      "serie": "7º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-09-25",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Uso de celular em sala"
+      ],
+      "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
