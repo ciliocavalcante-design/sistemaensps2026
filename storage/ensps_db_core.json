@@ -9257,8 +9257,8 @@
       "descricao": "O(A) estudante fez uso de aparelho celular durante as atividades escolares, mesmo após ser orientado(a) sobre a necessidade de foco e respeito à dinâmica pedagógica.",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-09-28T17:23:34.262Z"
     }
   ],
   "comunicadosProfessores": [
