@@ -9181,8 +9181,8 @@
       "descricao": "",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-09-28T17:13:09.010Z"
     },
     {
       "id": 1790334844342,
