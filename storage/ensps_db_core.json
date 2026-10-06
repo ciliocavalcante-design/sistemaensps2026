@@ -4174,6 +4174,36 @@
       "uniformeDetalhes": null,
       "segundaChamadaSituacao": "pendente",
       "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314680604,
+      "aluno": "JOAO LUCAS CAETANO CISNE",
+      "data": "2026-08-12",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314696380,
+      "aluno": "RAFAEL HOLANDA BAIMA JUNIOR",
+      "data": "2026-08-12",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314698770,
+      "aluno": "YASMIN SOUZA BARROS",
+      "data": "2026-08-12",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
