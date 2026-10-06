@@ -850,14 +850,6 @@
             "customColor": null
           }
         ],
-        "2026-09-30": [
-          {
-            "id": "evt_mta61745_r",
-            "text": "Av. Bimestral EF - Cie/Parad | EM - 1º Dia (3ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2026-10-02": [
           {
             "id": "evt_legacy_116",
@@ -1423,6 +1415,14 @@
             "id": "evt_mux07p5d_r",
             "text": "Feira Científico-Cultural ENSPS",
             "color": "purple",
+            "customColor": null
+          }
+        ],
+        "2026-09-23": [
+          {
+            "id": "evt_mux07qa6_s",
+            "text": "Av. Bimestral EF - Cie/Parad | EM - 1º Dia (3ª Etapa)",
+            "color": "green",
             "customColor": null
           }
         ]
