@@ -4364,6 +4364,36 @@
       "uniformeDetalhes": null,
       "segundaChamadaSituacao": "pendente",
       "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314953317,
+      "aluno": "JOAO LUCAS MAIA ARAGAO",
+      "data": "2026-09-23",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314958869,
+      "aluno": "PAULO VICTOR CUSTODIO DE OLIVEIRA",
+      "data": "2026-09-23",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314960370,
+      "aluno": "YASMIN SOUZA BARROS",
+      "data": "2026-09-23",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
