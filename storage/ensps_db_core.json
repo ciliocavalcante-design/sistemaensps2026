@@ -4124,6 +4124,56 @@
       "uniformeDetalhes": null,
       "segundaChamadaSituacao": "pendente",
       "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314631768,
+      "aluno": "ANTONIO EDGAR ALVES DE ARAUJO",
+      "data": "2026-08-05",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314634884,
+      "aluno": "BERNARD BRAZ QUEIROGA SABINO",
+      "data": "2026-08-05",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314641468,
+      "aluno": "MARIA CLARA GOMES ABREU",
+      "data": "2026-08-05",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314646795,
+      "aluno": "PAULO VICTOR CUSTODIO DE OLIVEIRA",
+      "data": "2026-08-05",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314649368,
+      "aluno": "VALENTINA LIMA FERREIRA GOMES",
+      "data": "2026-08-05",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
