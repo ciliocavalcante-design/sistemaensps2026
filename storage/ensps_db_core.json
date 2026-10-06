@@ -4254,6 +4254,36 @@
       "uniformeDetalhes": null,
       "segundaChamadaSituacao": "pendente",
       "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314789102,
+      "aluno": "BERNARD BRAZ QUEIROGA SABINO",
+      "data": "2026-09-02",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314796268,
+      "aluno": "MARIA ELENA MENDONÇA MAGALHÃES",
+      "data": "2026-09-02",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791314801935,
+      "aluno": "SOPHIA MARIAH FERREIRA DO NASCIMENTO",
+      "data": "2026-09-02",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
