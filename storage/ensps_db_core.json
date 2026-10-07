@@ -5843,6 +5843,36 @@
       "uniformeDetalhes": null,
       "segundaChamadaSituacao": "pendente",
       "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791374122182,
+      "aluno": "BERNARD BRAZ QUEIROGA SABINO",
+      "data": "2026-09-01",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791374127534,
+      "aluno": "JULIO LEVI ABREU MIRANDA DA ROCHA",
+      "data": "2026-09-01",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791374131751,
+      "aluno": "MARIA ELENA MENDONÇA MAGALHÃES",
+      "data": "2026-09-01",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
