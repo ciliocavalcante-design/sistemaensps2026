@@ -10870,6 +10870,7 @@
       "assinaturaRecebidaEm": "2026-09-28T17:23:34.262Z"
     }
   ],
+  "solicitacoesHistorico": [],
   "comunicadosProfessores": [
     {
       "id": 1774547710180,
@@ -12097,5 +12098,15 @@
         ]
       }
     }
+  },
+  "professoresControle": {
+    "eventos": [
+      {
+        "id": "desfile-civico-2026-09-20",
+        "nome": "Desfile Cívico",
+        "data": "2026-09-20",
+        "confirmacoes": {}
+      }
+    ]
   }
 }
