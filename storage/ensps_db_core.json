@@ -5845,9 +5845,9 @@
       "segundaChamadaOrigem": "prova"
     },
     {
-      "id": 1791374169449,
-      "aluno": "MARCIO MIGUEL LIMA SARAIVA",
-      "data": "2026-09-01",
+      "id": 1791374250369,
+      "aluno": "PAULO CESAR DO NASCIMENTO RODRIGUES",
+      "data": "2026-09-03",
       "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
@@ -5855,9 +5855,9 @@
       "segundaChamadaOrigem": "prova"
     },
     {
-      "id": 1791374175686,
-      "aluno": "ABINER SOARES BRAGA",
-      "data": "2026-09-01",
+      "id": 1791374252617,
+      "aluno": "VITORIA JAMILLY RODRIGUES AGUIAR",
+      "data": "2026-09-03",
       "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
@@ -5865,9 +5865,9 @@
       "segundaChamadaOrigem": "prova"
     },
     {
-      "id": 1791374182216,
-      "aluno": "MIGUEL APOLLO CORREIA CAVALCANTE",
-      "data": "2026-09-01",
+      "id": 1791374265107,
+      "aluno": "ANTONIO CAUE SILVEIRA BARBOZA",
+      "data": "2026-09-03",
       "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
@@ -5875,9 +5875,29 @@
       "segundaChamadaOrigem": "prova"
     },
     {
-      "id": 1791374213320,
-      "aluno": "ANA LUIZA OLIVEIRA CAVALCANTE",
-      "data": "2026-09-01",
+      "id": 1791374267824,
+      "aluno": "BENEDITO NOAN FEITOSA MONTEIRO",
+      "data": "2026-09-03",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791374269234,
+      "aluno": "CAIO AUDREY DE ALBUQUERQUE CASTRO",
+      "data": "2026-09-03",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791374280034,
+      "aluno": "MIGUEL VASCONCELOS FERNANDES",
+      "data": "2026-09-03",
       "status": "segunda-chamada",
       "justificativa": "",
       "uniformeDetalhes": null,
