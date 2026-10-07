@@ -5845,8 +5845,8 @@
       "segundaChamadaOrigem": "prova"
     },
     {
-      "id": 1791374250369,
-      "aluno": "PAULO CESAR DO NASCIMENTO RODRIGUES",
+      "id": 1791374307615,
+      "aluno": "ANTONIO MARQUES DOS SANTOS NETO",
       "data": "2026-09-03",
       "status": "segunda-chamada",
       "justificativa": "",
@@ -5855,8 +5855,8 @@
       "segundaChamadaOrigem": "prova"
     },
     {
-      "id": 1791374252617,
-      "aluno": "VITORIA JAMILLY RODRIGUES AGUIAR",
+      "id": 1791374323508,
+      "aluno": "MARIA EDUARDA MOREIRA KLEN",
       "data": "2026-09-03",
       "status": "segunda-chamada",
       "justificativa": "",
@@ -5865,8 +5865,8 @@
       "segundaChamadaOrigem": "prova"
     },
     {
-      "id": 1791374265107,
-      "aluno": "ANTONIO CAUE SILVEIRA BARBOZA",
+      "id": 1791374327211,
+      "aluno": "MARIA JULIA CORREIA DE ALENCAR",
       "data": "2026-09-03",
       "status": "segunda-chamada",
       "justificativa": "",
@@ -5875,8 +5875,8 @@
       "segundaChamadaOrigem": "prova"
     },
     {
-      "id": 1791374267824,
-      "aluno": "BENEDITO NOAN FEITOSA MONTEIRO",
+      "id": 1791374333549,
+      "aluno": "MARIA JULIA XIMENES BARROSO",
       "data": "2026-09-03",
       "status": "segunda-chamada",
       "justificativa": "",
@@ -5885,8 +5885,8 @@
       "segundaChamadaOrigem": "prova"
     },
     {
-      "id": 1791374269234,
-      "aluno": "CAIO AUDREY DE ALBUQUERQUE CASTRO",
+      "id": 1791374340608,
+      "aluno": "MARIA LARA BRAZ SILVA",
       "data": "2026-09-03",
       "status": "segunda-chamada",
       "justificativa": "",
@@ -5895,8 +5895,38 @@
       "segundaChamadaOrigem": "prova"
     },
     {
-      "id": 1791374280034,
-      "aluno": "MIGUEL VASCONCELOS FERNANDES",
+      "id": 1791374346699,
+      "aluno": "MARIA RITA ANTUNES FARIAS",
+      "data": "2026-09-03",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791374352502,
+      "aluno": "RUAN DE LIMA VIEIRA BARBOSA",
+      "data": "2026-09-03",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791374355990,
+      "aluno": "VICTOR GABRIEL CUSTODIO DE OLIVEIRA",
+      "data": "2026-09-03",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791374356999,
+      "aluno": "VICTORIA LIMA FALCAO",
       "data": "2026-09-03",
       "status": "segunda-chamada",
       "justificativa": "",
