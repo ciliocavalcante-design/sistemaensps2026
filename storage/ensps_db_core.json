@@ -5935,8 +5935,8 @@
       "segundaChamadaOrigem": "prova"
     },
     {
-      "id": 1791376034107,
-      "aluno": "BERNARD BRAZ QUEIROGA SABINO",
+      "id": 1791376074979,
+      "aluno": "ABINER SOARES BRAGA",
       "data": "2026-10-01",
       "status": "segunda-chamada",
       "justificativa": "",
@@ -5945,8 +5945,8 @@
       "segundaChamadaOrigem": "prova"
     },
     {
-      "id": 1791376037958,
-      "aluno": "JULIO LEVI ABREU MIRANDA DA ROCHA",
+      "id": 1791376077789,
+      "aluno": "ANA LUIZA OLIVEIRA CAVALCANTE",
       "data": "2026-10-01",
       "status": "segunda-chamada",
       "justificativa": "",
@@ -5955,8 +5955,18 @@
       "segundaChamadaOrigem": "prova"
     },
     {
-      "id": 1791376041370,
-      "aluno": "MARIA ELENA MENDONÇA MAGALHÃES",
+      "id": 1791376082931,
+      "aluno": "MIGUEL APOLLO CORREIA CAVALCANTE",
+      "data": "2026-10-01",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791376087853,
+      "aluno": "MARCIO MIGUEL LIMA SARAIVA",
       "data": "2026-10-01",
       "status": "segunda-chamada",
       "justificativa": "",
