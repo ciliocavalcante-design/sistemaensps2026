@@ -5733,6 +5733,56 @@
         "Av. Bimestral EF - Cie/Parad | EM - 1º Dia (3ª Etapa)"
       ],
       "segundaChamadaArquivada": false
+    },
+    {
+      "id": 1791373924085,
+      "aluno": "BERNARD BRAZ QUEIROGA SABINO",
+      "data": "2026-08-28",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791373930029,
+      "aluno": "JOAO LUCAS CAETANO CISNE",
+      "data": "2026-08-28",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791373939875,
+      "aluno": "MIGUEL ARAUJO COELHO",
+      "data": "2026-08-28",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791373943452,
+      "aluno": "PAULO VICTOR CUSTODIO DE OLIVEIRA",
+      "data": "2026-08-28",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791373946545,
+      "aluno": "RAFAEL HOLANDA BAIMA JUNIOR",
+      "data": "2026-08-28",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
