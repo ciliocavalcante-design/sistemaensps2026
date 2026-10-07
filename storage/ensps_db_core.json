@@ -5983,6 +5983,56 @@
       "uniformeDetalhes": null,
       "segundaChamadaSituacao": "pendente",
       "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791378305589,
+      "aluno": "ANELIESE FERREIRA ALVES PEREIRA",
+      "data": "2026-08-28",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791378307046,
+      "aluno": "CLARICE DE FREITAS MENESES NUNES",
+      "data": "2026-08-28",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791378312461,
+      "aluno": "MARIA CLARA FARIAS AMORIM",
+      "data": "2026-08-28",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791378314803,
+      "aluno": "MARIA JULIA RODRIGUES GOMES",
+      "data": "2026-08-28",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
+    },
+    {
+      "id": 1791378316986,
+      "aluno": "VITORIA JAMILLY RODRIGUES AGUIAR",
+      "data": "2026-08-28",
+      "status": "segunda-chamada",
+      "justificativa": "",
+      "uniformeDetalhes": null,
+      "segundaChamadaSituacao": "pendente",
+      "segundaChamadaOrigem": "prova"
     }
   ],
   "advertencias": [
