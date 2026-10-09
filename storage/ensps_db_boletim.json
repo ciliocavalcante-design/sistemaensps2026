@@ -2973,13 +2973,70 @@
             "color": "holiday",
             "customColor": null
           }
+        ],
+        "2027-02-04": [
+          {
+            "id": "evt_mv0y0wet_3n",
+            "text": "Av. Parcial EF - Gram/Filo (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-02-07": [
+          {
+            "id": "evt_mv0y0wet_3o",
+            "text": "Entrega dos Alimentos - Projeto Barriga Cheia (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2027-02-11": [
+          {
+            "id": "evt_mv0y0wet_3p",
+            "text": "Av. Parcial EF - Mat/Hist (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-02-23": [
+          {
+            "id": "evt_mv0y0wet_3q",
+            "text": "Entrega do Regulamento da Semana da Poesia para os Alunos",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-02-25": [
+          {
+            "id": "evt_mv0y0wet_3r",
+            "text": "Av. Parcial EF - Geo/Ing (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-02-26": [
+          {
+            "id": "evt_mv0y0wet_3s",
+            "text": "Reunião de Pais e Mestres EF e EM",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-02-27": [
+          {
+            "id": "evt_mv0y0wet_3t",
+            "text": "Av. Parcial EM - 1º Dia (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
         ]
       },
       "monthNotes": {
         "2026-03": "As avaliações de redação acontecerão nos respectivos horários das aulas.\nMês ideal para realização de aulas de campo.",
         "2026-04": "Mês ideal para realização de aulas de campo.",
         "2026-08": "Mês ideal para realização de aulas de campo.",
-        "2026-10": "Mês ideal para realização de aulas de campo.\nO Simulado SAS ENEM do 3º EM valerá como Avaliação Parcial da 4ª Etapa."
+        "2026-10": "Mês ideal para realização de aulas de campo.\nO Simulado SAS ENEM do 3º EM valerá como Avaliação Parcial da 4ª Etapa.",
+        "2027-02": ""
       },
       "comunicados": [],
       "settings": {
