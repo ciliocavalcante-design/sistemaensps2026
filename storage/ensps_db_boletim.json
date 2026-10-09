@@ -2974,14 +2974,6 @@
             "customColor": null
           }
         ],
-        "2027-02-04": [
-          {
-            "id": "evt_mv0y0wet_3n",
-            "text": "Av. Parcial EF - Gram/Filo (1ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2027-02-11": [
           {
             "id": "evt_mv0y0wet_3p",
@@ -3027,6 +3019,14 @@
             "id": "evt_mv0y11vr_4k",
             "text": "Entrega dos Alimentos - Projeto Barriga Cheia (Registrar como Letivo)",
             "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2027-02-03": [
+          {
+            "id": "evt_mv0y13zq_4l",
+            "text": "Av. Parcial EF - Gram/Filo (1ª Etapa)",
+            "color": "green",
             "customColor": null
           }
         ]
