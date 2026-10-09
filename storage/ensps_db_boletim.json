@@ -2974,14 +2974,6 @@
             "customColor": null
           }
         ],
-        "2027-02-23": [
-          {
-            "id": "evt_mv0y0wet_3q",
-            "text": "Entrega do Regulamento da Semana da Poesia para os Alunos",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2027-02-06": [
           {
             "id": "evt_mv0y11vr_4k",
@@ -3026,6 +3018,14 @@
           {
             "id": "evt_mv0y1q9a_4q",
             "text": "Av. Parcial EM - 1º Dia (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-02-20": [
+          {
+            "id": "evt_mv0y1z7b_4r",
+            "text": "Entrega do Regulamento da Semana da Poesia para os Alunos",
             "color": "green",
             "customColor": null
           }
