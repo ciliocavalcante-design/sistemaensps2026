@@ -3030,14 +3030,6 @@
             "customColor": null
           }
         ],
-        "2027-03-04": [
-          {
-            "id": "evt_mv0y2hhz_5j",
-            "text": "Av. Parcial EF - Cie/Parad (1ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2027-03-09": [
           {
             "id": "evt_mv0y2hhz_5l",
@@ -3114,6 +3106,14 @@
           {
             "id": "evt_mv0y2ltm_6k",
             "text": "Av. Parcial EM - 2º Dia (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-03-03": [
+          {
+            "id": "evt_mv0y2mv4_6l",
+            "text": "Av. Parcial EF - Cie/Parad (1ª Etapa)",
             "color": "green",
             "customColor": null
           }
