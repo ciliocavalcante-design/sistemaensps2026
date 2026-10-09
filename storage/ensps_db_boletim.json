@@ -2974,14 +2974,6 @@
             "customColor": null
           }
         ],
-        "2027-02-11": [
-          {
-            "id": "evt_mv0y0wet_3p",
-            "text": "Av. Parcial EF - Mat/Hist (1ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2027-02-23": [
           {
             "id": "evt_mv0y0wet_3q",
@@ -3026,6 +3018,14 @@
           {
             "id": "evt_mv0y13zq_4l",
             "text": "Av. Parcial EF - Gram/Filo (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-02-17": [
+          {
+            "id": "evt_mv0y163n_4m",
+            "text": "Av. Parcial EF - Mat/Hist (1ª Etapa)",
             "color": "green",
             "customColor": null
           }
