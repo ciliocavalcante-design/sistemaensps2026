@@ -2982,14 +2982,6 @@
             "customColor": null
           }
         ],
-        "2027-02-26": [
-          {
-            "id": "evt_mv0y0wet_3s",
-            "text": "Reunião de Pais e Mestres EF e EM",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2027-02-27": [
           {
             "id": "evt_mv0y0wet_3t",
@@ -3026,6 +3018,14 @@
           {
             "id": "evt_mv0y17wj_4n",
             "text": "Av. Parcial EF - Geo/Ing (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-02-25": [
+          {
+            "id": "evt_mv0y1iwz_4o",
+            "text": "Reunião de Pais e Mestres EF e EM",
             "color": "green",
             "customColor": null
           }
