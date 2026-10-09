@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "activeCalendarId": "ensps-2026",
+  "activeCalendarId": "ensps-2027",
   "calendars": [
     {
       "id": "ensps-2026",
@@ -2982,14 +2982,6 @@
             "customColor": null
           }
         ],
-        "2027-02-07": [
-          {
-            "id": "evt_mv0y0wet_3o",
-            "text": "Entrega dos Alimentos - Projeto Barriga Cheia (Registrar como Letivo)",
-            "color": "yellow",
-            "customColor": null
-          }
-        ],
         "2027-02-11": [
           {
             "id": "evt_mv0y0wet_3p",
@@ -3027,6 +3019,14 @@
             "id": "evt_mv0y0wet_3t",
             "text": "Av. Parcial EM - 1º Dia (1ª Etapa)",
             "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-02-06": [
+          {
+            "id": "evt_mv0y11vr_4k",
+            "text": "Entrega dos Alimentos - Projeto Barriga Cheia (Registrar como Letivo)",
+            "color": "yellow",
             "customColor": null
           }
         ]
