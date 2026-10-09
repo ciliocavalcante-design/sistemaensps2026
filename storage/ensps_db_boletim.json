@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "activeCalendarId": "ensps-2026",
+  "activeCalendarId": "ensps-2027",
   "calendars": [
     {
       "id": "ensps-2026",
@@ -1435,7 +1435,1451 @@
       },
       "comunicados": [],
       "settings": {
-        "currentMonth": 11,
+        "currentMonth": 7,
+        "currentSelectedEventColor": "green",
+        "customSelectedEventColor": "#24d2f5",
+        "printColorIntensity": 8,
+        "printBorderOnly": false,
+        "boldEventText": false,
+        "startDateContagem": "2026-01-20",
+        "endDateContagem": "2026-11-26",
+        "currentTheme": "dark"
+      }
+    },
+    {
+      "id": "ensps-2027",
+      "name": "Calendário ENSPS 2027",
+      "period": {
+        "startYear": 2027,
+        "startMonth": 0,
+        "endYear": 2028,
+        "endMonth": 0
+      },
+      "events": {
+        "2026-01-01": [
+          {
+            "id": "evt_legacy_1",
+            "text": "Feriado: Confraternização Universal",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-02-16": [
+          {
+            "id": "evt_legacy_2",
+            "text": "Feriado: Carnaval",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-02-17": [
+          {
+            "id": "evt_legacy_3",
+            "text": "Feriado: Carnaval",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-02-18": [
+          {
+            "id": "evt_legacy_4",
+            "text": "Feriado: Quarta-feira de Cinzas",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-04-03": [
+          {
+            "id": "evt_legacy_5",
+            "text": "Feriado: Sexta-feira Santa",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-04-21": [
+          {
+            "id": "evt_legacy_6",
+            "text": "Feriado: Tiradentes",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-05-01": [
+          {
+            "id": "evt_legacy_7",
+            "text": "Feriado: Dia do Trabalho",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-06-04": [
+          {
+            "id": "evt_legacy_8",
+            "text": "Feriado: Corpus Christi",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-09-07": [
+          {
+            "id": "evt_legacy_9",
+            "text": "Feriado: Independência do Brasil",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-10-12": [
+          {
+            "id": "evt_legacy_10",
+            "text": "Feriado: Nossa Senhora Aparecida",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-11-02": [
+          {
+            "id": "evt_legacy_11",
+            "text": "Feriado: Finados",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-11-15": [
+          {
+            "id": "evt_legacy_12",
+            "text": "Feriado: Proclamação da República",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-12-25": [
+          {
+            "id": "evt_legacy_13",
+            "text": "Feriado: Natal",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2027-01-01": [
+          {
+            "id": "evt_legacy_14",
+            "text": "Feriado: Confraternização Universal",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-01-20": [
+          {
+            "id": "evt_legacy_15",
+            "text": "Início 1ª Etapa",
+            "color": "yellow",
+            "customColor": null
+          },
+          {
+            "id": "evt_legacy_16",
+            "text": "Início das Aulas",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-11-26": [
+          {
+            "id": "evt_legacy_17",
+            "text": "Final 4ª Etapa",
+            "color": "yellow",
+            "customColor": null
+          },
+          {
+            "id": "evt_legacy_18",
+            "text": "2ª Chamadas EF/EM (Registrar)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-01-02": [
+          {
+            "id": "evt_legacy_19",
+            "text": "Retorno dos Professores e Coordenação EF e Médio",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-01-05": [
+          {
+            "id": "evt_legacy_20",
+            "text": "Av. Recuperação Final",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-01-06": [
+          {
+            "id": "evt_legacy_21",
+            "text": "Av. Recuperação Final",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-01-12": [
+          {
+            "id": "evt_legacy_22",
+            "text": "Semana de Formação",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-01-13": [
+          {
+            "id": "evt_legacy_23",
+            "text": "Semana de Formação",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-01-14": [
+          {
+            "id": "evt_legacy_24",
+            "text": "Semana de Formação",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-01-15": [
+          {
+            "id": "evt_legacy_25",
+            "text": "Semana de Formação/Entrega de Planos e Roteiros do 1º Bim",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-01-16": [
+          {
+            "id": "evt_legacy_26",
+            "text": "Semana de Formação",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-01-19": [
+          {
+            "id": "evt_legacy_27",
+            "text": "Últimos ajustes",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-01-24": [
+          {
+            "id": "evt_legacy_28",
+            "text": "Boas-vindas ao aluno (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-01-28": [
+          {
+            "id": "evt_legacy_29",
+            "text": "Av. Parcial EF - Redação (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-02-04": [
+          {
+            "id": "evt_legacy_30",
+            "text": "Av. Parcial EF - Gram/Filo (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-02-07": [
+          {
+            "id": "evt_legacy_31",
+            "text": "Entrega dos Alimentos - Projeto Barriga Cheia (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-02-11": [
+          {
+            "id": "evt_legacy_32",
+            "text": "Av. Parcial EF - Mat/Hist (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-02-23": [
+          {
+            "id": "evt_legacy_33",
+            "text": "Entrega do Regulamento da Semana da Poesia para os Alunos",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-02-25": [
+          {
+            "id": "evt_legacy_34",
+            "text": "Av. Parcial EF - Geo/Ing (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-02-26": [
+          {
+            "id": "evt_legacy_35",
+            "text": "Reunião de Pais e Mestres EF e EM",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-02-27": [
+          {
+            "id": "evt_legacy_36",
+            "text": "Av. Parcial EM - 1º Dia (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-03-04": [
+          {
+            "id": "evt_legacy_37",
+            "text": "Av. Parcial EF - Cie/Parad (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-03-03": [
+          {
+            "id": "evt_legacy_38",
+            "text": "Av. Parcial EM - 2º Dia (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-03-09": [
+          {
+            "id": "evt_legacy_39",
+            "text": "Av. Bimestral EF - Redação (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-03-10": [
+          {
+            "id": "evt_legacy_40",
+            "text": "Av. Bimestral EF - Redação (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-03-11": [
+          {
+            "id": "evt_legacy_41",
+            "text": "Av. Bimestral EF - Gram/Filo (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-03-12": [
+          {
+            "id": "evt_mndih1mh_5g",
+            "text": "Reunião de Formatura Online 1º EF/9º EF/3º EM",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-03-14": [
+          {
+            "id": "evt_mndi1wy2_1j",
+            "text": "Semana da Poesia (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-03-16": [
+          {
+            "id": "evt_legacy_44",
+            "text": "Início dos Ensaios da Banda",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-03-18": [
+          {
+            "id": "evt_legacy_45",
+            "text": "Av. Bimestral EF - Mat/Hist (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-03-19": [
+          {
+            "id": "evt_legacy_46",
+            "text": "Feriado Sâo José",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-03-21": [
+          {
+            "id": "evt_legacy_47",
+            "text": "Projeto Leitura e Arte (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-03-25": [
+          {
+            "id": "evt_legacy_48",
+            "text": "Feriado: Data Magna do Ceará",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-03-27": [
+          {
+            "id": "evt_legacy_49",
+            "text": "Apresentação da Semana da Poesia",
+            "color": "purple",
+            "customColor": null
+          }
+        ],
+        "2026-04-01": [
+          {
+            "id": "evt_mnem9smq_r",
+            "text": "Av. Bimestral EF - Geo/Ing (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-04-02": [
+          {
+            "id": "evt_legacy_51",
+            "text": "Feriado: Quinta-feira Santa",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-04-05": [
+          {
+            "id": "evt_legacy_52",
+            "text": "Feriado: Páscoa",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-04-06": [
+          {
+            "id": "evt_legacy_53",
+            "text": "Av. Bimestral EM - 1º Dia (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-04-08": [
+          {
+            "id": "evt_mnqdt2ke_r",
+            "text": "Av. Bimestral EF Cie/Parad | EM - 2ºDia (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-04-09": [
+          {
+            "id": "evt_legacy_55",
+            "text": "2ª Chamadas EF/EM (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-04-10": [
+          {
+            "id": "evt_mnem9tfb_s",
+            "text": "2ª Chamadas EF/EM (1ª Etapa) | Fim da 1ª Etapa",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-04-11": [
+          {
+            "id": "evt_mnem9ums_t",
+            "text": "Reunião Pedagógica (Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-04-13": [
+          {
+            "id": "evt_legacy_58",
+            "text": "Início 2ª Etapa",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-04-18": [
+          {
+            "id": "evt_legacy_60",
+            "text": "Beleza ENSPS (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-04-22": [
+          {
+            "id": "evt_legacy_61",
+            "text": "Av. Parcial EF - Gram/Filo (2ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-04-29": [
+          {
+            "id": "evt_legacy_63",
+            "text": "Av. Parcial EF - Mat/Hist (2ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-05-06": [
+          {
+            "id": "evt_legacy_64",
+            "text": "Av. Parcial EF - Geo/Ing (2ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-05-08": [
+          {
+            "id": "evt_legacy_65",
+            "text": "Av. Parcial EM - 1º Dia (2ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-05-09": [
+          {
+            "id": "evt_legacy_66",
+            "text": "Festa das Mães (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-05-12": [
+          {
+            "id": "evt_legacy_67",
+            "text": "Av. Parcial EM - 2º Dia (2ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-05-13": [
+          {
+            "id": "evt_legacy_68",
+            "text": "Av. Parcial EF - Cie/Parad (2ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-05-18": [
+          {
+            "id": "evt_legacy_69",
+            "text": "Início dos Ensaios da Quadrilha EF 2 e EM",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-05-20": [
+          {
+            "id": "evt_legacy_70",
+            "text": "1ª Avaliação SAS Sistemática",
+            "color": "pink",
+            "customColor": null
+          }
+        ],
+        "2026-05-27": [
+          {
+            "id": "evt_legacy_71",
+            "text": "Aulas Complementares EF",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-05-29": [
+          {
+            "id": "evt_mndk8cpz_30",
+            "text": "Gincana ENSPS - Tudo Junto e Misturado 2026",
+            "color": "purple",
+            "customColor": null
+          }
+        ],
+        "2026-06-03": [
+          {
+            "id": "evt_mneidlit_1h",
+            "text": "Aulas Complementares EF",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-06-06": [
+          {
+            "id": "evt_legacy_74",
+            "text": "Encerramento do Projeto Rainha do Milho (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-06-10": [
+          {
+            "id": "evt_legacy_75",
+            "text": "Aulas Complementares EF",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-06-13": [
+          {
+            "id": "evt_mnelsev4_r",
+            "text": "1º Simulado (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-06-17": [
+          {
+            "id": "evt_legacy_77",
+            "text": "Aulas Complementares",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-06-18": [
+          {
+            "id": "evt_legacy_78",
+            "text": "Av. Bimestral EF - Redação (2ª Etapa) / Aula Normal",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-06-19": [
+          {
+            "id": "evt_legacy_79",
+            "text": "Av. Bimestral EF - Gram/Filo (2ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-06-22": [
+          {
+            "id": "evt_legacy_80",
+            "text": "Av. Bimestral EF - Mat/Hist (2ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-06-20": [
+          {
+            "id": "evt_legacy_81",
+            "text": "Quadrilha Junina (Registar como Letivo)",
+            "color": "purple",
+            "customColor": null
+          }
+        ],
+        "2026-06-23": [
+          {
+            "id": "evt_legacy_82",
+            "text": "Av. Bimestral EF Geo/Ing | EM - 1ºDia (2ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-06-24": [
+          {
+            "id": "evt_legacy_83",
+            "text": "Av. Bimestral EF Cie/Parad | EM - 2ºDia (2ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-06-25": [
+          {
+            "id": "evt_legacy_84",
+            "text": "2ª Chamadas EF/EM (2ª Etapa/Registrar)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-06-26": [
+          {
+            "id": "evt_legacy_85",
+            "text": "2ª Chamadas EF/EM (2ª Etapa/Registrar)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-06-29": [
+          {
+            "id": "evt_legacy_86",
+            "text": "Fim da 2ª Etapa (Registrar)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-06-30": [
+          {
+            "id": "evt_legacy_87",
+            "text": "Dia Não Letivo",
+            "color": "non-school-day",
+            "customColor": null
+          },
+          {
+            "id": "evt_legacy_88",
+            "text": "Entrega de Provas e Boletins da 2ª Etapa",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-07-01": [
+          {
+            "id": "evt_legacy_89",
+            "text": "Dia Não Letivo",
+            "color": "non-school-day",
+            "customColor": null
+          },
+          {
+            "id": "evt_legacy_90",
+            "text": "Início das Férias Coletivas",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-08-03": [
+          {
+            "id": "evt_mr0uzjiv_17",
+            "text": "Início da 3ª Etapa / Início das Aulas do 2º Semestre",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-08-08": [
+          {
+            "id": "evt_legacy_95",
+            "text": "Comemoração do Dia do Estudante (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-08-15": [
+          {
+            "id": "evt_legacy_96",
+            "text": "Feriado: Nossa Senhora da Assunção",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-08-21": [
+          {
+            "id": "evt_mr0v6e5s_1g",
+            "text": "Av. Parcial EM - 1º Dia (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-08-22": [
+          {
+            "id": "evt_legacy_99",
+            "text": "Festa dos Pais (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-09-01": [
+          {
+            "id": "evt_legacy_101",
+            "text": "Av. Bimestral EF - Redação (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-09-02": [
+          {
+            "id": "evt_legacy_102",
+            "text": "Av. Bimestral EF - Gram/Filo (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-09-09": [
+          {
+            "id": "evt_legacy_103",
+            "text": "Av. Bimestral EF - Mat/Hist (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-09-12": [
+          {
+            "id": "evt_legacy_104",
+            "text": "XXXI Olimpíada de Português (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-09-13": [
+          {
+            "id": "evt_legacy_105",
+            "text": "Desfile Cívico (Letivo)",
+            "color": "purple",
+            "customColor": null
+          }
+        ],
+        "2026-09-14": [
+          {
+            "id": "evt_legacy_106",
+            "text": "Recesso Escolar",
+            "color": "yellow",
+            "customColor": null
+          },
+          {
+            "id": "evt_legacy_107",
+            "text": "Dia Não Letivo",
+            "color": "non-school-day",
+            "customColor": null
+          }
+        ],
+        "2026-09-16": [
+          {
+            "id": "evt_legacy_108",
+            "text": "Av. Bimestral EF - Geo/Ing (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-09-19": [
+          {
+            "id": "evt_legacy_109",
+            "text": "XXXI Olimpíada de Matemática (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-09-22": [
+          {
+            "id": "evt_legacy_110",
+            "text": "Aula Normal (Manhã) / Organização dos Estandes (Tarde)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-09-24": [
+          {
+            "id": "evt_legacy_112",
+            "text": "Feira Científico-Cultural ENSPS",
+            "color": "purple",
+            "customColor": null
+          }
+        ],
+        "2026-09-25": [
+          {
+            "id": "evt_legacy_113",
+            "text": "Aula Normal / Feira Científico-Cultural ENSPS (Noite)",
+            "color": "purple",
+            "customColor": null
+          }
+        ],
+        "2026-09-26": [
+          {
+            "id": "evt_legacy_114",
+            "text": "Feira (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-10-02": [
+          {
+            "id": "evt_legacy_116",
+            "text": "Av. Bimestral EM - 2º Dia (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-10-05": [
+          {
+            "id": "evt_legacy_117",
+            "text": "2ª Chamadas EF/EM (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-10-06": [
+          {
+            "id": "evt_legacy_118",
+            "text": "2ª Chamadas EF/EM | Final da 3ª Etapa",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-10-07": [
+          {
+            "id": "evt_legacy_119",
+            "text": "Início da 4ª Etapa / Aulas Complementares EF",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-10-09": [
+          {
+            "id": "evt_legacy_120",
+            "text": "Simulado SAS UECE (Pré-Uni)",
+            "color": "pink",
+            "customColor": null
+          }
+        ],
+        "2026-10-14": [
+          {
+            "id": "evt_legacy_121",
+            "text": "Aulas Complementares EF",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-10-13": [
+          {
+            "id": "evt_legacy_122",
+            "text": "Feriado: Dia do Professor",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-10-21": [
+          {
+            "id": "evt_legacy_123",
+            "text": "2ª Avaliação SAS Sistemática / SAS ENEM (3º EM - 1º Dia)",
+            "color": "pink",
+            "customColor": null
+          }
+        ],
+        "2026-10-23": [
+          {
+            "id": "evt_legacy_124",
+            "text": "SAS ENEM (3º EM - 2º Dia)",
+            "color": "pink",
+            "customColor": null
+          }
+        ],
+        "2026-10-28": [
+          {
+            "id": "evt_legacy_125",
+            "text": "Aulas Complementares EF",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-10-30": [
+          {
+            "id": "evt_legacy_126",
+            "text": "Premiação Anual",
+            "color": "purple",
+            "customColor": null
+          }
+        ],
+        "2026-10-31": [
+          {
+            "id": "evt_legacy_127",
+            "text": "2º Simulado (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-11-04": [
+          {
+            "id": "evt_legacy_128",
+            "text": "Aulas Complementares EF",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-11-07": [
+          {
+            "id": "evt_legacy_129",
+            "text": "Noite de Autógrafos (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-11-11": [
+          {
+            "id": "evt_legacy_130",
+            "text": "Aulas Complementares EF",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-11-14": [
+          {
+            "id": "evt_legacy_131",
+            "text": "Encerramento da Educação Infantil (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-11-18": [
+          {
+            "id": "evt_legacy_132",
+            "text": "Av. Bimestral EF - Redação/Gram/Filo (4ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-11-19": [
+          {
+            "id": "evt_legacy_133",
+            "text": "Av. Bimestral EF - Mat/Hist (4ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-11-20": [
+          {
+            "id": "evt_legacy_134",
+            "text": "Feriado: Consciência Negra",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-11-23": [
+          {
+            "id": "evt_legacy_135",
+            "text": "Av. Bimestral EF - Geo/Ing | EM - 1º Dia (4ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-11-24": [
+          {
+            "id": "evt_legacy_136",
+            "text": "Av. Bimestral EF - Cie/Parad | EM - 2º Dia (4ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-11-25": [
+          {
+            "id": "evt_legacy_137",
+            "text": "2ª Chamadas EF/EM (Registrar)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-11-30": [
+          {
+            "id": "evt_legacy_138",
+            "text": "Entrega de Provas e Boletins da 4ª Etapa",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-12-01": [
+          {
+            "id": "evt_legacy_139",
+            "text": "Aulas de Recuperação Anual",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-12-02": [
+          {
+            "id": "evt_legacy_140",
+            "text": "Aulas de Recuperação Anual",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-12-03": [
+          {
+            "id": "evt_legacy_141",
+            "text": "Aulas de Recuperação Anual",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-12-04": [
+          {
+            "id": "evt_legacy_142",
+            "text": "Aulas de Recuperação Anual",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-12-07": [
+          {
+            "id": "evt_legacy_143",
+            "text": "Aulas de Recuperação Anual",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-12-08": [
+          {
+            "id": "evt_legacy_144",
+            "text": "Aulas de Recuperação Anual",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-12-09": [
+          {
+            "id": "evt_legacy_145",
+            "text": "Aulas de Recuperação Anual",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-12-10": [
+          {
+            "id": "evt_legacy_146",
+            "text": "Aulas de Recuperação Anual",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-12-11": [
+          {
+            "id": "evt_legacy_147",
+            "text": "Aulas de Recuperação Anual",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-12-14": [
+          {
+            "id": "evt_legacy_148",
+            "text": "Aulas de Recuperação Anual",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-12-15": [
+          {
+            "id": "evt_legacy_149",
+            "text": "Av. de Recuperação Anual",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-12-16": [
+          {
+            "id": "evt_legacy_150",
+            "text": "Av. de Recuperação Anual",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-12-17": [
+          {
+            "id": "evt_legacy_151",
+            "text": "Av. de Recuperação Anual",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-12-18": [
+          {
+            "id": "evt_legacy_152",
+            "text": "Entrega dos Resultados da Recuperação Anual",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-12-21": [
+          {
+            "id": "evt_legacy_153",
+            "text": "Início do Recesso para Professores",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2027-01-04": [
+          {
+            "id": "evt_legacy_154",
+            "text": "Retorno dos Professores e Coordenação EF e Médio",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2027-01-05": [
+          {
+            "id": "evt_legacy_155",
+            "text": "Av. de Recuperação Final",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-01-06": [
+          {
+            "id": "evt_legacy_156",
+            "text": "Av. de Recuperação Final",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-01-11": [
+          {
+            "id": "evt_legacy_157",
+            "text": "Semana de Formação",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-01-12": [
+          {
+            "id": "evt_legacy_158",
+            "text": "Semana de Formação",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-01-13": [
+          {
+            "id": "evt_legacy_159",
+            "text": "Semana de Formação",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-01-14": [
+          {
+            "id": "evt_legacy_160",
+            "text": "Semana de Formação/Entrega de Planos e Roteiros do 1º Bimestre",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-01-15": [
+          {
+            "id": "evt_legacy_161",
+            "text": "Semana de Formação",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-01-18": [
+          {
+            "id": "evt_legacy_162",
+            "text": "Últimos Ajustes",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2027-01-19": [
+          {
+            "id": "evt_legacy_163",
+            "text": "Início das Aulas",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2026-08-14": [
+          {
+            "id": "evt_legacy_164",
+            "text": "Feriado: Dia do Estudante",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-10-03": [
+          {
+            "id": "evt_legacy_165",
+            "text": "Reunião Pedagógica (Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2027-04-21": [
+          {
+            "id": "evt_mndgx4s8_6x",
+            "text": "Feriado: Tiradentes",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2027-05-01": [
+          {
+            "id": "evt_mndgx4s8_6y",
+            "text": "Feriado: Dia do Trabalho",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2027-09-07": [
+          {
+            "id": "evt_mndgx4s8_6z",
+            "text": "Feriado: Independência do Brasil",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2027-10-12": [
+          {
+            "id": "evt_mndgx4s8_70",
+            "text": "Feriado: Nossa Senhora Aparecida",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2027-11-02": [
+          {
+            "id": "evt_mndgx4s8_71",
+            "text": "Feriado: Finados",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2027-11-15": [
+          {
+            "id": "evt_mndgx4s8_72",
+            "text": "Feriado: Proclamação da República",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2027-12-25": [
+          {
+            "id": "evt_mndgx4s8_73",
+            "text": "Feriado: Natal",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2027-02-08": [
+          {
+            "id": "evt_mndgx4s8_74",
+            "text": "Feriado: Carnaval",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2027-02-09": [
+          {
+            "id": "evt_mndgx4s8_75",
+            "text": "Feriado: Carnaval",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2027-02-10": [
+          {
+            "id": "evt_mndgx4s8_76",
+            "text": "Feriado: Quarta-feira de Cinzas",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2027-03-26": [
+          {
+            "id": "evt_mndgx4s8_77",
+            "text": "Feriado: Sexta-feira Santa",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2027-05-27": [
+          {
+            "id": "evt_mndgx4s8_78",
+            "text": "Feriado: Corpus Christi",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2026-04-15": [
+          {
+            "id": "evt_mndk7xqy_2y",
+            "text": "Av. Parcial EF - Redação (2ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-04-28": [
+          {
+            "id": "evt_mo70wdzy_r",
+            "text": "Entrega dos Boletins da 1ª Etapa",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-05-21": [
+          {
+            "id": "evt_mod0skl4_16",
+            "text": "Formação SAS - Professores",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-08-05": [
+          {
+            "id": "evt_mr0ola3w_15",
+            "text": "Av. Parcial EF - Redação (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-08-28": [
+          {
+            "id": "evt_mr0v607h_1f",
+            "text": "Av. Parcial EF Cie/Parad",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-08-26": [
+          {
+            "id": "evt_mr0v5u79_1e",
+            "text": "Av. Parcial EF - Geo/Ing (3ª Etapa) | EM - 2ºDia (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-08-19": [
+          {
+            "id": "evt_mr0v571o_1b",
+            "text": "Av. Parcial EF - Mat/Hist (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-08-12": [
+          {
+            "id": "evt_mr0v58s4_1c",
+            "text": "Av. Parcial EF - Gram/Filo (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-09-29": [
+          {
+            "id": "evt_mux07p5d_r",
+            "text": "Feira Científico-Cultural ENSPS",
+            "color": "purple",
+            "customColor": null
+          }
+        ],
+        "2026-09-23": [
+          {
+            "id": "evt_mux07qa6_s",
+            "text": "Av. Bimestral EF - Cie/Parad | EM - 1º Dia (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ]
+      },
+      "monthNotes": {
+        "2026-03": "As avaliações de redação acontecerão nos respectivos horários das aulas.\nMês ideal para realização de aulas de campo.",
+        "2026-04": "Mês ideal para realização de aulas de campo.",
+        "2026-08": "Mês ideal para realização de aulas de campo.",
+        "2026-10": "Mês ideal para realização de aulas de campo.\nO Simulado SAS ENEM do 3º EM valerá como Avaliação Parcial da 4ª Etapa."
+      },
+      "comunicados": [],
+      "settings": {
+        "currentMonth": 7,
         "currentSelectedEventColor": "green",
         "customSelectedEventColor": "#24d2f5",
         "printColorIntensity": 8,
