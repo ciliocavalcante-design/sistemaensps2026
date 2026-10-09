@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "activeCalendarId": "ensps-2027",
+  "activeCalendarId": "ensps-2026",
   "calendars": [
     {
       "id": "ensps-2026",
@@ -3129,7 +3129,7 @@
       },
       "comunicados": [],
       "settings": {
-        "currentMonth": 3,
+        "currentMonth": 2,
         "currentSelectedEventColor": "green",
         "customSelectedEventColor": "#24d2f5",
         "printColorIntensity": 8,
