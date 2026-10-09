@@ -2869,6 +2869,110 @@
             "color": "green",
             "customColor": null
           }
+        ],
+        "2028-01-01": [
+          {
+            "id": "evt_mv0xyryp_14",
+            "text": "Feriado: Confraternização Universal",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2028-04-21": [
+          {
+            "id": "evt_mv0xyryp_15",
+            "text": "Feriado: Tiradentes",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2028-05-01": [
+          {
+            "id": "evt_mv0xyryp_16",
+            "text": "Feriado: Dia do Trabalho",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2028-09-07": [
+          {
+            "id": "evt_mv0xyryp_17",
+            "text": "Feriado: Independência do Brasil",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2028-10-12": [
+          {
+            "id": "evt_mv0xyryp_18",
+            "text": "Feriado: Nossa Senhora Aparecida",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2028-11-02": [
+          {
+            "id": "evt_mv0xyryp_19",
+            "text": "Feriado: Finados",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2028-11-15": [
+          {
+            "id": "evt_mv0xyryp_1a",
+            "text": "Feriado: Proclamação da República",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2028-12-25": [
+          {
+            "id": "evt_mv0xyryp_1b",
+            "text": "Feriado: Natal",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2028-02-28": [
+          {
+            "id": "evt_mv0xyryp_1c",
+            "text": "Feriado: Carnaval",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2028-02-29": [
+          {
+            "id": "evt_mv0xyryp_1d",
+            "text": "Feriado: Carnaval",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2028-03-01": [
+          {
+            "id": "evt_mv0xyryp_1e",
+            "text": "Feriado: Quarta-feira de Cinzas",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2028-04-14": [
+          {
+            "id": "evt_mv0xyryp_1f",
+            "text": "Feriado: Sexta-feira Santa",
+            "color": "holiday",
+            "customColor": null
+          }
+        ],
+        "2028-06-15": [
+          {
+            "id": "evt_mv0xyryp_1g",
+            "text": "Feriado: Corpus Christi",
+            "color": "holiday",
+            "customColor": null
+          }
         ]
       },
       "monthNotes": {
@@ -2879,7 +2983,7 @@
       },
       "comunicados": [],
       "settings": {
-        "currentMonth": 7,
+        "currentMonth": 6,
         "currentSelectedEventColor": "green",
         "customSelectedEventColor": "#24d2f5",
         "printColorIntensity": 8,
