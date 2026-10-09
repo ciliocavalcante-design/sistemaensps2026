@@ -1428,8 +1428,8 @@
         ],
         "2026-03-13": [
           {
-            "id": "evt_mv0y7dnq_7m",
-            "text": "I SAS ENEM",
+            "id": "evt_mv0y7tn0_7o",
+            "text": "I SAS ENEM - 1ª DIA",
             "color": "pink",
             "customColor": null
           }
@@ -1438,7 +1438,7 @@
           {
             "id": "evt_mv0y7m7p_7n",
             "text": "I SAS ENEM - 2ª DIA",
-            "color": "green",
+            "color": "pink",
             "customColor": null
           }
         ]
