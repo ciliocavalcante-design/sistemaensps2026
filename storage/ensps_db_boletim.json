@@ -3046,14 +3046,6 @@
             "customColor": null
           }
         ],
-        "2027-03-27": [
-          {
-            "id": "evt_mv0y2hhz_5t",
-            "text": "Apresentação da Semana da Poesia",
-            "color": "purple",
-            "customColor": null
-          }
-        ],
         "2027-03-02": [
           {
             "id": "evt_mv0y2ltm_6k",
@@ -3115,6 +3107,14 @@
             "id": "evt_mv0y2y7h_6r",
             "text": "Reunião de Formatura Online 1º EF/9º EF/3º EM",
             "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2027-03-25": [
+          {
+            "id": "evt_mv0y343j_6s",
+            "text": "Apresentação da Semana da Poesia",
+            "color": "purple",
             "customColor": null
           }
         ]
