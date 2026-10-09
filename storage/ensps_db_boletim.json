@@ -1451,8 +1451,8 @@
       },
       "comunicados": [],
       "settings": {
-        "currentMonth": 2,
-        "currentSelectedEventColor": "pink",
+        "currentMonth": 3,
+        "currentSelectedEventColor": "green",
         "customSelectedEventColor": "#24d2f5",
         "printColorIntensity": 8,
         "printBorderOnly": false,
