@@ -1433,6 +1433,14 @@
             "color": "pink",
             "customColor": null
           }
+        ],
+        "2026-03-23": [
+          {
+            "id": "evt_mv0y7m7p_7n",
+            "text": "I SAS ENEM - 2ª DIA",
+            "color": "green",
+            "customColor": null
+          }
         ]
       },
       "monthNotes": {
