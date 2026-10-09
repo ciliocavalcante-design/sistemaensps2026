@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "activeCalendarId": "ensps-2026",
+  "activeCalendarId": "ensps-2027",
   "calendars": [
     {
       "id": "ensps-2026",
@@ -3029,6 +3029,94 @@
             "color": "green",
             "customColor": null
           }
+        ],
+        "2027-03-04": [
+          {
+            "id": "evt_mv0y2hhz_5j",
+            "text": "Av. Parcial EF - Cie/Parad (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-03-09": [
+          {
+            "id": "evt_mv0y2hhz_5l",
+            "text": "Av. Bimestral EF - Redação (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-03-10": [
+          {
+            "id": "evt_mv0y2hhz_5m",
+            "text": "Av. Bimestral EF - Redação (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-03-11": [
+          {
+            "id": "evt_mv0y2hhz_5n",
+            "text": "Av. Bimestral EF - Gram/Filo (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-03-12": [
+          {
+            "id": "evt_mv0y2hhz_5o",
+            "text": "Reunião de Formatura Online 1º EF/9º EF/3º EM",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2027-03-14": [
+          {
+            "id": "evt_mv0y2hhz_5p",
+            "text": "Semana da Poesia (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2027-03-16": [
+          {
+            "id": "evt_mv0y2hhz_5q",
+            "text": "Início dos Ensaios da Banda",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2027-03-18": [
+          {
+            "id": "evt_mv0y2hhz_5r",
+            "text": "Av. Bimestral EF - Mat/Hist (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-03-21": [
+          {
+            "id": "evt_mv0y2hhz_5s",
+            "text": "Projeto Leitura e Arte (Registrar como Letivo)",
+            "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2027-03-27": [
+          {
+            "id": "evt_mv0y2hhz_5t",
+            "text": "Apresentação da Semana da Poesia",
+            "color": "purple",
+            "customColor": null
+          }
+        ],
+        "2027-03-02": [
+          {
+            "id": "evt_mv0y2ltm_6k",
+            "text": "Av. Parcial EM - 2º Dia (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
         ]
       },
       "monthNotes": {
@@ -3036,11 +3124,12 @@
         "2026-04": "Mês ideal para realização de aulas de campo.",
         "2026-08": "Mês ideal para realização de aulas de campo.",
         "2026-10": "Mês ideal para realização de aulas de campo.\nO Simulado SAS ENEM do 3º EM valerá como Avaliação Parcial da 4ª Etapa.",
-        "2027-02": ""
+        "2027-02": "",
+        "2027-03": "As avaliações de redação acontecerão nos respectivos horários das aulas.\nMês ideal para realização de aulas de campo."
       },
       "comunicados": [],
       "settings": {
-        "currentMonth": 1,
+        "currentMonth": 2,
         "currentSelectedEventColor": "green",
         "customSelectedEventColor": "#24d2f5",
         "printColorIntensity": 8,
