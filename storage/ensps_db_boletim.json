@@ -3046,14 +3046,6 @@
             "customColor": null
           }
         ],
-        "2027-03-16": [
-          {
-            "id": "evt_mv0y2hhz_5q",
-            "text": "Início dos Ensaios da Banda",
-            "color": "yellow",
-            "customColor": null
-          }
-        ],
         "2027-03-18": [
           {
             "id": "evt_mv0y2hhz_5r",
@@ -3115,6 +3107,14 @@
             "id": "evt_mv0y2tpa_6o",
             "text": "Av. Bimestral EF - Gram/Filo (1ª Etapa)",
             "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-03-15": [
+          {
+            "id": "evt_mv0y2v3l_6p",
+            "text": "Início dos Ensaios da Banda",
+            "color": "yellow",
             "customColor": null
           }
         ]
