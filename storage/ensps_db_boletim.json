@@ -2982,14 +2982,6 @@
             "customColor": null
           }
         ],
-        "2027-02-27": [
-          {
-            "id": "evt_mv0y0wet_3t",
-            "text": "Av. Parcial EM - 1º Dia (1ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2027-02-06": [
           {
             "id": "evt_mv0y11vr_4k",
@@ -3026,6 +3018,14 @@
           {
             "id": "evt_mv0y1iwz_4o",
             "text": "Reunião de Pais e Mestres EF e EM",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-02-22": [
+          {
+            "id": "evt_mv0y1q9a_4q",
+            "text": "Av. Parcial EM - 1º Dia (1ª Etapa)",
             "color": "green",
             "customColor": null
           }
