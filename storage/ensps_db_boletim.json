@@ -3046,14 +3046,6 @@
             "customColor": null
           }
         ],
-        "2027-03-02": [
-          {
-            "id": "evt_mv0y2ltm_6k",
-            "text": "Av. Parcial EM - 2º Dia (1ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2027-03-03": [
           {
             "id": "evt_mv0y2mv4_6l",
@@ -3115,6 +3107,14 @@
             "id": "evt_mv0y343j_6s",
             "text": "Apresentação da Semana da Poesia",
             "color": "purple",
+            "customColor": null
+          }
+        ],
+        "2027-03-01": [
+          {
+            "id": "evt_mv0y3idc_6t",
+            "text": "Av. Parcial EM - 2º Dia (1ª Etapa)",
+            "color": "green",
             "customColor": null
           }
         ]
