@@ -3030,14 +3030,6 @@
             "customColor": null
           }
         ],
-        "2027-03-12": [
-          {
-            "id": "evt_mv0y2hhz_5o",
-            "text": "Reunião de Formatura Online 1º EF/9º EF/3º EM",
-            "color": "yellow",
-            "customColor": null
-          }
-        ],
         "2027-03-14": [
           {
             "id": "evt_mv0y2hhz_5p",
@@ -3115,6 +3107,14 @@
             "id": "evt_mv0y2wim_6q",
             "text": "Av. Bimestral EF - Mat/Hist (1ª Etapa)",
             "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-03-11": [
+          {
+            "id": "evt_mv0y2y7h_6r",
+            "text": "Reunião de Formatura Online 1º EF/9º EF/3º EM",
+            "color": "yellow",
             "customColor": null
           }
         ]
