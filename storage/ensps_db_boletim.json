@@ -3046,14 +3046,6 @@
             "customColor": null
           }
         ],
-        "2027-03-18": [
-          {
-            "id": "evt_mv0y2hhz_5r",
-            "text": "Av. Bimestral EF - Mat/Hist (1ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2027-03-21": [
           {
             "id": "evt_mv0y2hhz_5s",
@@ -3115,6 +3107,14 @@
             "id": "evt_mv0y2v3l_6p",
             "text": "Início dos Ensaios da Banda",
             "color": "yellow",
+            "customColor": null
+          }
+        ],
+        "2027-03-17": [
+          {
+            "id": "evt_mv0y2wim_6q",
+            "text": "Av. Bimestral EF - Mat/Hist (1ª Etapa)",
+            "color": "green",
             "customColor": null
           }
         ]
