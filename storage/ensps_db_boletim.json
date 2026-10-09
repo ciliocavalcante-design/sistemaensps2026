@@ -1428,7 +1428,7 @@
         ],
         "2026-03-13": [
           {
-            "id": "evt_mv0y7vgg_7p",
+            "id": "evt_mv0y8ga9_7q",
             "text": "I SAS ENEM - 1ª DIA",
             "color": "pink",
             "customColor": null
@@ -1452,7 +1452,7 @@
       "comunicados": [],
       "settings": {
         "currentMonth": 2,
-        "currentSelectedEventColor": "green",
+        "currentSelectedEventColor": "pink",
         "customSelectedEventColor": "#24d2f5",
         "printColorIntensity": 8,
         "printBorderOnly": false,
