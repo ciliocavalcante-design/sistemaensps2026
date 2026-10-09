@@ -3030,14 +3030,6 @@
             "customColor": null
           }
         ],
-        "2027-03-10": [
-          {
-            "id": "evt_mv0y2hhz_5m",
-            "text": "Av. Bimestral EF - Redação (1ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2027-03-11": [
           {
             "id": "evt_mv0y2hhz_5n",
@@ -3113,6 +3105,14 @@
         "2027-03-08": [
           {
             "id": "evt_mv0y2ppx_6m",
+            "text": "Av. Bimestral EF - Redação (1ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2027-03-09": [
+          {
+            "id": "evt_mv0y2seo_6n",
             "text": "Av. Bimestral EF - Redação (1ª Etapa)",
             "color": "green",
             "customColor": null
