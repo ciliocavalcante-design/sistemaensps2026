@@ -304,14 +304,6 @@
             "customColor": null
           }
         ],
-        "2026-03-03": [
-          {
-            "id": "evt_legacy_38",
-            "text": "Av. Parcial EM - 2º Dia (1ª Etapa)",
-            "color": "green",
-            "customColor": null
-          }
-        ],
         "2026-03-09": [
           {
             "id": "evt_legacy_39",
@@ -1422,6 +1414,14 @@
           {
             "id": "evt_mux07qa6_s",
             "text": "Av. Bimestral EF - Cie/Parad | EM - 1º Dia (3ª Etapa)",
+            "color": "green",
+            "customColor": null
+          }
+        ],
+        "2026-03-02": [
+          {
+            "id": "evt_mv0y5dm2_7k",
+            "text": "Av. Parcial EM - 2º Dia (1ª Etapa)",
             "color": "green",
             "customColor": null
           }
