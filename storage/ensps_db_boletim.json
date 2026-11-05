@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "activeCalendarId": "ensps-2026",
+  "activeCalendarId": "ensps-2027",
   "calendars": [
     {
       "id": "ensps-2026",
@@ -3159,6 +3159,6 @@
   ],
   "ui": {
     "footerLogo": null,
-    "currentTheme": "light"
+    "currentTheme": "dark"
   }
 }
