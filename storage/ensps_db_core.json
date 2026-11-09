@@ -11116,8 +11116,8 @@
       "descricao": "O(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
       "responsavel": "",
       "usaLinhasAssinatura": true,
-      "pendenciaAssinatura": true,
-      "assinaturaRecebidaEm": ""
+      "pendenciaAssinatura": false,
+      "assinaturaRecebidaEm": "2026-11-09T13:36:31.003Z"
     },
     {
       "id": 1790259148795,
@@ -11230,7 +11230,6 @@
       "assinaturaRecebidaEm": "2026-09-28T17:23:34.262Z"
     }
   ],
-  "solicitacoesHistorico": [],
   "comunicadosProfessores": [
     {
       "id": 1774547710180,
@@ -12458,15 +12457,5 @@
         ]
       }
     }
-  },
-  "professoresControle": {
-    "eventos": [
-      {
-        "id": "desfile-civico-2026-09-20",
-        "nome": "Desfile Cívico",
-        "data": "2026-09-20",
-        "confirmacoes": {}
-      }
-    ]
   }
 }
