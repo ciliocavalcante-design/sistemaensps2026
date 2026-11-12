@@ -11228,6 +11228,26 @@
       "usaLinhasAssinatura": true,
       "pendenciaAssinatura": false,
       "assinaturaRecebidaEm": "2026-09-28T17:23:34.262Z"
+    },
+    {
+      "id": 1794490290829,
+      "aluno": "LORENA DOMINGOS DE OLIVEIRA",
+      "matricula": "2020050",
+      "serie": "8º EF",
+      "turma": "I",
+      "turno": "Manhã",
+      "data": "2026-11-12",
+      "hora": "",
+      "natureza": "Comportamental",
+      "motivos": [
+        "Falta de respeito",
+        "Conversa demasiada em sala de aula"
+      ],
+      "descricao": "O(A) estudante manifestou comportamento inadequado de falta de respeito com colegas e/ou equipe escolar, contrariando os princípios de convivência harmônica e respeito mútuo incentivados pela escola.\nO(A) estudante manteve conversas em volume elevado, interrompendo atividades e atrapalhando o andamento da aula, mesmo após ser alertado(a).",
+      "responsavel": "",
+      "usaLinhasAssinatura": true,
+      "pendenciaAssinatura": true,
+      "assinaturaRecebidaEm": ""
     }
   ],
   "comunicadosProfessores": [
