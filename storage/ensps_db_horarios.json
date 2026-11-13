@@ -2352,22 +2352,22 @@
       }
     }
   },
-  "currentGridLineColor": "#22334d",
+  "currentGridLineColor": "#000000",
   "currentGridFrameEnabled": true,
-  "currentIntervalColor": "#23334d",
-  "currentIntervalFontColor": "#ffffff",
+  "currentIntervalColor": "#ffc107",
+  "currentIntervalFontColor": "#000000",
   "currentIntervalText": "",
-  "currentHeaderBarColor": "#22334d",
+  "currentHeaderBarColor": "#667eea",
   "currentHeaderBarFontColor": "#ffffff",
-  "currentTheme": "dark",
+  "currentTheme": "light",
   "visualSettings": {
-    "classHeight": 33,
-    "horizontalMargin": 40,
-    "classFontSize": 12,
+    "classHeight": 60,
+    "horizontalMargin": 12,
+    "classFontSize": 13,
     "teacherFontSize": 11,
-    "seriesGap": 4,
+    "seriesGap": 24,
     "timeFontSize": 14,
-    "headerFontSize": 12,
+    "headerFontSize": 14,
     "intervalFontSize": 14
   }
 }
