@@ -2367,7 +2367,7 @@
     "teacherFontSize": 11,
     "seriesGap": 24,
     "timeFontSize": 14,
-    "headerFontSize": 14,
+    "headerFontSize": 10,
     "intervalFontSize": 14
   }
 }
